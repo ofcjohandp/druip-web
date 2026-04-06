@@ -2,7 +2,7 @@
 
 **Milestone:** v1.0 — Tutor Marketplace
 **Target:** Tutors can create classrooms; students can discover, subscribe (UI), and message tutors
-**Phases:** 6 (1 complete, 2 deprioritized, 3-6 active)
+**Phases:** 7 (1 complete, 2 deprioritized, 3-7 active)
 
 ---
 
@@ -14,6 +14,7 @@
 - [ ] **Phase 4: Classroom Builder** — Sections management, material cards (text, PDF, image, link)
 - [ ] **Phase 5: Student Discovery and Subscriptions** — Browse classrooms, detail page, locked preview, subscribe CTA, subscribed classroom list
 - [ ] **Phase 6: Direct Messaging** — 1-on-1 DM between subscribed student and tutor
+- [ ] **Phase 7: Student Onboarding** — Post-signup profile setup: details, university, degree, subject tags, help type, upcoming test
 
 ---
 
@@ -151,9 +152,33 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 06-01-PLAN.md — Schema migration (messages table + RLS), TypeScript types, Wave 0 test stubs, schema push
+- [x] 06-01-PLAN.md — Schema migration (messages table + RLS), TypeScript types, Wave 0 test stubs, schema push
 - [ ] 06-02-PLAN.md — TanStack Query hooks (useMessages, useSendMessage, useClassroomSubscribers, useTutorUserId) + UI components (MessageBubble, ChatInput, SubscriberRow)
 - [ ] 06-03-PLAN.md — dm-chat screen, route registration, classroom-detail "Message tutor" button, manage-classroom Messages section
+
+**UI hint**: yes
+
+---
+
+### Phase 7: Student Onboarding
+
+**Goal:** After sign-up, a student completes a 6-step profile flow — collecting their name/photo, university/campus, degree/year, subject tags, help type, and an optional upcoming test date — before landing on a personalized tutor marketplace filtered by their subject tags.
+
+**Depends on:** Phase 5
+
+**Requirements:** ONBD-01, ONBD-02, ONBD-03, ONBD-04, ONBD-05, ONBD-06, ONBD-07, ONBD-08
+
+**Success Criteria** (what must be TRUE):
+  1. A newly signed-up student sees the onboarding flow (not the marketplace) until all required steps are complete
+  2. Student can enter first name, surname, and optionally upload a profile photo
+  3. Student can select university and campus from a pre-populated list
+  4. Student can select degree/programme and year of study
+  5. Student can pick subject tags (multi-select) drawn from the live subject_tags table — the same tags tutors use when creating classrooms
+  6. Student can select what kind of help they need (multi-select) and optionally add a test date
+  7. After completing onboarding, the marketplace shows only tutors whose classroom tags match the student's subject tags
+  8. Returning students who completed onboarding bypass the flow and land directly on the marketplace
+
+**Plans**: TBD
 
 **UI hint**: yes
 
@@ -169,12 +194,13 @@ Plans:
 | 4. Classroom Builder | 4/4 | Complete | 2026-04-06 |
 | 5. Student Discovery and Subscriptions | 3/5 | In Progress|  |
 | 6. Direct Messaging | 0/3 | Planned | - |
+| 7. Student Onboarding | 0/? | Not started | - |
 
 ---
 
 ## Traceability
 
-All 22 v1.0 requirements are mapped to phases 3-6.
+All 30 v1.0 requirements are mapped to phases 3-7.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
@@ -200,5 +226,13 @@ All 22 v1.0 requirements are mapped to phases 3-6.
 | MSG-01 | Phase 6 | Pending |
 | MSG-02 | Phase 6 | Pending |
 | MSG-03 | Phase 6 | Pending |
+| ONBD-01 | Phase 7 | Pending |
+| ONBD-02 | Phase 7 | Pending |
+| ONBD-03 | Phase 7 | Pending |
+| ONBD-04 | Phase 7 | Pending |
+| ONBD-05 | Phase 7 | Pending |
+| ONBD-06 | Phase 7 | Pending |
+| ONBD-07 | Phase 7 | Pending |
+| ONBD-08 | Phase 7 | Pending |
 
-**Coverage:** 22/22 v1.0 requirements mapped. No orphans.
+**Coverage:** 30/30 v1.0 requirements mapped. No orphans.

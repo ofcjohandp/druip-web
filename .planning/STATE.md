@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 6 context gathered (discuss mode)
-last_updated: "2026-04-06T21:47:35.867Z"
+stopped_at: Completed 06-01-PLAN.md
+last_updated: "2026-04-06T22:18:51.534Z"
 last_activity: 2026-04-06
 progress:
-  total_phases: 6
+  total_phases: 7
   completed_phases: 4
-  total_plans: 21
-  completed_plans: 20
-  percent: 95
+  total_plans: 28
+  completed_plans: 21
+  percent: 75
 ---
 
 # Project State
@@ -21,12 +21,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-06)
 
 **Core value:** A student opens Druip, finds their tutor's classroom, and has everything they need to pass their test in one place.
-**Current focus:** Phase 05 — student-discovery-and-subscriptions
+**Current focus:** Phase 06 — direct-messaging
 
 ## Current Position
 
-Phase: 05 (student-discovery-and-subscriptions) — EXECUTING
-Plan: 5 of 5
+Phase: 06 (direct-messaging) — EXECUTING
+Plan: 2 of 3
 Status: Ready to execute
 Last activity: 2026-04-06
 
@@ -55,6 +55,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 05-student-discovery-and-subscriptions PP01 | 125s | 2 tasks | 4 files |
 | Phase 05-student-discovery-and-subscriptions PP02 | 52s | 2 tasks | 3 files |
 | Phase 05-student-discovery-and-subscriptions PP03 | 98s | 2 tasks | 3 files |
+| Phase 06-direct-messaging P06-01 | 6min | 3 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -95,6 +96,8 @@ Pivot decisions:
 - [Phase 05-P02]: LockedContentOverlay uses COLORS.surface at full opacity as a standalone row — UI-SPEC rgba(0.85) applies only when overlaying other content
 - [Phase 05-P03]: Button component uses title prop (not children) — adapted plan code to match actual Button.tsx interface
 - [Phase 05-P03]: subscribe-confirm receives price_cents as query string param and parses with parseInt — keeps screen-to-screen contract simple
+- [Phase 06-direct-messaging]: [Phase 06-01]: messages table uses UUID PKs with ON DELETE CASCADE FKs to classrooms and profiles
+- [Phase 06-direct-messaging]: [Phase 06-01]: Four RLS policies (subscriber read/insert, tutor read/insert) using (SELECT auth.uid()) subquery pattern
 
 ### Pending Todos
 
@@ -108,6 +111,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-06T21:47:35.864Z
-Stopped at: Phase 6 context gathered (discuss mode)
+Last session: 2026-04-06T22:18:46.247Z
+Stopped at: Completed 06-01-PLAN.md
 Resume: Run /gsd:plan-phase 3

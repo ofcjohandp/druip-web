@@ -29,22 +29,33 @@
 
 ### Student Discovery
 
-- [ ] **DISC-01**: Student can browse all available tutor classrooms on a discovery screen
-- [ ] **DISC-02**: Student can view a classroom detail page (tutor name, subjects, bio, price, section preview)
-- [ ] **DISC-03**: Non-subscriber sees a locked preview of classroom content with subscribe CTA
-- [ ] **DISC-04**: Subscribe button displays the monthly price (e.g. "Subscribe · R180/month")
+- [x] **DISC-01**: Student can browse all available tutor classrooms on a discovery screen
+- [x] **DISC-02**: Student can view a classroom detail page (tutor name, subjects, bio, price, section preview)
+- [x] **DISC-03**: Non-subscriber sees a locked preview of classroom content with subscribe CTA
+- [x] **DISC-04**: Subscribe button displays the monthly price (e.g. "Subscribe · R180/month")
 
 ### Subscriptions (UI)
 
-- [ ] **SUB-01**: Student can tap subscribe and see a confirmation screen (UI placeholder — no real payment in v1.0)
-- [ ] **SUB-02**: Subscribed student gets full access to all sections and cards in the classroom
-- [ ] **SUB-03**: Student can view a list of all their subscribed classrooms
+- [x] **SUB-01**: Student can tap subscribe and see a confirmation screen (UI placeholder — no real payment in v1.0)
+- [x] **SUB-02**: Subscribed student gets full access to all sections and cards in the classroom
+- [x] **SUB-03**: Student can view a list of all their subscribed classrooms
 
 ### Direct Messaging
 
-- [ ] **MSG-01**: Subscribed student can send a direct message to the tutor
-- [ ] **MSG-02**: Tutor can reply to student messages
-- [ ] **MSG-03**: Both parties can view full message history in a chat-style screen
+- [x] **MSG-01**: Subscribed student can send a direct message to the tutor
+- [x] **MSG-02**: Tutor can reply to student messages
+- [x] **MSG-03**: Both parties can view full message history in a chat-style screen
+
+### Student Onboarding
+
+- [ ] **ONBD-01**: After sign-up, student is directed to a multi-step onboarding flow before accessing the marketplace
+- [ ] **ONBD-02**: Student enters first name, surname, and optionally uploads a profile photo on Screen 1
+- [ ] **ONBD-03**: Student selects their university and campus on Screen 2
+- [ ] **ONBD-04**: Student selects their degree/programme and year of study on Screen 3
+- [ ] **ONBD-05**: Student selects subject tags (multi-select) from a shared tag library on Screen 4 — tags are populated from active tutor classrooms
+- [ ] **ONBD-06**: Student selects type of help needed (multi-select: understanding, test prep, assignments, etc.) on Screen 5
+- [ ] **ONBD-07**: Student can optionally add an upcoming test date on Screen 6 (skippable)
+- [ ] **ONBD-08**: After completing onboarding, marketplace shows tutors filtered by the student's selected subject tags
 
 ## v2 Requirements
 
@@ -95,16 +106,16 @@
 | CARD-03 | Phase 4 | Complete |
 | CARD-04 | Phase 4 | Complete |
 | CARD-05 | Phase 4 | Complete |
-| DISC-01 | Phase 5 | Pending |
-| DISC-02 | Phase 5 | Pending |
-| DISC-03 | Phase 5 | Pending |
-| DISC-04 | Phase 5 | Pending |
-| SUB-01 | Phase 5 | Pending |
-| SUB-02 | Phase 5 | Pending |
-| SUB-03 | Phase 5 | Pending |
-| MSG-01 | Phase 6 | Pending |
-| MSG-02 | Phase 6 | Pending |
-| MSG-03 | Phase 6 | Pending |
+| DISC-01 | Phase 5 | Complete |
+| DISC-02 | Phase 5 | Complete |
+| DISC-03 | Phase 5 | Complete |
+| DISC-04 | Phase 5 | Complete |
+| SUB-01 | Phase 5 | Complete |
+| SUB-02 | Phase 5 | Complete |
+| SUB-03 | Phase 5 | Complete |
+| MSG-01 | Phase 6 | Complete |
+| MSG-02 | Phase 6 | Complete |
+| MSG-03 | Phase 6 | Complete |
 
 **Coverage:**
 - v1.0 requirements: 22 total
