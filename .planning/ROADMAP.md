@@ -148,7 +148,12 @@ Plans:
   2. A tutor can see incoming messages from each subscribed student and send a reply
   3. Both student and tutor can scroll through the full message history in chronological order in a chat-style UI
 
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — Schema migration (messages table + RLS), TypeScript types, Wave 0 test stubs, schema push
+- [ ] 06-02-PLAN.md — TanStack Query hooks (useMessages, useSendMessage, useClassroomSubscribers, useTutorUserId) + UI components (MessageBubble, ChatInput, SubscriberRow)
+- [ ] 06-03-PLAN.md — dm-chat screen, route registration, classroom-detail "Message tutor" button, manage-classroom Messages section
 
 **UI hint**: yes
 
@@ -163,7 +168,7 @@ Plans:
 | 3. Tutor Onboarding | 0/4 | Planned | - |
 | 4. Classroom Builder | 4/4 | Complete | 2026-04-06 |
 | 5. Student Discovery and Subscriptions | 3/5 | In Progress|  |
-| 6. Direct Messaging | 0/? | Not started | - |
+| 6. Direct Messaging | 0/3 | Planned | - |
 
 ---
 
