@@ -193,14 +193,14 @@ The following requirements are acknowledged and intentionally deferred. They wil
 
 | Requirement ID | Description (short) | Phase | Status |
 |----------------|---------------------|-------|--------|
-| AUTH-01 | Play-first onboarding, lesson before sign-up | Phase 1 | Pending |
-| AUTH-02 | Email/password sign-up only | Phase 1 | Pending |
-| AUTH-03 | Session persistence across restarts | Phase 1 | Pending |
-| AUTH-04 | expo-sqlite session storage, URL polyfill | Phase 1 | Pending |
-| AUTH-05 | Graceful offline launch handling | Phase 1 | Pending |
-| AUTH-06 | Authenticated user bypasses onboarding | Phase 1 | Pending |
-| AUTH-07 | Three daily goal options at onboarding | Phase 1 | Pending |
-| AUTH-08 | Notification permission gated after first lesson | Phase 1 | Pending |
+| AUTH-01 | Play-first onboarding, lesson before sign-up | Phase 1 | Complete |
+| AUTH-02 | Email/password sign-up only | Phase 1 | Complete |
+| AUTH-03 | Session persistence across restarts | Phase 1 | Complete |
+| AUTH-04 | expo-sqlite session storage, URL polyfill | Phase 1 | Complete |
+| AUTH-05 | Graceful offline launch handling | Phase 1 | Complete |
+| AUTH-06 | Authenticated user bypasses onboarding | Phase 1 | Complete |
+| AUTH-07 | Three daily goal options at onboarding | Phase 1 | Complete |
+| AUTH-08 | Notification permission gated after first lesson | Phase 1 | Complete |
 | CONT-01 | Module → Topic → Lesson → Section hierarchy | Phase 1 | Pending |
 | CONT-02 | Lesson type field in schema | Phase 1 | Pending |
 | CONT-03 | XP reward per lesson | Phase 1 | Pending |
