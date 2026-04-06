@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   expo: {
     name: 'Druip',
     slug: 'druip',
