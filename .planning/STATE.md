@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v2.49.9
 milestone_name: milestone
 status: executing
-stopped_at: Completed 01-foundation-01-PLAN.md
-last_updated: "2026-04-06T12:35:49.152Z"
+stopped_at: Completed 01-foundation-04-PLAN.md
+last_updated: "2026-04-06T12:42:02.860Z"
 last_activity: 2026-04-06
 progress:
   total_phases: 5
   completed_phases: 0
   total_plans: 4
-  completed_plans: 1
-  percent: 25
+  completed_plans: 2
+  percent: 50
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-06)
 ## Current Position
 
 Phase: 01 (foundation) — EXECUTING
-Plan: 2 of 4
+Plan: 3 of 4
 Status: Ready to execute
 Last activity: 2026-04-06
 
@@ -52,6 +52,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: —
 
 | Phase 01-foundation P01 | 13m | 3 tasks | 33 files |
+| Phase 01-foundation P04 | 2m | 2 tasks | 10 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,9 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: app.config.js uses module.exports (not export default) for Jest require() compatibility
 - [Phase 01-foundation]: jest.setup.js pre-warms Expo winter runtime lazy globals to prevent scope errors when app-config test runs first alphabetically
 - [Phase 01-foundation]: Expo SDK 54 installed (create-expo-app@latest resolves to 54, not 55) — all required packages present at compatible versions
+- [Phase 01-foundation]: theme.ts is the single source of truth for all design tokens — no hardcoded colors in components
+- [Phase 01-foundation]: WindowedFlatList wraps FlatList with SEED-06 windowing defaults; keyExtractor must be provided by consumers
+- [Phase 01-foundation]: lazy: false on Tabs screenOptions — all 5 tabs mount immediately after auth (D-17)
 
 ### Pending Todos
 
@@ -77,6 +81,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-06T12:35:49.148Z
-Stopped at: Completed 01-foundation-01-PLAN.md
+Last session: 2026-04-06T12:42:02.857Z
+Stopped at: Completed 01-foundation-04-PLAN.md
 Resume file: None

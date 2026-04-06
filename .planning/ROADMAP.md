@@ -40,7 +40,7 @@ Plans:
 - [x] 01-01-PLAN.md — Project scaffold: Expo SDK 55 init, dependencies, EAS config, Expo Router file structure, Jest + Wave 0 test stubs
 - [ ] 01-02-PLAN.md — Supabase schema: content hierarchy tables, user tables, RLS policies, Supabase client + TypeScript types, db push
 - [ ] 01-03-PLAN.md — Auth and onboarding: play-first landing, sample lesson, sign-up prompt, email/password auth, goal selection, Stack.Protected routing
-- [ ] 01-04-PLAN.md — Navigation shell: 5-tab navigator with icons, theme constants, Button/Card/WindowedFlatList UI primitives
+- [x] 01-04-PLAN.md — Navigation shell: 5-tab navigator with icons, theme constants, Button/Card/WindowedFlatList UI primitives
 
 **UI hint**: yes
 
