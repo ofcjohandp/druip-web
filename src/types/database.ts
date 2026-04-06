@@ -7,6 +7,7 @@ export type LessonType = 'standard' | 'practice' | 'challenge';
 export type DailyGoal = 'chill' | 'steady' | 'focused';
 export type LessonAttemptStatus = 'in_progress' | 'completed';
 export type CardType = 'text' | 'pdf' | 'image' | 'link';
+export type SubscriptionStatus = 'active' | 'cancelled';
 
 export interface Database {
   public: {
@@ -239,6 +240,22 @@ export interface Database {
         }>;
         Relationships: [];
       };
+      subscriptions: {
+        Row: {
+          id: string;
+          student_id: string;
+          classroom_id: string;
+          subscribed_at: string;
+          status: SubscriptionStatus;
+        };
+        Insert: {
+          student_id: string;
+          classroom_id: string;
+          status?: SubscriptionStatus;
+        };
+        Update: Partial<{ status: SubscriptionStatus }>;
+        Relationships: [];
+      };
       user_lesson_progress: {
         Row: {
           id: string;
@@ -292,6 +309,7 @@ export interface Database {
       lesson_type: LessonType;
       daily_goal: DailyGoal;
       lesson_attempt_status: LessonAttemptStatus;
+      subscription_status: SubscriptionStatus;
     };
   };
 }
