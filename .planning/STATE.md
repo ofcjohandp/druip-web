@@ -1,17 +1,17 @@
 ---
 gsd_state_version: 1.0
-milestone: v2.49.9
-milestone_name: milestone
-status: verifying
-stopped_at: Phase 2 UI-SPEC approved
-last_updated: "2026-04-06T14:17:09.312Z"
-last_activity: 2026-04-06
+milestone: v1.0
+milestone_name: tutor-marketplace
+status: defining-requirements
+stopped_at: Requirements defined — roadmap pending
+last_updated: "2026-04-06T18:30:00.000Z"
+last_activity: 2026-04-06 -- Milestone v1.0 started (pivot to tutor marketplace)
 progress:
-  total_phases: 5
-  completed_phases: 1
-  total_plans: 4
-  completed_plans: 4
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
@@ -20,15 +20,15 @@ progress:
 
 See: .planning/PROJECT.md (updated 2026-04-06)
 
-**Core value:** A student opens Druip and feels calmer, clearer, and more in control — not confused, overloaded, or lost.
-**Current focus:** Phase 01 — foundation
+**Core value:** A student opens Druip, finds their tutor's classroom, and has everything they need to pass their test in one place.
+**Current focus:** Defining requirements for v1.0 Tutor Marketplace
 
 ## Current Position
 
-Phase: 01 (foundation) — EXECUTING
-Plan: 4 of 4
-Status: Phase complete — ready for verification
-Last activity: 2026-04-06
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-04-06 — Milestone v1.0 started
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -46,49 +46,40 @@ Progress: [░░░░░░░░░░] 0%
 |-------|-------|-------|----------|
 | - | - | - | - |
 
-**Recent Trend:**
-
-- Last 5 plans: —
-- Trend: —
-
-| Phase 01-foundation P01 | 13m | 3 tasks | 33 files |
-| Phase 01-foundation P04 | 2m | 2 tasks | 10 files |
-| Phase 01-foundation P02 | 5 | 3 tasks | 6 files |
-| Phase 01-foundation P03 | 6m | 3 tasks | 14 files |
-
 ## Accumulated Context
 
 ### Decisions
 
 Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
+Carried forward from Phase 1 (still valid):
 
-- Stack: React Native / Expo SDK 55 + Supabase — decided, not up for debate
+- Stack: React Native / Expo SDK 54 + Supabase — decided, not up for debate
 - Auth: email/password only, expo-sqlite session storage, URL polyfill required
 - Navigation: Expo Router with 5-tab bottom navigator
-- [Phase 01-foundation]: app.config.js uses module.exports (not export default) for Jest require() compatibility
-- [Phase 01-foundation]: jest.setup.js pre-warms Expo winter runtime lazy globals to prevent scope errors when app-config test runs first alphabetically
-- [Phase 01-foundation]: Expo SDK 54 installed (create-expo-app@latest resolves to 54, not 55) — all required packages present at compatible versions
-- [Phase 01-foundation]: theme.ts is the single source of truth for all design tokens — no hardcoded colors in components
-- [Phase 01-foundation]: WindowedFlatList wraps FlatList with SEED-06 windowing defaults; keyExtractor must be provided by consumers
-- [Phase 01-foundation]: lazy: false on Tabs screenOptions — all 5 tabs mount immediately after auth (D-17)
-- [Phase 01-foundation]: expo-sqlite localStorage chosen over AsyncStorage for Supabase session storage — avoids documented offline session-loss bug
-- [Phase 01-foundation]: RLS (SELECT auth.uid()) subquery pattern applied to all user-scoped policies — single function call per query not per row
-- [Phase 01-foundation]: handle_new_user() SECURITY DEFINER trigger auto-creates profile on auth.users INSERT — decouples profile creation from app code
-- [Phase 01-foundation]: SplashScreen.hideAsync() called in RootNavigator child so useAuthStore is in provider scope before hide
-- [Phase 01-foundation]: SampleLessonEngine imports from theme.ts (no hardcoded values) — design tokens as single source of truth
-- [Phase 01-foundation]: Stack.Protected with guard={!session} for unauthenticated routes, guard={!!session} for authenticated (D-20)
+- theme.ts is the single source of truth for all design tokens — no hardcoded colors in components
+- WindowedFlatList wraps FlatList with windowing defaults; keyExtractor must be provided by consumers
+- expo-sqlite localStorage chosen over AsyncStorage for Supabase session storage
+- RLS (SELECT auth.uid()) subquery pattern applied to all user-scoped policies
+- handle_new_user() SECURITY DEFINER trigger auto-creates profile on auth.users INSERT
+- lazy: false removed from Tabs screenOptions (caused tab unresponsiveness on physical device)
+
+Pivot decisions:
+- Product pivoted from Duolingo quiz engine to Skool-like tutor marketplace
+- First tutor: Sharone at NWU Potchefstroom, R180/month
+- v1.0 is UI-first — payments deferred to v1.1
+- Phase 2 quiz engine work (02-01 through 02-03) deprioritized; data foundation (useStudySessionStore etc.) may be reused or removed
 
 ### Pending Todos
 
-None yet.
+- Confirm email for ofc.johandp@gmail.com (Supabase email confirmation pending)
+- Fix tabs not responding on physical device (lazy: false removed — needs retesting)
 
 ### Blockers/Concerns
 
-None yet.
+None.
 
 ## Session Continuity
 
-Last session: 2026-04-06T14:17:09.309Z
-Stopped at: Phase 2 UI-SPEC approved
-Resume file: .planning/phases/02-study-flow/02-UI-SPEC.md
+Last session: 2026-04-06
+Stopped at: Requirements defined — roadmap creation pending
+Resume: Run /gsd-new-milestone to continue or spawn roadmapper directly

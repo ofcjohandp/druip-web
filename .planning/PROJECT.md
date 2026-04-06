@@ -2,71 +2,76 @@
 
 ## What This Is
 
-Druip is a gamified study system for South African university students that turns overwhelming, scattered academic material into a structured, clear, and motivating learning experience. The MVP targets NWU Potchefstroom physiotherapy students, covering one module, with a Duolingo-style study flow built on React Native / Expo and Supabase.
+Druip is a tutor marketplace for South African university students. Tutors create classrooms with structured sections and study materials (notes, PDFs, images, links). Students subscribe for monthly access and can DM the tutor directly. Think Skool — but purpose-built for SA university students.
 
 ## Core Value
 
-A student opens Druip and feels calmer, clearer, and more in control — not confused, overloaded, or lost.
+A student opens Druip, finds their tutor's classroom, and has everything they need to pass their test in one place.
+
+## Current Milestone: v1.0 Tutor Marketplace
+
+**Goal:** Build a Skool-like platform where tutors create structured classrooms and students subscribe for monthly access.
+
+**Target features:**
+- Tutor signup via "I want to teach" toggle on existing auth flow
+- Tutor creates classroom: name, subjects, bio, price (default R180/month)
+- Tutor builds classroom sections (e.g. "Chapter 1", "Upcoming Tests", "Past Papers")
+- Tutor adds material cards per section: text notes, PDFs, images, links
+- Student discovery: browse classrooms, view detail page, subscribe CTA (UI placeholder)
+- Subscriber gets full classroom access; non-subscriber sees locked preview
+- 1-on-1 DM between student and tutor (inside the classroom)
 
 ## Requirements
 
 ### Validated
 
-(None yet — ship to validate)
+- ✓ Auth (email/password sign-up, session persistence, offline handling) — Phase 1
+- ✓ Navigation shell (5-tab bottom navigator, Expo Router) — Phase 1
+- ✓ Supabase schema + RLS — Phase 1
 
 ### Active
 
-- [ ] Students can sign up and log in with email/password, with sessions persisting across app restarts
-- [ ] Module content is structured into Topics → Lessons → Sections with clean, simple summaries
-- [ ] Students move through a Duolingo-style study flow: read summary → answer questions → get instant feedback → see explanations → progress forward
-- [ ] Questions are primarily multiple choice with immediate correct/incorrect feedback and explanation
-- [ ] Dashboard shows: today's study focus, streak, average score, weak areas, and module progress
-- [ ] Readiness system tracks performance per topic and shows "You're X% ready for this test" with weak area highlights
-- [ ] Students can create structured notes inside the app (key concepts, summaries, important points)
-- [ ] Streaks and progress bars provide momentum and encouragement without feeling like pressure
-- [ ] UI feels soft, clean, rounded, and calming — breathing space, not a dashboard of graphs
-- [ ] All content for NWU Potchefstroom physiotherapy module is seeded and ready before first student onboards
-- [ ] AI-assisted content creation pipeline (Claude generates lesson content, summaries, and questions for review)
+See REQUIREMENTS.md for full v1.0 requirements with REQ-IDs.
 
 ### Out of Scope
 
-- Multi-university / multi-course support — focus on NWU Potchefstroom physiotherapy only for MVP
-- Video lessons — high bandwidth, high complexity, deferred to post-validation
-- Tutor-led content — future expansion after core product is validated
-- Social features (leaderboards, sharing) — adds complexity, not core to calm/structured feel
-- Native Android / iOS separate codebases — Expo handles cross-platform
-- OAuth / social login — email/password sufficient for MVP
-- In-app payments / subscriptions — validate engagement before monetizing
-- Flashcard mode — notes-to-flashcards connection is a v2 feature
-- Push notifications — not needed to validate core study flow
+- Real payment processing — deferred to v1.1 (subscribe button is UI placeholder in v1.0)
+- Community/group posts — future; v1.0 is 1-on-1 DM only
+- Live sessions / video calls — high complexity, deferred
+- Gamification / quiz engine — pivoted away from Duolingo model
+- Leaderboards, XP, streaks — deferred; not core to marketplace
+- Multi-tutor classroom / co-teaching — single tutor per classroom for v1.0
+- Push notifications — not needed to validate core marketplace
+- Creator analytics dashboard — deferred to post-validation
+- OAuth / social login — email/password sufficient
 
 ## Context
 
-- **Target market**: South African university students, starting with NWU Potchefstroom physiotherapy students as the initial narrow focus
-- **Platform**: React Native / Expo for cross-platform mobile (iOS + Android)
-- **Backend**: Supabase (PostgreSQL + Auth + Realtime) — low ops overhead, fast to build against
-- **Content creation**: AI-assisted (Claude drafts lessons, summaries, questions; Johan reviews and approves)
-- **Go-to-market**: Build-in-public approach via TikTok and Instagram to validate demand and build community before launch
-- **Brand feel**: Soft, calm, slightly playful, distinctly South African — "journaling meets studying" not "enterprise dashboard"
-- **Stage**: Greenfield — pre-build, concept validated through product thinking, no code written yet
+- **Target market**: South African university students; first tutor is Sharone at NWU Potchefstroom
+- **Platform**: React Native / Expo SDK 54 + Supabase — unchanged
+- **Model**: Tutor creates classroom → students subscribe (R180/month default) → Druip takes platform %
+- **Stage**: Foundation built (Phase 1 complete); pivot from Duolingo quiz engine to tutor marketplace
+- **Build approach**: UI-first — screens and navigation before backend wiring; payments in v1.1
+- **Brand feel**: Soft, calm, slightly playful, distinctly South African — not corporate edu-tech
 
 ## Constraints
 
-- **Scope**: Single university, single course, single module for MVP — no scope creep before validation
-- **Stack**: React Native / Expo + Supabase — decided, not up for debate during MVP phase
-- **Brand**: Must NOT feel like a typical "edu-tech" product — no heavy dark UI, no graph-heavy dashboards, no corporate tone
-- **Content**: All module content must be ready before first student uses the app — can't onboard to empty shell
-- **Validation first**: Do not build v2 features (payments, social, multi-course) before proving students return daily
+- **Stack**: React Native / Expo + Supabase — decided, not up for debate
+- **Scope**: Single-tutor classrooms, UI-only subscriptions for v1.0
+- **Brand**: Must NOT feel like a typical "edu-tech" product
+- **Validation first**: Prove tutors and students use it before adding payments
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| React Native / Expo over web-first | Students are mobile-first; SA university students primarily use phones | — Pending |
-| Supabase over Firebase | Postgres gives better relational data model for structured content hierarchy; auth + realtime included | — Pending |
-| NWU Potchefstroom physiotherapy as first module | Narrow focus ensures depth and quality; easier to get feedback from a specific group | — Pending |
-| AI-assisted content creation | Speed without sacrificing quality — Claude drafts, Johan approves | — Pending |
-| Build-in-public strategy | Validates demand, builds community, attracts early users before launch | — Pending |
+| React Native / Expo over web-first | Students are mobile-first; SA university students primarily use phones | ✓ Good |
+| Supabase over Firebase | Postgres gives better relational model; auth + realtime included | ✓ Good |
+| expo-sqlite for session storage | Avoids documented AsyncStorage offline session-loss bug | ✓ Good |
+| Pivot from Duolingo quiz to tutor marketplace | Faster path to revenue; tutors create own content; easier demand validation | — Pending |
+| UI-first build for v1.0 | Validate UX and flow before investing in payment integration | — Pending |
+| Payments deferred to v1.1 | Reduces scope; subscribe button as UI placeholder validates intent | — Pending |
+| Phase 2 quiz engine deprioritized | Marketplace pivot makes the quiz flow secondary; can re-add later | — Pending |
 
 ## Evolution
 
@@ -86,4 +91,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-06 after initialization*
+*Last updated: 2026-04-06 after pivot to tutor marketplace (v1.0 milestone start)*
