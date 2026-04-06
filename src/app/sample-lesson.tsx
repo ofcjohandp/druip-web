@@ -1,14 +1,20 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
+import { router } from 'expo-router';
+import { SampleLessonEngine } from '@/features/onboarding/SampleLessonEngine';
+import { COLORS } from '@/features/ui/theme';
 
 export default function SampleLessonScreen() {
+  const handleComplete = (score: number, total: number) => {
+    router.replace({ pathname: '/sign-up-prompt', params: { score: String(score), total: String(total) } });
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Sample Lesson</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <SampleLessonEngine onComplete={handleComplete} />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFFFFF' },
-  text: { fontSize: 18, color: '#1A1A1A' },
+  container: { flex: 1, backgroundColor: COLORS.background },
 });
