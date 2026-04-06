@@ -51,7 +51,6 @@ function SectionWithCards({
 }: SectionWithCardsProps) {
   const { data: cards = [], isPending: isCardsPending } = useClassroomCards(section.id);
   const deleteCard = useDeleteCard(section.id);
-  const createFileCard_pending = false; // tracked inside AddCardBottomSheet directly
 
   return (
     <SectionRow
