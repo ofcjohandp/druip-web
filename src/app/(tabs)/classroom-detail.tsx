@@ -93,10 +93,18 @@ export default function ClassroomDetailScreen() {
 
           {/* Subscribe CTA — D-08 — or subscribed indicator — D-10 */}
           {isSubscribed ? (
-            <View style={styles.subscribedIndicator}>
-              <Ionicons name="checkmark-circle" size={16} color={COLORS.success} />
-              <Text style={styles.subscribedText}>You're subscribed</Text>
-            </View>
+            <>
+              <View style={styles.subscribedIndicator}>
+                <Ionicons name="checkmark-circle" size={16} color={COLORS.success} />
+                <Text style={styles.subscribedText}>You're subscribed</Text>
+              </View>
+              <Button
+                variant="secondary"
+                title="Message tutor"
+                onPress={() => router.push(`/(tabs)/dm-chat?classroomId=${id}`)}
+                style={{ marginTop: SPACING.sm }}
+              />
+            </>
           ) : (
             <Button
               variant="primary"

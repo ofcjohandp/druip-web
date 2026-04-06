@@ -25,6 +25,8 @@ import { SectionRow } from '@/features/classroom/SectionRow';
 import { AddCardBottomSheet } from '@/features/classroom/AddCardBottomSheet';
 import { CardListItem } from '@/features/classroom/CardListItem';
 import { useClassroomCards, useDeleteCard } from '@/features/classroom/useClassroomCards';
+import { useClassroomSubscribers } from '@/features/messaging/useClassroomSubscribers';
+import { SubscriberRow } from '@/features/messaging/SubscriberRow';
 import type { Database } from '@/types/database';
 
 type SectionRow_DB = Database['public']['Tables']['classroom_sections']['Row'];
@@ -91,6 +93,7 @@ export default function ManageClassroomScreen() {
   const [isAddingSection, setIsAddingSection] = useState(false);
   const [newSectionName, setNewSectionName] = useState('');
   const [activeSheetSectionId, setActiveSheetSectionId] = useState<string | null>(null);
+  const { data: subscribers = [] } = useClassroomSubscribers(classroomId);
 
   function computeNextSortOrder() {
     if (sections.length === 0) return 1000;
@@ -236,6 +239,30 @@ export default function ManageClassroomScreen() {
                     </View>
                   </View>
                 )}
+
+                {/* Messages section — D-04 */}
+                <View style={styles.messagesSection}>
+                  <Text style={styles.messagesHeading}>Messages</Text>
+                  {subscribers.length === 0 ? (
+                    <Text style={styles.messagesEmpty}>No subscribers yet.</Text>
+                  ) : (
+                    subscribers.map((sub) => {
+                      const studentProfile = (sub as any).profiles;
+                      const studentId = studentProfile?.id;
+                      const studentName = studentProfile?.email ?? 'Student';
+                      return (
+                        <SubscriberRow
+                          key={sub.id}
+                          studentName={studentName}
+                          hasUnread={false}
+                          onPress={() =>
+                            router.push(`/(tabs)/dm-chat?classroomId=${classroomId}&studentId=${studentId}`)
+                          }
+                        />
+                      );
+                    })
+                  )}
+                </View>
               </>
             )}
           </ScrollView>
@@ -372,5 +399,18 @@ const styles = StyleSheet.create({
   },
   cardsSpinner: {
     marginVertical: SPACING.xs,
+  },
+  messagesSection: {
+    marginTop: SPACING.lg,
+  },
+  messagesHeading: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: COLORS.textMuted,
+    marginBottom: SPACING.sm,
+  },
+  messagesEmpty: {
+    fontSize: 14,
+    color: COLORS.textMuted,
   },
 });
