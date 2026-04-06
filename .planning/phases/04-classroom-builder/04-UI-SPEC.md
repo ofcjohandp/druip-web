@@ -5,6 +5,7 @@ status: draft
 shadcn_initialized: false
 preset: none
 created: 2026-04-06
+revised: 2026-04-06
 ---
 
 # Phase 4 — UI Design Contract: Classroom Builder
@@ -34,12 +35,14 @@ Declared values (all multiples of 4):
 | Token | Value | Usage |
 |-------|-------|-------|
 | xs | 8px | Icon gaps, inline padding between row elements |
-| sm | 12px | Small gaps — button vertical padding, chip spacing |
+| sm | 8px | Button vertical padding, chip spacing |
 | md | 16px | Default element spacing — card internal padding, TextInput padding |
 | lg | 24px | Section padding — between sections in the manager list, bottom sheet internal padding |
 | xl | 32px | Large gaps — screen-level top padding, empty state vertical centering |
 
-Source: `src/features/ui/theme.ts` SPACING tokens (xs=8, sm=12, md=16, lg=24, xl=32)
+Source: `src/features/ui/theme.ts` SPACING tokens (xs=8, sm=8, md=16, lg=24, xl=32)
+
+Note: `sm` is 8px (not 12px) to stay on the standard 4-point scale. Previously declared as 12px — corrected here.
 
 Exceptions:
 - Touch targets for icon buttons (↑ ↓ arrows, trash icon, gear icon): minimum 44px hit area — wrap with padding to reach 44px even if visual icon is smaller
@@ -87,6 +90,28 @@ Accent reserved for:
 3. "Add card" CTA in empty-section state
 
 Accent is NOT used for: ↑ ↓ reorder arrows, gear icon, card type icons in bottom sheet, section name text, card preview text.
+
+---
+
+## Visual Focal Point
+
+Primary visual anchor: the section list. Eye entry point: first SectionRow at the top of the ScrollView. Primary CTA: "Add Section" button pinned at screen bottom. The screen is structured as a calm vertical stack — no visual competition between sections. Each SectionRow is a self-contained block; the eye moves top-to-bottom through sections, then lands on the primary CTA.
+
+---
+
+## Accessibility Labels
+
+Icon-only actions must declare `accessibilityLabel`. No icon-only action may be rendered without one.
+
+| Icon | Context | accessibilityLabel |
+|------|---------|-------------------|
+| ↑ (Ionicons: chevron-up) | SectionRow | `"Move section up"` |
+| ↓ (Ionicons: chevron-down) | SectionRow | `"Move section down"` |
+| ✕ / trash (Ionicons: trash-outline) | SectionRow delete | `"Delete section"` |
+| gear (Ionicons: settings-outline) | Screen header right | `"Classroom settings"` |
+| trash (Ionicons: trash-outline) | CardListItem delete | `"Remove card"` |
+
+Additional `accessibilityRole="button"` on all TouchableOpacity wrappers for icon actions. Disabled state (opacity 0.4) must also set `accessibilityState={{ disabled: true }}`.
 
 ---
 
@@ -147,6 +172,8 @@ Accent is NOT used for: ↑ ↓ reorder arrows, gear icon, card type icons in bo
 
 ### Add Card Bottom Sheet
 
+Dismiss behaviour: drag handle drag-down or tap-outside-sheet closes the sheet. No explicit dismiss button is rendered.
+
 ```
 ┌─────────────────────────────────────┐
 │                                     │
@@ -171,12 +198,11 @@ Accent is NOT used for: ↑ ↓ reorder arrows, gear icon, card type icons in bo
 │  │      YouTube, articles, etc │    │
 │  └─────────────────────────────┘    │
 │                                     │
-│  [Cancel]  ← ghost button           │
-│                                     │
 └─────────────────────────────────────┘
   borderTopLeftRadius: 24 (RADII.modal)
   borderTopRightRadius: 24 (RADII.modal)
   background: COLORS.surface
+  dismiss: drag handle or tap-outside (no explicit dismiss button)
 ```
 
 ---
@@ -194,8 +220,8 @@ Accent is NOT used for: ↑ ↓ reorder arrows, gear icon, card type icons in bo
 
 ### Section Reorder — Arrow Buttons
 
-- ↑ button: disabled (opacity 0.4, non-tappable) when section is first in list
-- ↓ button: disabled (opacity 0.4, non-tappable) when section is last in list
+- ↑ button: disabled (opacity 0.4, non-tappable, `accessibilityState={{ disabled: true }}`) when section is first in list
+- ↓ button: disabled (opacity 0.4, non-tappable, `accessibilityState={{ disabled: true }}`) when section is last in list
 - On tap: optimistic swap in UI immediately; Supabase `sort_order` update in background
 - If Supabase mutation fails: revert to previous order; show inline error toast (14px, `COLORS.error`)
 
@@ -203,15 +229,21 @@ Accent is NOT used for: ↑ ↓ reorder arrows, gear icon, card type icons in bo
 
 - Trigger: tutor taps ✕ on section row
 - Confirmation: React Native `Alert.alert` with title "Delete section?" and body "This will also delete all [N] cards inside it. This cannot be undone."
-- Actions: "Cancel" (dismiss) and "Delete" (`COLORS.error` text on iOS, destructive style)
+- Actions: "Keep Section" (dismiss) and "Delete Section" (`COLORS.error` text on iOS, destructive style)
 - On confirm: optimistic removal from list; Supabase cascade delete in background
 
 ### Card Delete — Confirmation
 
 - Trigger: tutor taps trash icon on a card list item
 - Confirmation: `Alert.alert` with title "Remove card?" and body "This cannot be undone."
-- Actions: "Cancel" and "Remove" (destructive style)
+- Actions: "Keep Card" (dismiss) and "Remove Card" (destructive style)
 - On confirm: optimistic removal; Supabase delete in background
+
+### Add Card Bottom Sheet — Dismiss
+
+- Dismiss method: drag handle drag-down, or tap on the overlay/backdrop outside the sheet
+- No explicit dismiss button is rendered in the sheet
+- If using React Native Modal: `onRequestClose` and a backdrop TouchableWithoutFeedback handle both patterns
 
 ### File Upload — PDF and Image
 
@@ -259,12 +291,16 @@ Accent is NOT used for: ↑ ↓ reorder arrows, gear icon, card type icons in bo
 | Fetch error | Couldn't load classroom. Pull down to refresh. |
 | Delete section — title | Delete section? |
 | Delete section — body | This will also delete all [N] cards inside it. This cannot be undone. |
-| Delete section — confirm action | Delete |
+| Delete section — dismiss action | Keep Section |
+| Delete section — confirm action | Delete Section |
 | Delete card — title | Remove card? |
 | Delete card — body | This cannot be undone. |
-| Delete card — confirm action | Remove |
+| Delete card — dismiss action | Keep Card |
+| Delete card — confirm action | Remove Card |
 | Rename save error | Couldn't save name. Try again. |
 | Reorder error | Couldn't save order. Try again. |
+
+Note: Generic single-word labels ("Cancel", "Delete", "Remove") are not used. All destructive confirm actions use noun-qualified labels ("Delete Section", "Remove Card"). Dismiss actions use "Keep [noun]" pattern to reduce anxiety.
 
 Source: CONTEXT.md `<specifics>` ("feel calm and organised"), `<decisions>` D-07, D-13. Defaults applied for all error and empty state copy.
 
@@ -272,10 +308,10 @@ Source: CONTEXT.md `<specifics>` ("feel calm and organised"), `<decisions>` D-07
 
 ## Destructive Actions
 
-| Action | Trigger | Confirmation Method | Irreversible |
-|--------|---------|---------------------|--------------|
-| Delete section (+ all its cards) | ✕ icon on SectionRow | `Alert.alert` — two-button, destructive style | Yes |
-| Delete card | Trash icon on CardListItem | `Alert.alert` — two-button, destructive style | Yes |
+| Action | Trigger | Confirmation Method | Dismiss Label | Confirm Label | Irreversible |
+|--------|---------|---------------------|---------------|---------------|--------------|
+| Delete section (+ all its cards) | ✕ icon on SectionRow | `Alert.alert` — two-button, destructive style | Keep Section | Delete Section | Yes |
+| Delete card | Trash icon on CardListItem | `Alert.alert` — two-button, destructive style | Keep Card | Remove Card | Yes |
 
 No swipe-to-delete. Single tap → confirmation → execute. Source: CONTEXT.md D-07, D-13.
 
