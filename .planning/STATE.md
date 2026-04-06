@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 5 context gathered
-last_updated: "2026-04-06T20:36:07.318Z"
+stopped_at: Completed 05-P00-PLAN.md
+last_updated: "2026-04-06T21:05:21.918Z"
 last_activity: 2026-04-06
 progress:
   total_phases: 6
   completed_phases: 4
-  total_plans: 16
-  completed_plans: 16
-  percent: 100
+  total_plans: 21
+  completed_plans: 17
+  percent: 81
 ---
 
 # Project State
@@ -21,12 +21,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-06)
 
 **Core value:** A student opens Druip, finds their tutor's classroom, and has everything they need to pass their test in one place.
-**Current focus:** Phase 04 — classroom-builder
+**Current focus:** Phase 05 — student-discovery-and-subscriptions
 
 ## Current Position
 
-Phase: 04 (classroom-builder) — EXECUTING
-Plan: 4 of 4
+Phase: 05 (student-discovery-and-subscriptions) — EXECUTING
+Plan: 2 of 5
 Status: Ready to execute
 Last activity: 2026-04-06
 
@@ -51,6 +51,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 04-classroom-builder P00 | 72s | 1 tasks | 3 files |
 | Phase 04-classroom-builder P01 | 20min | 3 tasks | 4 files |
 | Phase 04-classroom-builder P03 | 20min | 4 tasks | 6 files |
+| Phase 05-student-discovery-and-subscriptions PP00 | 94s | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -83,6 +84,8 @@ Pivot decisions:
 - [Phase 04-classroom-builder]: SectionWithCards wrapper avoids hooks-in-map pattern for card rendering inside section list
 - [Phase 04-classroom-builder]: AddCardBottomSheet handles pickers and mutations internally — no onSelectType callback to parent
 - [Phase 04-classroom-builder]: Storage file removed before DB row delete in useDeleteCard to prevent orphaned files
+- [Phase 05-P00]: subscriptions.status uses TEXT + CHECK constraint matching Phase 4 card_type pattern
+- [Phase 05-P00]: classrooms/classroom_sections/classroom_cards each got a public authenticated SELECT policy alongside tutor-scoped policies — Postgres OR logic applies
 
 ### Pending Todos
 
@@ -96,6 +99,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-06T20:36:07.307Z
-Stopped at: Phase 5 context gathered
+Last session: 2026-04-06T21:05:21.916Z
+Stopped at: Completed 05-P00-PLAN.md
 Resume: Run /gsd:plan-phase 3

@@ -122,7 +122,14 @@ Plans:
   4. A student can tap subscribe, see a confirmation screen, and gain full access to all sections and cards without a real payment
   5. A student can navigate to a screen listing all their subscribed classrooms
 
-**Plans**: TBD
+**Plans**: 5 plans
+
+Plans:
+- [x] 05-P00-PLAN.md — Schema migration (subscriptions table + RLS, classrooms public SELECT policy), TypeScript types, Wave 0 test stubs
+- [ ] 05-P01-PLAN.md — TanStack Query hooks: useAllClassrooms, useClassroomDetail, useMySubscriptions, useSubscribe
+- [ ] 05-P02-PLAN.md — UI components: ClassroomCard, LockedContentOverlay; register classroom-detail + subscribe-confirm in _layout.tsx
+- [ ] 05-P03-PLAN.md — Screens: Home/Discovery (index.tsx), classroom-detail.tsx, subscribe-confirm.tsx
+- [ ] 05-P04-PLAN.md — End-to-end verification checkpoint (all DISC + SUB requirements)
 
 **UI hint**: yes
 
@@ -155,7 +162,7 @@ Plans:
 | 2. Study Flow | 3/4 | Deprioritized | - |
 | 3. Tutor Onboarding | 0/4 | Planned | - |
 | 4. Classroom Builder | 4/4 | Complete | 2026-04-06 |
-| 5. Student Discovery and Subscriptions | 0/? | Not started | - |
+| 5. Student Discovery and Subscriptions | 1/5 | In Progress|  |
 | 6. Direct Messaging | 0/? | Not started | - |
 
 ---
