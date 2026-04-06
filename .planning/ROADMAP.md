@@ -34,7 +34,7 @@ AUTH-01, AUTH-02, AUTH-03, AUTH-04, AUTH-05, AUTH-06, AUTH-07, AUTH-08, CONT-01,
 - [ ] The app shows a login screen (not a crash or blank screen) when launched offline with no valid session.
 - [ ] The bottom tab bar shows exactly 5 tabs; the full Module → Topic → Lesson → Section content hierarchy is defined in the database schema with `is_published`, `xp_reward`, `lesson_type`, and sequential unlock fields present on the correct tables; RLS is enabled on every public table.
 
-**Plans:** 3/4 plans executed
+**Plans:** 4/4 plans executed
 
 Plans:
 - [x] 01-01-PLAN.md — Project scaffold: Expo SDK 55 init, dependencies, EAS config, Expo Router file structure, Jest + Wave 0 test stubs
@@ -62,11 +62,13 @@ STUDY-01, STUDY-02, STUDY-03, STUDY-04, STUDY-05, STUDY-06, STUDY-07, STUDY-08, 
 - [ ] Completing the final question takes the student to a lesson-complete screen showing XP earned, a score summary (e.g. "12 of 15 correct"), and a single primary CTA.
 - [ ] All tappable elements meet the 44×44pt minimum touch target; questions without an explanation field cannot be published (`is_published` blocked at the data layer).
 
-**Plans:**
-1. Study session engine — Build Zustand store for active quiz session (current question index, answers, score, lock state); implement single-card render (no FlatList); connect to lesson questions via TanStack Query
-2. Question card and answer UX — Build question card component with 4 stacked answer options, answer lock on tap, 150ms color + icon feedback (green/checkmark, red/X), dual highlight on wrong answer selection
-3. Feedback panel and explanation — Build slide-up feedback panel for correct (positive reinforcement) and wrong (explanation text + correct answer highlight) states; manual Continue button; CONT-06 publish gate
-4. Lesson-complete screen — Build completion screen with XP display, score summary, streak status indicator, and primary CTA; wire lesson attempt to `lesson_attempts` table with `completed` status
+**Plans:** 4 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Data foundation: lesson_attempts migration, CONT-06 CHECK constraint, TypeScript types, Zustand session store, TanStack Query hooks, Wave 0 test stubs
+- [ ] 02-02-PLAN.md — Study tab navigation: topic list with readiness tiers, lesson list with lock/complete/current states, route registration
+- [ ] 02-03-PLAN.md — Quiz engine: QuestionCard with answer lock and icon feedback, FeedbackPanel with slide-up animation and explanations, LessonEngine orchestrator
+- [ ] 02-04-PLAN.md — Lesson complete: completion screen with XP/score/streak, completion mutation, database schema push, visual verification checkpoint
 
 **UI hint**: yes
 
@@ -90,8 +92,8 @@ PROG-01, PROG-02, PROG-03, PROG-04, PROG-05, PROG-06, PROG-07, DASH-01, DASH-02,
 
 **Plans:**
 1. Readiness score engine — Implement four-component readiness formula (lesson completion 30%, quiz score 35%, recency decay 20%, streak consistency 15%); Postgres trigger on `lesson_attempt` completion; nightly decay scheduled function
-2. Progress screen — Build Progress tab with per-topic readiness tier cards, lesson count display (done vs. total), weak area detection and severity tier display (max 10 items)
-3. Home dashboard — Build Home tab with streak counter + flame icon, daily goal progress indicator, scrollable topic cards with readiness tier and unlock state, dominant CTA button; non-empty state for new users
+2. Progress screen ��� Build Progress tab with per-topic readiness tier cards, lesson count display (done vs. total), weak area detection and severity tier display (max 10 items)
+3. Home dashboard �� Build Home tab with streak counter + flame icon, daily goal progress indicator, scrollable topic cards with readiness tier and unlock state, dominant CTA button; non-empty state for new users
 4. Study tab topic browser — Build Study tab with full topic list, readiness tier labels, unlock state indicators, and drill-down to lesson list
 
 **UI hint**: yes
@@ -118,7 +120,7 @@ GAME-01, GAME-02, GAME-03, GAME-04, GAME-05, GAME-06, GAME-07, NOTES-01, NOTES-0
 1. Streak and freeze system — Implement streak calendar-day logic, auto-freeze consumption on missed day, streak increment trigger on lesson completion, warm/cool flame icon state, pop animation on streak increment
 2. XP and profile — Award XP on lesson completion from `xp_reward` field, persist total XP to user profile, display streak freeze inventory and XP in Profile tab; enforce approach-framing copy across all streak-related text
 3. Notes creation and editor — Build note editor with free-text + Markdown shortcuts (Bold, Bullet); "Add a note" entry points from lesson screen and wrong-answer feedback panel; auto-populate topic tag; MMKV local-first storage with Supabase sync
-4. Notes browsing — Build global Notes tab (searchable list, delete), topic-scoped notes view on topic detail screen; wire online sync; enforce private-only access via RLS policy
+4. Notes browsing ��� Build global Notes tab (searchable list, delete), topic-scoped notes view on topic detail screen; wire online sync; enforce private-only access via RLS policy
 
 **UI hint**: yes
 
@@ -150,8 +152,8 @@ CONT-07, CONT-08, SEED-01, SEED-04
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 3/4 | In Progress|  |
-| 2. Study Flow | 0/4 | Not started | - |
+| 1. Foundation | 4/4 | Complete |  |
+| 2. Study Flow | 0/4 | Planned | - |
 | 3. Progress and Dashboard | 0/4 | Not started | - |
 | 4. Gamification and Notes | 0/4 | Not started | - |
 | 5. Content Pipeline and Production Readiness | 0/3 | Not started | - |
