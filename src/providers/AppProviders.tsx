@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider, focusManager, onlineManager } from '@
 import { AppState, AppStateStatus, Platform } from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
 import { useEffect } from 'react';
+import { SessionProvider } from '@/features/auth/SessionProvider';
 
 onlineManager.setEventListener((setOnline) => {
   return NetInfo.addEventListener((state) => {
@@ -32,7 +33,7 @@ export function AppProviders({ children }: { children: React.ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {children}
+      <SessionProvider>{children}</SessionProvider>
     </QueryClientProvider>
   );
 }
