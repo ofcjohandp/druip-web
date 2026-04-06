@@ -128,7 +128,7 @@ Plans:
 - [x] 05-P00-PLAN.md — Schema migration (subscriptions table + RLS, classrooms public SELECT policy), TypeScript types, Wave 0 test stubs
 - [x] 05-P01-PLAN.md — TanStack Query hooks: useAllClassrooms, useClassroomDetail, useMySubscriptions, useSubscribe
 - [x] 05-P02-PLAN.md — UI components: ClassroomCard, LockedContentOverlay; register classroom-detail + subscribe-confirm in _layout.tsx
-- [ ] 05-P03-PLAN.md — Screens: Home/Discovery (index.tsx), classroom-detail.tsx, subscribe-confirm.tsx
+- [x] 05-P03-PLAN.md — Screens: Home/Discovery (index.tsx), classroom-detail.tsx, subscribe-confirm.tsx
 - [ ] 05-P04-PLAN.md — End-to-end verification checkpoint (all DISC + SUB requirements)
 
 **UI hint**: yes
