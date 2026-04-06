@@ -7,6 +7,7 @@ module.exports = {
   setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^@expo/vector-icons(.*)$': '<rootDir>/node_modules/expo/node_modules/@expo/vector-icons$1',
   },
   testMatch: ['**/__tests__/**/*.test.ts', '**/__tests__/**/*.test.tsx'],
 };
