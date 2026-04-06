@@ -60,6 +60,14 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => <TabIcon name="person-outline" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="study/[topicId]"
+        options={{
+          title: 'Lessons',
+          tabBarIcon: ({ color }) => <TabIcon name="book-outline" color={color} />,
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }

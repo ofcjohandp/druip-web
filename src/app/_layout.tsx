@@ -45,6 +45,8 @@ function RootNavigator() {
       <Stack.Screen name="sign-up-prompt" />
       <Stack.Screen name="(tabs)" />
       <Stack.Screen name="(auth)" />
+      <Stack.Screen name="lesson/[lessonId]" options={{ headerShown: false }} />
+      <Stack.Screen name="lesson-complete" options={{ headerShown: false }} />
     </Stack>
   );
 }
