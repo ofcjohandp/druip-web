@@ -34,11 +34,13 @@ AUTH-01, AUTH-02, AUTH-03, AUTH-04, AUTH-05, AUTH-06, AUTH-07, AUTH-08, CONT-01,
 - [ ] The app shows a login screen (not a crash or blank screen) when launched offline with no valid session.
 - [ ] The bottom tab bar shows exactly 5 tabs; the full Module → Topic → Lesson → Section content hierarchy is defined in the database schema with `is_published`, `xp_reward`, `lesson_type`, and sequential unlock fields present on the correct tables; RLS is enabled on every public table.
 
-**Plans:**
-1. Project scaffold and tooling — Initialize Expo SDK 55 managed project, configure Expo Router file structure, set up EAS build profiles, configure `runtimeVersion: "fingerprint"` and staging/production OTA channels
-2. Supabase schema and security — Create all content tables (modules, topics, lessons, sections, questions) and user tables with RLS policies, indexes, and `is_published` flags; pin supabase-js to v2.49.9+; configure expo-sqlite session storage and URL polyfill
-3. Auth and onboarding flow — Build play-first onboarding (sample lesson → sign-up prompt), email/password registration and login screens, daily goal selection (3 cards), `Stack.Protected` auth guard, graceful offline launch handling
-4. Navigation shell and base UI — Wire up 5-tab bottom navigator (Home, Study, Progress, Notes, Profile), establish shared UI primitives (Button, Card, theme constants), configure FlatList windowing defaults and KeyboardAvoidingView
+**Plans:** 4 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Project scaffold: Expo SDK 55 init, dependencies, EAS config, Expo Router file structure, Jest + Wave 0 test stubs
+- [ ] 01-02-PLAN.md — Supabase schema: content hierarchy tables, user tables, RLS policies, Supabase client + TypeScript types, db push
+- [ ] 01-03-PLAN.md — Auth and onboarding: play-first landing, sample lesson, sign-up prompt, email/password auth, goal selection, Stack.Protected routing
+- [ ] 01-04-PLAN.md — Navigation shell: 5-tab navigator with icons, theme constants, Button/Card/WindowedFlatList UI primitives
 
 **UI hint**: yes
 
