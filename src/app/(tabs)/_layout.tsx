@@ -20,8 +20,6 @@ export default function TabsLayout() {
           borderTopWidth: 1,
         },
         headerShown: false,
-        // D-17: All tabs render immediately — no lazy loading at nav level
-        lazy: false,
       }}
     >
       {/* D-15: Exact tab order — Home, Study, Progress, Notes, Profile */}
@@ -67,6 +65,21 @@ export default function TabsLayout() {
           tabBarIcon: ({ color }) => <TabIcon name="book-outline" color={color} />,
           href: null,
         }}
+      />
+      <Tabs.Screen
+        name="classroom-settings"
+        options={{
+          title: 'Classroom Settings',
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="classroom-detail"
+        options={{ title: 'Classroom', href: null }}
+      />
+      <Tabs.Screen
+        name="subscribe-confirm"
+        options={{ title: 'Subscribe', href: null }}
       />
     </Tabs>
   );
