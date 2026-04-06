@@ -3,7 +3,7 @@ phase: 4
 slug: classroom-builder
 status: draft
 nyquist_compliant: false
-wave_0_complete: false
+wave_0_complete: true
 created: 2026-04-06
 ---
 
@@ -38,14 +38,14 @@ created: 2026-04-06
 
 | Task ID | Plan | Wave | Requirement | Threat Ref | Secure Behavior | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|------------|-----------------|-----------|-------------------|-------------|--------|
-| 4-01-01 | 01 | 1 | CLASS-01 | — | N/A | manual | `npx jest --testPathPattern=useClassroomSections` | ❌ W0 | ⬜ pending |
-| 4-01-02 | 01 | 1 | CLASS-02 | — | N/A | manual | `npx jest --testPathPattern=useClassroomSections` | ❌ W0 | ⬜ pending |
-| 4-01-03 | 01 | 1 | CLASS-03 | — | N/A | manual | `npx jest --testPathPattern=useClassroomSections` | ❌ W0 | ⬜ pending |
-| 4-02-01 | 02 | 2 | CARD-01 | — | N/A | manual | `npx jest --testPathPattern=useClassroomCards` | ❌ W0 | ⬜ pending |
-| 4-02-02 | 02 | 2 | CARD-02 | — | N/A | manual | `npx jest --testPathPattern=useClassroomCards` | ❌ W0 | ⬜ pending |
-| 4-02-03 | 02 | 2 | CARD-03 | — | N/A | manual | `npx jest --testPathPattern=useClassroomCards` | ❌ W0 | ⬜ pending |
-| 4-02-04 | 02 | 2 | CARD-04 | — | N/A | manual | `npx jest --testPathPattern=useClassroomCards` | ❌ W0 | ⬜ pending |
-| 4-02-05 | 02 | 2 | CARD-05 | — | N/A | manual | `npx jest --testPathPattern=useClassroomCards` | ❌ W0 | ⬜ pending |
+| 4-01-01 | 01 | 1 | CLASS-01 | — | N/A | manual | `npx jest --testPathPattern=useClassroomSections` | ✅ W0 | ⬜ pending |
+| 4-01-02 | 01 | 1 | CLASS-02 | — | N/A | manual | `npx jest --testPathPattern=useClassroomSections` | ✅ W0 | ⬜ pending |
+| 4-01-03 | 01 | 1 | CLASS-03 | — | N/A | manual | `npx jest --testPathPattern=useClassroomSections` | ✅ W0 | ⬜ pending |
+| 4-02-01 | 02 | 2 | CARD-01 | — | N/A | manual | `npx jest --testPathPattern=useClassroomCards` | ✅ W0 | ⬜ pending |
+| 4-02-02 | 02 | 2 | CARD-02 | — | N/A | manual | `npx jest --testPathPattern=useClassroomCards` | ✅ W0 | ⬜ pending |
+| 4-02-03 | 02 | 2 | CARD-03 | — | N/A | manual | `npx jest --testPathPattern=useClassroomCards` | ✅ W0 | ⬜ pending |
+| 4-02-04 | 02 | 2 | CARD-04 | — | N/A | manual | `npx jest --testPathPattern=useClassroomCards` | ✅ W0 | ⬜ pending |
+| 4-02-05 | 02 | 2 | CARD-05 | — | N/A | manual | `npx jest --testPathPattern=useClassroomCards` | ✅ W0 | ⬜ pending |
 
 *Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
 
@@ -53,6 +53,9 @@ created: 2026-04-06
 
 ## Wave 0 Requirements
 
+- [x] Test stub: `src/features/classroom/__tests__/useClassroomSections.test.ts` — created by Plan 04-00
+- [x] Test stub: `src/features/classroom/__tests__/useClassroomCards.test.ts` — created by Plan 04-00
+- [x] Test stub: `src/features/classroom/__tests__/uploadClassroomFile.test.ts` — created by Plan 04-00
 - [ ] `npx expo install expo-document-picker expo-image-picker` — required before any file card code
 - [ ] `supabase/migrations/00006_classroom_sections_cards.sql` — sections + cards tables + RLS
 - [ ] Supabase Storage bucket `classroom-assets` created (private) — manual dashboard step
@@ -73,9 +76,9 @@ created: 2026-04-06
 
 ## Validation Sign-Off
 
-- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
+- [x] All tasks have `<automated>` verify or Wave 0 dependencies
 - [ ] Sampling continuity: no 3 consecutive tasks without automated verify
-- [ ] Wave 0 covers all MISSING references
+- [x] Wave 0 covers all MISSING references
 - [ ] No watch-mode flags
 - [ ] Feedback latency < 30s
 - [ ] `nyquist_compliant: true` set in frontmatter
