@@ -22,6 +22,64 @@ import {
   useReorderSections,
 } from '@/features/classroom/useClassroomSections';
 import { SectionRow } from '@/features/classroom/SectionRow';
+import { AddCardBottomSheet } from '@/features/classroom/AddCardBottomSheet';
+import { CardListItem } from '@/features/classroom/CardListItem';
+import { useClassroomCards, useDeleteCard } from '@/features/classroom/useClassroomCards';
+import type { Database } from '@/types/database';
+
+type SectionRow_DB = Database['public']['Tables']['classroom_sections']['Row'];
+
+// SectionWithCards combines SectionRow + card hooks so hooks aren't called inside .map()
+interface SectionWithCardsProps {
+  section: SectionRow_DB;
+  index: number;
+  totalSections: number;
+  classroomId: string;
+  onAddCard: (sectionId: string) => void;
+  onMoveUp: () => void;
+  onMoveDown: () => void;
+}
+
+function SectionWithCards({
+  section,
+  index,
+  totalSections,
+  classroomId,
+  onAddCard,
+  onMoveUp,
+  onMoveDown,
+}: SectionWithCardsProps) {
+  const { data: cards = [], isPending: isCardsPending } = useClassroomCards(section.id);
+  const deleteCard = useDeleteCard(section.id);
+  const createFileCard_pending = false; // tracked inside AddCardBottomSheet directly
+
+  return (
+    <SectionRow
+      section={section}
+      index={index}
+      totalSections={totalSections}
+      classroomId={classroomId}
+      onAddCard={onAddCard}
+      onMoveUp={onMoveUp}
+      onMoveDown={onMoveDown}
+    >
+      {isCardsPending ? (
+        <ActivityIndicator size="small" color={COLORS.accent} style={styles.cardsSpinner} />
+      ) : (
+        cards.map((card) => (
+          <CardListItem
+            key={card.id}
+            card={card}
+            sectionId={section.id}
+            onDelete={(cardId, storagePath) =>
+              deleteCard.mutate({ cardId, storagePath })
+            }
+          />
+        ))
+      )}
+    </SectionRow>
+  );
+}
 
 export default function ManageClassroomScreen() {
   const { data: classroom } = useClassroom();
@@ -136,7 +194,7 @@ export default function ManageClassroomScreen() {
             ) : (
               <>
                 {sections.map((section, index) => (
-                  <SectionRow
+                  <SectionWithCards
                     key={section.id}
                     section={section}
                     index={index}
@@ -195,6 +253,14 @@ export default function ManageClassroomScreen() {
           </View>
         )}
       </KeyboardAvoidingView>
+
+      {/* Add Card Bottom Sheet */}
+      <AddCardBottomSheet
+        visible={!!activeSheetSectionId}
+        sectionId={activeSheetSectionId ?? ''}
+        classroomId={classroom?.id ?? ''}
+        onClose={() => setActiveSheetSectionId(null)}
+      />
     </SafeAreaView>
   );
 }
@@ -304,5 +370,8 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: COLORS.border,
     backgroundColor: COLORS.background,
+  },
+  cardsSpinner: {
+    marginVertical: SPACING.xs,
   },
 });
