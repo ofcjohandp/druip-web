@@ -34,11 +34,11 @@ AUTH-01, AUTH-02, AUTH-03, AUTH-04, AUTH-05, AUTH-06, AUTH-07, AUTH-08, CONT-01,
 - [ ] The app shows a login screen (not a crash or blank screen) when launched offline with no valid session.
 - [ ] The bottom tab bar shows exactly 5 tabs; the full Module → Topic → Lesson → Section content hierarchy is defined in the database schema with `is_published`, `xp_reward`, `lesson_type`, and sequential unlock fields present on the correct tables; RLS is enabled on every public table.
 
-**Plans:** 1/4 plans executed
+**Plans:** 3/4 plans executed
 
 Plans:
 - [x] 01-01-PLAN.md — Project scaffold: Expo SDK 55 init, dependencies, EAS config, Expo Router file structure, Jest + Wave 0 test stubs
-- [ ] 01-02-PLAN.md — Supabase schema: content hierarchy tables, user tables, RLS policies, Supabase client + TypeScript types, db push
+- [x] 01-02-PLAN.md — Supabase schema: content hierarchy tables, user tables, RLS policies, Supabase client + TypeScript types, db push
 - [ ] 01-03-PLAN.md — Auth and onboarding: play-first landing, sample lesson, sign-up prompt, email/password auth, goal selection, Stack.Protected routing
 - [x] 01-04-PLAN.md — Navigation shell: 5-tab navigator with icons, theme constants, Button/Card/WindowedFlatList UI primitives
 
@@ -150,7 +150,7 @@ CONT-07, CONT-08, SEED-01, SEED-04
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 1/4 | In Progress|  |
+| 1. Foundation | 3/4 | In Progress|  |
 | 2. Study Flow | 0/4 | Not started | - |
 | 3. Progress and Dashboard | 0/4 | Not started | - |
 | 4. Gamification and Notes | 0/4 | Not started | - |
