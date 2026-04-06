@@ -33,7 +33,7 @@ Declared values from `src/features/ui/theme.ts` (source of truth — do not hard
 | Token | Value | Usage |
 |-------|-------|-------|
 | xs | 8px | `SPACING.xs` — tight gaps, icon-to-text, card list item internal gaps |
-| sm | 12px | `SPACING.sm` — small element gaps, button vertical padding |
+| sm | 12px | `SPACING.sm` — small element gaps, button vertical padding. **Exception: sm: 12px — existing project token in theme.ts; in use across Phases 1–4; cannot be changed without breaking existing screens** |
 | md | 16px | `SPACING.md` — default card internal padding, screen horizontal padding |
 | lg | 24px | `SPACING.lg` — between major sections, scroll content padding |
 | xl | 32px | `SPACING.xl` — large layout gaps, bottom scroll padding |
@@ -83,6 +83,10 @@ Additional semantic values:
 - `COLORS.textMuted` (#9E9E9E) — bio excerpt, section count, lock label, "Maybe later" button text
 - `COLORS.border` (#EBEBEB) — card bottom borders, section dividers, header bottom border
 - `COLORS.textOnAccent` (#FFFFFF) — text inside accent-colored buttons
+
+**Focal points:**
+- Primary focal point: the ClassroomCard list on the Home/Discovery screen.
+- Secondary focal point: the Subscribe CTA button (accent) on the detail and confirmation screens.
 
 ---
 
