@@ -24,17 +24,18 @@ decisions:
   - Four separate RLS policies: subscriber read, subscriber insert, tutor read, tutor insert
   - Test stubs use it.todo() with no imports/mocks matching Phase 4/5 wave-0 convention
 metrics:
-  duration: ~4min
+  duration: ~6min
   completed: "2026-04-06"
-  tasks_completed: 2
+  tasks_completed: 3
   tasks_total: 3
   files_created: 4
   files_modified: 1
+requirements_completed: [MSG-01, MSG-02, MSG-03]
 ---
 
 # Phase 06 Plan 01: Messages Foundation Summary
 
-**One-liner:** Messages table with 4 RLS policies, TypeScript types, and 3 it.todo test stub files for Phase 6 Direct Messaging.
+**Messages table with 4 RLS policies (subscriber/tutor read+insert), TypeScript types, 3 it.todo test stubs, and schema live in Supabase via migration 00012.**
 
 ## Tasks Completed
 
@@ -42,12 +43,7 @@ metrics:
 |---|------|--------|-------|
 | 1 | Create messages migration and TypeScript types | 196fa3a | supabase/migrations/00012_messages_table.sql, src/types/database.ts |
 | 2 | Create Wave 0 test stubs for messaging hooks | 21595ef | src/features/messaging/__tests__/useMessages.test.ts, useSendMessage.test.ts, useClassroomSubscribers.test.ts |
-
-## Tasks Awaiting Human Action
-
-| # | Task | Status |
-|---|------|--------|
-| 3 | Push schema to Supabase | Awaiting `supabase db push` |
+| 3 | Push schema to Supabase | human-action | supabase/migrations/00012_messages_table.sql applied to remote |
 
 ## What Was Built
 
@@ -78,7 +74,7 @@ None — plan executed exactly as written for Tasks 1 and 2.
 
 ## Auth Gates / Blocked Tasks
 
-**Task 3** is a `checkpoint:human-action` gate requiring `supabase db push` to apply migration 00012 to the remote Supabase project. This cannot be automated without interactive confirmation or `SUPABASE_ACCESS_TOKEN` set.
+**Task 3** was a `checkpoint:human-action` gate requiring `supabase db push`. User ran `npx supabase db push` and confirmed migration 00012_messages_table.sql applied successfully. Messages table is now live in Supabase with RLS enabled and 4 policies.
 
 ## Known Stubs
 
@@ -90,5 +86,6 @@ None in the migration or types. Test stub files are intentionally todo-only (Wav
 - [x] src/types/database.ts contains "messages:"
 - [x] All 3 test stub files exist under src/features/messaging/__tests__/
 - [x] Commits 196fa3a and 21595ef verified
+- [x] Task 3: Schema pushed to Supabase — migration 00012 applied (confirmed by user)
 
 ## Self-Check: PASSED
