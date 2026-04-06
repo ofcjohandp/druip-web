@@ -99,7 +99,7 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 04-01-PLAN.md — Schema migration (classroom_sections + classroom_cards tables, RLS, Storage bucket), TypeScript types, Expo package install
+- [x] 04-01-PLAN.md — Schema migration (classroom_sections + classroom_cards tables, RLS, Storage bucket), TypeScript types, Expo package install
 - [ ] 04-02-PLAN.md — Section management hooks, SectionRow component, ManageClassroom screen, profile.tsx route update
 - [ ] 04-03-PLAN.md — Card hooks, upload utility, CardListItem, AddCardBottomSheet, wire cards into ManageClassroom, end-to-end checkpoint
 
@@ -154,7 +154,7 @@ Plans:
 | 1. Foundation | 4/4 | Complete | 2026-04-06 |
 | 2. Study Flow | 3/4 | Deprioritized | - |
 | 3. Tutor Onboarding | 0/4 | Planned | - |
-| 4. Classroom Builder | 0/3 | Planned | - |
+| 4. Classroom Builder | 2/4 | In Progress|  |
 | 5. Student Discovery and Subscriptions | 0/? | Not started | - |
 | 6. Direct Messaging | 0/? | Not started | - |
 

@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 04-classroom-builder 04-00-PLAN.md
-last_updated: "2026-04-06T19:59:41.599Z"
+stopped_at: Completed 04-classroom-builder 04-01-PLAN.md
+last_updated: "2026-04-06T20:08:05.393Z"
 last_activity: 2026-04-06
 progress:
   total_phases: 6
   completed_phases: 3
   total_plans: 16
-  completed_plans: 13
-  percent: 81
+  completed_plans: 14
+  percent: 88
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-06)
 ## Current Position
 
 Phase: 04 (classroom-builder) — EXECUTING
-Plan: 2 of 4
+Plan: 3 of 4
 Status: Ready to execute
 Last activity: 2026-04-06
 
@@ -49,6 +49,7 @@ Progress: [░░░░░░░░░░] 0%
 | 5. Student Discovery and Subscriptions | TBD | - | - |
 | 6. Direct Messaging | TBD | - | - |
 | Phase 04-classroom-builder P00 | 72s | 1 tasks | 3 files |
+| Phase 04-classroom-builder P01 | 20min | 3 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -75,6 +76,9 @@ Pivot decisions:
 - Phase 2 quiz engine work (02-01 through 02-03) deprioritized; data foundation may be reused or removed
 - Build approach: UI screens and navigation first, Supabase wiring second
 - [Phase 04-classroom-builder]: Used it.todo() stubs with no imports/mocks for wave-0 test scaffolding so jest recognizes valid suites immediately
+- [Phase 04-classroom-builder]: Used TEXT + CHECK constraint for card_type instead of Postgres enum to avoid migration complexity
+- [Phase 04-classroom-builder]: sort_order uses INTEGER DEFAULT 1000 gap strategy — room for insertion without full reindex
+- [Phase 04-classroom-builder]: classroom-assets bucket is private; reads via createSignedUrl with 1-hour expiry only
 
 ### Pending Todos
 
@@ -88,6 +92,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-06T19:59:41.597Z
-Stopped at: Completed 04-classroom-builder 04-00-PLAN.md
+Last session: 2026-04-06T20:08:05.391Z
+Stopped at: Completed 04-classroom-builder 04-01-PLAN.md
 Resume: Run /gsd:plan-phase 3
