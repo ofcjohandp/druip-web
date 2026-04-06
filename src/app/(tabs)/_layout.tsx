@@ -81,6 +81,10 @@ export default function TabsLayout() {
         name="subscribe-confirm"
         options={{ title: 'Subscribe', href: null }}
       />
+      <Tabs.Screen
+        name="dm-chat"
+        options={{ title: 'Messages', href: null }}
+      />
     </Tabs>
   );
 }
