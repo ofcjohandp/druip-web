@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 05-P00-PLAN.md
-last_updated: "2026-04-06T21:05:21.918Z"
+stopped_at: Completed 05-P01-PLAN.md
+last_updated: "2026-04-06T21:09:02.041Z"
 last_activity: 2026-04-06
 progress:
   total_phases: 6
   completed_phases: 4
   total_plans: 21
-  completed_plans: 17
-  percent: 81
+  completed_plans: 18
+  percent: 86
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-06)
 ## Current Position
 
 Phase: 05 (student-discovery-and-subscriptions) — EXECUTING
-Plan: 2 of 5
+Plan: 3 of 5
 Status: Ready to execute
 Last activity: 2026-04-06
 
@@ -52,6 +52,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 04-classroom-builder P01 | 20min | 3 tasks | 4 files |
 | Phase 04-classroom-builder P03 | 20min | 4 tasks | 6 files |
 | Phase 05-student-discovery-and-subscriptions PP00 | 94s | 2 tasks | 6 files |
+| Phase 05-student-discovery-and-subscriptions PP01 | 125s | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -86,6 +87,8 @@ Pivot decisions:
 - [Phase 04-classroom-builder]: Storage file removed before DB row delete in useDeleteCard to prevent orphaned files
 - [Phase 05-P00]: subscriptions.status uses TEXT + CHECK constraint matching Phase 4 card_type pattern
 - [Phase 05-P00]: classrooms/classroom_sections/classroom_cards each got a public authenticated SELECT policy alongside tutor-scoped policies — Postgres OR logic applies
+- [Phase 05-P01]: useAllClassrooms uses tutors!inner(profiles!inner(email)) join — fallback is tutors!inner(user_id) only if FK names differ
+- [Phase 05-P01]: useSubscribe closes over userId from auth store at call time — correct behavior on logout
 
 ### Pending Todos
 
@@ -99,6 +102,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-06T21:05:21.916Z
-Stopped at: Completed 05-P00-PLAN.md
+Last session: 2026-04-06T21:09:02.038Z
+Stopped at: Completed 05-P01-PLAN.md
 Resume: Run /gsd:plan-phase 3
