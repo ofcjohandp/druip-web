@@ -5,6 +5,7 @@ export type Json = string | number | boolean | null | { [key: string]: Json | un
 
 export type LessonType = 'standard' | 'practice' | 'challenge';
 export type DailyGoal = 'chill' | 'steady' | 'focused';
+export type LessonAttemptStatus = 'in_progress' | 'completed';
 
 export interface Database {
   public: {
@@ -111,12 +112,29 @@ export interface Database {
         Insert: Omit<Database['public']['Tables']['user_lesson_progress']['Row'], 'id' | 'created_at' | 'updated_at'>;
         Update: Partial<Database['public']['Tables']['user_lesson_progress']['Insert']>;
       };
+      lesson_attempts: {
+        Row: {
+          id: string;
+          user_id: string;
+          lesson_id: string;
+          score: number;
+          total_questions: number;
+          status: LessonAttemptStatus;
+          started_at: string;
+          completed_at: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: Omit<Database['public']['Tables']['lesson_attempts']['Row'], 'id' | 'created_at' | 'updated_at'>;
+        Update: Partial<Database['public']['Tables']['lesson_attempts']['Insert']>;
+      };
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;
     Enums: {
       lesson_type: LessonType;
       daily_goal: DailyGoal;
+      lesson_attempt_status: LessonAttemptStatus;
     };
   };
 }
