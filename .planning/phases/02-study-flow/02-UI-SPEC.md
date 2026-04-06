@@ -33,7 +33,7 @@ All tokens sourced from `src/features/ui/theme.ts` (SPACING). No new tokens intr
 | Token | Value | Usage |
 |-------|-------|-------|
 | xs | 8pt | Icon gaps, tight inline padding |
-| sm | 12pt | Gap between answer option cards |
+| sm | 12pt | Gap between answer option cards — **pre-existing codebase token** (`SPACING.sm = 12` in `src/features/ui/theme.ts` line 24) |
 | md | 16pt | Padding inside cards, button padding |
 | lg | 24pt | Progress bar bottom margin, section padding |
 | xl | 32pt | Large vertical gaps between question and options |
@@ -42,6 +42,8 @@ Exceptions:
 - Progress bar height: 6pt (visual affordance, not a spacing token)
 - Touch target minimum: 48pt height on all tappable answer options and buttons (STUDY-08; matches Android 48dp minimum)
 - `hitSlop` on elements whose visual size falls below 44pt: `{ top: 8, bottom: 8, left: 8, right: 8 }`
+
+Note on `sm: 12pt`: This value does not appear in the standard 8-point scale (4, 8, 16, 24, 32, 48, 64) but is an existing token declared in `src/features/ui/theme.ts` before this phase. It is retained as-is. No new non-scale tokens are introduced this phase.
 
 ---
 
@@ -54,7 +56,7 @@ All tokens sourced from `SampleLessonEngine.tsx` and `theme.ts`. System fonts on
 | Question text | 20pt | 600 (semibold) | 28pt (1.4) | Question body on the question card |
 | Body / Option text | 16pt | 400 (regular) | 22pt (1.375) | Answer option labels, feedback body |
 | Caption | 14pt | 400 (regular) | 20pt (1.43) | Explanation text in feedback panel, muted secondary info |
-| Label / Button | 16pt | 600 (semibold) | auto | CTA button labels, "Continue" |
+| Label / Button | 16pt | 600 (semibold) | 20pt | CTA button labels, "Continue" |
 
 Rules:
 - Two weights only: 400 (regular) and 600 (semibold).
@@ -160,9 +162,9 @@ Components Phase 2 must produce or extend. All import from `theme.ts` — no har
 | Progress bar label | None — visual only | STUDY-01; no numeric overlay needed |
 | Locked lesson tap | No toast / no copy | D-03: silent visual dead end |
 | Loading state — topic list | "Loading topics…" | Default; 14pt regular `COLORS.textMuted`, centered |
-| Empty state — topic list heading | "No topics yet" | Claude's Discretion |
-| Empty state — topic list body | "Content is being prepared. Check back soon." | Claude's Discretion |
-| Empty state — lesson list heading | "No lessons available" | Claude's Discretion |
+| Empty state — topic list heading | "Study content is being prepared" | Claude's Discretion — standalone meaningful heading, not a generic placeholder |
+| Empty state — topic list body | "Check back soon." | Claude's Discretion |
+| Empty state — lesson list heading | "No published lessons yet" | Claude's Discretion — standalone meaningful heading describing the specific state |
 | Empty state — lesson list body | "This topic has no published lessons yet." | Claude's Discretion |
 | Error state — questions failed to load | "Couldn't load this lesson. Check your connection and try again." | Claude's Discretion; problem + action |
 | XP label on complete screen | "XP earned" | Claude's Discretion; above the XP number |
