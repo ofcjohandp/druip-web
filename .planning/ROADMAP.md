@@ -69,7 +69,13 @@
   3. Subscription price defaults to R180/month and is visible and editable before the tutor saves
   4. A tutor can return to classroom settings and change the name, bio, subjects, or price; changes are reflected immediately
 
-**Plans**: TBD
+**Plans**: 4 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Schema migration (is_tutor, tutors, classrooms tables + RLS), TypeScript types, Wave 0 test stubs
+- [ ] 03-02-PLAN.md — Sign-up toggle, create-classroom screen, tutor hooks, root guard fix
+- [ ] 03-03-PLAN.md — Profile tab conditional tutor view, classroom settings screen, edit hooks
+- [ ] 03-04-PLAN.md — End-to-end verification checkpoint (all TUTR requirements)
 
 **UI hint**: yes
 
@@ -142,7 +148,7 @@
 |-------|----------------|--------|-----------|
 | 1. Foundation | 4/4 | Complete | 2026-04-06 |
 | 2. Study Flow | 3/4 | Deprioritized | - |
-| 3. Tutor Onboarding | 0/? | Not started | - |
+| 3. Tutor Onboarding | 0/4 | Planned | - |
 | 4. Classroom Builder | 0/? | Not started | - |
 | 5. Student Discovery and Subscriptions | 0/? | Not started | - |
 | 6. Direct Messaging | 0/? | Not started | - |
