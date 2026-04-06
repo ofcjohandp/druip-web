@@ -72,10 +72,10 @@
 **Plans**: 4 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — Schema migration (is_tutor, tutors, classrooms tables + RLS), TypeScript types, Wave 0 test stubs
-- [ ] 03-02-PLAN.md — Sign-up toggle, create-classroom screen, tutor hooks, root guard fix
-- [ ] 03-03-PLAN.md — Profile tab conditional tutor view, classroom settings screen, edit hooks
-- [ ] 03-04-PLAN.md — End-to-end verification checkpoint (all TUTR requirements)
+- [x] 03-01-PLAN.md — Schema migration (is_tutor, tutors, classrooms tables + RLS), TypeScript types, Wave 0 test stubs
+- [x] 03-02-PLAN.md — Sign-up toggle, create-classroom screen, tutor hooks, root guard fix
+- [x] 03-03-PLAN.md — Profile tab conditional tutor view, classroom settings screen, edit hooks
+- [x] 03-04-PLAN.md — End-to-end verification checkpoint (all TUTR requirements)
 
 **UI hint**: yes
 
@@ -96,7 +96,12 @@ Plans:
   4. A tutor can delete any card; the section updates immediately without requiring a page reload
   5. A classroom with at least one section and one card is fully browsable from the tutor's management view
 
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Schema migration (classroom_sections + classroom_cards tables, RLS, Storage bucket), TypeScript types, Expo package install
+- [ ] 04-02-PLAN.md — Section management hooks, SectionRow component, ManageClassroom screen, profile.tsx route update
+- [ ] 04-03-PLAN.md — Card hooks, upload utility, CardListItem, AddCardBottomSheet, wire cards into ManageClassroom, end-to-end checkpoint
 
 **UI hint**: yes
 
@@ -149,7 +154,7 @@ Plans:
 | 1. Foundation | 4/4 | Complete | 2026-04-06 |
 | 2. Study Flow | 3/4 | Deprioritized | - |
 | 3. Tutor Onboarding | 0/4 | Planned | - |
-| 4. Classroom Builder | 0/? | Not started | - |
+| 4. Classroom Builder | 0/3 | Planned | - |
 | 5. Student Discovery and Subscriptions | 0/? | Not started | - |
 | 6. Direct Messaging | 0/? | Not started | - |
 
