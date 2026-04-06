@@ -15,17 +15,17 @@
 
 ### Classroom Sections
 
-- [ ] **CLASS-01**: Tutor can create named sections within their classroom (e.g. "Chapter 1", "Upcoming Tests")
-- [ ] **CLASS-02**: Tutor can rename and delete sections
-- [ ] **CLASS-03**: Tutor can reorder sections within their classroom
+- [x] **CLASS-01**: Tutor can create named sections within their classroom (e.g. "Chapter 1", "Upcoming Tests")
+- [x] **CLASS-02**: Tutor can rename and delete sections
+- [x] **CLASS-03**: Tutor can reorder sections within their classroom
 
 ### Material Cards
 
-- [ ] **CARD-01**: Tutor can add a text note card to a section
-- [ ] **CARD-02**: Tutor can upload a PDF or file as a card in a section
-- [ ] **CARD-03**: Tutor can upload an image (e.g. handwritten notes, diagrams) as a card
-- [ ] **CARD-04**: Tutor can add an external link card (YouTube, articles, resources)
-- [ ] **CARD-05**: Tutor can delete any card from a section
+- [x] **CARD-01**: Tutor can add a text note card to a section
+- [x] **CARD-02**: Tutor can upload a PDF or file as a card in a section
+- [x] **CARD-03**: Tutor can upload an image (e.g. handwritten notes, diagrams) as a card
+- [x] **CARD-04**: Tutor can add an external link card (YouTube, articles, resources)
+- [x] **CARD-05**: Tutor can delete any card from a section
 
 ### Student Discovery
 
@@ -87,14 +87,14 @@
 | TUTR-02 | Phase 3 | Pending |
 | TUTR-03 | Phase 3 | Pending |
 | TUTR-04 | Phase 3 | Pending |
-| CLASS-01 | Phase 4 | Pending |
-| CLASS-02 | Phase 4 | Pending |
-| CLASS-03 | Phase 4 | Pending |
-| CARD-01 | Phase 4 | Pending |
-| CARD-02 | Phase 4 | Pending |
-| CARD-03 | Phase 4 | Pending |
-| CARD-04 | Phase 4 | Pending |
-| CARD-05 | Phase 4 | Pending |
+| CLASS-01 | Phase 4 | Complete |
+| CLASS-02 | Phase 4 | Complete |
+| CLASS-03 | Phase 4 | Complete |
+| CARD-01 | Phase 4 | Complete |
+| CARD-02 | Phase 4 | Complete |
+| CARD-03 | Phase 4 | Complete |
+| CARD-04 | Phase 4 | Complete |
+| CARD-05 | Phase 4 | Complete |
 | DISC-01 | Phase 5 | Pending |
 | DISC-02 | Phase 5 | Pending |
 | DISC-03 | Phase 5 | Pending |
