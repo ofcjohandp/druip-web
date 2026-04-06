@@ -11,38 +11,84 @@ beforeEach(() => { useStudySessionStore.getState().clearSession(); });
 describe('useStudySessionStore', () => {
   // STUDY-01: initSession sets questions and resets state
   test('initSession sets lessonId, questions, and resets index/score', () => {
-    // TODO: implement
+    useStudySessionStore.getState().initSession('lesson-1', mockQuestions);
+    const state = useStudySessionStore.getState();
+    expect(state.lessonId).toBe('lesson-1');
+    expect(state.questions).toHaveLength(3);
+    expect(state.currentIndex).toBe(0);
+    expect(state.score).toBe(0);
+    expect(state.isLocked).toBe(false);
+    expect(state.answers).toEqual([null, null, null]);
   });
 
   // STUDY-02: progress fraction is monotonically increasing
   test('progress fraction never decreases across lock+advance cycles', () => {
-    // TODO: implement — verify (currentIndex + (isLocked ? 1 : 0)) / questions.length only increases
+    useStudySessionStore.getState().initSession('lesson-1', mockQuestions);
+    let prevProgress = 0;
+    for (let i = 0; i < mockQuestions.length; i++) {
+      const s1 = useStudySessionStore.getState();
+      const p1 = (s1.currentIndex + (s1.isLocked ? 1 : 0)) / s1.questions.length;
+      expect(p1).toBeGreaterThanOrEqual(prevProgress);
+      useStudySessionStore.getState().lockAnswer(0, true);
+      const s2 = useStudySessionStore.getState();
+      const p2 = (s2.currentIndex + (s2.isLocked ? 1 : 0)) / s2.questions.length;
+      expect(p2).toBeGreaterThanOrEqual(p1);
+      prevProgress = p2;
+      if (i < mockQuestions.length - 1) useStudySessionStore.getState().advance();
+    }
   });
 
   // STUDY-04: lockAnswer is synchronous and sets isLocked=true
   test('lockAnswer sets isLocked to true and records selected answer', () => {
-    // TODO: implement
+    useStudySessionStore.getState().initSession('lesson-1', mockQuestions);
+    useStudySessionStore.getState().lockAnswer(2, false);
+    const state = useStudySessionStore.getState();
+    expect(state.isLocked).toBe(true);
+    expect(state.answers[0]).toBe(2);
   });
 
   // STUDY-04: idempotent guard — double lock does not mutate
   test('lockAnswer is idempotent when already locked', () => {
-    // TODO: implement
+    useStudySessionStore.getState().initSession('lesson-1', mockQuestions);
+    useStudySessionStore.getState().lockAnswer(0, true);
+    const stateAfterFirst = { ...useStudySessionStore.getState() };
+    useStudySessionStore.getState().lockAnswer(1, false);
+    const stateAfterSecond = useStudySessionStore.getState();
+    expect(stateAfterSecond.answers[0]).toBe(stateAfterFirst.answers[0]);
+    expect(stateAfterSecond.score).toBe(stateAfterFirst.score);
   });
 
   // STUDY-05: score increments only on correct answer
   test('lockAnswer increments score when isCorrect=true', () => {
-    // TODO: implement
+    useStudySessionStore.getState().initSession('lesson-1', mockQuestions);
+    useStudySessionStore.getState().lockAnswer(0, true);
+    expect(useStudySessionStore.getState().score).toBe(1);
   });
 
   test('lockAnswer does not increment score when isCorrect=false', () => {
-    // TODO: implement
+    useStudySessionStore.getState().initSession('lesson-1', mockQuestions);
+    useStudySessionStore.getState().lockAnswer(1, false);
+    expect(useStudySessionStore.getState().score).toBe(0);
   });
 
   test('advance increments currentIndex and sets isLocked=false', () => {
-    // TODO: implement
+    useStudySessionStore.getState().initSession('lesson-1', mockQuestions);
+    useStudySessionStore.getState().lockAnswer(0, true);
+    useStudySessionStore.getState().advance();
+    const state = useStudySessionStore.getState();
+    expect(state.currentIndex).toBe(1);
+    expect(state.isLocked).toBe(false);
   });
 
   test('clearSession resets all fields to initial values', () => {
-    // TODO: implement
+    useStudySessionStore.getState().initSession('lesson-1', mockQuestions);
+    useStudySessionStore.getState().lockAnswer(0, true);
+    useStudySessionStore.getState().clearSession();
+    const state = useStudySessionStore.getState();
+    expect(state.lessonId).toBeNull();
+    expect(state.questions).toEqual([]);
+    expect(state.currentIndex).toBe(0);
+    expect(state.score).toBe(0);
+    expect(state.isLocked).toBe(false);
   });
 });
