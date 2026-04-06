@@ -81,38 +81,36 @@
 
 ## Traceability
 
-Populated by roadmapper.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TUTR-01 | — | Pending |
-| TUTR-02 | — | Pending |
-| TUTR-03 | — | Pending |
-| TUTR-04 | — | Pending |
-| CLASS-01 | — | Pending |
-| CLASS-02 | — | Pending |
-| CLASS-03 | — | Pending |
-| CARD-01 | — | Pending |
-| CARD-02 | — | Pending |
-| CARD-03 | — | Pending |
-| CARD-04 | — | Pending |
-| CARD-05 | — | Pending |
-| DISC-01 | — | Pending |
-| DISC-02 | — | Pending |
-| DISC-03 | — | Pending |
-| DISC-04 | — | Pending |
-| SUB-01 | — | Pending |
-| SUB-02 | — | Pending |
-| SUB-03 | — | Pending |
-| MSG-01 | — | Pending |
-| MSG-02 | — | Pending |
-| MSG-03 | — | Pending |
+| TUTR-01 | Phase 3 | Pending |
+| TUTR-02 | Phase 3 | Pending |
+| TUTR-03 | Phase 3 | Pending |
+| TUTR-04 | Phase 3 | Pending |
+| CLASS-01 | Phase 4 | Pending |
+| CLASS-02 | Phase 4 | Pending |
+| CLASS-03 | Phase 4 | Pending |
+| CARD-01 | Phase 4 | Pending |
+| CARD-02 | Phase 4 | Pending |
+| CARD-03 | Phase 4 | Pending |
+| CARD-04 | Phase 4 | Pending |
+| CARD-05 | Phase 4 | Pending |
+| DISC-01 | Phase 5 | Pending |
+| DISC-02 | Phase 5 | Pending |
+| DISC-03 | Phase 5 | Pending |
+| DISC-04 | Phase 5 | Pending |
+| SUB-01 | Phase 5 | Pending |
+| SUB-02 | Phase 5 | Pending |
+| SUB-03 | Phase 5 | Pending |
+| MSG-01 | Phase 6 | Pending |
+| MSG-02 | Phase 6 | Pending |
+| MSG-03 | Phase 6 | Pending |
 
 **Coverage:**
 - v1.0 requirements: 22 total
-- Mapped to phases: 0 (roadmapper pending)
-- Unmapped: 22 ⚠️
+- Mapped to phases: 22
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-06*
-*Last updated: 2026-04-06 after v1.0 milestone start*
+*Last updated: 2026-04-06 — traceability populated by roadmapper*

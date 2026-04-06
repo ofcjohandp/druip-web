@@ -2,12 +2,12 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: tutor-marketplace
-status: defining-requirements
-stopped_at: Requirements defined — roadmap pending
-last_updated: "2026-04-06T18:30:00.000Z"
-last_activity: 2026-04-06 -- Milestone v1.0 started (pivot to tutor marketplace)
+status: roadmap-complete
+stopped_at: Roadmap created — ready to plan Phase 3
+last_updated: "2026-04-06T00:00:00.000Z"
+last_activity: 2026-04-06 -- Roadmap created for v1.0 Tutor Marketplace (phases 3-6)
 progress:
-  total_phases: 0
+  total_phases: 4
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-06)
 
 **Core value:** A student opens Druip, finds their tutor's classroom, and has everything they need to pass their test in one place.
-**Current focus:** Defining requirements for v1.0 Tutor Marketplace
+**Current focus:** Phase 3 — Tutor Onboarding (next to plan)
 
 ## Current Position
 
-Phase: Not started (defining requirements)
+Phase: Phase 3 (not started)
 Plan: —
-Status: Defining requirements
-Last activity: 2026-04-06 — Milestone v1.0 started
+Status: Roadmap complete, ready for /gsd:plan-phase 3
+Last activity: 2026-04-06 — Roadmap created for v1.0 Tutor Marketplace
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -44,7 +44,10 @@ Progress: [░░░░░░░░░░] 0%
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 3. Tutor Onboarding | TBD | - | - |
+| 4. Classroom Builder | TBD | - | - |
+| 5. Student Discovery and Subscriptions | TBD | - | - |
+| 6. Direct Messaging | TBD | - | - |
 
 ## Accumulated Context
 
@@ -67,12 +70,14 @@ Pivot decisions:
 - Product pivoted from Duolingo quiz engine to Skool-like tutor marketplace
 - First tutor: Sharone at NWU Potchefstroom, R180/month
 - v1.0 is UI-first — payments deferred to v1.1
-- Phase 2 quiz engine work (02-01 through 02-03) deprioritized; data foundation (useStudySessionStore etc.) may be reused or removed
+- Phase 2 quiz engine work (02-01 through 02-03) deprioritized; data foundation may be reused or removed
+- Build approach: UI screens and navigation first, Supabase wiring second
 
 ### Pending Todos
 
 - Confirm email for ofc.johandp@gmail.com (Supabase email confirmation pending)
 - Fix tabs not responding on physical device (lazy: false removed — needs retesting)
+- New Supabase schema needed for marketplace tables (tutors, classrooms, sections, cards, subscriptions, messages)
 
 ### Blockers/Concerns
 
@@ -81,5 +86,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-04-06
-Stopped at: Requirements defined — roadmap creation pending
-Resume: Run /gsd-new-milestone to continue or spawn roadmapper directly
+Stopped at: Roadmap created — Phase 3 ready to plan
+Resume: Run /gsd:plan-phase 3
