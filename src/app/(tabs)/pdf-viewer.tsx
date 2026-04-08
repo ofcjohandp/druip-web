@@ -4,7 +4,7 @@ import { SafeAreaView, ActivityIndicator, View, Text, TouchableOpacity, StyleShe
 import { useLocalSearchParams, router } from 'expo-router';
 import { WebView } from 'react-native-webview';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { COLORS, SPACING } from '@/features/ui/theme';
+import { COLORS, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
 
 export default function PdfViewerScreen() {
   const { url, title } = useLocalSearchParams<{ url: string; title: string }>();
@@ -69,8 +69,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     flex: 1,
-    fontSize: 17,
-    fontWeight: '600',
+    ...TYPOGRAPHY.subheading,
     color: COLORS.text,
     marginLeft: SPACING.sm,
   },
@@ -82,7 +81,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   errorText: {
-    fontSize: 16,
+    ...TYPOGRAPHY.body,
     color: COLORS.textMuted,
     textAlign: 'center',
     marginTop: SPACING.xl,

@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import { COLORS, SPACING, RADII } from '@/features/ui/theme';
+import { COLORS, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
 
 interface MessageBubbleProps {
   content: string;
@@ -28,26 +28,26 @@ export function MessageBubble({ content, createdAt, isCurrentUser }: MessageBubb
 
 const styles = StyleSheet.create({
   bubble: {
-    maxWidth: '75%',
-    paddingVertical: SPACING.sm,
-    paddingHorizontal: SPACING.md,
+    maxWidth: '78%',
+    paddingVertical: SPACING.xs,
+    paddingHorizontal: SPACING.sm,
     marginBottom: SPACING.xs,
+    borderRadius: 16,
   },
   outgoing: {
     alignSelf: 'flex-end',
-    backgroundColor: COLORS.accent,
-    borderRadius: RADII.card,
+    backgroundColor: COLORS.primary,
     borderBottomRightRadius: 4,
   },
   incoming: {
     alignSelf: 'flex-start',
-    backgroundColor: COLORS.surface,
-    borderRadius: RADII.card,
+    backgroundColor: COLORS.card,
     borderBottomLeftRadius: 4,
+    borderWidth: 1,
+    borderColor: COLORS.border,
   },
   text: {
-    fontSize: 16,
-    lineHeight: 24,
+    ...TYPOGRAPHY.body,
   },
   textOutgoing: {
     color: COLORS.textOnAccent,
@@ -56,8 +56,7 @@ const styles = StyleSheet.create({
     color: COLORS.text,
   },
   timestamp: {
-    fontSize: 12,
-    lineHeight: 16,
+    ...TYPOGRAPHY.caption,
     color: COLORS.textMuted,
     marginTop: SPACING.xs,
   },

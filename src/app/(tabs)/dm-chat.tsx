@@ -20,7 +20,7 @@ import { useSendMessage } from '@/features/messaging/useSendMessage';
 import { useTutorUserId } from '@/features/messaging/useTutorUserId';
 import { MessageBubble } from '@/features/messaging/MessageBubble';
 import { ChatInput } from '@/features/messaging/ChatInput';
-import { COLORS, SPACING } from '@/features/ui/theme';
+import { COLORS, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
 
 export default function DmChatScreen() {
   const { classroomId, studentId } = useLocalSearchParams<{
@@ -169,8 +169,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
-    fontSize: 20,
-    fontWeight: '600',
+    ...TYPOGRAPHY.subheading,
     color: COLORS.text,
     marginLeft: SPACING.sm,
   },
@@ -181,19 +180,18 @@ const styles = StyleSheet.create({
     padding: SPACING.lg,
   },
   errorText: {
-    fontSize: 16,
+    ...TYPOGRAPHY.body,
     color: COLORS.textMuted,
     textAlign: 'center',
   },
   emptyHeading: {
-    fontSize: 20,
-    fontWeight: '600',
+    ...TYPOGRAPHY.subheading,
     color: COLORS.text,
     marginBottom: SPACING.sm,
     textAlign: 'center',
   },
   emptyBody: {
-    fontSize: 16,
+    ...TYPOGRAPHY.body,
     color: COLORS.textMuted,
     textAlign: 'center',
   },
