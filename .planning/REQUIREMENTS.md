@@ -48,14 +48,14 @@
 
 ### Student Onboarding
 
-- [ ] **ONBD-01**: After sign-up, student is directed to a multi-step onboarding flow before accessing the marketplace
+- [x] **ONBD-01**: After sign-up, student is directed to a multi-step onboarding flow before accessing the marketplace
 - [ ] **ONBD-02**: Student enters first name, surname, and optionally uploads a profile photo on Screen 1
 - [ ] **ONBD-03**: Student selects their university and campus on Screen 2
 - [ ] **ONBD-04**: Student selects their degree/programme and year of study on Screen 3
-- [ ] **ONBD-05**: Student selects subject tags (multi-select) from a shared tag library on Screen 4 — tags are populated from active tutor classrooms
+- [x] **ONBD-05**: Student selects subject tags (multi-select) from a shared tag library on Screen 4 — tags are populated from active tutor classrooms
 - [ ] **ONBD-06**: Student selects type of help needed (multi-select: understanding, test prep, assignments, etc.) on Screen 5
 - [ ] **ONBD-07**: Student can optionally add an upcoming test date on Screen 6 (skippable)
-- [ ] **ONBD-08**: After completing onboarding, marketplace shows tutors filtered by the student's selected subject tags
+- [x] **ONBD-08**: After completing onboarding, marketplace shows tutors filtered by the student's selected subject tags
 
 ## v2 Requirements
 

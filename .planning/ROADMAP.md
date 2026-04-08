@@ -153,8 +153,8 @@ Plans:
 
 Plans:
 - [x] 06-01-PLAN.md — Schema migration (messages table + RLS), TypeScript types, Wave 0 test stubs, schema push
-- [ ] 06-02-PLAN.md — TanStack Query hooks (useMessages, useSendMessage, useClassroomSubscribers, useTutorUserId) + UI components (MessageBubble, ChatInput, SubscriberRow)
-- [ ] 06-03-PLAN.md — dm-chat screen, route registration, classroom-detail "Message tutor" button, manage-classroom Messages section
+- [x] 06-02-PLAN.md — TanStack Query hooks (useMessages, useSendMessage, useClassroomSubscribers, useTutorUserId) + UI components (MessageBubble, ChatInput, SubscriberRow)
+- [x] 06-03-PLAN.md — dm-chat screen, route registration, classroom-detail "Message tutor" button, manage-classroom Messages section
 
 **UI hint**: yes
 
@@ -181,8 +181,8 @@ Plans:
 **Plans**: 4 plans
 
 Plans:
-- [ ] 07-P00-PLAN.md — Schema migration (subject_tags, classroom_subject_tags, student_profiles, student_subject_tags + RLS + data migration), TypeScript types, Wave 0 test stubs
-- [ ] 07-P01-PLAN.md — TanStack Query hooks (useSubjectTags, useStudentProfile, useUpsertStudentProfile, useStudentSubjectTags), useAuthStore pendingStudentOnboarding flag, useAllClassrooms tag filtering
+- [x] 07-P00-PLAN.md — Schema migration (subject_tags, classroom_subject_tags, student_profiles, student_subject_tags + RLS + data migration), TypeScript types, Wave 0 test stubs
+- [x] 07-P01-PLAN.md — TanStack Query hooks (useSubjectTags, useStudentProfile, useUpsertStudentProfile, useStudentSubjectTags), useAuthStore pendingStudentOnboarding flag, useAllClassrooms tag filtering
 - [ ] 07-P02-PLAN.md — 6 onboarding UI screens, shared components (TagBubbleSelect, OnboardingProgress), auth layout + sign-up redirect + root guard updates
 - [ ] 07-P03-PLAN.md — End-to-end verification checkpoint (all ONBD requirements)
 

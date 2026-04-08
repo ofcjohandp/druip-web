@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 6 COMPLETE — 12/12 must-haves verified
-last_updated: "2026-04-08T15:14:30.265Z"
-last_activity: 2026-04-08 -- Phase 07 execution started
+stopped_at: Completed 07-student-onboarding-P01-PLAN.md
+last_updated: "2026-04-08T15:23:36.021Z"
+last_activity: 2026-04-08
 progress:
   total_phases: 7
   completed_phases: 5
   total_plans: 28
-  completed_plans: 23
-  percent: 82
+  completed_plans: 25
+  percent: 89
 ---
 
 # Project State
@@ -26,9 +26,9 @@ See: .planning/PROJECT.md (updated 2026-04-06)
 ## Current Position
 
 Phase: 07 (student-onboarding) — EXECUTING
-Plan: 2 of 4 (P00 complete)
-Status: Executing Phase 07
-Last activity: 2026-04-08 -- P00 complete: migration + types + Wave 0 test stubs
+Plan: 3 of 4 (P00 complete)
+Status: Ready to execute
+Last activity: 2026-04-08
 
 Progress: [██░░░░░░░░] 25%
 
@@ -56,6 +56,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 05-student-discovery-and-subscriptions PP02 | 52s | 2 tasks | 3 files |
 | Phase 05-student-discovery-and-subscriptions PP03 | 98s | 2 tasks | 3 files |
 | Phase 06-direct-messaging P06-01 | 6min | 3 tasks | 5 files |
+| Phase 07-student-onboarding PP01 | 3 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -101,6 +102,9 @@ Pivot decisions:
 - [Phase 07-P00]: student_profiles uses profiles(id) as PK (1-to-1, mirrors tutors pattern)
 - [Phase 07-P00]: subject_tags shared between tutors and students — single source of truth for tags
 - [Phase 07-P00]: classroom_subject_tags junction replaces classrooms.subjects TEXT[] as source of truth; subjects column retained for backward compatibility
+- [Phase 07-student-onboarding]: useStudentProfile uses maybeSingle() not single() — new users have no student_profiles row; single() throws PGRST116
+- [Phase 07-student-onboarding]: useAllClassrooms tag filtering uses two-step query (fetch classroom_subject_tags IDs then .in()) — avoids ambiguous nested !inner joins with existing tutors!inner
+- [Phase 07-student-onboarding]: pendingStudentOnboarding check runs before setLoading(false) in both getUser path and onAuthStateChange — prevents root guard flash for incomplete-onboarding students
 
 ### Pending Todos
 
@@ -114,6 +118,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-06T22:28:19.682Z
-Stopped at: Phase 6 COMPLETE — 12/12 must-haves verified
+Last session: 2026-04-08T15:23:36.019Z
+Stopped at: Completed 07-student-onboarding-P01-PLAN.md
 Resume: Run /gsd:plan-phase 3
