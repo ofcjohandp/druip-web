@@ -250,7 +250,7 @@ Plans:
 - [x] 09-02-PLAN.md — Shared components: Button (loading/icon/Reanimated), Card (elevated/pressable), Input, Tag, Avatar
 - [x] 09-03-PLAN.md — Auth + onboarding screens: branded headers, shared components, pill progress bar
 - [x] 09-04-PLAN.md — Home/discovery, ClassroomCard redesign, classroom-detail, subscribe-confirm with confetti
-- [ ] 09-05-PLAN.md — Manage-classroom, classroom-settings, DM chat, profile, pdf-viewer, tab bar
+- [x] 09-05-PLAN.md — Manage-classroom, classroom-settings, DM chat, profile, pdf-viewer, tab bar
 - [ ] 09-06-PLAN.md — Final validation: type check, hardcoded color audit, visual checkpoint
 
 **UI hint**: yes
