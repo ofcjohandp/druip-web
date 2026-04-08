@@ -13,7 +13,7 @@ import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
 import { COLORS, SPACING, RADII } from '@/features/ui/theme';
 import { CardTypeOption } from './CardTypeOption';
-import { useCreateTextCard, useCreateLinkCard, useCreateFileCard } from './useClassroomCards';
+import { useCreateTextCard, useCreateLinkCard, useCreateFileCard, useCreateFlashcard } from './useClassroomCards';
 
 interface AddCardBottomSheetProps {
   visible: boolean;
@@ -22,7 +22,7 @@ interface AddCardBottomSheetProps {
   onClose: () => void;
 }
 
-type FormMode = 'text' | 'link' | null;
+type FormMode = 'text' | 'link' | 'flashcard' | null;
 
 export function AddCardBottomSheet({
   visible,
@@ -35,16 +35,21 @@ export function AddCardBottomSheet({
   const [linkUrl, setLinkUrl] = useState('');
   const [linkTitle, setLinkTitle] = useState('');
   const [uploadError, setUploadError] = useState('');
+  const [flashFront, setFlashFront] = useState('');
+  const [flashBack, setFlashBack] = useState('');
 
   const createTextCard = useCreateTextCard(sectionId);
   const createLinkCard = useCreateLinkCard(sectionId);
   const createFileCard = useCreateFileCard(sectionId);
+  const createFlashcard = useCreateFlashcard(sectionId);
 
   function handleClose() {
     setFormMode(null);
     setTextContent('');
     setLinkUrl('');
     setLinkTitle('');
+    setFlashFront('');
+    setFlashBack('');
     setUploadError('');
     onClose();
   }
@@ -54,6 +59,8 @@ export function AddCardBottomSheet({
     setTextContent('');
     setLinkUrl('');
     setLinkTitle('');
+    setFlashFront('');
+    setFlashBack('');
   }
 
   async function handleSaveText() {
@@ -107,8 +114,15 @@ export function AddCardBottomSheet({
     }
   }
 
+  async function handleSaveFlashcard() {
+    if (!flashFront.trim() || !flashBack.trim()) return;
+    await createFlashcard.mutateAsync({ front: flashFront.trim(), back: flashBack.trim() });
+    handleClose();
+  }
+
   const isSavingText = createTextCard.isPending;
   const isSavingLink = createLinkCard.isPending;
+  const isSavingFlash = createFlashcard.isPending;
 
   return (
     <Modal
@@ -196,6 +210,42 @@ export function AddCardBottomSheet({
               <Text style={styles.cancelLinkText}>Cancel</Text>
             </TouchableOpacity>
           </View>
+        ) : formMode === 'flashcard' ? (
+          /* Flashcard form */
+          <View>
+            <TextInput
+              style={styles.linkInput}
+              placeholder="Front (question or term)"
+              placeholderTextColor={COLORS.textMuted}
+              value={flashFront}
+              onChangeText={setFlashFront}
+              autoFocus
+              editable={!isSavingFlash}
+            />
+            <TextInput
+              style={[styles.linkInput, styles.linkTitleInput]}
+              placeholder="Back (answer or definition)"
+              placeholderTextColor={COLORS.textMuted}
+              value={flashBack}
+              onChangeText={setFlashBack}
+              editable={!isSavingFlash}
+            />
+            <TouchableOpacity
+              style={[styles.saveButton, ((!flashFront.trim() || !flashBack.trim()) || isSavingFlash) && styles.saveButtonDisabled]}
+              onPress={handleSaveFlashcard}
+              disabled={!flashFront.trim() || !flashBack.trim() || isSavingFlash}
+              activeOpacity={0.85}
+            >
+              {isSavingFlash ? (
+                <ActivityIndicator size="small" color={COLORS.textOnAccent} />
+              ) : (
+                <Text style={styles.saveButtonText}>Save</Text>
+              )}
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.cancelLink} onPress={handleCancelForm}>
+              <Text style={styles.cancelLinkText}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
         ) : (
           /* Type selection */
           <View>
@@ -204,6 +254,12 @@ export function AddCardBottomSheet({
               title="Text note"
               description="Write a note or tip"
               onPress={() => setFormMode('text')}
+            />
+            <CardTypeOption
+              icon="layers-outline"
+              title="Flashcard"
+              description="Front and back flip card"
+              onPress={() => setFormMode('flashcard')}
             />
             <CardTypeOption
               icon="document-outline"

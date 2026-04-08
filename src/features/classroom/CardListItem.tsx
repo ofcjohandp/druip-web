@@ -22,6 +22,8 @@ function getCardIcon(cardType: string): string {
       return 'image-outline';
     case 'link':
       return 'link-outline';
+    case 'flashcard':
+      return 'layers-outline';
     default:
       return 'document-outline';
   }
@@ -36,6 +38,9 @@ function getCardPreview(card: CardRowWithSignedUrl): string {
     case 'pdf':
     case 'image':
       return card.title ?? '';
+    case 'flashcard':
+      // content = front face; title = back face (repurposed column — show front as preview)
+      return (card.content ?? '').slice(0, 60);
     default:
       return '';
   }
