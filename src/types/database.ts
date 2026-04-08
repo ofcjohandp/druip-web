@@ -6,7 +6,8 @@ export type Json = string | number | boolean | null | { [key: string]: Json | un
 export type LessonType = 'standard' | 'practice' | 'challenge';
 export type DailyGoal = 'chill' | 'steady' | 'focused';
 export type LessonAttemptStatus = 'in_progress' | 'completed';
-export type CardType = 'text' | 'pdf' | 'image' | 'link';
+// RICH-01: 'flashcard' added to match migration 00016_add_flashcard_card_type.sql
+export type CardType = 'text' | 'pdf' | 'image' | 'link' | 'flashcard';
 export type SubscriptionStatus = 'active' | 'cancelled';
 export type HelpType = 'understanding' | 'test-prep' | 'assignments' | 'exam-prep' | 'practical-skills';
 

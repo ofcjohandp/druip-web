@@ -160,6 +160,42 @@ export function useCreateFileCard(sectionId: string) {
 }
 
 /**
+ * Mutation: create a flashcard.
+ * Field mapping (RICH-01): content = front face, title = back face.
+ * storage_path is NULL — flashcards have no file attachment.
+ */
+export function useCreateFlashcard(sectionId: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ front, back }: { front: string; back: string }) => {
+      if (!front.trim() || !back.trim()) throw new Error('front and back are required');
+
+      const cards =
+        queryClient.getQueryData<CardRow[]>(['classroom-cards', sectionId]) ?? [];
+      const sort_order = computeNextSortOrder(cards);
+
+      const { data, error } = await supabase
+        .from('classroom_cards')
+        .insert({
+          section_id: sectionId,
+          card_type: 'flashcard',
+          content: front,   // front face
+          title: back,      // back face (column repurposed — see RESEARCH.md Q3)
+          storage_path: null,
+          sort_order,
+        })
+        .select()
+        .single();
+      if (error) throw error;
+      return data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['classroom-cards', sectionId] });
+    },
+  });
+}
+
+/**
  * Mutation: delete a card with optimistic removal from cache.
  * If card has a storage_path, removes the file from Storage before deleting the DB row.
  */
