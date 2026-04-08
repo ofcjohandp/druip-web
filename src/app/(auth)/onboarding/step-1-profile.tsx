@@ -54,8 +54,7 @@ export default function Step1ProfileScreen() {
         const ext = photoUri.split('.').pop() ?? 'jpg';
         const path = `${userId}/profile.${ext}`;
         const response = await fetch(photoUri);
-        const blob = await response.blob();
-        const arrayBuffer = await blob.arrayBuffer();
+        const arrayBuffer = await response.arrayBuffer();
         const { error: uploadError } = await supabase.storage
           .from('avatars')
           .upload(path, arrayBuffer, { contentType: `image/${ext}`, upsert: true });
