@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: "Phase 7 functionally complete (device test pending). Phase 8 planned — 4 plans ready. Fix: run npm install (expo-file-system missing), then test onboarding on device, then /gsd-execute-phase 8"
-last_updated: "2026-04-08T18:41:00.000Z"
+stopped_at: Completed 08-rich-classroom-content-P00-PLAN.md
+last_updated: "2026-04-08T16:57:57.125Z"
 last_activity: 2026-04-08
 progress:
   total_phases: 8
   completed_phases: 5
   total_plans: 32
-  completed_plans: 26
-  percent: 81
+  completed_plans: 27
+  percent: 84
 ---
 
 # Project State
@@ -21,12 +21,12 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-06)
 
 **Core value:** A student opens Druip, finds their tutor's classroom, and has everything they need to pass their test in one place.
-**Current focus:** Phase 07 — student-onboarding
+**Current focus:** Phase 08 — rich-classroom-content
 
 ## Current Position
 
-Phase: 07 (student-onboarding) — EXECUTING
-Plan: 4 of 4 (P00 complete)
+Phase: 08 (rich-classroom-content) — EXECUTING
+Plan: 2 of 4
 Status: Ready to execute
 Last activity: 2026-04-08
 
@@ -58,6 +58,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 06-direct-messaging P06-01 | 6min | 3 tasks | 5 files |
 | Phase 07-student-onboarding PP01 | 3 | 2 tasks | 6 files |
 | Phase 07-student-onboarding PP02 | 10 | 2 tasks | 14 files |
+| Phase 08-rich-classroom-content PP00 | 5min | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -109,6 +110,8 @@ Pivot decisions:
 - [Phase 07-student-onboarding]: TagBubbleSelect is shared between step-4-subjects (DB tags) and step-5-help-type (hardcoded) via unified {id,label} interface
 - [Phase 07-student-onboarding]: Root guard pendingStudentOnboarding check uses !inAuth to prevent redirect loop inside onboarding flow
 - [Phase 07-student-onboarding]: step-6-test-date sets both onboarding_complete:true (DB) and setPendingStudentOnboarding(false) (Zustand) before router.replace tabs
+- [Phase 08-P00]: Plain literal CardType union replaces conditional mapped type — stays correct until supabase gen types is re-run post-migration
+- [Phase 08-P00]: babel.config.js left unchanged — babel-preset-expo handles reanimated plugin automatically in SDK 54, manual addition causes duplicate plugin crash
 
 ### Pending Todos
 
@@ -122,6 +125,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-08T15:29:21.995Z
-Stopped at: Completed 07-student-onboarding-P02-PLAN.md
+Last session: 2026-04-08T16:57:57.122Z
+Stopped at: Completed 08-rich-classroom-content-P00-PLAN.md
 Resume: Run /gsd:plan-phase 3
