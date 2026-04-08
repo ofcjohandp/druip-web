@@ -5,4 +5,5 @@ describe('useClassroomCards', () => {
   it.todo('CARD-03: useCreateFileCard handles image upload with correct mimeType');
   it.todo('CARD-05: useDeleteCard removes card with optimistic rollback');
   it.todo('CARD-05: useDeleteCard removes storage file before deleting DB row');
+  it.todo('FLASH-01: useCreateFlashcard inserts with card_type flashcard, content=front, title=back');
 });

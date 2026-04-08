@@ -4,9 +4,9 @@ import type { Database } from '@/types/database';
 import { uploadClassroomFile, getSignedUrl } from './uploadClassroomFile';
 
 type CardRow = Database['public']['Tables']['classroom_cards']['Row'];
-type CardType = Database['public']['Enums']['lesson_type'] extends never
-  ? 'text' | 'pdf' | 'image' | 'link'
-  : 'text' | 'pdf' | 'image' | 'link';
+// RICH-01, RICH-03: plain literal union (replaces conditional mapped type)
+// Update this when supabase gen types is re-run post-migration
+type CardType = 'text' | 'pdf' | 'image' | 'link' | 'flashcard';
 
 type CardRowWithSignedUrl = CardRow & { signedUrl?: string };
 
