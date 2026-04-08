@@ -2,18 +2,18 @@ import { useState, useEffect } from 'react';
 import {
   View,
   Text,
-  TextInput,
   StyleSheet,
   SafeAreaView,
   KeyboardAvoidingView,
   ScrollView,
-  TouchableOpacity,
-  ActivityIndicator,
   Platform,
 } from 'react-native';
 import { router } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { COLORS, SPACING, RADII } from '@/features/ui/theme';
+import { Pressable } from 'react-native';
+import { COLORS, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
+import { Input } from '@/features/ui/Input';
+import { Button } from '@/features/ui/Button';
 import { SubjectTagInput } from '@/features/tutor/SubjectTagInput';
 import { useClassroom } from '@/features/tutor/useClassroom';
 import { useUpdateClassroom } from '@/features/tutor/useUpdateClassroom';
@@ -68,19 +68,22 @@ export default function ClassroomSettingsScreen() {
         >
           {/* Header */}
           <View style={styles.header}>
-            <TouchableOpacity onPress={() => router.back()} style={styles.backButton} activeOpacity={0.7}>
+            <Pressable
+              onPress={() => router.back()}
+              style={styles.backButton}
+              accessibilityLabel="Go back"
+              accessibilityRole="button"
+            >
               <Ionicons name="arrow-back" size={24} color={COLORS.text} />
-            </TouchableOpacity>
+            </Pressable>
             <Text style={styles.headerTitle}>Classroom settings</Text>
           </View>
 
           {/* Classroom name */}
           <View style={styles.fieldGroup}>
-            <Text style={styles.label}>Classroom name</Text>
-            <TextInput
-              style={styles.input}
+            <Input
+              label="Classroom name"
               placeholder="e.g. Physio Year 2 — Cardiopulmonary"
-              placeholderTextColor={COLORS.textMuted}
               value={name}
               onChangeText={setName}
               autoCapitalize="words"
@@ -95,15 +98,13 @@ export default function ClassroomSettingsScreen() {
 
           {/* Bio */}
           <View style={styles.fieldGroup}>
-            <Text style={styles.label}>Bio (optional)</Text>
-            <TextInput
-              style={[styles.input, styles.bioInput]}
+            <Input
+              label="Bio (optional)"
               placeholder="Tell students what you cover and how you teach"
-              placeholderTextColor={COLORS.textMuted}
               value={bio}
               onChangeText={setBio}
               multiline
-              textAlignVertical="top"
+              numberOfLines={4}
             />
           </View>
 
@@ -112,14 +113,14 @@ export default function ClassroomSettingsScreen() {
             <Text style={styles.label}>Monthly price</Text>
             <View style={styles.priceRow}>
               <Text style={styles.currencyPrefix}>R</Text>
-              <TextInput
-                style={[styles.input, styles.priceInput]}
-                placeholder="180"
-                placeholderTextColor={COLORS.textMuted}
-                value={price}
-                onChangeText={setPrice}
-                keyboardType="numeric"
-              />
+              <View style={styles.priceInputWrapper}>
+                <Input
+                  placeholder="180"
+                  value={price}
+                  onChangeText={setPrice}
+                  keyboardType="numeric"
+                />
+              </View>
             </View>
           </View>
 
@@ -127,18 +128,14 @@ export default function ClassroomSettingsScreen() {
           {!!error && <Text style={styles.errorText}>{error}</Text>}
 
           {/* CTA */}
-          <TouchableOpacity
-            style={[styles.ctaButton, (isDisabled || updateClassroom.isPending) && styles.ctaDisabled]}
+          <Button
+            title="Save changes"
+            variant="primary"
             onPress={handleSave}
-            disabled={isDisabled || updateClassroom.isPending}
-            activeOpacity={0.85}
-          >
-            {updateClassroom.isPending ? (
-              <ActivityIndicator size="small" color={COLORS.textOnAccent} />
-            ) : (
-              <Text style={styles.ctaText}>Save changes</Text>
-            )}
-          </TouchableOpacity>
+            disabled={isDisabled}
+            loading={updateClassroom.isPending}
+            style={styles.ctaButton}
+          />
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -155,35 +152,34 @@ const styles = StyleSheet.create({
     marginBottom: SPACING.lg,
   },
   backButton: {
+    minWidth: 44,
+    minHeight: 44,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
     marginRight: SPACING.sm,
-    padding: SPACING.xs,
   },
-  headerTitle: { fontSize: 20, fontWeight: '600', color: COLORS.text },
-  fieldGroup: { marginBottom: SPACING.lg },
-  label: { fontSize: 14, color: COLORS.textMuted, marginBottom: SPACING.xs },
-  input: {
-    backgroundColor: COLORS.surface,
-    padding: SPACING.md,
-    borderRadius: RADII.button,
-    borderWidth: 1,
-    borderColor: COLORS.border,
-    fontSize: 16,
+  headerTitle: {
+    ...TYPOGRAPHY.subheading,
     color: COLORS.text,
   },
-  bioInput: { minHeight: 96 },
+  fieldGroup: { marginBottom: SPACING.lg },
+  label: {
+    ...TYPOGRAPHY.bodySmall,
+    color: COLORS.textMuted,
+    marginBottom: SPACING.xs,
+  },
   priceRow: { flexDirection: 'row', alignItems: 'center', gap: SPACING.xs },
-  currencyPrefix: { fontSize: 16, color: COLORS.textMuted },
-  priceInput: { flex: 1 },
-  errorText: { fontSize: 14, color: COLORS.error, marginBottom: SPACING.md },
+  currencyPrefix: {
+    ...TYPOGRAPHY.body,
+    color: COLORS.textMuted,
+  },
+  priceInputWrapper: { flex: 1 },
+  errorText: {
+    ...TYPOGRAPHY.bodySmall,
+    color: COLORS.error,
+    marginBottom: SPACING.md,
+  },
   ctaButton: {
-    backgroundColor: COLORS.accent,
-    borderRadius: RADII.button,
-    padding: SPACING.md,
-    alignItems: 'center',
-    minHeight: 48,
-    justifyContent: 'center',
     marginTop: SPACING.xs,
   },
-  ctaDisabled: { opacity: 0.6 },
-  ctaText: { fontSize: 16, fontWeight: '600', color: COLORS.textOnAccent },
 });

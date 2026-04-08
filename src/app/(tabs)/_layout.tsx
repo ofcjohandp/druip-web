@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { COLORS } from '@/features/ui/theme';
+import { COLORS, TYPOGRAPHY } from '@/features/ui/theme';
 
 type IoniconName = React.ComponentProps<typeof Ionicons>['name'];
 
@@ -12,12 +12,16 @@ export default function TabsLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: COLORS.accent,       // D-16: accent color for active state
+        tabBarActiveTintColor: COLORS.accent,
         tabBarInactiveTintColor: COLORS.textMuted,
         tabBarStyle: {
-          backgroundColor: COLORS.background,
+          backgroundColor: COLORS.card,
           borderTopColor: COLORS.border,
           borderTopWidth: 1,
+        },
+        tabBarLabelStyle: {
+          fontSize: TYPOGRAPHY.caption.fontSize,
+          fontWeight: '500',
         },
         headerShown: false,
       }}
@@ -84,6 +88,14 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="dm-chat"
         options={{ title: 'Messages', href: null }}
+      />
+      <Tabs.Screen
+        name="pdf-viewer"
+        options={{ title: 'PDF', href: null }}
+      />
+      <Tabs.Screen
+        name="manage-classroom"
+        options={{ title: 'Manage Classroom', href: null }}
       />
     </Tabs>
   );

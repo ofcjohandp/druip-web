@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { router } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { COLORS, SPACING, RADII } from '@/features/ui/theme';
+import { COLORS, SPACING, RADII, TYPOGRAPHY } from '@/features/ui/theme';
 import { Button } from '@/features/ui/Button';
 import { useClassroom } from '@/features/tutor/useClassroom';
 import {
@@ -310,8 +310,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     flex: 1,
-    fontSize: 20,
-    fontWeight: '600',
+    ...TYPOGRAPHY.subheading,
     color: COLORS.text,
     textAlign: 'center',
   },
@@ -328,7 +327,7 @@ const styles = StyleSheet.create({
     padding: SPACING.lg,
   },
   errorText: {
-    fontSize: 16,
+    ...TYPOGRAPHY.body,
     color: COLORS.textMuted,
     textAlign: 'center',
     marginBottom: SPACING.md,
@@ -353,14 +352,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: SPACING.lg,
   },
   emptyHeading: {
-    fontSize: 20,
-    fontWeight: '600',
+    ...TYPOGRAPHY.subheading,
     color: COLORS.text,
     marginBottom: SPACING.sm,
     textAlign: 'center',
   },
   emptyBody: {
-    fontSize: 16,
+    ...TYPOGRAPHY.body,
     color: COLORS.textMuted,
     textAlign: 'center',
     marginBottom: SPACING.lg,
@@ -404,13 +402,13 @@ const styles = StyleSheet.create({
     marginTop: SPACING.lg,
   },
   messagesHeading: {
-    fontSize: 14,
+    ...TYPOGRAPHY.bodySmall,
     fontWeight: '600',
     color: COLORS.textMuted,
     marginBottom: SPACING.sm,
   },
   messagesEmpty: {
-    fontSize: 14,
+    ...TYPOGRAPHY.bodySmall,
     color: COLORS.textMuted,
   },
 });
