@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 07-student-onboarding-P01-PLAN.md
-last_updated: "2026-04-08T15:23:36.021Z"
+stopped_at: Completed 07-student-onboarding-P02-PLAN.md
+last_updated: "2026-04-08T15:29:21.997Z"
 last_activity: 2026-04-08
 progress:
   total_phases: 7
   completed_phases: 5
   total_plans: 28
-  completed_plans: 25
-  percent: 89
+  completed_plans: 26
+  percent: 93
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-06)
 ## Current Position
 
 Phase: 07 (student-onboarding) — EXECUTING
-Plan: 3 of 4 (P00 complete)
+Plan: 4 of 4 (P00 complete)
 Status: Ready to execute
 Last activity: 2026-04-08
 
@@ -57,6 +57,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 05-student-discovery-and-subscriptions PP03 | 98s | 2 tasks | 3 files |
 | Phase 06-direct-messaging P06-01 | 6min | 3 tasks | 5 files |
 | Phase 07-student-onboarding PP01 | 3 | 2 tasks | 6 files |
+| Phase 07-student-onboarding PP02 | 10 | 2 tasks | 14 files |
 
 ## Accumulated Context
 
@@ -105,6 +106,9 @@ Pivot decisions:
 - [Phase 07-student-onboarding]: useStudentProfile uses maybeSingle() not single() — new users have no student_profiles row; single() throws PGRST116
 - [Phase 07-student-onboarding]: useAllClassrooms tag filtering uses two-step query (fetch classroom_subject_tags IDs then .in()) — avoids ambiguous nested !inner joins with existing tutors!inner
 - [Phase 07-student-onboarding]: pendingStudentOnboarding check runs before setLoading(false) in both getUser path and onAuthStateChange — prevents root guard flash for incomplete-onboarding students
+- [Phase 07-student-onboarding]: TagBubbleSelect is shared between step-4-subjects (DB tags) and step-5-help-type (hardcoded) via unified {id,label} interface
+- [Phase 07-student-onboarding]: Root guard pendingStudentOnboarding check uses !inAuth to prevent redirect loop inside onboarding flow
+- [Phase 07-student-onboarding]: step-6-test-date sets both onboarding_complete:true (DB) and setPendingStudentOnboarding(false) (Zustand) before router.replace tabs
 
 ### Pending Todos
 
@@ -118,6 +122,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-08T15:23:36.019Z
-Stopped at: Completed 07-student-onboarding-P01-PLAN.md
+Last session: 2026-04-08T15:29:21.995Z
+Stopped at: Completed 07-student-onboarding-P02-PLAN.md
 Resume: Run /gsd:plan-phase 3

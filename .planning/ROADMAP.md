@@ -183,7 +183,7 @@ Plans:
 Plans:
 - [x] 07-P00-PLAN.md — Schema migration (subject_tags, classroom_subject_tags, student_profiles, student_subject_tags + RLS + data migration), TypeScript types, Wave 0 test stubs
 - [x] 07-P01-PLAN.md — TanStack Query hooks (useSubjectTags, useStudentProfile, useUpsertStudentProfile, useStudentSubjectTags), useAuthStore pendingStudentOnboarding flag, useAllClassrooms tag filtering
-- [ ] 07-P02-PLAN.md — 6 onboarding UI screens, shared components (TagBubbleSelect, OnboardingProgress), auth layout + sign-up redirect + root guard updates
+- [x] 07-P02-PLAN.md — 6 onboarding UI screens, shared components (TagBubbleSelect, OnboardingProgress), auth layout + sign-up redirect + root guard updates
 - [ ] 07-P03-PLAN.md — End-to-end verification checkpoint (all ONBD requirements)
 
 **UI hint**: yes
@@ -200,7 +200,7 @@ Plans:
 | 4. Classroom Builder | 4/4 | Complete | 2026-04-06 |
 | 5. Student Discovery and Subscriptions | 3/5 | In Progress|  |
 | 6. Direct Messaging | 0/3 | Planned | - |
-| 7. Student Onboarding | 0/4 | Planned | - |
+| 7. Student Onboarding | 3/4 | In Progress|  |
 
 ---
 
