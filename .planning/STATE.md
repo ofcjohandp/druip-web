@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Phase 9 context gathered (assumptions mode)
-last_updated: "2026-04-08T18:45:15.594Z"
-last_activity: 2026-04-08 -- Phase 08 execution started
+stopped_at: Completed 09-01-PLAN.md
+last_updated: "2026-04-08T19:29:14.469Z"
+last_activity: 2026-04-08
 progress:
   total_phases: 9
   completed_phases: 6
-  total_plans: 32
-  completed_plans: 30
-  percent: 94
+  total_plans: 38
+  completed_plans: 31
+  percent: 82
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-06)
 
 **Core value:** A student opens Druip, finds their tutor's classroom, and has everything they need to pass their test in one place.
-**Current focus:** Phase 08 — rich-classroom-content
+**Current focus:** Phase 09 — ui-overhaul
 
 ## Current Position
 
-Phase: 08 (rich-classroom-content) — EXECUTING
-Plan: 1 of 4
-Status: Executing Phase 08
-Last activity: 2026-04-08 -- Phase 08 execution started
+Phase: 09 (ui-overhaul) — EXECUTING
+Plan: 2 of 6
+Status: Ready to execute
+Last activity: 2026-04-08
 
 Progress: [██░░░░░░░░] 25%
 
@@ -61,6 +61,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 08-rich-classroom-content PP00 | 5min | 2 tasks | 7 files |
 | Phase 08-rich-classroom-content PP01 | 8min | 2 tasks | 5 files |
 | Phase 08-rich-classroom-content PP02 | 2min | 2 tasks | 6 files |
+| Phase 09-ui-overhaul P01 | 4min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -119,6 +120,8 @@ Pivot decisions:
 - [Phase 08-P02]: { perspective: 1000 } first in both Reanimated transforms — Android safety
 - [Phase 08-P02]: isFlipped toggled in onPress only, never inside useAnimatedStyle — prevents infinite render loop
 - [Phase 08-P02]: decodeURIComponent applied to url param in pdf-viewer before WebView — prevents 404 from double-encoding
+- [Phase 09-ui-overhaul]: TYPOGRAPHY tokens used as array styles [TYPOGRAPHY.display, {color}] — not spread in StyleSheet.create
+- [Phase 09-ui-overhaul]: Font gate merged with auth gate: single SplashScreen.hideAsync() gated by fontsLoaded && !isLoading
 
 ### Pending Todos
 
@@ -136,6 +139,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-08T18:45:15.590Z
-Stopped at: Phase 9 context gathered (assumptions mode)
+Last session: 2026-04-08T19:29:14.466Z
+Stopped at: Completed 09-01-PLAN.md
 Resume: /gsd-plan-phase 9

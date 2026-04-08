@@ -246,7 +246,7 @@ Plans:
 **Plans**: 6 plans
 
 Plans:
-- [ ] 09-01-PLAN.md — Design system foundation: font install, theme.ts tokens (COLORS + TYPOGRAPHY), font loading gate
+- [x] 09-01-PLAN.md — Design system foundation: font install, theme.ts tokens (COLORS + TYPOGRAPHY), font loading gate
 - [ ] 09-02-PLAN.md — Shared components: Button (loading/icon/Reanimated), Card (elevated/pressable), Input, Tag, Avatar
 - [ ] 09-03-PLAN.md — Auth + onboarding screens: branded headers, shared components, pill progress bar
 - [ ] 09-04-PLAN.md — Home/discovery, ClassroomCard redesign, classroom-detail, subscribe-confirm with confetti
