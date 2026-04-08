@@ -202,7 +202,7 @@ Plans:
 | 5. Student Discovery and Subscriptions | 3/5 | In Progress|  |
 | 6. Direct Messaging | 0/3 | Planned | - |
 | 7. Student Onboarding | 3/4 | In Progress|  |
-| 8. Rich Classroom Content | 1/4 | In Progress|  |
+| 8. Rich Classroom Content | 2/4 | In Progress|  |
 
 ---
 
