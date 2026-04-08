@@ -2,7 +2,7 @@
 
 **Milestone:** v1.0 — Tutor Marketplace
 **Target:** Tutors can create classrooms; students can discover, subscribe (UI), and message tutors
-**Phases:** 7 (1 complete, 2 deprioritized, 3-7 active)
+**Phases:** 8 (1 complete, 2 deprioritized, 3-8 active)
 
 ---
 
@@ -15,6 +15,7 @@
 - [ ] **Phase 5: Student Discovery and Subscriptions** — Browse classrooms, detail page, locked preview, subscribe CTA, subscribed classroom list
 - [ ] **Phase 6: Direct Messaging** — 1-on-1 DM between subscribed student and tutor
 - [ ] **Phase 7: Student Onboarding** — Post-signup profile setup: details, university, degree, subject tags, help type, upcoming test
+- [ ] **Phase 8: Rich Classroom Content** — Flashcards, PDF upload/viewer, multiple card types so tutors have creative freedom to build their own classroom
 
 ---
 
@@ -201,6 +202,28 @@ Plans:
 | 5. Student Discovery and Subscriptions | 3/5 | In Progress|  |
 | 6. Direct Messaging | 0/3 | Planned | - |
 | 7. Student Onboarding | 3/4 | In Progress|  |
+| 8. Rich Classroom Content | 0/0 | Planned | - |
+
+---
+
+### Phase 8: Rich Classroom Content
+
+**Goal:** A tutor can add flashcards, PDFs, and rich content cards to their classroom — giving them creative freedom to build engaging, structured study material that students can consume in-app.
+
+**Depends on:** Phase 4
+
+**Requirements:** RICH-01, RICH-02, RICH-03, RICH-04, RICH-05
+
+**Success Criteria** (what must be TRUE):
+  1. A tutor can add a flashcard (front/back) to any section — students can flip it in-app
+  2. A tutor can upload a PDF to any section — students can view it in-app with page navigation
+  3. The add-card flow lets tutors choose a card type (text note, flashcard, PDF) before creating
+  4. Students browsing a subscribed classroom see all card types rendered correctly
+  5. A tutor can delete any card type; the section updates immediately
+
+**Plans**: TBD
+
+**UI hint**: yes
 
 ---
 
