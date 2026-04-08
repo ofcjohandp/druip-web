@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 08-rich-classroom-content-P01-PLAN.md
-last_updated: "2026-04-08T17:07:35.538Z"
+stopped_at: Completed 08-rich-classroom-content-P02-PLAN.md
+last_updated: "2026-04-08T17:11:27.880Z"
 last_activity: 2026-04-08
 progress:
   total_phases: 8
   completed_phases: 5
   total_plans: 32
-  completed_plans: 28
-  percent: 88
+  completed_plans: 29
+  percent: 91
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-06)
 ## Current Position
 
 Phase: 08 (rich-classroom-content) — EXECUTING
-Plan: 3 of 4
+Plan: 4 of 4
 Status: Ready to execute
 Last activity: 2026-04-08
 
@@ -60,6 +60,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 07-student-onboarding PP02 | 10 | 2 tasks | 14 files |
 | Phase 08-rich-classroom-content PP00 | 5min | 2 tasks | 7 files |
 | Phase 08-rich-classroom-content PP01 | 8min | 2 tasks | 5 files |
+| Phase 08-rich-classroom-content PP02 | 2min | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -115,6 +116,9 @@ Pivot decisions:
 - [Phase 08-P00]: babel.config.js left unchanged — babel-preset-expo handles reanimated plugin automatically in SDK 54, manual addition causes duplicate plugin crash
 - [Phase 08-P01]: content column maps to flashcard front face; title column repurposed as back face — intentional column reuse, no migration needed
 - [Phase 08-P01]: CardListItem preview shows card.content (front face) for flashcard cards to avoid leaking the answer in the tutor list
+- [Phase 08-P02]: { perspective: 1000 } first in both Reanimated transforms — Android safety
+- [Phase 08-P02]: isFlipped toggled in onPress only, never inside useAnimatedStyle — prevents infinite render loop
+- [Phase 08-P02]: decodeURIComponent applied to url param in pdf-viewer before WebView — prevents 404 from double-encoding
 
 ### Pending Todos
 
@@ -128,6 +132,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-08T17:07:35.536Z
-Stopped at: Completed 08-rich-classroom-content-P01-PLAN.md
+Last session: 2026-04-08T17:11:27.877Z
+Stopped at: Completed 08-rich-classroom-content-P02-PLAN.md
 Resume: Run /gsd:plan-phase 3
