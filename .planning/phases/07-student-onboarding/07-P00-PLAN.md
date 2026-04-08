@@ -5,7 +5,7 @@ type: execute
 wave: 0
 depends_on: []
 files_modified:
-  - supabase/migrations/00012_student_onboarding.sql
+  - supabase/migrations/00013_student_onboarding.sql
   - src/types/database.ts
   - src/features/onboarding/__tests__/useStudentProfile.test.ts
   - src/features/onboarding/__tests__/useSubjectTags.test.ts
@@ -29,7 +29,7 @@ must_haves:
     - "TypeScript types for all four new tables exist in database.ts"
     - "Wave 0 test stub files exist and npx jest recognises them as valid test suites"
   artifacts:
-    - path: "supabase/migrations/00012_student_onboarding.sql"
+    - path: "supabase/migrations/00013_student_onboarding.sql"
       provides: "4 new tables + RLS + data migration from classrooms.subjects"
       contains: "CREATE TABLE subject_tags"
     - path: "src/types/database.ts"
@@ -42,7 +42,7 @@ must_haves:
       provides: "Wave 0 test stubs for subject tags hook"
       contains: "it.todo"
   key_links:
-    - from: "supabase/migrations/00012_student_onboarding.sql"
+    - from: "supabase/migrations/00013_student_onboarding.sql"
       to: "Supabase remote database"
       via: "supabase db push"
       pattern: "student_profiles"
@@ -103,15 +103,15 @@ describe('useCreateClassroom', () => {
 <tasks>
 
 <task type="auto">
-  <name>Task 1: Write and push migration 00012_student_onboarding.sql</name>
-  <files>supabase/migrations/00012_student_onboarding.sql</files>
+  <name>Task 1: Write and push migration 00013_student_onboarding.sql</name>
+  <files>supabase/migrations/00013_student_onboarding.sql</files>
   <read_first>
     - supabase/migrations/00005_tutor_tables.sql -- RLS pattern with (SELECT auth.uid()) and FK to profiles(id)
     - supabase/migrations/00006_classroom_sections_cards.sql -- junction table and CHECK constraint patterns
     - supabase/migrations/00007_subscriptions.sql -- latest RLS policy style reference
   </read_first>
   <action>
-Create `supabase/migrations/00012_student_onboarding.sql` with EXACTLY this content:
+Create `supabase/migrations/00013_student_onboarding.sql` with EXACTLY this content:
 
 ```sql
 -- Phase 7: Student Onboarding (ONBD-01 through ONBD-08)
@@ -235,13 +235,13 @@ If `supabase db push` fails or prompts interactively, flag for manual push.
 IMPORTANT: The migration must run in order. Confirm the migration number 00012 does not conflict with existing files in supabase/migrations/.
   </action>
   <verify>
-    <automated>grep -c "CREATE TABLE subject_tags" "/Users/johanduplessis/Desktop/Claude Code/Druip/supabase/migrations/00012_student_onboarding.sql" && grep -c "CREATE TABLE student_profiles" "/Users/johanduplessis/Desktop/Claude Code/Druip/supabase/migrations/00012_student_onboarding.sql"</automated>
+    <automated>grep -c "CREATE TABLE subject_tags" "/Users/johanduplessis/Desktop/Claude Code/Druip/supabase/migrations/00013_student_onboarding.sql" && grep -c "CREATE TABLE student_profiles" "/Users/johanduplessis/Desktop/Claude Code/Druip/supabase/migrations/00013_student_onboarding.sql"</automated>
     Expect output: 1 and 1
 
     After db push: `supabase db push` exits 0 with no error output.
   </verify>
   <done>
-    - File exists at supabase/migrations/00012_student_onboarding.sql
+    - File exists at supabase/migrations/00013_student_onboarding.sql
     - Contains CREATE TABLE for subject_tags, classroom_subject_tags, student_profiles, student_subject_tags
     - Contains RLS policies for all 4 tables
     - Contains data migration from classrooms.subjects into subject_tags + classroom_subject_tags
@@ -432,7 +432,7 @@ Create the `src/features/onboarding/__tests__/` directory if it does not exist.
 
 <verification>
 After both tasks:
-1. `supabase/migrations/00012_student_onboarding.sql` exists with 4 CREATE TABLE statements
+1. `supabase/migrations/00013_student_onboarding.sql` exists with 4 CREATE TABLE statements
 2. `supabase db push` completed successfully
 3. `grep "student_profiles" src/types/database.ts` returns matches
 4. `npx jest --testPathPattern="features/(onboarding|student)"` exits 0

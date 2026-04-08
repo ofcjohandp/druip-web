@@ -70,7 +70,7 @@ Expect: No errors. If tsc is not configured, skip.
 
 **3. Verify migration file exists and has all 4 tables:**
 ```bash
-grep -c "CREATE TABLE" supabase/migrations/00012_student_onboarding.sql
+grep -c "CREATE TABLE" supabase/migrations/00013_student_onboarding.sql
 ```
 Expect: 4
 

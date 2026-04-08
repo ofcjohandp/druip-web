@@ -371,6 +371,8 @@ The full flow should be:
 4. Set pendingStudentOnboarding if needed
 5. THEN setLoading(false) in .finally()
 
+ALSO update the `onAuthStateChange` handler: when it fires with a valid user on `SIGNED_IN`, it must NOT call `setLoading(false)` immediately. Instead it should run the same is_tutor → student_profiles check before calling `setLoading(false)`. This covers the returning-user cold-start path. Without this, `isLoading` becomes false before `pendingStudentOnboarding` is resolved, causing a race condition in the root guard for returning students.
+
 **2. Update src/features/student/useAllClassrooms.ts**
 
 Add an optional `tagIds` parameter for tag-based filtering (ONBD-08). When tagIds are provided and non-empty, filter classrooms via the classroom_subject_tags junction.

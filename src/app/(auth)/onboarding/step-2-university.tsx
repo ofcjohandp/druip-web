@@ -48,7 +48,7 @@ export default function Step2UniversityScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <OnboardingProgress currentStep={2} totalSteps={6} />
+        <OnboardingProgress currentStep={2} totalSteps={5} />
         <Text style={styles.title}>Your university</Text>
         <Text style={styles.subtitle}>Select your university and campus</Text>
       </View>

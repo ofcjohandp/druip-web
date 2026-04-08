@@ -12,13 +12,13 @@ export default function LandingScreen() {
       <View style={styles.ctaContainer}>
         <TouchableOpacity
           style={styles.ctaButton}
-          onPress={() => router.push('/sample-lesson')}
+          onPress={() => router.push('/(auth)/sign-in')}
           activeOpacity={0.8}
         >
-          <Text style={styles.ctaText}>Try a lesson</Text>
+          <Text style={styles.ctaText}>Sign in</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.signInLink} onPress={() => router.push('/(auth)/sign-in')}>
-          <Text style={styles.signInText}>I already have an account</Text>
+        <TouchableOpacity style={styles.signUpLink} onPress={() => router.push('/(auth)/sign-up')}>
+          <Text style={styles.signUpText}>Don't have an account? Sign up</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -39,6 +39,6 @@ const styles = StyleSheet.create({
     minHeight: 48,
   },
   ctaText: { color: COLORS.textOnAccent, fontSize: 18, fontWeight: '600' },
-  signInLink: { marginTop: SPACING.md, alignItems: 'center' },
-  signInText: { color: COLORS.textMuted, fontSize: 14 },
+  signUpLink: { marginTop: SPACING.md, alignItems: 'center' },
+  signUpText: { color: COLORS.textMuted, fontSize: 14 },
 });

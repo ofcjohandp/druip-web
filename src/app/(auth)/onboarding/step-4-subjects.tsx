@@ -45,7 +45,7 @@ export default function Step4SubjectsScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <OnboardingProgress currentStep={4} totalSteps={6} />
+        <OnboardingProgress currentStep={4} totalSteps={5} />
         <Text style={styles.title}>Which subjects?</Text>
         <Text style={styles.subtitle}>Select the subjects you need help with</Text>
       </View>

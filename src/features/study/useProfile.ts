@@ -7,7 +7,7 @@ export function useProfile(userId: string | undefined) {
     queryFn: async () => {
       const { data } = await supabase
         .from('profiles')
-        .select('streak_count, total_xp')
+        .select('streak_count, total_xp, is_tutor')
         .eq('id', userId!)
         .single()
         .throwOnError();

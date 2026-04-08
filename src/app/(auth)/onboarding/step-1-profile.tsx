@@ -82,7 +82,7 @@ export default function Step1ProfileScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView style={styles.content} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <OnboardingProgress currentStep={1} totalSteps={6} />
+        <OnboardingProgress currentStep={1} totalSteps={5} />
         <Text style={styles.title}>What's your name?</Text>
         <Text style={styles.subtitle}>This is how other students will see you</Text>
 
