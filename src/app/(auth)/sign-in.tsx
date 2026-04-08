@@ -2,7 +2,6 @@ import { useState } from 'react';
 import {
   View,
   Text,
-  TextInput,
   TouchableOpacity,
   StyleSheet,
   SafeAreaView,
@@ -12,7 +11,9 @@ import {
 import { router } from 'expo-router';
 import { supabase } from '@/lib/supabase';
 import { useAuthStore } from '@/features/auth/useAuthStore';
-import { COLORS, RADII, SPACING } from '@/features/ui/theme';
+import { Input } from '@/features/ui/Input';
+import { Button } from '@/features/ui/Button';
+import { COLORS, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
 
 export default function SignInScreen() {
   const [email, setEmail] = useState('');
@@ -38,43 +39,51 @@ export default function SignInScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.heroZone}>
+        <Text style={[TYPOGRAPHY.display, { color: COLORS.textOnAccent }]}>Druip</Text>
+        <Text style={[TYPOGRAPHY.body, { color: COLORS.textOnAccent, opacity: 0.85, marginTop: SPACING.xs }]}>
+          Learn from the best
+        </Text>
+      </View>
+
       <KeyboardAvoidingView style={styles.content} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         {!isOnline && (
           <View style={styles.offlineBanner}>
-            <Text style={styles.offlineText}>You are offline. Sign in requires an internet connection.</Text>
+            <Text style={[TYPOGRAPHY.bodySmall, { color: COLORS.primary }]}>
+              You are offline. Sign in requires an internet connection.
+            </Text>
           </View>
         )}
-        <Text style={styles.title}>Welcome back</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          placeholderTextColor={COLORS.textMuted}
+        <Text style={[TYPOGRAPHY.heading, { color: COLORS.text, marginBottom: SPACING.xl }]}>Welcome back</Text>
+        <Input
+          label="Email"
           value={email}
           onChangeText={setEmail}
+          placeholder="Email"
           keyboardType="email-address"
           autoCapitalize="none"
           autoComplete="email"
         />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          placeholderTextColor={COLORS.textMuted}
+        <Input
+          label="Password"
           value={password}
           onChangeText={setPassword}
+          placeholder="Password"
           secureTextEntry
           autoComplete="password"
         />
-        {error && <Text style={styles.errorText}>{error}</Text>}
-        <TouchableOpacity
-          style={[styles.button, loading && styles.buttonDisabled]}
+        {error && (
+          <Text style={[TYPOGRAPHY.bodySmall, { color: COLORS.error, marginBottom: SPACING.sm }]}>{error}</Text>
+        )}
+        <Button
+          title="Sign in"
           onPress={handleSignIn}
-          disabled={loading || !isOnline}
-          activeOpacity={0.8}
-        >
-          <Text style={styles.buttonText}>{loading ? 'Signing in...' : 'Sign in'}</Text>
-        </TouchableOpacity>
+          loading={loading}
+          disabled={!isOnline}
+          style={{ marginTop: SPACING.sm }}
+        />
         <TouchableOpacity style={styles.link} onPress={() => router.push('/(auth)/sign-up')}>
-          <Text style={styles.linkText}>Don't have an account? Sign up</Text>
+          <Text style={[TYPOGRAPHY.bodySmall, { color: COLORS.textMuted }]}>Don't have an account? Sign up</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -83,36 +92,20 @@ export default function SignInScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
+  heroZone: {
+    backgroundColor: COLORS.primary,
+    paddingTop: 60,
+    paddingBottom: SPACING.xl,
+    paddingHorizontal: SPACING.lg,
+    borderBottomLeftRadius: 24,
+    borderBottomRightRadius: 24,
+  },
   content: { flex: 1, justifyContent: 'center', padding: SPACING.lg },
   offlineBanner: {
-    backgroundColor: '#FFF3E0',
+    backgroundColor: COLORS.accentSecondary + '33',
     padding: SPACING.sm,
-    borderRadius: RADII.button,
+    borderRadius: 12,
     marginBottom: SPACING.lg,
   },
-  offlineText: { color: '#E65100', fontSize: 14, textAlign: 'center' },
-  title: { fontSize: 28, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.xl },
-  input: {
-    backgroundColor: COLORS.surface,
-    padding: SPACING.md,
-    borderRadius: RADII.button,
-    fontSize: 16,
-    color: COLORS.text,
-    marginBottom: SPACING.sm,
-    borderWidth: 1,
-    borderColor: COLORS.border,
-  },
-  errorText: { color: COLORS.error, fontSize: 14, marginBottom: SPACING.sm },
-  button: {
-    backgroundColor: COLORS.accent,
-    padding: SPACING.md,
-    borderRadius: RADII.button,
-    alignItems: 'center',
-    minHeight: 48,
-    marginTop: SPACING.sm,
-  },
-  buttonDisabled: { opacity: 0.6 },
-  buttonText: { color: COLORS.textOnAccent, fontSize: 16, fontWeight: '600' },
   link: { marginTop: SPACING.lg, alignItems: 'center' },
-  linkText: { color: COLORS.textMuted, fontSize: 14 },
 });

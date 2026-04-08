@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {
   Text,
-  TextInput,
   TouchableOpacity,
   StyleSheet,
   SafeAreaView,
@@ -12,8 +11,10 @@ import {
 } from 'react-native';
 import { router } from 'expo-router';
 import { supabase } from '@/lib/supabase';
-import { COLORS, RADII, SPACING } from '@/features/ui/theme';
+import { COLORS, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
 import { Card } from '@/features/ui/Card';
+import { Input } from '@/features/ui/Input';
+import { Button } from '@/features/ui/Button';
 import { useAuthStore } from '@/features/auth/useAuthStore';
 
 export default function SignUpScreen() {
@@ -48,7 +49,7 @@ export default function SignUpScreen() {
         useAuthStore.getState().setPendingUserId(signUpData.user.id);
       }
       useAuthStore.getState().setPendingTutorOnboarding(true);
-      router.replace('/(auth)/create-classroom');
+      router.replace('/(auth)/tutor-profile');
     } else {
       // Set session if available — same as tutor branch
       if (signUpData.session) {
@@ -62,51 +63,60 @@ export default function SignUpScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.heroZone}>
+        <Text style={[TYPOGRAPHY.display, { color: COLORS.textOnAccent }]}>Druip</Text>
+        <Text style={[TYPOGRAPHY.body, { color: COLORS.textOnAccent, opacity: 0.85, marginTop: SPACING.xs }]}>
+          Join your tutor's classroom
+        </Text>
+      </View>
+
       <KeyboardAvoidingView style={styles.content} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <Text style={styles.title}>Create your account</Text>
-        <Text style={styles.subtitle}>Just an email and password — that's it</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          placeholderTextColor={COLORS.textMuted}
+        <Text style={[TYPOGRAPHY.heading, { color: COLORS.text, marginBottom: SPACING.xs }]}>Create your account</Text>
+        <Text style={[TYPOGRAPHY.body, { color: COLORS.textMuted, marginBottom: SPACING.xl }]}>
+          Just an email and password — that's it
+        </Text>
+        <Input
+          label="Email"
           value={email}
           onChangeText={setEmail}
+          placeholder="Email"
           keyboardType="email-address"
           autoCapitalize="none"
           autoComplete="email"
         />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          placeholderTextColor={COLORS.textMuted}
+        <Input
+          label="Password"
           value={password}
           onChangeText={setPassword}
+          placeholder="Password"
           secureTextEntry
           autoComplete="new-password"
         />
         <Card style={styles.toggleCard}>
           <View>
-            <Text style={styles.toggleLabel}>I want to teach</Text>
-            <Text style={styles.toggleSubLabel}>Create a classroom for your students</Text>
+            <Text style={[TYPOGRAPHY.body, { color: COLORS.text }]}>I want to teach</Text>
+            <Text style={[TYPOGRAPHY.bodySmall, { color: COLORS.textMuted, marginTop: 2 }]}>
+              Create a classroom for your students
+            </Text>
           </View>
           <Switch
             value={isTutor}
             onValueChange={setIsTutor}
-            trackColor={{ false: COLORS.border, true: 'rgba(255, 107, 107, 0.3)' }}
-            thumbColor={isTutor ? COLORS.accent : '#FFFFFF'}
+            trackColor={{ false: COLORS.border, true: COLORS.accent + '4D' }}
+            thumbColor={isTutor ? COLORS.accent : '#F4F3F4'}
           />
         </Card>
-        {error && <Text style={styles.errorText}>{error}</Text>}
-        <TouchableOpacity
-          style={[styles.button, loading && styles.buttonDisabled]}
+        {error && (
+          <Text style={[TYPOGRAPHY.bodySmall, { color: COLORS.error, marginBottom: SPACING.sm }]}>{error}</Text>
+        )}
+        <Button
+          title="Create account"
           onPress={handleSignUp}
-          disabled={loading}
-          activeOpacity={0.8}
-        >
-          <Text style={styles.buttonText}>{loading ? 'Creating account...' : 'Create account'}</Text>
-        </TouchableOpacity>
+          loading={loading}
+          style={{ marginTop: SPACING.sm }}
+        />
         <TouchableOpacity style={styles.link} onPress={() => router.push('/(auth)/sign-in')}>
-          <Text style={styles.linkText}>Already have an account? Sign in</Text>
+          <Text style={[TYPOGRAPHY.bodySmall, { color: COLORS.textMuted }]}>Already have an account? Sign in</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -115,30 +125,15 @@ export default function SignUpScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
+  heroZone: {
+    backgroundColor: COLORS.primary,
+    paddingTop: 60,
+    paddingBottom: SPACING.xl,
+    paddingHorizontal: SPACING.lg,
+    borderBottomLeftRadius: 24,
+    borderBottomRightRadius: 24,
+  },
   content: { flex: 1, justifyContent: 'center', padding: SPACING.lg },
-  title: { fontSize: 28, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.xs },
-  subtitle: { fontSize: 16, color: COLORS.textMuted, marginBottom: SPACING.xl },
-  input: {
-    backgroundColor: COLORS.surface,
-    padding: SPACING.md,
-    borderRadius: RADII.button,
-    fontSize: 16,
-    color: COLORS.text,
-    marginBottom: SPACING.sm,
-    borderWidth: 1,
-    borderColor: COLORS.border,
-  },
-  errorText: { color: COLORS.error, fontSize: 14, marginBottom: SPACING.sm },
-  button: {
-    backgroundColor: COLORS.accent,
-    padding: SPACING.md,
-    borderRadius: RADII.button,
-    alignItems: 'center',
-    minHeight: 48,
-    marginTop: SPACING.sm,
-  },
-  buttonDisabled: { opacity: 0.6 },
-  buttonText: { color: COLORS.textOnAccent, fontSize: 16, fontWeight: '600' },
   toggleCard: {
     marginTop: SPACING.lg,
     flexDirection: 'row',
@@ -146,8 +141,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: SPACING.sm,
   },
-  toggleLabel: { fontSize: 16, color: COLORS.text },
-  toggleSubLabel: { fontSize: 14, color: COLORS.textMuted, marginTop: 2 },
   link: { marginTop: SPACING.lg, alignItems: 'center' },
-  linkText: { color: COLORS.textMuted, fontSize: 14 },
 });
