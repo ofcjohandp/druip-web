@@ -103,12 +103,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   optionCorrect: {
-    backgroundColor: '#E8F5E9',
+    backgroundColor: COLORS.successSurface,
     borderWidth: 2,
     borderColor: COLORS.success,
   },
   optionWrong: {
-    backgroundColor: '#FFEBEE',
+    backgroundColor: COLORS.errorSurface,
     borderWidth: 2,
     borderColor: COLORS.error,
   },

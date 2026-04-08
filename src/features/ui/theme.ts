@@ -21,6 +21,8 @@ export const COLORS = {
   border: '#E8DDD5',           // warm-tinted border
   error: '#D32F2F',            // error states
   success: '#388E3C',          // success states
+  successSurface: '#E8F5E9',   // light green tint for correct answer backgrounds
+  errorSurface: '#FFEBEE',     // light red tint for wrong answer backgrounds
 } as const;
 
 // TYPOGRAPHY usage: do NOT spread inside StyleSheet.create.

@@ -75,7 +75,7 @@ export default function SubscribeConfirmScreen() {
           origin={{ x: width / 2, y: -20 }}
           autoStart
           fadeOut
-          colors={[COLORS.accent, COLORS.accentSecondary, COLORS.primary, '#FFFFFF']}
+          colors={[COLORS.accent, COLORS.accentSecondary, COLORS.primary, COLORS.textOnAccent]}
           onAnimationEnd={() => setShowConfetti(false)}
         />
       )}

@@ -246,8 +246,8 @@ export default function ManageClassroomScreen() {
                   {subscribers.length === 0 ? (
                     <Text style={styles.messagesEmpty}>No subscribers yet.</Text>
                   ) : (
-                    subscribers.map((sub) => {
-                      const studentProfile = (sub as any).profiles;
+                    subscribers.map((sub: any) => {
+                      const studentProfile = sub.profiles;
                       const studentId = studentProfile?.id;
                       const studentName = studentProfile?.email ?? 'Student';
                       return (
