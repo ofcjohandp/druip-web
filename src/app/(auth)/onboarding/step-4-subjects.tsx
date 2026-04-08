@@ -13,7 +13,7 @@ import { useSaveStudentSubjectTags } from '@/features/onboarding/useStudentSubje
 import { OnboardingProgress } from '@/features/onboarding/OnboardingProgress';
 import { TagBubbleSelect } from '@/features/onboarding/TagBubbleSelect';
 import { Button } from '@/features/ui/Button';
-import { COLORS, SPACING } from '@/features/ui/theme';
+import { COLORS, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
 
 export default function Step4SubjectsScreen() {
   const [selectedTagIds, setSelectedTagIds] = useState<string[]>([]);
@@ -33,7 +33,7 @@ export default function Step4SubjectsScreen() {
     setError(null);
     try {
       await saveSubjectTags.mutateAsync(selectedTagIds);
-      router.push('/(auth)/onboarding/step-5-help-type');
+      router.push('/(auth)/onboarding/step-6-test-date');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');
     }
@@ -46,8 +46,8 @@ export default function Step4SubjectsScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <OnboardingProgress currentStep={4} totalSteps={5} />
-        <Text style={styles.title}>Which subjects?</Text>
-        <Text style={styles.subtitle}>Select the subjects you need help with</Text>
+        <Text style={[TYPOGRAPHY.heading, { color: COLORS.text, marginBottom: SPACING.xs }]}>Which subjects?</Text>
+        <Text style={[TYPOGRAPHY.body, { color: COLORS.textMuted, marginBottom: SPACING.md }]}>Select the subjects you need help with</Text>
       </View>
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent}>
@@ -77,8 +77,6 @@ export default function Step4SubjectsScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   header: { paddingHorizontal: SPACING.lg, paddingTop: SPACING.lg },
-  title: { fontSize: 28, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.xs },
-  subtitle: { fontSize: 16, color: COLORS.textMuted, marginBottom: SPACING.md },
   scroll: { flex: 1 },
   scrollContent: { paddingHorizontal: SPACING.lg, paddingBottom: SPACING.xl },
   loader: { marginTop: SPACING.lg },

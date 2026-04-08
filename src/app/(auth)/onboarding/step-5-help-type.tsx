@@ -14,7 +14,7 @@ import { OnboardingProgress } from '@/features/onboarding/OnboardingProgress';
 import { TagBubbleSelect } from '@/features/onboarding/TagBubbleSelect';
 import { HELP_TYPES } from '@/features/onboarding/helpTypes';
 import { Button } from '@/features/ui/Button';
-import { COLORS, SPACING } from '@/features/ui/theme';
+import { COLORS, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
 
 export default function Step5HelpTypeScreen() {
   const [selectedHelpTypes, setSelectedHelpTypes] = useState<string[]>([]);
@@ -50,8 +50,8 @@ export default function Step5HelpTypeScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <OnboardingProgress currentStep={5} totalSteps={5} />
-        <Text style={styles.title}>How can tutors help?</Text>
-        <Text style={styles.subtitle}>Choose what kind of support you're looking for</Text>
+        <Text style={[TYPOGRAPHY.heading, { color: COLORS.text, marginBottom: SPACING.xs }]}>How can tutors help?</Text>
+        <Text style={[TYPOGRAPHY.body, { color: COLORS.textMuted, marginBottom: SPACING.md }]}>Choose what kind of support you're looking for</Text>
       </View>
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent}>
@@ -77,8 +77,6 @@ export default function Step5HelpTypeScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   header: { paddingHorizontal: SPACING.lg, paddingTop: SPACING.lg },
-  title: { fontSize: 28, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.xs },
-  subtitle: { fontSize: 16, color: COLORS.textMuted, marginBottom: SPACING.md },
   scroll: { flex: 1 },
   scrollContent: { paddingHorizontal: SPACING.lg, paddingBottom: SPACING.xl },
   footer: { padding: SPACING.lg, paddingBottom: SPACING.xl },

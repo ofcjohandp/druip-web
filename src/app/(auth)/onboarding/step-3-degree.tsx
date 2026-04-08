@@ -16,7 +16,7 @@ import { useUpsertStudentProfile } from '@/features/onboarding/useUpsertStudentP
 import { OnboardingProgress } from '@/features/onboarding/OnboardingProgress';
 import { Button } from '@/features/ui/Button';
 import { DEGREES } from '@/features/onboarding/degrees';
-import { COLORS, RADII, SPACING } from '@/features/ui/theme';
+import { COLORS, RADII, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
 
 const YEARS = [1, 2, 3, 4, 5, 6];
 
@@ -65,8 +65,8 @@ export default function Step3DegreeScreen() {
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView style={styles.content} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <OnboardingProgress currentStep={3} totalSteps={5} />
-        <Text style={styles.title}>Your degree</Text>
-        <Text style={styles.subtitle}>What are you studying and which year are you in?</Text>
+        <Text style={[TYPOGRAPHY.heading, { color: COLORS.text, marginBottom: SPACING.xs }]}>Your degree</Text>
+        <Text style={[TYPOGRAPHY.body, { color: COLORS.textMuted, marginBottom: SPACING.xl }]}>What are you studying and which year are you in?</Text>
 
         <View style={styles.autocompleteWrapper}>
           <TextInput
@@ -133,8 +133,6 @@ export default function Step3DegreeScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   content: { flex: 1, padding: SPACING.lg },
-  title: { fontSize: 28, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.xs },
-  subtitle: { fontSize: 16, color: COLORS.textMuted, marginBottom: SPACING.xl },
   autocompleteWrapper: { zIndex: 10, marginBottom: SPACING.lg },
   input: {
     backgroundColor: COLORS.surface,
@@ -167,8 +165,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,
   },
-  dropdownText: { fontSize: 15, color: COLORS.text },
-  yearLabel: { fontSize: 16, fontWeight: '600', color: COLORS.text, marginBottom: SPACING.sm },
+  dropdownText: { fontSize: 16, color: COLORS.text },
+  yearLabel: { fontSize: 16, fontWeight: '600' as const, color: COLORS.text, marginBottom: SPACING.sm },
   yearsRow: { flexDirection: 'row', gap: SPACING.sm, marginBottom: SPACING.lg },
   yearBubble: {
     width: 48,
@@ -183,7 +181,7 @@ const styles = StyleSheet.create({
   yearBubbleSelected: { backgroundColor: COLORS.accent, borderColor: COLORS.accent },
   yearText: { fontSize: 16, fontWeight: '600', color: COLORS.text },
   yearTextSelected: { color: COLORS.textOnAccent },
-  errorText: { color: COLORS.error, fontSize: 14, marginBottom: SPACING.sm },
+  errorText: { color: COLORS.error, fontSize: 14 as const, marginBottom: SPACING.sm },
   loader: { marginTop: SPACING.sm },
   button: { marginTop: SPACING.sm },
 });

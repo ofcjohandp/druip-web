@@ -12,8 +12,9 @@ import { router } from 'expo-router';
 import { useUpsertStudentProfile } from '@/features/onboarding/useUpsertStudentProfile';
 import { OnboardingProgress } from '@/features/onboarding/OnboardingProgress';
 import { UNIVERSITIES } from '@/features/onboarding/universities';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { Button } from '@/features/ui/Button';
-import { COLORS, RADII, SPACING } from '@/features/ui/theme';
+import { COLORS, RADII, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
 
 export default function Step2UniversityScreen() {
   const [selectedUniversity, setSelectedUniversity] = useState<string | null>(null);
@@ -49,8 +50,8 @@ export default function Step2UniversityScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <OnboardingProgress currentStep={2} totalSteps={5} />
-        <Text style={styles.title}>Your university</Text>
-        <Text style={styles.subtitle}>Select your university and campus</Text>
+        <Text style={[TYPOGRAPHY.heading, { color: COLORS.text, marginBottom: SPACING.xs }]}>Your university</Text>
+        <Text style={[TYPOGRAPHY.body, { color: COLORS.textMuted, marginBottom: SPACING.md }]}>Select your university and campus</Text>
       </View>
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.scrollContent}>
@@ -62,9 +63,12 @@ export default function Step2UniversityScreen() {
             onPress={() => handleSelectUniversity(u.university)}
             activeOpacity={0.7}
           >
-            <Text style={[styles.listItemText, selectedUniversity === u.university && styles.listItemTextSelected]}>
+            <Text style={[TYPOGRAPHY.body, { color: selectedUniversity === u.university ? COLORS.accent : COLORS.text, flex: 1 }]}>
               {u.university}
             </Text>
+            {selectedUniversity === u.university && (
+              <Ionicons name="checkmark-circle" size={20} color={COLORS.accent} />
+            )}
           </TouchableOpacity>
         ))}
 
@@ -78,9 +82,12 @@ export default function Step2UniversityScreen() {
                 onPress={() => setSelectedCampus(campus)}
                 activeOpacity={0.7}
               >
-                <Text style={[styles.listItemText, selectedCampus === campus && styles.listItemTextSelected]}>
+                <Text style={[TYPOGRAPHY.body, { color: selectedCampus === campus ? COLORS.accent : COLORS.text, flex: 1 }]}>
                   {campus}
                 </Text>
+                {selectedCampus === campus && (
+                  <Ionicons name="checkmark-circle" size={20} color={COLORS.accent} />
+                )}
               </TouchableOpacity>
             ))}
           </>
@@ -102,26 +109,24 @@ export default function Step2UniversityScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   header: { paddingHorizontal: SPACING.lg, paddingTop: SPACING.lg },
-  title: { fontSize: 28, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.xs },
-  subtitle: { fontSize: 16, color: COLORS.textMuted, marginBottom: SPACING.md },
   scroll: { flex: 1 },
   scrollContent: { paddingHorizontal: SPACING.lg, paddingBottom: SPACING.xl },
-  sectionLabel: { fontSize: 13, fontWeight: '600', color: COLORS.textMuted, marginBottom: SPACING.xs, textTransform: 'uppercase', letterSpacing: 0.5 },
+  sectionLabel: { fontSize: 12, fontWeight: '600', color: COLORS.textMuted, marginBottom: SPACING.xs, textTransform: 'uppercase', letterSpacing: 0.5 },
   sectionLabelMargin: { marginTop: SPACING.lg },
   listItem: {
     padding: SPACING.md,
     borderRadius: RADII.button,
-    backgroundColor: COLORS.surface,
+    backgroundColor: COLORS.card,
     borderWidth: 1,
     borderColor: COLORS.border,
     marginBottom: SPACING.xs,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   listItemSelected: {
-    backgroundColor: COLORS.accent,
+    backgroundColor: COLORS.accent + '1A',
     borderColor: COLORS.accent,
   },
-  listItemText: { fontSize: 15, color: COLORS.text },
-  listItemTextSelected: { color: COLORS.textOnAccent, fontWeight: '600' },
   footer: { padding: SPACING.lg, paddingBottom: SPACING.xl },
   errorText: { color: COLORS.error, fontSize: 14, marginBottom: SPACING.sm },
 });

@@ -12,7 +12,10 @@ export function OnboardingProgress({ currentStep, totalSteps }: OnboardingProgre
       {Array.from({ length: totalSteps }, (_, i) => (
         <View
           key={i}
-          style={[styles.dot, i + 1 <= currentStep && styles.dotActive]}
+          style={[
+            styles.segment,
+            i + 1 <= currentStep && styles.segmentActive,
+          ]}
         />
       ))}
     </View>
@@ -20,7 +23,7 @@ export function OnboardingProgress({ currentStep, totalSteps }: OnboardingProgre
 }
 
 const styles = StyleSheet.create({
-  container: { flexDirection: 'row', justifyContent: 'center', gap: SPACING.xs, marginBottom: SPACING.lg },
-  dot: { width: 8, height: 8, borderRadius: 4, backgroundColor: COLORS.border },
-  dotActive: { backgroundColor: COLORS.accent },
+  container: { flexDirection: 'row', gap: 4, marginBottom: SPACING.lg, paddingHorizontal: SPACING.lg },
+  segment: { flex: 1, height: 4, borderRadius: 2, backgroundColor: COLORS.border },
+  segmentActive: { backgroundColor: COLORS.accent },
 });

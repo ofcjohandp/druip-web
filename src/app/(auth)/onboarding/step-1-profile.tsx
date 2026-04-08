@@ -2,7 +2,6 @@ import { useState } from 'react';
 import {
   View,
   Text,
-  TextInput,
   TouchableOpacity,
   StyleSheet,
   SafeAreaView,
@@ -17,8 +16,9 @@ import { supabase } from '@/lib/supabase';
 import { useAuthStore } from '@/features/auth/useAuthStore';
 import { useUpsertStudentProfile } from '@/features/onboarding/useUpsertStudentProfile';
 import { OnboardingProgress } from '@/features/onboarding/OnboardingProgress';
+import { Input } from '@/features/ui/Input';
 import { Button } from '@/features/ui/Button';
-import { COLORS, RADII, SPACING } from '@/features/ui/theme';
+import { COLORS, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
 
 export default function Step1ProfileScreen() {
   const session = useAuthStore((s) => s.session);
@@ -83,39 +83,41 @@ export default function Step1ProfileScreen() {
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView style={styles.content} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
         <OnboardingProgress currentStep={1} totalSteps={5} />
-        <Text style={styles.title}>What's your name?</Text>
-        <Text style={styles.subtitle}>This is how other students will see you</Text>
+        <Text style={[TYPOGRAPHY.heading, { color: COLORS.text, marginBottom: SPACING.xs }]}>What's your name?</Text>
+        <Text style={[TYPOGRAPHY.body, { color: COLORS.textMuted, marginBottom: SPACING.xl }]}>
+          This is how other students will see you
+        </Text>
 
         <TouchableOpacity style={styles.photoPicker} onPress={handlePickPhoto} activeOpacity={0.8}>
           {photoUri ? (
             <Image source={{ uri: photoUri }} style={styles.photoImage} />
           ) : (
             <View style={styles.photoPlaceholder}>
-              <Text style={styles.photoPlaceholderText}>Add photo</Text>
+              <Text style={[TYPOGRAPHY.caption, { color: COLORS.textMuted }]}>Add photo</Text>
             </View>
           )}
         </TouchableOpacity>
 
-        <TextInput
-          style={styles.input}
-          placeholder="First name"
-          placeholderTextColor={COLORS.textMuted}
+        <Input
+          label="First name"
           value={firstName}
           onChangeText={setFirstName}
+          placeholder="First name"
           autoCapitalize="words"
           autoComplete="given-name"
         />
-        <TextInput
-          style={styles.input}
-          placeholder="Last name"
-          placeholderTextColor={COLORS.textMuted}
+        <Input
+          label="Last name"
           value={lastName}
           onChangeText={setLastName}
+          placeholder="Last name"
           autoCapitalize="words"
           autoComplete="family-name"
         />
 
-        {error && <Text style={styles.errorText}>{error}</Text>}
+        {error && (
+          <Text style={[TYPOGRAPHY.bodySmall, { color: COLORS.error, marginBottom: SPACING.sm }]}>{error}</Text>
+        )}
 
         {uploading ? (
           <ActivityIndicator color={COLORS.accent} style={styles.loader} />
@@ -136,8 +138,6 @@ export default function Step1ProfileScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   content: { flex: 1, padding: SPACING.lg },
-  title: { fontSize: 28, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.xs },
-  subtitle: { fontSize: 16, color: COLORS.textMuted, marginBottom: SPACING.xl },
   photoPicker: { alignSelf: 'center', marginBottom: SPACING.lg },
   photoImage: { width: 96, height: 96, borderRadius: 48 },
   photoPlaceholder: {
@@ -150,18 +150,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  photoPlaceholderText: { fontSize: 13, color: COLORS.textMuted },
-  input: {
-    backgroundColor: COLORS.surface,
-    padding: SPACING.md,
-    borderRadius: RADII.button,
-    fontSize: 16,
-    color: COLORS.text,
-    marginBottom: SPACING.sm,
-    borderWidth: 1,
-    borderColor: COLORS.border,
-  },
-  errorText: { color: COLORS.error, fontSize: 14, marginBottom: SPACING.sm },
   loader: { marginTop: SPACING.sm },
   button: { marginTop: SPACING.sm },
 });

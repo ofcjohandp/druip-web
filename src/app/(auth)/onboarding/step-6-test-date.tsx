@@ -14,7 +14,7 @@ import { useUpsertStudentProfile } from '@/features/onboarding/useUpsertStudentP
 import { OnboardingProgress } from '@/features/onboarding/OnboardingProgress';
 import { useAuthStore } from '@/features/auth/useAuthStore';
 import { Button } from '@/features/ui/Button';
-import { COLORS, RADII, SPACING } from '@/features/ui/theme';
+import { COLORS, RADII, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
 
 export default function Step6TestDateScreen() {
   const [testDate, setTestDate] = useState<Date | null>(null);
@@ -49,8 +49,8 @@ export default function Step6TestDateScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <OnboardingProgress currentStep={6} totalSteps={6} />
-        <Text style={styles.title}>Got a test coming up?</Text>
-        <Text style={styles.subtitle}>
+        <Text style={[TYPOGRAPHY.heading, { color: COLORS.text, marginBottom: SPACING.xs }]}>Got a test coming up?</Text>
+        <Text style={[TYPOGRAPHY.body, { color: COLORS.textMuted, marginBottom: SPACING.xl }]}>
           Set an upcoming test date and we'll help you prepare. You can skip this if you don't have one yet.
         </Text>
 
@@ -110,8 +110,6 @@ export default function Step6TestDateScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   content: { flex: 1, padding: SPACING.lg },
-  title: { fontSize: 28, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.xs },
-  subtitle: { fontSize: 16, color: COLORS.textMuted, marginBottom: SPACING.xl },
   dateDisplay: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -124,14 +122,14 @@ const styles = StyleSheet.create({
   },
   dateText: { flex: 1, fontSize: 16, color: COLORS.text },
   clearButton: { paddingHorizontal: SPACING.sm },
-  clearText: { fontSize: 14, color: COLORS.accent, fontWeight: '600' },
+  clearText: { fontSize: 14, color: COLORS.accent, fontWeight: '600' as const },
   pickDateButton: {
     backgroundColor: COLORS.surface,
     padding: SPACING.md,
     borderRadius: RADII.button,
     borderWidth: 1,
     borderColor: COLORS.border,
-    alignItems: 'center',
+    alignItems: 'center' as const,
     marginBottom: SPACING.lg,
   },
   pickDateText: { fontSize: 16, color: COLORS.textMuted },
