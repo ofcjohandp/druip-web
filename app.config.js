@@ -37,6 +37,6 @@ module.exports = {
     updates: {
       url: 'https://u.expo.dev/YOUR_PROJECT_ID',
     },
-    plugins: ['expo-router', 'expo-sqlite', 'expo-notifications'],
+    plugins: ['expo-router', 'expo-sqlite', 'expo-notifications', '@react-native-community/datetimepicker'],
   },
 };
