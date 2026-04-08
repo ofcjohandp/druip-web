@@ -2,7 +2,7 @@ import { SafeAreaView, ScrollView, View, Text, ActivityIndicator, StyleSheet } f
 import { useAllClassrooms } from '@/features/student/useAllClassrooms';
 import { useMySubscriptions } from '@/features/student/useMySubscriptions';
 import { ClassroomCard } from '@/features/student/ClassroomCard';
-import { COLORS, SPACING } from '@/features/ui/theme';
+import { COLORS, SPACING, TYPOGRAPHY } from '@/features/ui/theme';
 
 export default function HomeScreen() {
   const { data: classrooms = [], isLoading, isError } = useAllClassrooms();
@@ -20,8 +20,7 @@ export default function HomeScreen() {
         {subscribedClassrooms.length > 0 && (
           <>
             <View style={styles.sectionHeader}>
-              <View style={styles.sectionAccentBar} />
-              <Text style={styles.sectionLabel}>Your Classrooms</Text>
+              <Text style={[TYPOGRAPHY.heading, { color: COLORS.text }]}>Your Classrooms</Text>
             </View>
             {subscribedClassrooms.map(c => (
               <ClassroomCard
@@ -40,8 +39,7 @@ export default function HomeScreen() {
 
         {/* "Browse Classrooms" section — D-04 */}
         <View style={styles.sectionHeader}>
-          <View style={styles.sectionAccentBar} />
-          <Text style={styles.sectionLabel}>Browse Classrooms</Text>
+          <Text style={[TYPOGRAPHY.heading, { color: COLORS.text }]}>Browse Classrooms</Text>
         </View>
 
         {isLoading && (
@@ -50,14 +48,14 @@ export default function HomeScreen() {
 
         {isError && !isLoading && (
           <View style={styles.stateContainer}>
-            <Text style={styles.stateBody}>Couldn't load classrooms. Pull down to refresh.</Text>
+            <Text style={[TYPOGRAPHY.body, { color: COLORS.textMuted, textAlign: 'center' }]}>Couldn't load classrooms. Pull down to refresh.</Text>
           </View>
         )}
 
         {!isLoading && !isError && browseClassrooms.length === 0 && (
           <View style={styles.stateContainer}>
-            <Text style={styles.stateHeading}>No classrooms yet</Text>
-            <Text style={styles.stateBody}>Check back soon — tutors are setting up their classrooms.</Text>
+            <Text style={[TYPOGRAPHY.subheading, { color: COLORS.text, textAlign: 'center', marginBottom: SPACING.xs }]}>No classrooms yet</Text>
+            <Text style={[TYPOGRAPHY.body, { color: COLORS.textMuted, textAlign: 'center' }]}>Check back soon — tutors are setting up their classrooms.</Text>
           </View>
         )}
 
@@ -80,12 +78,8 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   scrollContent: { paddingHorizontal: SPACING.lg, paddingBottom: SPACING.xl },
-  sectionHeader: { flexDirection: 'row', alignItems: 'center', paddingVertical: SPACING.sm, marginBottom: SPACING.sm },
-  sectionAccentBar: { width: 4, height: 16, backgroundColor: COLORS.accent, marginRight: SPACING.xs, borderRadius: 2 },
-  sectionLabel: { fontSize: 14, fontWeight: '600', color: COLORS.textMuted },
+  sectionHeader: { paddingVertical: SPACING.sm, marginBottom: SPACING.sm, marginTop: SPACING.lg },
   divider: { height: 1, backgroundColor: COLORS.border, marginVertical: SPACING.lg },
   loader: { marginTop: SPACING.xl },
   stateContainer: { alignItems: 'center', marginTop: SPACING.xl, paddingHorizontal: SPACING.lg },
-  stateHeading: { fontSize: 20, fontWeight: '600', color: COLORS.text, marginBottom: SPACING.xs, textAlign: 'center' },
-  stateBody: { fontSize: 16, color: COLORS.textMuted, textAlign: 'center' },
 });

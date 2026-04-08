@@ -1,11 +1,12 @@
-import { SafeAreaView, ScrollView, View, Text, ActivityIndicator, StyleSheet, TouchableOpacity } from 'react-native';
+import { SafeAreaView, ScrollView, View, Text, ActivityIndicator, StyleSheet, Pressable } from 'react-native';
 import { router, useLocalSearchParams } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useClassroomDetail } from '@/features/student/useClassroomDetail';
 import { useMySubscriptions } from '@/features/student/useMySubscriptions';
 import { LockedContentOverlay } from '@/features/student/LockedContentOverlay';
 import { Button } from '@/features/ui/Button';
-import { COLORS, SPACING, RADII } from '@/features/ui/theme';
+import { COLORS, SPACING, RADII, TYPOGRAPHY } from '@/features/ui/theme';
+import { Tag } from '@/features/ui/Tag';
 import { useClassroomCards } from '@/features/classroom/useClassroomCards';
 import { StudentCardRenderer } from '@/features/classroom/StudentCardRenderer';
 import type { Database } from '@/types/database';
@@ -46,16 +47,15 @@ export default function ClassroomDetailScreen() {
     <SafeAreaView style={styles.container}>
       {/* Header row — back button + title */}
       <View style={styles.header}>
-        <TouchableOpacity
+        <Pressable
           onPress={() => router.back()}
           style={styles.backButton}
-          activeOpacity={0.7}
           accessibilityLabel="Go back"
           accessibilityRole="button"
         >
           <Ionicons name="arrow-back" size={24} color={COLORS.text} />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Classroom</Text>
+        </Pressable>
+        <Text style={[TYPOGRAPHY.heading, { color: COLORS.text }]}>Classroom</Text>
       </View>
 
       {isLoading && (
@@ -71,33 +71,30 @@ export default function ClassroomDetailScreen() {
       {classroom && !isLoading && (
         <ScrollView contentContainerStyle={styles.scrollContent}>
           {/* Classroom name */}
-          <Text style={styles.classroomName}>{classroom.name}</Text>
+          <Text style={[TYPOGRAPHY.display, { color: COLORS.text, marginBottom: SPACING.xs }]}>{classroom.name}</Text>
 
-          {/* Tutor — using tutor_id as fallback display until join is confirmed */}
-          <Text style={styles.tutorName}>by {classroom.tutor_id}</Text>
+          <Text style={[TYPOGRAPHY.body, { color: COLORS.textMuted, marginBottom: SPACING.sm }]}>by {(classroom as any).tutors?.profiles?.full_name ?? (classroom as any).tutors?.profiles?.email ?? 'Tutor'}</Text>
 
           {/* Subject tags */}
           <View style={styles.tagsRow}>
             {classroom.subjects.map((subject) => (
-              <View key={subject} style={styles.tag}>
-                <Text style={styles.tagText}>{subject}</Text>
-              </View>
+              <Tag key={subject} label={subject} />
             ))}
           </View>
 
           {/* Bio */}
           {classroom.bio ? (
-            <Text style={styles.bio}>{classroom.bio}</Text>
+            <Text style={[TYPOGRAPHY.body, { color: COLORS.text, marginTop: SPACING.sm, lineHeight: 24 }]}>{classroom.bio}</Text>
           ) : null}
 
           {/* Price */}
-          <Text style={styles.price}>R{classroom.price_cents / 100}/month</Text>
+          <Text style={[TYPOGRAPHY.subheading, { color: COLORS.primary, marginTop: SPACING.sm }]}>R{classroom.price_cents / 100}/month</Text>
 
           {/* Divider */}
           <View style={styles.divider} />
 
           {/* Sections heading */}
-          <Text style={styles.sectionsHeading}>Sections</Text>
+          <Text style={[TYPOGRAPHY.subheading, { color: COLORS.text, marginBottom: SPACING.sm }]}>Sections</Text>
 
           {/* Section list — D-07: lock icon for non-subscribers */}
           {(classroom.classroom_sections ?? []).map((section) =>
@@ -141,22 +138,14 @@ export default function ClassroomDetailScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
-  header: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm, borderBottomWidth: 1, borderBottomColor: COLORS.border },
+  header: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: SPACING.lg, paddingVertical: SPACING.sm, gap: SPACING.sm, borderBottomWidth: 1, borderBottomColor: COLORS.border },
   backButton: { minWidth: 44, minHeight: 44, justifyContent: 'center', alignItems: 'center' },
-  headerTitle: { fontSize: 20, fontWeight: '600', color: COLORS.text, marginLeft: SPACING.sm },
   loader: { marginTop: SPACING.xl },
   errorContainer: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: SPACING.lg },
   errorText: { fontSize: 16, color: COLORS.textMuted, textAlign: 'center' },
   scrollContent: { padding: SPACING.md, paddingBottom: SPACING.xl },
-  classroomName: { fontSize: 20, fontWeight: '600', color: COLORS.text },
-  tutorName: { fontSize: 14, color: COLORS.textMuted, marginTop: SPACING.xs },
-  tagsRow: { flexDirection: 'row', flexWrap: 'wrap', marginTop: SPACING.sm },
-  tag: { backgroundColor: COLORS.surface, borderWidth: 1, borderColor: COLORS.border, borderRadius: RADII.button, paddingVertical: SPACING.xs, paddingHorizontal: SPACING.sm, marginRight: SPACING.xs, marginBottom: SPACING.xs },
-  tagText: { fontSize: 14, color: COLORS.textMuted },
-  bio: { fontSize: 16, color: COLORS.text, marginTop: SPACING.sm, lineHeight: 24 },
-  price: { fontSize: 16, fontWeight: '600', color: COLORS.text, marginTop: SPACING.sm },
+  tagsRow: { flexDirection: 'row', flexWrap: 'wrap', marginTop: SPACING.sm, gap: SPACING.xs },
   divider: { height: 1, backgroundColor: COLORS.border, marginVertical: SPACING.lg },
-  sectionsHeading: { fontSize: 14, fontWeight: '600', color: COLORS.textMuted, marginBottom: SPACING.sm },
   sectionRow: { backgroundColor: COLORS.surface, borderRadius: RADII.button, padding: SPACING.sm, marginBottom: SPACING.xs },
   sectionName: { fontSize: 14, color: COLORS.text },
   subscribedIndicator: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: SPACING.xs },
