@@ -1,6 +1,7 @@
 import { Stack, useRouter, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import { useFonts, Syne_800ExtraBold } from '@expo-google-fonts/syne';
 import { AppProviders } from '@/providers/AppProviders';
 import { useAuthStore } from '@/features/auth/useAuthStore';
 
@@ -15,6 +16,7 @@ export default function RootLayout() {
 }
 
 function RootNavigator() {
+  const [fontsLoaded] = useFonts({ Syne_800ExtraBold });
   const session = useAuthStore((s) => s.session);
   const isLoading = useAuthStore((s) => s.isLoading);
   const pendingTutorOnboarding = useAuthStore((s) => s.pendingTutorOnboarding);
@@ -23,10 +25,10 @@ function RootNavigator() {
   const router = useRouter();
 
   useEffect(() => {
-    if (!isLoading) {
+    if (fontsLoaded && !isLoading) {
       SplashScreen.hideAsync();
     }
-  }, [isLoading]);
+  }, [fontsLoaded, isLoading]);
 
   useEffect(() => {
     if (isLoading) return;
@@ -35,14 +37,16 @@ function RootNavigator() {
 
     if (session && !inTabs && !pendingTutorOnboarding && !pendingStudentOnboarding) {
       router.replace('/(tabs)');
-    } else if (session && pendingStudentOnboarding && !inAuth) {
+    } else if (session && pendingTutorOnboarding && !inAuth) {
+      router.replace('/(auth)/tutor-profile');
+    } else if (session && pendingStudentOnboarding && !pendingTutorOnboarding && !inAuth) {
       router.replace('/(auth)/onboarding/step-1-profile');
     } else if (!session && inTabs) {
       router.replace('/');
     }
   }, [session, isLoading, segments, pendingTutorOnboarding, pendingStudentOnboarding]);
 
-  if (isLoading) return null;
+  if (!fontsLoaded || isLoading) return null;
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
