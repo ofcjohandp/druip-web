@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 06-01-PLAN.md
-last_updated: "2026-04-06T22:18:51.534Z"
-last_activity: 2026-04-06
+stopped_at: Phase 6 COMPLETE — 12/12 must-haves verified
+last_updated: "2026-04-08T15:14:30.265Z"
+last_activity: 2026-04-08 -- Phase 07 execution started
 progress:
   total_phases: 7
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 28
-  completed_plans: 21
-  percent: 75
+  completed_plans: 23
+  percent: 82
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-06)
 
 **Core value:** A student opens Druip, finds their tutor's classroom, and has everything they need to pass their test in one place.
-**Current focus:** Phase 06 — direct-messaging
+**Current focus:** Phase 07 — student-onboarding
 
 ## Current Position
 
-Phase: 06 (direct-messaging) — EXECUTING
-Plan: 2 of 3
-Status: Ready to execute
-Last activity: 2026-04-06
+Phase: 07 (student-onboarding) — EXECUTING
+Plan: 2 of 4 (P00 complete)
+Status: Executing Phase 07
+Last activity: 2026-04-08 -- P00 complete: migration + types + Wave 0 test stubs
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [██░░░░░░░░] 25%
 
 ## Performance Metrics
 
@@ -98,6 +98,9 @@ Pivot decisions:
 - [Phase 05-P03]: subscribe-confirm receives price_cents as query string param and parses with parseInt — keeps screen-to-screen contract simple
 - [Phase 06-direct-messaging]: [Phase 06-01]: messages table uses UUID PKs with ON DELETE CASCADE FKs to classrooms and profiles
 - [Phase 06-direct-messaging]: [Phase 06-01]: Four RLS policies (subscriber read/insert, tutor read/insert) using (SELECT auth.uid()) subquery pattern
+- [Phase 07-P00]: student_profiles uses profiles(id) as PK (1-to-1, mirrors tutors pattern)
+- [Phase 07-P00]: subject_tags shared between tutors and students — single source of truth for tags
+- [Phase 07-P00]: classroom_subject_tags junction replaces classrooms.subjects TEXT[] as source of truth; subjects column retained for backward compatibility
 
 ### Pending Todos
 
@@ -111,6 +114,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-06T22:18:46.247Z
-Stopped at: Completed 06-01-PLAN.md
+Last session: 2026-04-06T22:28:19.682Z
+Stopped at: Phase 6 COMPLETE — 12/12 must-haves verified
 Resume: Run /gsd:plan-phase 3
