@@ -225,6 +225,36 @@ Plans:
 
 **UI hint**: yes
 
+### Phase 9: UI Overhaul
+
+**Goal:** Redesign the full app to feel energetic, modern, and distinctly South African — not corporate edu-tech. Covers design system (theme.ts), shared components (Button, Card, Input, etc.), and every screen: auth, onboarding, home/discovery, classroom detail, manage classroom, DM chat, profile, PDF viewer, subscribe confirm, and classroom settings.
+**Requirements**: UI-01, UI-02, UI-03, UI-04, UI-05, UI-06, UI-07, UI-08, UI-09, UI-10, UI-11, UI-12
+
+**Depends on:** Phase 8
+
+**Success Criteria** (what must be TRUE):
+  1. Every screen in the app uses COLORS, TYPOGRAPHY, SPACING, RADII tokens from theme.ts — no hardcoded hex values outside theme.ts
+  2. Syne_800ExtraBold display font loads before any screen renders
+  3. Button, Card, Input, Tag, Avatar shared components are used everywhere — no inline TouchableOpacity buttons or TextInput in screens
+  4. Auth screens have branded terracotta header zones above the forms
+  5. OnboardingProgress shows a segmented pill bar instead of dots
+  6. ClassroomCard shows tutor avatar (initials), subject tag pills, and terracotta price badge
+  7. Subscribe-confirm fires a confetti celebration on success
+  8. DM chat has branded message bubbles (terracotta sent, white received) and rounded input bar
+  9. Tab bar has white background, coral active tint, caption-sized labels
+
+**Plans**: 6 plans
+
+Plans:
+- [ ] 09-01-PLAN.md — Design system foundation: font install, theme.ts tokens (COLORS + TYPOGRAPHY), font loading gate
+- [ ] 09-02-PLAN.md — Shared components: Button (loading/icon/Reanimated), Card (elevated/pressable), Input, Tag, Avatar
+- [ ] 09-03-PLAN.md — Auth + onboarding screens: branded headers, shared components, pill progress bar
+- [ ] 09-04-PLAN.md — Home/discovery, ClassroomCard redesign, classroom-detail, subscribe-confirm with confetti
+- [ ] 09-05-PLAN.md — Manage-classroom, classroom-settings, DM chat, profile, pdf-viewer, tab bar
+- [ ] 09-06-PLAN.md — Final validation: type check, hardcoded color audit, visual checkpoint
+
+**UI hint**: yes
+
 ---
 
 ## Traceability
