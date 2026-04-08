@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 09-03-PLAN.md
-last_updated: "2026-04-08T19:38:31.802Z"
+stopped_at: Completed 09-04-PLAN.md
+last_updated: "2026-04-08T19:43:08.785Z"
 last_activity: 2026-04-08
 progress:
   total_phases: 9
   completed_phases: 6
   total_plans: 38
-  completed_plans: 33
-  percent: 87
+  completed_plans: 34
+  percent: 89
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-06)
 ## Current Position
 
 Phase: 09 (ui-overhaul) — EXECUTING
-Plan: 4 of 6
+Plan: 5 of 6
 Status: Ready to execute
 Last activity: 2026-04-08
 
@@ -64,6 +64,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 09-ui-overhaul P01 | 4min | 2 tasks | 3 files |
 | Phase 09-ui-overhaul P02 | 5min | 2 tasks | 5 files |
 | Phase 09 P03 | 4min | 2 tasks | 9 files |
+| Phase 09-ui-overhaul P09-04 | 8min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -129,6 +130,8 @@ Pivot decisions:
 - [Phase 09-ui-overhaul]: All hooks (useSharedValue, useAnimatedStyle) called unconditionally in Card — pressable wrapper applied conditionally in JSX
 - [Phase 09]: heroZone uses COLORS.primary (terracotta) with paddingTop:60 for status bar breathing room and 24px bottom radius on auth screens
 - [Phase 09]: OnboardingProgress segmented pill bar replaces circular dots: height:4, borderRadius:2, flex:1 segments with gap:4
+- [Phase 09-ui-overhaul]: ClassroomCard uses standalone Pressable + Reanimated scale (withSpring 0.97) — not Card pressable wrapper — per Phase 05-P02 decision to avoid nested pressables
+- [Phase 09-ui-overhaul]: react-native-confetti-cannon installed via npm --legacy-peer-deps fallback (expo install fails due to react-dom peer conflict)
 
 ### Pending Todos
 
@@ -146,6 +149,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-08T19:38:31.800Z
-Stopped at: Completed 09-03-PLAN.md
+Last session: 2026-04-08T19:43:08.782Z
+Stopped at: Completed 09-04-PLAN.md
 Resume: /gsd-plan-phase 9
