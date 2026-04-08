@@ -6,6 +6,27 @@ import { useMySubscriptions } from '@/features/student/useMySubscriptions';
 import { LockedContentOverlay } from '@/features/student/LockedContentOverlay';
 import { Button } from '@/features/ui/Button';
 import { COLORS, SPACING, RADII } from '@/features/ui/theme';
+import { useClassroomCards } from '@/features/classroom/useClassroomCards';
+import { StudentCardRenderer } from '@/features/classroom/StudentCardRenderer';
+import type { Database } from '@/types/database';
+
+type SectionRow_DB = Database['public']['Tables']['classroom_sections']['Row'];
+
+function SectionWithStudentCards({ section }: { section: SectionRow_DB }) {
+  const { data: cards = [], isPending } = useClassroomCards(section.id);
+  return (
+    <View style={styles.sectionRow}>
+      <Text style={styles.sectionName}>{section.name}</Text>
+      {isPending ? (
+        <ActivityIndicator size="small" color={COLORS.accent} style={{ marginTop: SPACING.xs }} />
+      ) : (
+        cards.map((card) => (
+          <StudentCardRenderer key={card.id} card={card} />
+        ))
+      )}
+    </View>
+  );
+}
 
 export default function ClassroomDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -81,9 +102,7 @@ export default function ClassroomDetailScreen() {
           {/* Section list — D-07: lock icon for non-subscribers */}
           {(classroom.classroom_sections ?? []).map((section) =>
             isSubscribed ? (
-              <View key={section.id} style={styles.sectionRow}>
-                <Text style={styles.sectionName}>{section.name}</Text>
-              </View>
+              <SectionWithStudentCards key={section.id} section={section} />
             ) : (
               <LockedContentOverlay key={section.id} sectionName={section.name} />
             )
