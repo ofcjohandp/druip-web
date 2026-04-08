@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 09-01-PLAN.md
-last_updated: "2026-04-08T19:29:14.469Z"
+stopped_at: Completed 09-02-PLAN.md
+last_updated: "2026-04-08T19:32:30.408Z"
 last_activity: 2026-04-08
 progress:
   total_phases: 9
   completed_phases: 6
   total_plans: 38
-  completed_plans: 31
-  percent: 82
+  completed_plans: 32
+  percent: 84
 ---
 
 # Project State
@@ -26,7 +26,7 @@ See: .planning/PROJECT.md (updated 2026-04-06)
 ## Current Position
 
 Phase: 09 (ui-overhaul) — EXECUTING
-Plan: 2 of 6
+Plan: 3 of 6
 Status: Ready to execute
 Last activity: 2026-04-08
 
@@ -62,6 +62,7 @@ Progress: [██░░░░░░░░] 25%
 | Phase 08-rich-classroom-content PP01 | 8min | 2 tasks | 5 files |
 | Phase 08-rich-classroom-content PP02 | 2min | 2 tasks | 6 files |
 | Phase 09-ui-overhaul P01 | 4min | 2 tasks | 3 files |
+| Phase 09-ui-overhaul P02 | 5min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -122,6 +123,9 @@ Pivot decisions:
 - [Phase 08-P02]: decodeURIComponent applied to url param in pdf-viewer before WebView — prevents 404 from double-encoding
 - [Phase 09-ui-overhaul]: TYPOGRAPHY tokens used as array styles [TYPOGRAPHY.display, {color}] — not spread in StyleSheet.create
 - [Phase 09-ui-overhaul]: Font gate merged with auth gate: single SplashScreen.hideAsync() gated by fontsLoaded && !isLoading
+- [Phase 09-ui-overhaul]: Button uses Pressable + Animated.View (not TouchableOpacity) — Reanimated scale replaces activeOpacity pattern
+- [Phase 09-ui-overhaul]: Card background changed from COLORS.surface to COLORS.card (white) so cards pop against cream background
+- [Phase 09-ui-overhaul]: All hooks (useSharedValue, useAnimatedStyle) called unconditionally in Card — pressable wrapper applied conditionally in JSX
 
 ### Pending Todos
 
@@ -139,6 +143,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-08T19:29:14.466Z
-Stopped at: Completed 09-01-PLAN.md
+Last session: 2026-04-08T19:32:30.405Z
+Stopped at: Completed 09-02-PLAN.md
 Resume: /gsd-plan-phase 9
