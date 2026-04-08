@@ -7,16 +7,21 @@ import {
   SafeAreaView,
   KeyboardAvoidingView,
   Platform,
+  View,
+  Switch,
 } from 'react-native';
 import { router } from 'expo-router';
 import { supabase } from '@/lib/supabase';
 import { COLORS, RADII, SPACING } from '@/features/ui/theme';
+import { Card } from '@/features/ui/Card';
+import { useAuthStore } from '@/features/auth/useAuthStore';
 
 export default function SignUpScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isTutor, setIsTutor] = useState(false);
 
   const handleSignUp = async () => {
     if (!email || !password) {
@@ -30,14 +35,28 @@ export default function SignUpScreen() {
     setError(null);
     setLoading(true);
     // AUTH-02: signUp with email and password ONLY — no extra fields
-    const { error: signUpError } = await supabase.auth.signUp({ email, password });
+    const { data: signUpData, error: signUpError } = await supabase.auth.signUp({ email, password });
     setLoading(false);
     if (signUpError) {
       setError(signUpError.message);
+    } else if (isTutor) {
+      if (signUpData.session) {
+        useAuthStore.getState().setSession(signUpData.session);
+      }
+      // Store userId directly — session may be null if email confirmation is on
+      if (signUpData.user?.id) {
+        useAuthStore.getState().setPendingUserId(signUpData.user.id);
+      }
+      useAuthStore.getState().setPendingTutorOnboarding(true);
+      router.replace('/(auth)/create-classroom');
     } else {
-      // On successful sign-up, navigate to goal selection
-      // The handle_new_user trigger (Plan 02) auto-creates the profile row
-      router.replace('/(auth)/goal-selection');
+      // Set session if available — same as tutor branch
+      if (signUpData.session) {
+        useAuthStore.getState().setSession(signUpData.session);
+      }
+      // Set pending student onboarding so root guard keeps user in auth flow
+      useAuthStore.getState().setPendingStudentOnboarding(true);
+      router.replace('/(auth)/onboarding/step-1-profile');
     }
   };
 
@@ -65,6 +84,18 @@ export default function SignUpScreen() {
           secureTextEntry
           autoComplete="new-password"
         />
+        <Card style={styles.toggleCard}>
+          <View>
+            <Text style={styles.toggleLabel}>I want to teach</Text>
+            <Text style={styles.toggleSubLabel}>Create a classroom for your students</Text>
+          </View>
+          <Switch
+            value={isTutor}
+            onValueChange={setIsTutor}
+            trackColor={{ false: COLORS.border, true: 'rgba(255, 107, 107, 0.3)' }}
+            thumbColor={isTutor ? COLORS.accent : '#FFFFFF'}
+          />
+        </Card>
         {error && <Text style={styles.errorText}>{error}</Text>}
         <TouchableOpacity
           style={[styles.button, loading && styles.buttonDisabled]}
@@ -108,6 +139,15 @@ const styles = StyleSheet.create({
   },
   buttonDisabled: { opacity: 0.6 },
   buttonText: { color: COLORS.textOnAccent, fontSize: 16, fontWeight: '600' },
+  toggleCard: {
+    marginTop: SPACING.lg,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: SPACING.sm,
+  },
+  toggleLabel: { fontSize: 16, color: COLORS.text },
+  toggleSubLabel: { fontSize: 14, color: COLORS.textMuted, marginTop: 2 },
   link: { marginTop: SPACING.lg, alignItems: 'center' },
   linkText: { color: COLORS.textMuted, fontSize: 14 },
 });
