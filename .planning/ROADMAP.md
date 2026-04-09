@@ -1,297 +1,99 @@
-# Roadmap: Druip
+# Roadmap: Druip Web App
 
-**Milestone:** v1.0 — Tutor Marketplace
-**Target:** Tutors can create classrooms; students can discover, subscribe (UI), and message tutors
-**Phases:** 8 (1 complete, 2 deprioritized, 3-8 active)
+**Milestone:** v2.0 — Real Platform
+**Target:** Fully working Next.js web app wired to real Supabase data
+**Phases:** 7
 
----
-
-## Phases
-
-- [x] **Phase 1: Foundation** — Auth, navigation shell, Supabase schema, 5-tab navigator (COMPLETE)
-- [-] **Phase 2: Study Flow** — Quiz engine (DEPRIORITIZED — marketplace pivot)
-- [ ] **Phase 3: Tutor Onboarding** — "I want to teach" toggle, tutor profile, classroom creation and editing
-- [ ] **Phase 4: Classroom Builder** — Sections management, material cards (text, PDF, image, link)
-- [ ] **Phase 5: Student Discovery and Subscriptions** — Browse classrooms, detail page, locked preview, subscribe CTA, subscribed classroom list
-- [ ] **Phase 6: Direct Messaging** — 1-on-1 DM between subscribed student and tutor
-- [ ] **Phase 7: Student Onboarding** — Post-signup profile setup: details, university, degree, subject tags, help type, upcoming test
-- [ ] **Phase 8: Rich Classroom Content** — Flashcards, PDF upload/viewer, multiple card types so tutors have creative freedom to build their own classroom
+| # | Phase | Goal | Requirements | Success Criteria |
+|---|-------|------|--------------|-----------------|
+| 1 | real-dashboard | Wire home dashboard to live Supabase data | DASH-01–04 | Empty states show when no data; real name in greeting; real streak |
+| 2 | tutor-onboarding | Tutor signup + create classroom | TUTOR-01–04 | Tutor can sign up, create classroom, see it in their dashboard |
+| 3 | classroom-builder | Tutor builds sections + content cards | TUTOR-05–06 | Tutor can add sections and cards; content appears in DB |
+| 4 | student-discovery | Browse classrooms + subscribe | STUD-01–05 | Student can browse, view detail, subscribe; locked/unlocked states work |
+| 5 | study-content | View all card types in classroom | CONT-01–04 | Student can read notes, view PDFs, images, flip flashcards |
+| 6 | messaging | Student ↔ tutor DM | MSG-01–03 | Student can send message; tutor can reply; inbox shows threads |
+| 7 | profile | Profile edit + sign out | PROF-01–02 | Student can edit profile; sign out works and redirects to landing |
 
 ---
 
 ## Phase Details
 
-### Phase 1: Foundation
-
-**Goal:** A new or returning user can open the app, create an account, and land on a functional 5-tab navigation shell — with the entire Supabase schema and RLS policies in place.
-
-**Depends on:** Nothing (first phase)
-
-**Requirements:** AUTH (Phase 1 scope — see original roadmap)
-
-**Success Criteria** (what must be TRUE):
-  1. User can register with email and password; re-opening the app restores their session
-  2. Authenticated user lands on home tab; unauthenticated user sees onboarding
-  3. App shows login screen (not crash) when launched offline with no session
-  4. 5-tab bottom navigator is present and navigable; RLS is enabled on every public table
-
-**Plans**: 4/4 plans executed (COMPLETE)
-
-**Status**: COMPLETE
-
----
-
-### Phase 2: Study Flow
-
-**Goal:** (DEPRIORITIZED — marketplace pivot supersedes this work)
-
-**Depends on:** Phase 1
-
-**Requirements:** STUDY, PROG scope from original milestone
-
-**Success Criteria**: N/A — deprioritized
-
-**Plans**: 3/4 plans partially executed (DEPRIORITIZED)
-
-**Status**: DEPRIORITIZED
-
----
-
-### Phase 3: Tutor Onboarding
-
-**Goal:** A user can register as a tutor and create a published classroom that is ready to receive sections and students.
-
-**Depends on:** Phase 1
-
-**Requirements:** TUTR-01, TUTR-02, TUTR-03, TUTR-04
-
-**Success Criteria** (what must be TRUE):
-  1. A user can toggle "I want to teach" during sign-up and land in a tutor-specific flow rather than the student home screen
-  2. A tutor can create a classroom by entering a name, subject(s), bio, and monthly price — the classroom appears in the system after creation
-  3. Subscription price defaults to R180/month and is visible and editable before the tutor saves
-  4. A tutor can return to classroom settings and change the name, bio, subjects, or price; changes are reflected immediately
-
-**Plans**: 4 plans
-
+### Phase 1: real-dashboard
+**Goal:** Replace all placeholder data on the home dashboard with real Supabase queries and proper empty states.
+**Requirements:** DASH-01, DASH-02, DASH-03, DASH-04
+**Stitch screen:** `home_dashboard/code.html`
+**Plans:** 2 plans
 Plans:
-- [x] 03-01-PLAN.md — Schema migration (is_tutor, tutors, classrooms tables + RLS), TypeScript types, Wave 0 test stubs
-- [x] 03-02-PLAN.md — Sign-up toggle, create-classroom screen, tutor hooks, root guard fix
-- [x] 03-03-PLAN.md — Profile tab conditional tutor view, classroom settings screen, edit hooks
-- [x] 03-04-PLAN.md — End-to-end verification checkpoint (all TUTR requirements)
+- [ ] 01-01-PLAN.md — Wire Supabase queries and replace hardcoded data with real data + empty states
+- [ ] 01-02-PLAN.md — Human verification of dashboard visual and functional correctness
+**Success criteria:**
+1. New user sees empty state (no classrooms, no streak, no tutors) — not fake data
+2. Greeting shows real first name from auth
+3. Streak shows real `profiles.streak_count` (0 by default)
+4. "Tutors of the Week" queries real tutors table; shows empty state if none
+5. "Continue Learning" queries real subscriptions; shows empty state if none
 
-**UI hint**: yes
+### Phase 2: tutor-onboarding
+**Goal:** Tutor can sign up, complete profile, and create their first classroom.
+**Requirements:** TUTOR-01, TUTOR-02, TUTOR-03, TUTOR-04
+**Stitch screens:** `become_a_tutor/`, `tutor_onboarding_personal/`, `tutor_onboarding_classroom_setup/`, `tutor_dashboard/`
+**Success criteria:**
+1. Sign-up page has "I want to teach" toggle
+2. Selecting tutor role routes to tutor onboarding flow
+3. Tutor profile saved to `tutors` table in Supabase
+4. Classroom created in `classrooms` table with name, description, price
+5. Tutor dashboard shows their classroom and 0 subscribers
 
----
+### Phase 3: classroom-builder
+**Goal:** Tutor can build out their classroom with sections and content cards.
+**Requirements:** TUTOR-05, TUTOR-06
+**Stitch screens:** `classroom_builder/`, `section_detail/`, `add_content_picker/`, `add_flashcard/`
+**Success criteria:**
+1. Tutor can add/reorder/delete sections
+2. Tutor can add text note, PDF, image, link, flashcard cards to a section
+3. Cards persist in `classroom_cards` table
+4. Tutor sees their content immediately after adding
 
-### Phase 4: Classroom Builder
+### Phase 4: student-discovery
+**Goal:** Student can browse classrooms, view details, and subscribe.
+**Requirements:** STUD-01, STUD-02, STUD-03, STUD-04, STUD-05
+**Stitch screens:** `browse_classrooms/`, `classroom_detail/`, `subscribe_confirmation/`, `subscription_success/`
+**Success criteria:**
+1. Browse page lists all classrooms from DB
+2. Classroom detail shows tutor info, section list, price
+3. Subscribe button creates row in `subscriptions` table
+4. Non-subscriber sees locked content overlay
+5. Subscriber sees full content
 
-**Goal:** A tutor can build the full content structure of their classroom — named sections in any order, with text, PDF, image, and link cards inside each section.
+### Phase 5: study-content
+**Goal:** Subscribed student can consume all content card types.
+**Requirements:** CONT-01, CONT-02, CONT-03, CONT-04
+**Stitch screens:** `study_session_flashcards/`, `pdf_viewer/`, `past_paper_viewer/`
+**Success criteria:**
+1. Text notes render with formatting
+2. PDFs open in-browser viewer
+3. Images display full-size
+4. Flashcards flip on tap/click
 
-**Depends on:** Phase 3
-
-**Requirements:** CLASS-01, CLASS-02, CLASS-03, CARD-01, CARD-02, CARD-03, CARD-04, CARD-05
-
-**Success Criteria** (what must be TRUE):
-  1. A tutor can create multiple named sections (e.g. "Chapter 1", "Past Papers") within their classroom
-  2. A tutor can rename, delete, and reorder sections — the updated order persists after the tutor leaves and returns
-  3. A tutor can add a text note, PDF/file, image, or external link as a card inside any section
-  4. A tutor can delete any card; the section updates immediately without requiring a page reload
-  5. A classroom with at least one section and one card is fully browsable from the tutor's management view
-
-**Plans**: 3 plans
-
-Plans:
-- [x] 04-01-PLAN.md — Schema migration (classroom_sections + classroom_cards tables, RLS, Storage bucket), TypeScript types, Expo package install
-- [x] 04-02-PLAN.md — Section management hooks, SectionRow component, ManageClassroom screen, profile.tsx route update
-- [x] 04-03-PLAN.md — Card hooks, upload utility, CardListItem, AddCardBottomSheet, wire cards into ManageClassroom, end-to-end checkpoint
-
-**UI hint**: yes
-
----
-
-### Phase 5: Student Discovery and Subscriptions
-
-**Goal:** A student can find a tutor's classroom, see what is inside it, and subscribe (UI placeholder) to unlock full access — and can view all their subscribed classrooms in one place.
-
-**Depends on:** Phase 4
-
-**Requirements:** DISC-01, DISC-02, DISC-03, DISC-04, SUB-01, SUB-02, SUB-03
-
-**Success Criteria** (what must be TRUE):
-  1. A student can browse a discovery screen listing all available classrooms with tutor name, subject, and price visible
-  2. A student can tap any classroom and see a detail page with tutor bio, subjects, price, and a preview of section names
-  3. A non-subscriber sees section content locked with a visual indicator and a subscribe CTA showing the price (e.g. "Subscribe · R180/month")
-  4. A student can tap subscribe, see a confirmation screen, and gain full access to all sections and cards without a real payment
-  5. A student can navigate to a screen listing all their subscribed classrooms
-
-**Plans**: 5 plans
-
-Plans:
-- [x] 05-P00-PLAN.md — Schema migration (subscriptions table + RLS, classrooms public SELECT policy), TypeScript types, Wave 0 test stubs
-- [x] 05-P01-PLAN.md — TanStack Query hooks: useAllClassrooms, useClassroomDetail, useMySubscriptions, useSubscribe
-- [x] 05-P02-PLAN.md — UI components: ClassroomCard, LockedContentOverlay; register classroom-detail + subscribe-confirm in _layout.tsx
-- [x] 05-P03-PLAN.md — Screens: Home/Discovery (index.tsx), classroom-detail.tsx, subscribe-confirm.tsx
-- [ ] 05-P04-PLAN.md — End-to-end verification checkpoint (all DISC + SUB requirements)
-
-**UI hint**: yes
-
----
-
-### Phase 6: Direct Messaging
-
-**Goal:** A subscribed student can send messages to their tutor and read replies in a chat-style thread — and the tutor can respond from their side.
-
-**Depends on:** Phase 5
-
+### Phase 6: messaging
+**Goal:** Students and tutors can DM each other inside a classroom.
 **Requirements:** MSG-01, MSG-02, MSG-03
+**Stitch screens:** `dm_with_tutor/`, `messages/`, `tutor_inbox/`
+**Success criteria:**
+1. Student can send message from classroom detail page
+2. Tutor sees message in their inbox
+3. Both can reply; messages persist in `messages` table
+4. Inbox shows all conversations with last message preview
 
-**Success Criteria** (what must be TRUE):
-  1. A subscribed student can open a DM screen from inside a classroom and send a text message to the tutor
-  2. A tutor can see incoming messages from each subscribed student and send a reply
-  3. Both student and tutor can scroll through the full message history in chronological order in a chat-style UI
-
-**Plans**: 3 plans
-
-Plans:
-- [x] 06-01-PLAN.md — Schema migration (messages table + RLS), TypeScript types, Wave 0 test stubs, schema push
-- [x] 06-02-PLAN.md — TanStack Query hooks (useMessages, useSendMessage, useClassroomSubscribers, useTutorUserId) + UI components (MessageBubble, ChatInput, SubscriberRow)
-- [x] 06-03-PLAN.md — dm-chat screen, route registration, classroom-detail "Message tutor" button, manage-classroom Messages section
-
-**UI hint**: yes
-
----
-
-### Phase 7: Student Onboarding
-
-**Goal:** After sign-up, a student completes a 6-step profile flow — collecting their name/photo, university/campus, degree/year, subject tags, help type, and an optional upcoming test date — before landing on a personalized tutor marketplace filtered by their subject tags.
-
-**Depends on:** Phase 5
-
-**Requirements:** ONBD-01, ONBD-02, ONBD-03, ONBD-04, ONBD-05, ONBD-06, ONBD-07, ONBD-08
-
-**Success Criteria** (what must be TRUE):
-  1. A newly signed-up student sees the onboarding flow (not the marketplace) until all required steps are complete
-  2. Student can enter first name, surname, and optionally upload a profile photo
-  3. Student can select university and campus from a pre-populated list
-  4. Student can select degree/programme and year of study
-  5. Student can pick subject tags (multi-select) drawn from the live subject_tags table — the same tags tutors use when creating classrooms
-  6. Student can select what kind of help they need (multi-select) and optionally add a test date
-  7. After completing onboarding, the marketplace shows only tutors whose classroom tags match the student's subject tags
-  8. Returning students who completed onboarding bypass the flow and land directly on the marketplace
-
-**Plans**: 4 plans
-
-Plans:
-- [x] 07-P00-PLAN.md — Schema migration (subject_tags, classroom_subject_tags, student_profiles, student_subject_tags + RLS + data migration), TypeScript types, Wave 0 test stubs
-- [x] 07-P01-PLAN.md — TanStack Query hooks (useSubjectTags, useStudentProfile, useUpsertStudentProfile, useStudentSubjectTags), useAuthStore pendingStudentOnboarding flag, useAllClassrooms tag filtering
-- [x] 07-P02-PLAN.md — 6 onboarding UI screens, shared components (TagBubbleSelect, OnboardingProgress), auth layout + sign-up redirect + root guard updates
-- [ ] 07-P03-PLAN.md — End-to-end verification checkpoint (all ONBD requirements)
-
-**UI hint**: yes
+### Phase 7: profile
+**Goal:** Users can view/edit their profile and sign out.
+**Requirements:** PROF-01, PROF-02
+**Stitch screens:** `profile/`, `student_settings/`
+**Success criteria:**
+1. Profile shows name, university, degree, year from `student_profiles`
+2. User can edit and save profile fields
+3. Sign out clears session and redirects to landing page
 
 ---
-
-## Progress Table
-
-| Phase | Plans Complete | Status | Completed |
-|-------|----------------|--------|-----------|
-| 1. Foundation | 4/4 | Complete | 2026-04-06 |
-| 2. Study Flow | 3/4 | Deprioritized | - |
-| 3. Tutor Onboarding | 0/4 | Planned | - |
-| 4. Classroom Builder | 4/4 | Complete | 2026-04-06 |
-| 5. Student Discovery and Subscriptions | 3/5 | In Progress|  |
-| 6. Direct Messaging | 0/3 | Planned | - |
-| 7. Student Onboarding | 3/4 | In Progress|  |
-| 8. Rich Classroom Content | 3/4 | In Progress|  |
-
----
-
-### Phase 8: Rich Classroom Content
-
-**Goal:** A tutor can add flashcards, PDFs, and rich content cards to their classroom — giving them creative freedom to build engaging, structured study material that students can consume in-app.
-
-**Depends on:** Phase 4
-
-**Requirements:** RICH-01, RICH-02, RICH-03, RICH-04, RICH-05
-
-**Success Criteria** (what must be TRUE):
-  1. A tutor can add a flashcard (front/back) to any section — students can flip it in-app
-  2. A tutor can upload a PDF to any section — students can view it in-app with page navigation
-  3. The add-card flow lets tutors choose a card type (text note, flashcard, PDF) before creating
-  4. Students browsing a subscribed classroom see all card types rendered correctly
-  5. A tutor can delete any card type; the section updates immediately
-
-**Plans**: TBD
-
-**UI hint**: yes
-
-### Phase 9: UI Overhaul
-
-**Goal:** Redesign the full app to feel energetic, modern, and distinctly South African — not corporate edu-tech. Covers design system (theme.ts), shared components (Button, Card, Input, etc.), and every screen: auth, onboarding, home/discovery, classroom detail, manage classroom, DM chat, profile, PDF viewer, subscribe confirm, and classroom settings.
-**Requirements**: UI-01, UI-02, UI-03, UI-04, UI-05, UI-06, UI-07, UI-08, UI-09, UI-10, UI-11, UI-12
-
-**Depends on:** Phase 8
-
-**Success Criteria** (what must be TRUE):
-  1. Every screen in the app uses COLORS, TYPOGRAPHY, SPACING, RADII tokens from theme.ts — no hardcoded hex values outside theme.ts
-  2. Syne_800ExtraBold display font loads before any screen renders
-  3. Button, Card, Input, Tag, Avatar shared components are used everywhere — no inline TouchableOpacity buttons or TextInput in screens
-  4. Auth screens have branded terracotta header zones above the forms
-  5. OnboardingProgress shows a segmented pill bar instead of dots
-  6. ClassroomCard shows tutor avatar (initials), subject tag pills, and terracotta price badge
-  7. Subscribe-confirm fires a confetti celebration on success
-  8. DM chat has branded message bubbles (terracotta sent, white received) and rounded input bar
-  9. Tab bar has white background, coral active tint, caption-sized labels
-
-**Plans**: 6 plans
-
-Plans:
-- [x] 09-01-PLAN.md — Design system foundation: font install, theme.ts tokens (COLORS + TYPOGRAPHY), font loading gate
-- [x] 09-02-PLAN.md — Shared components: Button (loading/icon/Reanimated), Card (elevated/pressable), Input, Tag, Avatar
-- [x] 09-03-PLAN.md — Auth + onboarding screens: branded headers, shared components, pill progress bar
-- [x] 09-04-PLAN.md — Home/discovery, ClassroomCard redesign, classroom-detail, subscribe-confirm with confetti
-- [x] 09-05-PLAN.md — Manage-classroom, classroom-settings, DM chat, profile, pdf-viewer, tab bar
-- [ ] 09-06-PLAN.md — Final validation: type check, hardcoded color audit, visual checkpoint
-
-**UI hint**: yes
-
----
-
-## Traceability
-
-All 30 v1.0 requirements are mapped to phases 3-7.
-
-| Requirement | Phase | Status |
-|-------------|-------|--------|
-| TUTR-01 | Phase 3 | Pending |
-| TUTR-02 | Phase 3 | Pending |
-| TUTR-03 | Phase 3 | Pending |
-| TUTR-04 | Phase 3 | Pending |
-| CLASS-01 | Phase 4 | Pending |
-| CLASS-02 | Phase 4 | Pending |
-| CLASS-03 | Phase 4 | Pending |
-| CARD-01 | Phase 4 | Pending |
-| CARD-02 | Phase 4 | Pending |
-| CARD-03 | Phase 4 | Pending |
-| CARD-04 | Phase 4 | Pending |
-| CARD-05 | Phase 4 | Pending |
-| DISC-01 | Phase 5 | Pending |
-| DISC-02 | Phase 5 | Pending |
-| DISC-03 | Phase 5 | Pending |
-| DISC-04 | Phase 5 | Pending |
-| SUB-01 | Phase 5 | Pending |
-| SUB-02 | Phase 5 | Pending |
-| SUB-03 | Phase 5 | Pending |
-| MSG-01 | Phase 6 | Pending |
-| MSG-02 | Phase 6 | Pending |
-| MSG-03 | Phase 6 | Pending |
-| ONBD-01 | Phase 7 | Pending |
-| ONBD-02 | Phase 7 | Pending |
-| ONBD-03 | Phase 7 | Pending |
-| ONBD-04 | Phase 7 | Pending |
-| ONBD-05 | Phase 7 | Pending |
-| ONBD-06 | Phase 7 | Pending |
-| ONBD-07 | Phase 7 | Pending |
-| ONBD-08 | Phase 7 | Pending |
-
-**Coverage:** 30/30 v1.0 requirements mapped. No orphans.
+*Roadmap created: 2026-04-09*
+*Milestone: v2.0 Real Platform*
