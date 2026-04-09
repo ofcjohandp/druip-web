@@ -54,15 +54,19 @@ Exceptions:
 
 All sizes and weights are extracted from the existing `home/page.tsx` and Stitch reference (`home_dashboard/code.html`). Do not deviate.
 
+Exactly 4 sizes and 2 weights are declared. No exceptions.
+
 | Role | Size | Weight | Line Height | Font | Class |
 |------|------|--------|-------------|------|-------|
-| Display (hero heading) | 56px (3.5rem) | 800 (extrabold) | 1 (leading-none) | Plus Jakarta Sans | `font-headline text-[3.5rem] font-extrabold leading-none tracking-tight` |
-| Heading (section titles) | 24px (1.5rem) | 700 (bold) | 1.2 | Plus Jakarta Sans | `font-headline text-2xl font-bold` |
-| Card title | 18–20px | 700 (bold) | 1.3 | Plus Jakarta Sans | `font-headline text-3xl font-bold` (spotlight card) / `font-bold text-lg` (list cards) |
-| Body | 18px (1.125rem) | 400 (regular) | 1.5 | Be Vietnam Pro | `text-lg` |
+| Display (hero heading) | 56px (3.5rem) | 700 (bold) | 1 (leading-none) | Plus Jakarta Sans | `font-headline text-[3.5rem] font-bold leading-none tracking-tight` |
+| Heading (section titles + spotlight card title) | 24px (1.5rem) | 700 (bold) | 1.2 | Plus Jakarta Sans | `font-headline text-2xl font-bold` |
+| Body (list card titles + paragraph text) | 18px (1.125rem) | 400 (regular) | 1.5 | Be Vietnam Pro | `text-lg` |
 | Label / Badge | 11px | 700 (bold) | — | Be Vietnam Pro | `text-[11px] font-bold tracking-wider uppercase` |
 
-Maximum 4 sizes in use. Heading weight is always 700+; body weight is always 400.
+Notes on card titles:
+- Spotlight (large bento) card title: uses Heading size — `font-headline text-2xl font-bold`
+- List (continue learning row) card titles: uses Body size with weight 700 — `text-lg font-bold`
+- There is no separate "card title" type size. Use Heading or Body depending on card hierarchy.
 
 ---
 
@@ -112,7 +116,7 @@ These are the UI units that change in this phase. Each must render from real dat
 | Property | Spec |
 |----------|------|
 | Label pill | "CONTINUE LEARNING" — `bg-tertiary-container text-on-tertiary-container` badge |
-| Title | Classroom name from most recently accessed subscription |
+| Title | Classroom name from most recently accessed subscription — `font-headline text-2xl font-bold` |
 | Subtext | Tutor name if available, otherwise omit |
 | CTA | "Go to Classroom" — `kinetic-gradient text-white px-8 py-3 rounded-full font-bold` |
 | Data source | `subscriptions` joined to `classrooms`, ordered by `updated_at DESC`, limit 1 |
@@ -137,6 +141,7 @@ These are the UI units that change in this phase. Each must render from real dat
 | Layout | Horizontal scroll row, `flex gap-6 overflow-x-auto no-scrollbar -mx-6 px-6` |
 | Card size | `min-w-[280px]` |
 | Card thumbnail | `h-40 bg-surface-container-high` with `menu_book` icon fallback (no classroom images in Phase 1) |
+| Card title | `text-lg font-bold` (Body size, bold weight) |
 | Progress bar | Render at 0% — progress tracking is Phase 5. Show bar at 0, no percentage label |
 | CTA per card | "Resume Lecture" — `bg-white rounded-full text-primary font-bold text-sm` |
 | "View All" button | Render as disabled / hidden — browse page is Phase 4 |
@@ -150,11 +155,21 @@ These are the UI units that change in this phase. Each must render from real dat
 | Section title | "Tutors of the Week" |
 | Subtext | "Handpicked experts to help you excel this week." |
 | Layout | `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4` |
-| Tutor card | Avatar initial in `bg-primary-container text-on-primary-container`, name (bold 14px), subject (12px `text-on-surface-variant`) |
+| Tutor card | Avatar initial in `bg-primary-container text-on-primary-container`, name (`text-lg font-bold`), subject (`text-sm text-on-surface-variant`) |
 | Badge | "NEW" — `bg-tertiary-container/20 text-on-tertiary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase` |
 | "Book a Session" button | Render as disabled / styled `bg-secondary-container text-on-secondary-container` but non-functional in Phase 1 |
 | Data source | `tutors` table (or users with tutor role) ordered by `created_at DESC`, limit 4 |
 | Empty state | See Empty States section below |
+
+### 6. Bottom Navigation Bar
+
+| Property | Spec |
+|----------|------|
+| Active tab | Home tab only: icon `home` + text label "Home" — `bg-primary text-white rounded-full p-3 -translate-y-2 scale-110` |
+| Inactive tabs | Icon only, no visible text label — each icon element carries `aria-label="{tab name}"` (e.g. `aria-label="Classrooms"`) for screen reader accessibility |
+| Icon size | 24px (`text-2xl` or `w-6 h-6`) |
+| Touch target | 40px minimum (`w-10 h-10`) |
+| Confirmation | Icon-only for inactive state is intentional per Stitch nav spec. `aria-label` on each icon mitigates accessibility gap. |
 
 ---
 
@@ -220,7 +235,8 @@ Note: The Stitch "no students" screen is a tutor-side "classroom ready" state. F
 | Hover — CTA button | `hover:opacity-90` for gradient buttons; `active:scale-95` for all buttons |
 | "View All" | Disabled — render as text `text-outline` (not `text-primary`), no click handler |
 | "Book a Session" | Disabled — render as `bg-surface-container-high text-outline`, no click handler |
-| Bottom nav active state | Home tab only: `bg-primary text-white rounded-full p-3 -translate-y-2 scale-110` |
+| Bottom nav active state | Home tab only: `bg-primary text-white rounded-full p-3 -translate-y-2 scale-110` with visible "Home" label |
+| Bottom nav inactive state | Icon only with `aria-label` on each icon element — no visible text label |
 
 ---
 
