@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: milestone
-status: planning
-stopped_at: Phase 1 context gathered (discuss mode)
-last_updated: "2026-04-09T16:26:43.805Z"
-last_activity: 2026-04-09 -- Milestone v2.0 roadmap created
+status: executing
+stopped_at: Completed 01-real-dashboard 01-01-PLAN.md
+last_updated: "2026-04-09T17:40:42.411Z"
+last_activity: 2026-04-09
 progress:
   total_phases: 7
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  total_plans: 2
+  completed_plans: 1
+  percent: 50
 ---
 
 # Project State
@@ -21,14 +21,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-04-09)
 
 **Core value:** A student opens Druip, finds their tutor's classroom, and has everything they need to pass their test in one place.
-**Current focus:** Phase 1 — real-dashboard
+**Current focus:** Phase 01 — real-dashboard
 
 ## Current Position
 
-Phase: 1 (real-dashboard) — NOT STARTED
-Plan: —
-Status: Ready to plan Phase 1
-Last activity: 2026-04-09 -- Milestone v2.0 roadmap created
+Phase: 01 (real-dashboard) — EXECUTING
+Plan: 2 of 2
+Status: Ready to execute
+Last activity: 2026-04-09
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -43,6 +43,8 @@ Progress: [░░░░░░░░░░] 0%
 - No placeholder/hardcoded data anywhere — empty states only
 - druip-web/ location: `/Users/johanduplessis/Desktop/Claude Code/Druip/druip-web/`
 - Auth working: sign-up + sign-in wired to Supabase, middleware protects /home
+- [Phase 01-real-dashboard]: FK join types cast through unknown + runtime normalization (no generated Supabase types file)
+- [Phase 01-real-dashboard]: Spotlight bento card hidden entirely when no subscriptions; streak card always shown
 
 ### Pending Todos
 
@@ -54,6 +56,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-04-09T16:26:43.798Z
-Stopped at: Phase 1 context gathered (discuss mode)
+Last session: 2026-04-09T17:40:42.405Z
+Stopped at: Completed 01-real-dashboard 01-01-PLAN.md
 Resume: /gsd-plan-phase 1

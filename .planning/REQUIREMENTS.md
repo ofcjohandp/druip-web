@@ -1,127 +1,109 @@
-# Requirements: Druip
+# Requirements: Druip Web App
 
-**Defined:** 2026-04-06
-**Milestone:** v1.0 Tutor Marketplace
+**Defined:** 2026-04-09
 **Core Value:** A student opens Druip, finds their tutor's classroom, and has everything they need to pass their test in one place.
 
-## v1.0 Requirements
+## v2.0 Requirements
+
+### Dashboard
+
+- [x] **DASH-01**: Home dashboard shows real subscribed classrooms (empty state if none)
+- [x] **DASH-02**: Home dashboard shows real streak count from user profile
+- [x] **DASH-03**: Home dashboard shows real tutors from DB (empty state if none)
+- [x] **DASH-04**: Dashboard greeting uses real user name from auth
 
 ### Tutor Onboarding
 
-- [ ] **TUTR-01**: User can toggle "I want to teach" during sign-up to register as a tutor
-- [ ] **TUTR-02**: Tutor can create a classroom with name, subject(s), bio, and monthly price
-- [ ] **TUTR-03**: Tutor can set a subscription price (default R180/month)
-- [ ] **TUTR-04**: Tutor can edit classroom details (name, bio, price, subjects) after creation
-
-### Classroom Sections
-
-- [x] **CLASS-01**: Tutor can create named sections within their classroom (e.g. "Chapter 1", "Upcoming Tests")
-- [x] **CLASS-02**: Tutor can rename and delete sections
-- [x] **CLASS-03**: Tutor can reorder sections within their classroom
-
-### Material Cards
-
-- [x] **CARD-01**: Tutor can add a text note card to a section
-- [x] **CARD-02**: Tutor can upload a PDF or file as a card in a section
-- [x] **CARD-03**: Tutor can upload an image (e.g. handwritten notes, diagrams) as a card
-- [x] **CARD-04**: Tutor can add an external link card (YouTube, articles, resources)
-- [x] **CARD-05**: Tutor can delete any card from a section
+- [ ] **TUTOR-01**: Tutor can toggle "I want to teach" on sign-up to become a tutor
+- [ ] **TUTOR-02**: Tutor can complete profile (name, bio, subjects, photo)
+- [ ] **TUTOR-03**: Tutor can create a classroom (name, description, price in ZAR)
+- [ ] **TUTOR-04**: Tutor dashboard shows their classroom and subscriber count
+- [ ] **TUTOR-05**: Tutor can add sections to classroom (e.g. "Chapter 1", "Past Papers")
+- [ ] **TUTOR-06**: Tutor can add content cards to sections (text notes, PDF, image, link)
 
 ### Student Discovery
 
-- [x] **DISC-01**: Student can browse all available tutor classrooms on a discovery screen
-- [x] **DISC-02**: Student can view a classroom detail page (tutor name, subjects, bio, price, section preview)
-- [x] **DISC-03**: Non-subscriber sees a locked preview of classroom content with subscribe CTA
-- [x] **DISC-04**: Subscribe button displays the monthly price (e.g. "Subscribe · R180/month")
+- [ ] **STUD-01**: Student can browse all available classrooms
+- [ ] **STUD-02**: Student can view classroom detail page (tutor info, sections preview, price)
+- [ ] **STUD-03**: Student can subscribe to a classroom (UI flow, no payment processing)
+- [ ] **STUD-04**: Student sees locked preview for non-subscribed classrooms
+- [ ] **STUD-05**: Student sees full content for subscribed classrooms
 
-### Subscriptions (UI)
+### Study Content
 
-- [x] **SUB-01**: Student can tap subscribe and see a confirmation screen (UI placeholder — no real payment in v1.0)
-- [x] **SUB-02**: Subscribed student gets full access to all sections and cards in the classroom
-- [x] **SUB-03**: Student can view a list of all their subscribed classrooms
+- [ ] **CONT-01**: Student can view text note cards in a classroom section
+- [ ] **CONT-02**: Student can view PDF cards (rendered in-browser)
+- [ ] **CONT-03**: Student can view image cards
+- [ ] **CONT-04**: Student can view flashcard cards (flip interaction)
 
-### Direct Messaging
+### Messaging
 
-- [x] **MSG-01**: Subscribed student can send a direct message to the tutor
-- [x] **MSG-02**: Tutor can reply to student messages
-- [x] **MSG-03**: Both parties can view full message history in a chat-style screen
+- [ ] **MSG-01**: Student can send DM to tutor within a classroom
+- [ ] **MSG-02**: Tutor can reply to student DMs
+- [ ] **MSG-03**: Message inbox shows all conversations
 
-### Student Onboarding
+### Profile
 
-- [x] **ONBD-01**: After sign-up, student is directed to a multi-step onboarding flow before accessing the marketplace
-- [x] **ONBD-02**: Student enters first name, surname, and optionally uploads a profile photo on Screen 1
-- [x] **ONBD-03**: Student selects their university and campus on Screen 2
-- [x] **ONBD-04**: Student selects their degree/programme and year of study on Screen 3
-- [x] **ONBD-05**: Student selects subject tags (multi-select) from a shared tag library on Screen 4 — tags are populated from active tutor classrooms
-- [x] **ONBD-06**: Student selects type of help needed (multi-select: understanding, test prep, assignments, etc.) on Screen 5
-- [x] **ONBD-07**: Student can optionally add an upcoming test date on Screen 6 (skippable)
-- [x] **ONBD-08**: After completing onboarding, marketplace shows tutors filtered by the student's selected subject tags
+- [ ] **PROF-01**: Student can view and edit their profile (name, university, degree, year)
+- [ ] **PROF-02**: User can sign out
 
-## v2 Requirements
+## v2.1 Requirements (Deferred)
 
 ### Payments
-
-- **PAY-01**: Real subscription payment processing via PayFast or Stripe
-- **PAY-02**: Tutor receives monthly payout minus Druip platform fee
-- **PAY-03**: Student receives receipt/confirmation email after successful payment
-- **PAY-04**: Student can cancel subscription
-
-### Growth
-
-- **GROW-01**: Tutor can share a classroom invite link
-- **GROW-02**: Student can leave a review/rating on a classroom
-- **GROW-03**: Tutor can see subscriber count and basic analytics
+- **PAY-01**: Student pays R180/month via PayFast to subscribe
+- **PAY-02**: Tutor receives payout minus platform %
+- **PAY-03**: Subscription cancellation flow
 
 ### Notifications
-
-- **NOTF-01**: Student notified when tutor adds new material
-- **NOTF-02**: Student notified of new DM reply
+- **NOTF-01**: Student notified when tutor adds new content
+- **NOTF-02**: Tutor notified of new subscriber
 
 ## Out of Scope
 
 | Feature | Reason |
 |---------|--------|
-| Real payment processing | Deferred to v1.1 — validate UX before payment integration |
-| Group/community posts | v1.0 is 1-on-1 DM only; group chat adds moderation complexity |
-| Live sessions / video calls | High complexity and bandwidth cost |
-| Quiz / gamification engine | Pivoted away from Duolingo model for v1.0 |
-| Multi-tutor classroom | Single tutor per classroom for v1.0 |
-| Push notifications | Not needed to validate core marketplace |
-| Creator analytics dashboard | Deferred post-validation |
+| Real payment processing | Deferred to v2.1 — validate demand first |
 | OAuth / social login | Email/password sufficient |
+| Live video sessions | High complexity, deferred |
+| Push notifications | Not needed to validate core value |
+| Leaderboards / XP / streaks | Not core to marketplace |
+| Mobile app | Web-first; RN app shelved |
+| Multi-tutor classrooms | Single tutor per classroom for v2.0 |
 
 ## Traceability
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TUTR-01 | Phase 3 | Pending |
-| TUTR-02 | Phase 3 | Pending |
-| TUTR-03 | Phase 3 | Pending |
-| TUTR-04 | Phase 3 | Pending |
-| CLASS-01 | Phase 4 | Complete |
-| CLASS-02 | Phase 4 | Complete |
-| CLASS-03 | Phase 4 | Complete |
-| CARD-01 | Phase 4 | Complete |
-| CARD-02 | Phase 4 | Complete |
-| CARD-03 | Phase 4 | Complete |
-| CARD-04 | Phase 4 | Complete |
-| CARD-05 | Phase 4 | Complete |
-| DISC-01 | Phase 5 | Complete |
-| DISC-02 | Phase 5 | Complete |
-| DISC-03 | Phase 5 | Complete |
-| DISC-04 | Phase 5 | Complete |
-| SUB-01 | Phase 5 | Complete |
-| SUB-02 | Phase 5 | Complete |
-| SUB-03 | Phase 5 | Complete |
-| MSG-01 | Phase 6 | Complete |
-| MSG-02 | Phase 6 | Complete |
-| MSG-03 | Phase 6 | Complete |
+| DASH-01 | Phase 1 | Complete |
+| DASH-02 | Phase 1 | Complete |
+| DASH-03 | Phase 1 | Complete |
+| DASH-04 | Phase 1 | Complete |
+| TUTOR-01 | Phase 2 | Pending |
+| TUTOR-02 | Phase 2 | Pending |
+| TUTOR-03 | Phase 2 | Pending |
+| TUTOR-04 | Phase 2 | Pending |
+| TUTOR-05 | Phase 3 | Pending |
+| TUTOR-06 | Phase 3 | Pending |
+| STUD-01 | Phase 4 | Pending |
+| STUD-02 | Phase 4 | Pending |
+| STUD-03 | Phase 4 | Pending |
+| STUD-04 | Phase 4 | Pending |
+| STUD-05 | Phase 4 | Pending |
+| CONT-01 | Phase 5 | Pending |
+| CONT-02 | Phase 5 | Pending |
+| CONT-03 | Phase 5 | Pending |
+| CONT-04 | Phase 5 | Pending |
+| MSG-01 | Phase 6 | Pending |
+| MSG-02 | Phase 6 | Pending |
+| MSG-03 | Phase 6 | Pending |
+| PROF-01 | Phase 7 | Pending |
+| PROF-02 | Phase 7 | Pending |
 
 **Coverage:**
-- v1.0 requirements: 22 total
-- Mapped to phases: 22
-- Unmapped: 0
+- v2.0 requirements: 24 total
+- Mapped to phases: 24
+- Unmapped: 0 ✓
 
 ---
-*Requirements defined: 2026-04-06*
-*Last updated: 2026-04-06 — traceability populated by roadmapper*
+*Requirements defined: 2026-04-09*
+*Last updated: 2026-04-09 after v2.0 milestone start*

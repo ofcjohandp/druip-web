@@ -6,7 +6,7 @@
 
 | # | Phase | Goal | Requirements | Success Criteria |
 |---|-------|------|--------------|-----------------|
-| 1 | real-dashboard | Wire home dashboard to live Supabase data | DASH-01–04 | Empty states show when no data; real name in greeting; real streak |
+| 1 | real-dashboard | 1/2 | In Progress|  |
 | 2 | tutor-onboarding | Tutor signup + create classroom | TUTOR-01–04 | Tutor can sign up, create classroom, see it in their dashboard |
 | 3 | classroom-builder | Tutor builds sections + content cards | TUTOR-05–06 | Tutor can add sections and cards; content appears in DB |
 | 4 | student-discovery | Browse classrooms + subscribe | STUD-01–05 | Student can browse, view detail, subscribe; locked/unlocked states work |
@@ -22,9 +22,9 @@
 **Goal:** Replace all placeholder data on the home dashboard with real Supabase queries and proper empty states.
 **Requirements:** DASH-01, DASH-02, DASH-03, DASH-04
 **Stitch screen:** `home_dashboard/code.html`
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 Plans:
-- [ ] 01-01-PLAN.md — Wire Supabase queries and replace hardcoded data with real data + empty states
+- [x] 01-01-PLAN.md — Wire Supabase queries and replace hardcoded data with real data + empty states
 - [ ] 01-02-PLAN.md — Human verification of dashboard visual and functional correctness
 **Success criteria:**
 1. New user sees empty state (no classrooms, no streak, no tutors) — not fake data
