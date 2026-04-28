@@ -3,17 +3,109 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Shell } from '@/components/druip/shell'
-import { Button, BlobBg, Toast, IconButton } from '@/components/druip/ui'
+import { Button, Toast, IconButton } from '@/components/druip/ui'
 import { Icon } from '@/components/druip/icons'
 
-interface Props { firstName: string; streak: number; earnings: number }
+const QUOTES = [
+  "The secret of getting ahead is getting started.",
+  "Believe you can and you're halfway there.",
+  "It always seems impossible until it's done.",
+  "Don't watch the clock; do what it does. Keep going.",
+  "The harder you work, the greater you'll feel when you achieve it.",
+  "Dream it. Believe it. Build it.",
+  "Success is not the key to happiness. Happiness is the key to success.",
+  "The future depends on what you do today.",
+  "Small steps every day lead to big results.",
+  "You don't have to be great to start, but you have to start to be great.",
+  "Your only limit is your mind.",
+  "Push yourself — no one else is going to do it for you.",
+  "Great things never come from comfort zones.",
+  "Wake up with determination. Go to bed with satisfaction.",
+  "Do something today that your future self will thank you for.",
+  "Little things make big days.",
+  "It's going to be hard, but hard is not impossible.",
+  "Don't stop when you're tired. Stop when you're done.",
+  "Wake up. Work hard. Repeat.",
+  "Be so good they can't ignore you.",
+  "Study hard in silence. Let success make the noise.",
+  "Every expert was once a beginner.",
+  "Education is the passport to the future.",
+  "The more you learn, the more you earn.",
+  "Knowledge is power. Use it wisely.",
+  "Success is the sum of small efforts repeated every day.",
+  "You are capable of amazing things.",
+  "Consistency is the key to achieving and maintaining momentum.",
+  "One day at a time. One page at a time.",
+  "You didn't come this far to only come this far.",
+  "Your future self is watching you through your memories. Make it proud.",
+  "Work hard in silence. Let your results speak.",
+  "Stay focused and never give up.",
+  "Good things come to those who work hard.",
+  "Start where you are. Use what you have. Do what you can.",
+  "Success doesn't come from what you do occasionally, but what you do consistently.",
+  "The pain of studying now is lighter than the weight of regret later.",
+  "Discipline is choosing between what you want now and what you want most.",
+  "Don't limit your challenges. Challenge your limits.",
+  "Be the hardest working person you know.",
+  "Mistakes are proof that you're trying.",
+  "You are stronger than you think.",
+  "Make each day your masterpiece.",
+  "Learning is not attained by chance; it must be sought with passion.",
+  "The beautiful thing about learning is that nobody can take it away from you.",
+  "Education is not the filling of a pail, but the lighting of a fire.",
+  "Strive for progress, not perfection.",
+  "Your attitude determines your direction.",
+  "Today's hard work is tomorrow's foundation.",
+  "Every achievement begins with the decision to try.",
+  "A year from now you'll wish you had started today.",
+  "Don't wait for the perfect moment. Take the moment and make it perfect.",
+  "Commit to being the best version of yourself.",
+  "Rome wasn't built in a day, but they were laying bricks every hour.",
+  "Show up. Work. Learn. Repeat.",
+  "The grind is real, but so is the reward.",
+  "What you put in is what you get out.",
+  "Hustle in silence and let your success be your noise.",
+  "You've survived 100% of your hard days so far. Keep going.",
+  "It's not about being the best. It's about being better than yesterday.",
+  "Study like your future depends on it — because it does.",
+  "Your degree is worth the early mornings.",
+  "Kganya ke thuto — knowledge is light.",
+  "One more page. One more step. One more day.",
+  "The grind never stops for those who want it enough.",
+  "Turn your can'ts into cans and your dreams into plans.",
+  "Hard work beats talent when talent doesn't work hard.",
+  "You are one study session away from a breakthrough.",
+  "Be patient. Be persistent. Be present.",
+  "Today's preparation is tomorrow's achievement.",
+  "The difference between ordinary and extraordinary is that little extra.",
+  "You have what it takes. Now go prove it.",
+  "Bokamoso bo tletse — the future is full. Fill yours wisely.",
+  "Focus on where you want to go, not where you currently are.",
+  "Your mind is a superpower. Train it daily.",
+  "There are no shortcuts to any place worth going.",
+  "Dig deep. Work hard. Shine bright.",
+  "You are building something great. Don't stop now.",
+  "The world belongs to those who read.",
+  "Success is getting up one more time than you fall.",
+  "You are exactly where you need to be to get where you want to go.",
+  "Thuto ke lerumo — education is a spear. Sharpen yours.",
+  "Tough times make great outcomes.",
+  "Every page you study is an investment in your future.",
+  "Your dedication today shapes your destination tomorrow.",
+  "Make your family's investment in you count.",
+  "Ulutho ngolwazi — you are enriched by knowledge.",
+  "Keep going. The best is yet to come.",
+  "You owe it to yourself to become everything you are capable of being.",
+  "Impumelelo iqala nokuqala — success begins with beginning.",
+]
 
-export default function HomeClient({ firstName, streak, earnings }: Props) {
+interface Props { firstName: string; streak: number }
+
+export default function HomeClient({ firstName, streak }: Props) {
   const router = useRouter()
   const [toast, setToast] = useState<{ tone: 'sage' | 'gold' | 'coral'; msg: string } | null>(null)
 
-  const showToast = (tone: 'sage' | 'gold' | 'coral', msg: string) => setToast({ tone, msg })
-  const formatted = `R ${earnings.toFixed(2)}`
+  const todayQuote = QUOTES[Math.floor(Date.now() / 86400000) % QUOTES.length]
 
   return (
     <>
@@ -23,45 +115,28 @@ export default function HomeClient({ firstName, streak, earnings }: Props) {
         rightAction={
           <div style={{ display: 'flex', gap: 8 }}>
             <IconButton ariaLabel="search" onClick={() => router.push('/search')}><Icon.search size={18}/></IconButton>
-            <IconButton ariaLabel="alerts"><Icon.bell size={18}/></IconButton>
+            <IconButton ariaLabel="alerts" onClick={() => setToast({ tone: 'sage', msg: 'Notifications coming soon.' })}><Icon.bell size={18}/></IconButton>
           </div>
         }
       >
         {/* Greeting */}
-        <section style={{ padding: '4px 20px 20px', position: 'relative' }}>
+        <section style={{ padding: '4px 20px 16px' }}>
           <div style={{ fontSize: 13, color: 'var(--charcoal-soft)', fontWeight: 600 }}>Sawubona, {firstName} 👋</div>
-          <h1 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 30, lineHeight: 1.05, letterSpacing: '-.02em', color: 'var(--charcoal)', margin: '6px 0 0' }}>Let&apos;s make this term count.</h1>
+          <h1 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 30, lineHeight: 1.05, letterSpacing: '-.02em', color: 'var(--charcoal)', margin: '6px 0 0' }}>Let&apos;s make this year count.</h1>
         </section>
 
-        {/* Earnings card */}
+        {/* Daily quote card */}
         <section style={{ padding: '0 20px 24px' }}>
-          <div onClick={() => router.push('/earnings')} style={{ background: 'linear-gradient(140deg, var(--sage) 0%, var(--sage-deep) 100%)', color: '#fff', borderRadius: 28, padding: 22, position: 'relative', overflow: 'hidden', cursor: 'pointer' }}>
-            <BlobBg tone="gold" size={180} top={-60} right={-60} opacity={0.25}/>
-            <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-              <div>
-                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', opacity: 0.85 }}>Available to cash out</div>
-                <div style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 40, lineHeight: 1, letterSpacing: '-.02em', marginTop: 6 }}>{formatted}</div>
-                <div style={{ fontSize: 12, opacity: 0.75, marginTop: 6 }}>{earnings > 0 ? 'Ready to cash out' : 'Start selling to earn'}</div>
+          <div style={{ background: 'linear-gradient(140deg, var(--cream-warm) 0%, var(--gold-soft) 100%)', borderRadius: 24, padding: '22px 22px 18px', border: '1px solid var(--hairline)' }}>
+            <div style={{ fontFamily: 'Fraunces, serif', fontStyle: 'italic', fontSize: 16, lineHeight: 1.55, color: 'var(--charcoal)', marginBottom: streak > 0 ? 14 : 0 }}>
+              &ldquo;{todayQuote}&rdquo;
+            </div>
+            {streak > 0 && (
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 5, padding: '5px 12px', background: 'var(--gold)', borderRadius: 999, color: 'var(--charcoal)' }}>
+                <Icon.flame size={13} fill="currentColor"/>
+                <span style={{ fontWeight: 700, fontSize: 12 }}>{streak}-day login streak</span>
               </div>
-              {streak > 0 && (
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 12px', background: 'var(--gold-soft)', borderRadius: 999, color: 'var(--gold-deep)' }}>
-                  <Icon.flame size={14} fill="currentColor"/>
-                  <span style={{ fontWeight: 700, fontSize: 12 }}>{streak}-day streak</span>
-                </div>
-              )}
-            </div>
-            <div style={{ display: 'flex', gap: 8, marginTop: 18, position: 'relative' }}>
-              <button
-                onClick={e => { e.stopPropagation(); earnings > 0 ? router.push('/earnings') : showToast('gold', 'Nothing to cash out yet.') }}
-                style={{ flex: 1, padding: '12px 16px', borderRadius: 999, background: 'var(--gold)', color: 'var(--charcoal)', border: 'none', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13, cursor: 'pointer' }}>
-                Cash out
-              </button>
-              <button
-                onClick={e => { e.stopPropagation(); router.push('/sell') }}
-                style={{ flex: 1, padding: '12px 16px', borderRadius: 999, background: 'rgba(255,255,255,0.16)', color: '#fff', border: '1px solid rgba(255,255,255,0.3)', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13, cursor: 'pointer' }}>
-                + New listing
-              </button>
-            </div>
+            )}
           </div>
         </section>
 
@@ -69,9 +144,9 @@ export default function HomeClient({ firstName, streak, earnings }: Props) {
         <section style={{ padding: '0 20px 24px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8 }}>
             {[
-              { icon: <Icon.upload size={18}/>, label: 'Sell', tone: 'sage', href: '/sell' },
-              { icon: <Icon.search size={18}/>, label: 'Find', tone: 'gold', href: '/browse' },
-              { icon: <Icon.bookmark size={18}/>, label: 'Saved', tone: 'turquoise', href: '/browse' },
+              { icon: <Icon.search size={18}/>, label: 'Discover', tone: 'gold', href: '/browse' },
+              { icon: <Icon.bookmark size={18}/>, label: 'Wishlist', tone: 'turquoise', href: '/library?tab=saved' },
+              { icon: <Icon.doc size={18}/>, label: 'My Notes', tone: 'sage', href: '/library' },
               { icon: <Icon.zap size={18}/>, label: 'Earn', tone: 'coral', href: '/earnings' },
             ].map((q, i) => (
               <button key={i} onClick={() => router.push(q.href)}
@@ -85,28 +160,16 @@ export default function HomeClient({ firstName, streak, earnings }: Props) {
           </div>
         </section>
 
-        {/* Empty library */}
-        <section style={{ padding: '0 20px 24px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 14 }}>
-            <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 22, letterSpacing: '-.02em', margin: 0, color: 'var(--charcoal)' }}>Your library</h2>
-            <span onClick={() => router.push('/browse')} style={{ fontSize: 13, color: 'var(--sage-deep)', fontWeight: 700, cursor: 'pointer' }}>Browse →</span>
-          </div>
-          <div style={{ background: 'var(--cream-warm)', borderRadius: 24, padding: '32px 20px', textAlign: 'center', border: '1px solid var(--hairline)' }}>
-            <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 6 }}>Nothing here yet.</div>
-            <div style={{ fontSize: 13, color: 'var(--charcoal-soft)', marginBottom: 18 }}>Your library starts the moment you buy your first set of notes.</div>
-            <Button variant="primary" size="sm" onClick={() => router.push('/browse')}>Browse notes</Button>
-          </div>
-        </section>
-
-        {/* Sell prompt */}
-        <section style={{ padding: '0 20px 24px' }}>
-          <div onClick={() => router.push('/sell')} style={{ background: 'var(--cream-warm)', borderRadius: 24, padding: 20, display: 'flex', alignItems: 'center', gap: 14, border: '1px solid var(--hairline)', cursor: 'pointer' }}>
-            <div style={{ width: 52, height: 52, borderRadius: 16, background: 'var(--gold-soft)', color: 'var(--gold-deep)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><Icon.sparkle size={22}/></div>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--charcoal)' }}>Got notes from last term?</div>
-              <div style={{ fontSize: 12, color: 'var(--charcoal-soft)', marginTop: 3 }}>List them in 2 min — average seller earns R 480/mo.</div>
+        {/* Your library */}
+        <section style={{ padding: '0 20px 32px' }}>
+          <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 22, letterSpacing: '-.02em', margin: '0 0 14px', color: 'var(--charcoal)' }}>Your library</h2>
+          <div style={{ background: 'var(--cream-warm)', borderRadius: 24, padding: '28px 20px', textAlign: 'center', border: '1px solid var(--hairline)' }}>
+            <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 6 }}>Build your collection.</div>
+            <div style={{ fontSize: 13, color: 'var(--charcoal-soft)', marginBottom: 20 }}>Shop for notes or create and store your own.</div>
+            <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
+              <Button variant="primary" size="sm" onClick={() => router.push('/browse')}>Shop</Button>
+              <Button variant="ghost" size="sm" onClick={() => router.push('/library?create=true')}>+ Create</Button>
             </div>
-            <Icon.chevron size={18}/>
           </div>
         </section>
       </Shell>

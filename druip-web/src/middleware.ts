@@ -9,44 +9,27 @@ export async function middleware(request: NextRequest) {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
-        getAll() {
-          return request.cookies.getAll()
-        },
+        getAll() { return request.cookies.getAll() },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) =>
-            request.cookies.set(name, value)
-          )
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
           supabaseResponse = NextResponse.next({ request })
-          cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
-          )
+          cookiesToSet.forEach(({ name, value, options }) => supabaseResponse.cookies.set(name, value, options))
         },
       },
     }
   )
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
+  const { data: { user } } = await supabase.auth.getUser()
   const { pathname } = request.nextUrl
+  const publicPaths = ['/', '/sign-in', '/sign-up', '/forgot-password', '/auth/callback']
+  const isPublic = publicPaths.some(p => pathname === p || pathname.startsWith('/auth/'))
 
-  const publicPaths = ['/', '/sign-in', '/sign-up', '/auth/callback']
-  const isPublic = publicPaths.some((p) => pathname === p || pathname.startsWith('/auth/'))
-
-  if (!user && !isPublic) {
-    return NextResponse.redirect(new URL('/sign-in', request.url))
-  }
-
-  if (user && (pathname === '/' || pathname === '/sign-in' || pathname === '/sign-up')) {
-    return NextResponse.redirect(new URL('/home', request.url))
-  }
+  if (!user && !isPublic) return NextResponse.redirect(new URL('/sign-in', request.url))
+  if (user && (pathname === '/' || pathname === '/sign-in' || pathname === '/sign-up')) return NextResponse.redirect(new URL('/home', request.url))
 
   return supabaseResponse
 }
 
 export const config = {
-  matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
-  ],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)'],
 }

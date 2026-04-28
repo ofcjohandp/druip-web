@@ -44,7 +44,6 @@ export default function SignInPage() {
         <h1 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 36, lineHeight: 1.05, letterSpacing: '-.02em', color: 'var(--charcoal)', margin: '0 0 8px' }}>Welcome back.</h1>
         <p style={{ fontSize: 14, color: 'var(--charcoal-soft)', margin: '0 0 28px', lineHeight: 1.5 }}>Sign in to keep selling and studying.</p>
 
-        {/* Social */}
         <div style={{ display: 'flex', gap: 10, marginBottom: 18 }}>
           <button onClick={signInWithGoogle} style={{ flex: 1, padding: '12px 16px', background: 'var(--white)', border: '1px solid var(--hairline)', borderRadius: 16, fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13, color: 'var(--charcoal)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, cursor: 'pointer', transition: 'background 200ms' }}
             onMouseEnter={e => (e.currentTarget.style.background = 'var(--cream-warm)')}
@@ -64,10 +63,10 @@ export default function SignInPage() {
         )}
 
         <form onSubmit={handleSubmit}>
-          <Input label="Email" type="email" icon={<Icon.mail size={18}/>} placeholder="you@nwu.ac.za" value={email} onChange={e => setEmail(e.target.value)}/>
+          <Input label="Email" type="email" icon={<Icon.mail size={18}/>} placeholder="you@gmail.com" value={email} onChange={e => setEmail(e.target.value)}/>
           <Input label="Password" type="password" icon={<Icon.lock size={18}/>} placeholder="••••••••" value={password} onChange={e => setPassword(e.target.value)}/>
           <div style={{ textAlign: 'right', marginTop: -8, marginBottom: 16 }}>
-            <span style={{ fontSize: 13, color: 'var(--sage-deep)', fontWeight: 700, cursor: 'pointer' }}>Forgot password?</span>
+            <span onClick={() => router.push('/forgot-password')} style={{ fontSize: 13, color: 'var(--sage-deep)', fontWeight: 700, cursor: 'pointer' }}>Forgot password?</span>
           </div>
           <Button variant="primary" full size="lg" type="submit" disabled={loading}>{loading ? 'Signing in…' : 'Sign in'}</Button>
         </form>

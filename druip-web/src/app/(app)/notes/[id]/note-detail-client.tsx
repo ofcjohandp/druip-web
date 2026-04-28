@@ -53,7 +53,7 @@ export default function NoteDetailClient({ listing, sellerName, previewUrls, isO
           <div style={{ borderRadius: 24, overflow: 'hidden', background: `linear-gradient(140deg, ${accentColor}22 0%, var(--cream-warm) 100%)`, minHeight: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--hairline)', position: 'relative' }}>
             {previewUrls.length > 0 ? (
               <div style={{ display: 'flex', gap: 8, padding: 16, overflowX: 'auto', width: '100%' }}>
-                {previewUrls.map((url, i) => (
+                {previewUrls.slice(0, 2).map((url, i) => (
                   <img key={i} src={url} alt={`Page ${i + 1}`} style={{ height: 160, borderRadius: 12, objectFit: 'cover', flexShrink: 0, boxShadow: 'var(--shadow-card)' }}/>
                 ))}
               </div>
@@ -82,7 +82,7 @@ export default function NoteDetailClient({ listing, sellerName, previewUrls, isO
             <Avatar name={sellerInitial} tone="sage" size={36}/>
             <div>
               <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--charcoal)' }}>{sellerName}</div>
-              <div style={{ fontSize: 11, color: 'var(--charcoal-soft)' }}>Seller · NWU Potchefstroom</div>
+              <div style={{ fontSize: 11, color: 'var(--charcoal-soft)' }}>Seller</div>
             </div>
           </div>
         </section>

@@ -6,11 +6,10 @@ import { Icon } from './icons'
 import { IconButton } from './ui'
 
 const NAV = [
-  { key: '/home',     label: 'Home',     icon: Icon.home },
-  { key: '/browse',   label: 'Browse',   icon: Icon.browse },
-  { key: '/sell',     label: 'Sell',     icon: Icon.sell, primary: true },
-  { key: '/earnings', label: 'Earnings', icon: Icon.earn },
-  { key: '/profile',  label: 'You',      icon: Icon.user },
+  { key: '/home',    label: 'Home',     icon: Icon.home },
+  { key: '/browse',  label: 'Discover', icon: Icon.search },
+  { key: '/library', label: 'Library',  icon: Icon.browse },
+  { key: '/profile', label: 'You',      icon: Icon.user },
 ]
 
 interface ShellProps {
@@ -53,18 +52,7 @@ export const Shell = ({ children, title, headerVariant, onBack, sticky, hideNav,
       {!hideNav && (
         <nav style={{ position: 'fixed', left: '50%', transform: 'translateX(-50%)', bottom: 16, width: 'min(360px, calc(100% - 32px))', height: 68, background: 'rgba(250,247,242,.86)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderRadius: 999, display: 'flex', alignItems: 'center', justifyContent: 'space-around', boxShadow: '0 14px 36px rgba(60,50,30,.12)', border: '1px solid var(--hairline)', zIndex: 50 }}>
           {NAV.map(item => {
-            const active = pathname === item.key
-            if (item.primary) {
-              return (
-                <button key={item.key} onClick={() => router.push(item.key)} aria-label={item.label}
-                  style={{ width: 52, height: 52, borderRadius: '50%', background: 'var(--sage)', color: '#fff', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', boxShadow: '0 6px 18px rgba(122,158,126,.4)', transition: 'transform 200ms cubic-bezier(.34,1.56,.64,1)' }}
-                  onMouseDown={e => (e.currentTarget.style.transform = 'scale(0.92)')}
-                  onMouseUp={e => (e.currentTarget.style.transform = 'scale(1)')}
-                  onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}>
-                  <item.icon size={22}/>
-                </button>
-              )
-            }
+            const active = pathname === item.key || pathname.startsWith(item.key + '/')
             return (
               <button key={item.key} onClick={() => router.push(item.key)} aria-label={item.label}
                 style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, color: active ? 'var(--sage-deep)' : 'var(--fg-muted)', padding: 4 }}>

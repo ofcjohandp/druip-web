@@ -16,8 +16,10 @@ export default function SellPage() {
   const [code, setCode] = useState('')
   const [type, setType] = useState('Notes')
   const [faculty, setFaculty] = useState('')
-  const [price, setPrice] = useState(45)
+  const [price, setPrice] = useState<number | string>(45)
   const [desc, setDesc] = useState('')
+  const [lang, setLang] = useState('English')
+  const [format, setFormat] = useState('PDF')
   const [publishing, setPublishing] = useState(false)
   const [uploadProgress, setUploadProgress] = useState('')
   const [toast, setToast] = useState<{ tone: 'sage' | 'gold' | 'coral'; msg: string } | null>(null)
@@ -58,6 +60,8 @@ export default function SellPage() {
       price,
       pages: files.length,
       file_urls: uploadedPaths,
+      language: lang,
+      format,
       status: 'published',
     })
 
@@ -193,6 +197,22 @@ export default function SellPage() {
                 <textarea value={desc} onChange={e => setDesc(e.target.value)} placeholder="What's covered? What makes these notes good?" rows={4}
                   style={{ ...inputStyle, resize: 'vertical' }}/>
               </div>
+              <div style={{ marginBottom: 16 }}>
+                <label style={{ display: 'block', fontSize: 13, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 8 }}>Language of notes</label>
+                <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                  {['English', 'Afrikaans', 'isiZulu', 'Sesotho', 'Other'].map(l => (
+                    <Chip key={l} active={lang === l} tone={lang === l ? 'neutral' : 'white'} onClick={() => setLang(l)}>{l}</Chip>
+                  ))}
+                </div>
+              </div>
+              <div style={{ marginBottom: 16 }}>
+                <label style={{ display: 'block', fontSize: 13, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 8 }}>Format</label>
+                <div style={{ display: 'flex', gap: 8 }}>
+                  {['PDF', 'Screenshots', 'Mixed'].map(f => (
+                    <Chip key={f} active={format === f} tone={format === f ? 'neutral' : 'white'} onClick={() => setFormat(f)}>{f}</Chip>
+                  ))}
+                </div>
+              </div>
             </section>
             <section style={{ padding: '0 20px 32px' }}>
               <Button variant="primary" size="lg" full disabled={!title || !code || !faculty} onClick={() => setStep(3)}>Continue</Button>
@@ -204,24 +224,25 @@ export default function SellPage() {
           <>
             <section style={{ padding: '0 20px 24px' }}>
               <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 24, letterSpacing: '-.02em', margin: '0 0 8px', color: 'var(--charcoal)' }}>Set your price</h2>
-              <p style={{ fontSize: 13, color: 'var(--charcoal-soft)', margin: '0 0 24px', lineHeight: 1.5 }}>Health Sci notes typically sell between R 35 – R 80.</p>
+              <p style={{ fontSize: 13, color: 'var(--charcoal-soft)', margin: '0 0 24px', lineHeight: 1.5 }}>Set whatever price you think is fair for your notes.</p>
 
               <div style={{ background: 'linear-gradient(140deg, var(--gold-soft) 0%, var(--cream-warm) 100%)', borderRadius: 28, padding: 28, textAlign: 'center', marginBottom: 20 }}>
-                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--gold-deep)' }}>Your price</div>
-                <div style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 56, lineHeight: 1, color: 'var(--charcoal)', margin: '8px 0' }}>R {price}</div>
-                <input type="range" min={10} max={150} step={5} value={price} onChange={e => setPrice(+e.target.value)} style={{ width: '100%', accentColor: 'var(--sage)' }}/>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'var(--charcoal-soft)', marginTop: 4 }}>
-                  <span>R 10</span><span>R 150</span>
+                <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--gold-deep)', marginBottom: 8 }}>Your price</div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}>
+                  <span style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 40, color: 'var(--charcoal)' }}>R</span>
+                  <input type="number" min={1} value={price} onChange={e => setPrice(e.target.value === '' ? '' : +e.target.value)} placeholder="0"
+                    style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 56, lineHeight: 1, color: 'var(--charcoal)', background: 'none', border: 'none', outline: 'none', width: 160, textAlign: 'center' }}/>
                 </div>
+                <div style={{ fontSize: 12, color: 'var(--charcoal-soft)', marginTop: 4 }}>Enter any price you think is fair</div>
               </div>
 
               <div style={{ background: 'var(--white)', borderRadius: 20, padding: 16, border: '1px solid var(--hairline)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'var(--charcoal-soft)', marginBottom: 8 }}>
                   <span>You receive (per sale)</span>
-                  <span style={{ fontWeight: 700, color: 'var(--charcoal)' }}>R {Math.round(price * 0.85)}</span>
+                  <span style={{ fontWeight: 700, color: 'var(--charcoal)' }}>R {Math.round(Number(price) * 0.85)}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'var(--charcoal-soft)' }}>
-                  <span>Druip fee (15%)</span><span>R {Math.round(price * 0.15)}</span>
+                  <span>Druip fee (15%)</span><span>R {Math.round(Number(price) * 0.15)}</span>
                 </div>
               </div>
 
