@@ -21,7 +21,7 @@ export default function TabsLayout() {
         },
         tabBarLabelStyle: {
           fontSize: TYPOGRAPHY.caption.fontSize,
-          fontWeight: '500',
+          fontFamily: 'Nunito_600SemiBold',
         },
         headerShown: false,
       }}

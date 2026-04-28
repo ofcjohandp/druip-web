@@ -2,27 +2,27 @@
 // All UI components MUST import from here. No hardcoded colors elsewhere.
 
 export const COLORS = {
-  // Primary surfaces
-  background: '#FBF8F4',       // warm off-white/cream
-  surface: '#F5F0E8',          // warmer surface
-  card: '#FFFFFF',             // white cards pop against cream background
+  // Primary surfaces — Duolingo dark navy
+  background: '#0D1B26',       // dark navy canvas
+  surface: '#152232',          // slightly lighter panel / input bg
+  card: '#1C2F42',             // card background — pops against background
 
-  // Brand
-  primary: '#C4622D',          // deep terracotta
-  accent: '#FF4D30',           // electric coral
-  accentSecondary: '#FFB347',  // warm amber gold for celebrations
+  // Brand — vivid orange
+  primary: '#FF6B2B',          // vivid orange (hero zones, avatars, price badges)
+  accent: '#FF6B2B',           // vivid orange (buttons, active states, progress)
+  accentSecondary: '#58CC02',  // Duolingo green for celebrations / confetti
 
   // Text
-  text: '#1A1110',             // warm near-black
-  textMuted: '#8A7E78',        // warm grey
-  textOnAccent: '#FFFFFF',     // text on accent-colored backgrounds
+  text: '#FFFFFF',             // white
+  textMuted: '#8B9BB4',        // cool blue-grey
+  textOnAccent: '#FFFFFF',     // text on orange buttons
 
   // UI
-  border: '#E8DDD5',           // warm-tinted border
-  error: '#D32F2F',            // error states
-  success: '#388E3C',          // success states
-  successSurface: '#E8F5E9',   // light green tint for correct answer backgrounds
-  errorSurface: '#FFEBEE',     // light red tint for wrong answer backgrounds
+  border: '#2A3F52',           // subtle dark blue-grey border
+  error: '#FF4B4B',            // error states
+  success: '#58CC02',          // success states
+  successSurface: '#0D2A0D',   // dark green tint for correct answer backgrounds
+  errorSurface: '#2D0D0D',     // dark red tint for wrong answer backgrounds
 } as const;
 
 // TYPOGRAPHY usage: do NOT spread inside StyleSheet.create.
@@ -30,16 +30,17 @@ export const COLORS = {
 export const TYPOGRAPHY = {
   display: { fontFamily: 'Syne_800ExtraBold', fontSize: 32, lineHeight: 38 },
   heading: { fontFamily: 'Syne_800ExtraBold', fontSize: 24, lineHeight: 30 },
-  subheading: { fontSize: 20, fontWeight: '600' as const },
-  body: { fontSize: 16, fontWeight: '400' as const, lineHeight: 24 },
-  bodySmall: { fontSize: 14, fontWeight: '400' as const },
-  caption: { fontSize: 12, fontWeight: '400' as const },
+  subheading: { fontFamily: 'Nunito_700Bold', fontSize: 20, lineHeight: 26 },
+  body: { fontFamily: 'Nunito_400Regular', fontSize: 16, lineHeight: 24 },
+  bodySmall: { fontFamily: 'Nunito_400Regular', fontSize: 14, lineHeight: 20 },
+  label: { fontFamily: 'Nunito_600SemiBold', fontSize: 14, lineHeight: 18 },
+  caption: { fontFamily: 'Nunito_400Regular', fontSize: 12, lineHeight: 16 },
 } as const;
 
 export const RADII = {
-  button: 12,
-  card: 16,
-  modal: 24,
+  button: 16,
+  card: 20,
+  modal: 28,
 } as const;
 
 export const SPACING = {

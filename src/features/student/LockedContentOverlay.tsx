@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   },
   sectionName: {
     fontSize: 14,
-    fontWeight: '400',
+    fontFamily: 'Nunito_400Regular',
     color: COLORS.textMuted,
     flex: 1,
   },

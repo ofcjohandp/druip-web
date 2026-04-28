@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#674c00",
+                        "on-tertiary-container": "#601500",
+                        "surface-container-low": "#eff1f2",
+                        "secondary-fixed-dim": "#f7ba00",
+                        "surface-variant": "#dadddf",
+                        "surface-container": "#e6e8ea",
+                        "secondary": "#755700",
+                        "primary-dim": "#004ca4",
+                        "on-surface": "#2c2f30",
+                        "surface-container-highest": "#dadddf",
+                        "on-secondary": "#fff1db",
+                        "surface": "#f5f6f7",
+                        "tertiary-container": "#ff9475",
+                        "inverse-surface": "#0c0f10",
+                        "primary-fixed-dim": "#5191ff",
+                        "secondary-dim": "#664b00",
+                        "on-primary": "#f0f2ff",
+                        "on-tertiary-fixed-variant": "#6f1a00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffefeb",
+                        "primary": "#0058bb",
+                        "on-surface-variant": "#595c5d",
+                        "on-secondary-fixed": "#443100",
+                        "on-background": "#2c2f30",
+                        "inverse-primary": "#4b8eff",
+                        "on-secondary-container": "#5c4400",
+                        "tertiary": "#ab2d00",
+                        "surface-tint": "#0058bb",
+                        "outline-variant": "#abadae",
+                        "on-error": "#ffefee",
+                        "on-primary-fixed": "#000000",
+                        "tertiary-fixed": "#ff9475",
+                        "secondary-fixed": "#ffca4d",
+                        "inverse-on-surface": "#9b9d9e",
+                        "on-tertiary-fixed": "#340800",
+                        "surface-container-high": "#e0e3e4",
+                        "error-container": "#fb5151",
+                        "on-error-container": "#570008",
+                        "tertiary-dim": "#962700",
+                        "primary-fixed": "#6c9fff",
+                        "surface-bright": "#f5f6f7",
+                        "error-dim": "#9f0519",
+                        "background": "#f5f6f7",
+                        "outline": "#757778",
+                        "on-primary-container": "#00214f",
+                        "error": "#b31b25",
+                        "secondary-container": "#ffca4d",
+                        "on-primary-fixed-variant": "#002a61",
+                        "primary-container": "#6c9fff",
+                        "surface-dim": "#d1d5d7",
+                        "tertiary-fixed-dim": "#ff7d57"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timer-glow {
+            box-shadow: 0 0 80px -10px rgba(0, 88, 187, 0.2);
+        }
+        .editorial-skew {
+            transform: skewY(-1deg);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl no-border bg-surface-container-low">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors p-2 rounded-full scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="text-xl font-black italic text-blue-700 dark:text-blue-300 font-['Plus_Jakarta_Sans'] tracking-tight">The Kinetic Academic</h1>
+</div>
+<div class="flex items-center gap-4">
+<img alt="User profile photo" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/20" data-alt="Portrait of a focused young African student wearing stylish glasses in a modern library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYtkb1WE0ycA6hk7q4_h4dY-eav9JAWXPcBjxpkMiexakSzWuMvcR2Dh-6yV4axSx82_qTvZG4-90JtLyhFjTohbEdMhi6TTZBQx9bRAC1phXSwdrBo8VDLigG_qGkDpEhUsEgJesNKONiEeIw5hDQEj4AXtbD7iW1GdT_G5jfI3eAiPa_tE_DpzeWGvbf_kzTt15bwTeqjkLcljwT7WHdqEb_cALgI_abp_k1UYzL90A6IaId9x49CT3yMA8DPsq2ccgDpqV3Snwo"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-screen-xl mx-auto min-h-screen">
+<!-- Hero Motivation Section -->
+<section class="mb-12 relative overflow-hidden rounded-xl p-8 bg-surface-container-low">
+<div class="relative z-10 max-w-2xl">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Current Vibe: Deep Work</span>
+<h2 class="text-[3.5rem] leading-none font-headline font-extrabold tracking-tight text-on-surface mt-4 mb-6">Master the <span class="text-primary italic">Momentum.</span></h2>
+<p class="text-body-lg text-on-surface-variant max-w-md">Your future self is thanking you for these 25 minutes of absolute focus. Let's get that degree.</p>
+</div>
+<div class="absolute -right-20 -top-20 w-96 h-96 bg-primary-container/20 rounded-full blur-3xl"></div>
+<div class="absolute right-0 bottom-0 opacity-10">
+<span class="material-symbols-outlined text-[12rem]" data-icon="bolt">bolt</span>
+</div>
+</section>
+<!-- Bento Layout for Timer & Stats -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left: Stats Stack -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<!-- Session Progress Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-[0.75rem] font-label font-bold uppercase tracking-widest text-on-surface-variant">Daily Target</p>
+<h3 class="text-2xl font-headline font-bold">Sessions Completed</h3>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="task_alt">task_alt</span>
+</div>
+<div class="flex items-end gap-2 mb-4">
+<span class="text-5xl font-headline font-extrabold text-primary">3</span>
+<span class="text-2xl font-headline font-bold text-on-surface-variant mb-1">/ 8</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[37.5%]"></div>
+</div>
+</div>
+<!-- Focus Time Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div class="flex justify-between items-start mb-6">
+<div>
+<p class="text-[0.75rem] font-label font-bold uppercase tracking-widest text-on-surface-variant">Total Flow</p>
+<h3 class="text-2xl font-headline font-bold">Focus Time</h3>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="timer">timer</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="text-5xl font-headline font-extrabold text-on-surface">75</span>
+<span class="text-xl font-headline font-bold text-on-surface-variant mb-1">mins</span>
+</div>
+<p class="mt-4 text-sm text-on-surface-variant italic">You're in the top 5% of students today!</p>
+</div>
+</div>
+<!-- Right: The Kinetic Timer -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-12 flex flex-col items-center justify-center relative overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<!-- Background Decorative Pattern -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBHf5r66jdVsOO4s0KX7-HLl7nSpzkbQl1-mqFbTd6gwDiVExj2bD_LsV9Fx-rTt-U79w5xOxSypXd_ow1xe6Tua8qDn0YvKKaQey7Gpf1C8qYdnJYaXbom28LuAZ4KqGfN9prsNA6kOEYungWaCNWUI4lSRRmdeQdXHRQcLbyrn0mH07jSoDO7lLqwVFwcnqheKl_J565MwhkDPFm-aKgn2u9ZfZpgxoe7AMK3CZes9MLKpDCqbGZTRFRneIYf1eexWvu219V2qQpu');"></div>
+<!-- Main Timer Circle -->
+<div class="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center">
+<!-- Progress Ring (SVG) -->
+<svg class="absolute inset-0 w-full h-full -rotate-90">
+<circle class="text-surface-container" cx="50%" cy="50%" fill="transparent" r="48%" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary timer-glow" cx="50%" cy="50%" fill="transparent" r="48%" stroke="currentColor" stroke-dasharray="100 100" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<!-- Time Display -->
+<div class="text-center z-10">
+<p class="font-label font-bold uppercase tracking-widest text-on-surface-variant mb-2">Study Phase</p>
+<div class="text-[6rem] md:text-[8rem] font-headline font-black leading-none text-on-surface tracking-tighter">25:00</div>
+<div class="flex justify-center gap-2 mt-4">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-high"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-high"></span>
+</div>
+</div>
+</div>
+<!-- Controls -->
+<div class="flex items-center gap-8 mt-12 relative z-10">
+<button class="w-16 h-16 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors active:scale-90">
+<span class="material-symbols-outlined text-3xl" data-icon="replay">replay</span>
+</button>
+<button class="px-12 py-6 rounded-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-xl shadow-xl shadow-primary/20 flex items-center gap-3 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+                        START SESSION
+                    </button>
+<button class="w-16 h-16 flex items-center justify-center rounded-full bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors active:scale-90">
+<span class="material-symbols-outlined text-3xl" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Focus Area: Upcoming Breaks / Tasks -->
+<section class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-secondary-container/10 p-8 rounded-xl border-l-8 border-secondary-container">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="coffee">coffee</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-xl">Next Reward</h4>
+<p class="text-sm text-on-surface-variant">5-minute walk &amp; hydration</p>
+</div>
+</div>
+</div>
+<div class="bg-tertiary-container/10 p-8 rounded-xl border-l-8 border-tertiary-container">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-xl">Today's Mantra</h4>
+<p class="text-sm text-on-surface-variant">"Action is the foundational key to all success."</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 flex justify-around items-center px-4 pb-2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)] z-50">
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-200 rounded-full px-5 py-2 scale-110 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book" data-weight="fill">menu_book</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Study</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Classroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

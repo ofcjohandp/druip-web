@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: '700',
+    fontFamily: 'Syne_800ExtraBold',
     color: COLORS.text,
     marginBottom: SPACING.xl,
   },
@@ -183,5 +183,5 @@ const styles = StyleSheet.create({
     marginTop: SPACING.sm,
   },
   buttonDisabled: { opacity: 0.6 },
-  buttonText: { color: COLORS.textOnAccent, fontSize: 16, fontWeight: '600' },
+  buttonText: { color: COLORS.textOnAccent, fontSize: 16, fontFamily: 'Nunito_600SemiBold' },
 });

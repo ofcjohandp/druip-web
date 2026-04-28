@@ -2,6 +2,7 @@ import { Stack, useRouter, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { useFonts, Syne_800ExtraBold } from '@expo-google-fonts/syne';
+import { Nunito_400Regular, Nunito_600SemiBold, Nunito_700Bold } from '@expo-google-fonts/nunito';
 import { AppProviders } from '@/providers/AppProviders';
 import { useAuthStore } from '@/features/auth/useAuthStore';
 
@@ -16,7 +17,7 @@ export default function RootLayout() {
 }
 
 function RootNavigator() {
-  const [fontsLoaded] = useFonts({ Syne_800ExtraBold });
+  const [fontsLoaded] = useFonts({ Syne_800ExtraBold, Nunito_400Regular, Nunito_600SemiBold, Nunito_700Bold });
   const session = useAuthStore((s) => s.session);
   const isLoading = useAuthStore((s) => s.isLoading);
   const pendingTutorOnboarding = useAuthStore((s) => s.pendingTutorOnboarding);

@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   },
   linkTitle: {
     fontSize: 15,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
     color: COLORS.accent,
   },
   linkUrl: {

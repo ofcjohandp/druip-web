@@ -247,7 +247,7 @@ This phase keeps the dashboard as a single async Server Component. The following
 ```
 Promise.all([
   supabase.from("profiles").select("streak_count").eq("id", user.id).single(),
-  supabase.from("subscriptions").select("*, classrooms(*)").eq("user_id", user.id).order("updated_at", { ascending: false }),
+  supabase.from("subscriptions").select("*, classrooms(*)").eq("student_id", user.id).order("subscribed_at", { ascending: false }),
   supabase.from("tutors" /* or equivalent */).select("*").order("created_at", { ascending: false }).limit(4),
 ])
 ```

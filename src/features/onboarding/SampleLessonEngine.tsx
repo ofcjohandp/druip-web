@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   progressBarFill: { height: '100%', backgroundColor: COLORS.accent, borderRadius: 3 },
-  questionText: { fontSize: 20, fontWeight: '600', color: COLORS.text, marginBottom: SPACING.lg, lineHeight: 28 },
+  questionText: { fontSize: 20, fontFamily: 'Nunito_600SemiBold', color: COLORS.text, marginBottom: SPACING.lg, lineHeight: 28 },
   option: {
     backgroundColor: COLORS.surface,
     padding: SPACING.md,
@@ -118,5 +118,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     minHeight: 48,
   },
-  continueButtonText: { color: COLORS.textOnAccent, fontSize: 16, fontWeight: '600' },
+  continueButtonText: { color: COLORS.textOnAccent, fontSize: 16, fontFamily: 'Nunito_600SemiBold' },
 });

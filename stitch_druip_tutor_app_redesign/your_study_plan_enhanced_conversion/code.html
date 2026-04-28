@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Druip - Study Planner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#fff1db",
+                    "on-secondary-container": "#5c4400",
+                    "outline-variant": "#abadae",
+                    "tertiary-dim": "#962700",
+                    "on-background": "#2c2f30",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-dim": "#664b00",
+                    "surface": "#f5f6f7",
+                    "error-container": "#fb5151",
+                    "primary-fixed-dim": "#5191ff",
+                    "on-primary-fixed-variant": "#002a61",
+                    "background": "#f5f6f7",
+                    "outline": "#757778",
+                    "on-tertiary": "#ffefeb",
+                    "on-error": "#ffefee",
+                    "surface-container-highest": "#dadddf",
+                    "surface-container-high": "#e0e3e4",
+                    "inverse-surface": "#0c0f10",
+                    "tertiary-container": "#ff9475",
+                    "surface-tint": "#0058bb",
+                    "on-tertiary-fixed": "#340800",
+                    "secondary": "#755700",
+                    "on-primary-fixed": "#000000",
+                    "primary-dim": "#004ca4",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "surface-bright": "#f5f6f7",
+                    "surface-variant": "#dadddf",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "surface-container": "#e6e8ea",
+                    "on-primary": "#f0f2ff",
+                    "surface-container-low": "#eff1f2",
+                    "surface-dim": "#d1d5d7",
+                    "on-primary-container": "#00214f",
+                    "inverse-on-surface": "#9b9d9e",
+                    "tertiary": "#ab2d00",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "secondary-container": "#ffca4d",
+                    "on-surface": "#2c2f30",
+                    "error": "#b31b25",
+                    "on-tertiary-container": "#601500",
+                    "on-secondary-fixed": "#443100",
+                    "on-error-container": "#570008",
+                    "primary": "#0058bb",
+                    "on-surface-variant": "#595c5d",
+                    "primary-fixed": "#6c9fff",
+                    "primary-container": "#6c9fff",
+                    "secondary-fixed": "#ffca4d",
+                    "tertiary-fixed": "#ff9475",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "inverse-primary": "#4b8eff",
+                    "error-dim": "#9f0519"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f5f6f7;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #0058bb 0%, #6c9fff 100%);
+        }
+        .glass-nav {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="User Profile Photo" class="w-full h-full object-cover" data-alt="close-up portrait of a young male student smiling confidently in a modern bright library setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn6klc8qgwcBJsmwzrDoZ_xbOA9vrcb2QnoZj7uMu2k4eBPZdSOAiNwBPPOHYaxksG0MqIa1n1rvR1r5fG_MLFcDVMXRDQ1OTqVHMgTg51l6P9EullWrNR_uO8n9lFqoUWG2HJdBgsCaxH3bBaavcpaNIXjz3uG_85Mj7utd2100Qcn95bsbgHbd-WY6BR18PBTN7Gh8pMSZdmJL5Yk3kW_J7H8noheszmCMvUXxtFVvqH5nlry2iYaeL8iw99h2SP343zoZkkKsE8"/>
+</div>
+<span class="text-2xl font-black text-blue-700 dark:text-blue-500 italic font-['Plus_Jakarta_Sans'] tracking-tight">Druip</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-slate-500" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="pt-24 px-6">
+<!-- Hero Section -->
+<section class="mb-12">
+<h1 class="text-[3.5rem] font-['Plus_Jakarta_Sans'] font-bold leading-[1.1] tracking-tight mb-2 text-on-surface">
+                Ace your <span class="text-primary italic">Finals.</span>
+</h1>
+<p class="text-body-lg text-on-surface-variant font-medium">
+                Your personalized road to the Economics Exam. 8 days remaining.
+            </p>
+</section>
+<!-- Progress Overview -->
+<div class="bg-surface-container-low rounded-xl p-6 mb-8 relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex justify-between items-end mb-4">
+<div>
+<span class="label-md font-bold text-primary uppercase tracking-widest text-[11px]">Overall Progress</span>
+<div class="text-3xl font-['Plus_Jakarta_Sans'] font-extrabold text-on-surface">42%</div>
+</div>
+<div class="text-right">
+<span class="label-md font-bold text-secondary uppercase tracking-widest text-[11px]">Energy Level</span>
+<div class="text-lg font-bold text-secondary-dim">Peak Momentum</div>
+</div>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full kinetic-gradient w-[42%] rounded-full"></div>
+</div>
+</div>
+<!-- Decorative Bleed -->
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-secondary-container/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Countdown Checklist -->
+<div class="space-y-6">
+<!-- Day 8 - Today -->
+<div class="bg-surface-container-lowest rounded-xl p-1 shadow-[0_20px_40px_rgba(0,0,0,0.05)]">
+<div class="p-6">
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4 items-center">
+<div class="w-14 h-14 kinetic-gradient rounded-lg flex flex-col items-center justify-center text-on-primary">
+<span class="text-xs font-bold uppercase tracking-tighter">Oct</span>
+<span class="text-xl font-extrabold leading-none">12</span>
+</div>
+<div>
+<h3 class="text-title-lg font-bold text-on-surface leading-tight">Macroeconomic Policy</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="schedule">schedule</span>
+<span class="text-xs font-bold text-on-surface-variant">2.5 Hours</span>
+</div>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="pending" style="font-variation-settings: 'FILL' 1;">pending</span>
+</button>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3">
+<p class="text-sm text-on-surface-variant font-medium">Focus on: Fiscal policy frameworks and inflation targeting in emerging markets.</p>
+</div>
+</div>
+</div>
+<!-- Day 7 -->
+<div class="bg-surface-container-low rounded-xl p-6 opacity-90">
+<div class="flex justify-between items-start">
+<div class="flex gap-4 items-center">
+<div class="w-14 h-14 bg-surface-container-highest rounded-lg flex flex-col items-center justify-center text-on-surface-variant">
+<span class="text-xs font-bold uppercase tracking-tighter">Oct</span>
+<span class="text-xl font-extrabold leading-none">13</span>
+</div>
+<div>
+<h3 class="text-title-lg font-bold text-on-surface leading-tight">Market Structures</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="bolt">bolt</span>
+<span class="text-xs font-bold text-on-surface-variant">1.5 Hours</span>
+</div>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="check_box_outline_blank">check_box_outline_blank</span>
+</button>
+</div>
+</div>
+<!-- Day 6 - High Priority -->
+<div class="bg-surface-container-low rounded-xl p-6 relative overflow-hidden ring-2 ring-tertiary-container/30">
+<div class="absolute top-0 right-0 px-4 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-black uppercase tracking-widest rounded-bl-lg">
+                    Hard Topic
+                </div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-4 items-center">
+<div class="w-14 h-14 bg-surface-container-highest rounded-lg flex flex-col items-center justify-center text-on-surface-variant">
+<span class="text-xs font-bold uppercase tracking-tighter">Oct</span>
+<span class="text-xl font-extrabold leading-none">14</span>
+</div>
+<div>
+<h3 class="text-title-lg font-bold text-on-surface leading-tight">Public Sector Failures</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="priority_high">priority_high</span>
+<span class="text-xs font-bold text-on-surface-variant">3 Hours</span>
+</div>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="check_box_outline_blank">check_box_outline_blank</span>
+</button>
+</div>
+<!-- Tutor Promo Card Integration -->
+<div class="mt-4 bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm border border-tertiary-container/20 flex items-center justify-between gap-4">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="bg-secondary-container text-on-secondary-container text-[9px] font-black uppercase px-2 py-0.5 rounded-full tracking-tighter">Meet Your Match</span>
+</div>
+<h4 class="text-sm font-bold text-on-surface leading-tight">Struggling with Public Sector Failures?</h4>
+<p class="text-xs text-on-surface-variant mt-0.5">Expert tutors available for 1-on-1 sessions.</p>
+</div>
+<button class="shrink-0 bg-primary text-on-primary px-4 py-2 rounded-lg text-xs font-bold shadow-sm active:scale-95 transition-transform">
+                        Find a Tutor
+                    </button>
+</div>
+</div>
+<!-- Day 5 -->
+<div class="bg-surface-container-low rounded-xl p-6 opacity-80">
+<div class="flex justify-between items-start">
+<div class="flex gap-4 items-center">
+<div class="w-14 h-14 bg-surface-container-highest rounded-lg flex flex-col items-center justify-center text-on-surface-variant">
+<span class="text-xs font-bold uppercase tracking-tighter">Oct</span>
+<span class="text-xl font-extrabold leading-none">15</span>
+</div>
+<div>
+<h3 class="text-title-lg font-bold text-on-surface leading-tight">Foreign Exchange</h3>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="schedule">schedule</span>
+<span class="text-xs font-bold text-on-surface-variant">2 Hours</span>
+</div>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="check_box_outline_blank">check_box_outline_blank</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Asymmetric Momentum Card -->
+<div class="mt-12 relative">
+<div class="bg-primary rounded-xl p-8 text-on-primary relative overflow-hidden min-h-[200px] flex flex-col justify-end">
+<img alt="Study Group" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40" data-alt="group of vibrant south african students high-fiving in a colorful modern study space with warm afternoon sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA3RWMrXrN9nufqRYRTOH1VEC3s4lxPozv9SW1cLjkGmqbvajYK4PmP3alF41aFKCg2EkqOkwNNnWrXv-8kFDEe_k6W09aIaUcHbqmKvkj2DmrUwScL_u02QRPvVETPG52Y22S-qByAPF9cN1lgM97Jv1XvILqgMrzZkUF7REx536zimJAtClh118Ybu0GnEPgvChtO5s6p8akRBfcgtMcKzhbt4WCWdvabz2wrU0xpVCn9BK8RrGTgK-5NmWx1N4_RcIfk0gBuiZH"/>
+<div class="relative z-10">
+<h4 class="text-2xl font-bold font-['Plus_Jakarta_Sans'] leading-tight mb-4">Don't study alone.<br/>Join the sprint.</h4>
+<button class="px-6 py-3 bg-secondary-container text-on-secondary-container rounded-full font-bold text-sm hover:scale-105 transition-transform active:scale-95">
+                        Find a Study Buddy
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl z-50 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-200 rounded-full px-5 py-2 hover:text-blue-500 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="menu_book">menu_book</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium uppercase tracking-wider">Study</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="school">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium uppercase tracking-wider">Classroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 transition-all active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+<!-- Contextual FAB -->
+<button class="fixed bottom-28 right-6 w-16 h-16 kinetic-gradient text-on-primary rounded-full shadow-2xl flex items-center justify-center active:scale-95 duration-200 z-40">
+<span class="material-symbols-outlined text-3xl" data-icon="add" style="font-variation-settings: 'wght' 600;">add</span>
+</button>
+</body></html>

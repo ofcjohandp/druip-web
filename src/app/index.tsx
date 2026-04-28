@@ -28,7 +28,7 @@ export default function LandingScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   content: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: SPACING.lg },
-  logo: { fontSize: 48, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.md },
+  logo: { fontSize: 48, fontFamily: 'Syne_800ExtraBold', color: COLORS.text, marginBottom: SPACING.md },
   tagline: { fontSize: 18, color: COLORS.textMuted, textAlign: 'center' },
   ctaContainer: { padding: SPACING.lg, paddingBottom: SPACING.xl },
   ctaButton: {
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     minHeight: 48,
   },
-  ctaText: { color: COLORS.textOnAccent, fontSize: 18, fontWeight: '600' },
+  ctaText: { color: COLORS.textOnAccent, fontSize: 18, fontFamily: 'Nunito_600SemiBold' },
   signUpLink: { marginTop: SPACING.md, alignItems: 'center' },
   signUpText: { color: COLORS.textMuted, fontSize: 14 },
 });

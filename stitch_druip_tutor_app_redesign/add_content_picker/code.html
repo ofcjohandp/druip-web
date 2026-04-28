@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Druip - Add Content</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-body { font-family: 'Be Vietnam Pro', sans-serif; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#fff1db",
+                        "tertiary-fixed-dim": "#ff7d57",
+                        "on-surface": "#2c2f30",
+                        "error-dim": "#9f0519",
+                        "on-secondary-fixed-variant": "#674c00",
+                        "surface-container-low": "#eff1f2",
+                        "on-tertiary-fixed": "#340800",
+                        "on-tertiary-fixed-variant": "#6f1a00",
+                        "error-container": "#fb5151",
+                        "surface-tint": "#0058bb",
+                        "on-tertiary-container": "#601500",
+                        "surface": "#f5f6f7",
+                        "surface-container": "#e6e8ea",
+                        "outline-variant": "#abadae",
+                        "inverse-on-surface": "#9b9d9e",
+                        "on-primary-container": "#00214f",
+                        "on-primary-fixed-variant": "#002a61",
+                        "on-error-container": "#570008",
+                        "secondary-dim": "#664b00",
+                        "primary-container": "#6c9fff",
+                        "on-primary-fixed": "#000000",
+                        "secondary": "#755700",
+                        "primary": "#0058bb",
+                        "on-secondary-fixed": "#443100",
+                        "on-tertiary": "#ffefeb",
+                        "background": "#f5f6f7",
+                        "surface-container-high": "#e0e3e4",
+                        "on-error": "#ffefee",
+                        "surface-dim": "#d1d5d7",
+                        "surface-container-highest": "#dadddf",
+                        "primary-fixed": "#6c9fff",
+                        "on-surface-variant": "#595c5d",
+                        "tertiary-fixed": "#ff9475",
+                        "secondary-container": "#ffca4d",
+                        "on-background": "#2c2f30",
+                        "on-primary": "#f0f2ff",
+                        "tertiary": "#ab2d00",
+                        "inverse-primary": "#4b8eff",
+                        "secondary-fixed-dim": "#f7ba00",
+                        "secondary-fixed": "#ffca4d",
+                        "primary-dim": "#004ca4",
+                        "tertiary-container": "#ff9475",
+                        "primary-fixed-dim": "#5191ff",
+                        "on-secondary-container": "#5c4400",
+                        "outline": "#757778",
+                        "surface-variant": "#dadddf",
+                        "surface-bright": "#f5f6f7",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#b31b25",
+                        "tertiary-dim": "#962700",
+                        "inverse-surface": "#0c0f10"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body min-h-screen pb-32">
+<!-- TopAppBar Section -->
+<header class="bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container flex items-center justify-center">
+<img alt="Student Profile Picture" class="w-full h-full object-cover" data-alt="Close up portrait of a friendly young male student with a bright smile in a modern academic setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv1uLdslUeeGepFX9p1z4Ux8l05tvtACvpzKj3jwlFVvfRXGV3w6-kYNoC6OYJl9qI_P806KgM1abRbCs0txVjm-ejvajUWuYwlxKWsFBgqE7YP4a8DhvInrlIwJgRXx4BBojFF4cpdNF_iCiVEadwfL0CeyuQbamZislJPPrvSv4c7QqJTLyN2JsXbi8kXaPKopRB28iG7AQrrXqarZ9m_u43WcZDZ_7Wy7MhjCaazkx_Ef9mzQ8Pjf9SWPGS7O6UfU8AnTQIZgrj"/>
+</div>
+<span class="text-2xl font-display text-blue-700 dark:text-blue-300 italic font-bold tracking-tight">Druip</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-200/50 transition-colors Active: scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-blue-600" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="max-w-5xl mx-auto px-6 pt-12">
+<!-- Hero Heading - Asymmetric Editorial Style -->
+<div class="mb-16">
+<h1 class="text-[3.5rem] font-display font-extrabold leading-none tracking-tighter text-on-surface mb-4">
+                Enrich your <br/>
+<span class="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">Curriculum.</span>
+</h1>
+<p class="text-on-surface-variant text-lg max-w-md">Select a content type to add to your student's dashboard. Keep the momentum going.</p>
+</div>
+<!-- Bento Grid for Content Options -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Flashcard - Wide Focus -->
+<div class="md:col-span-2 group cursor-pointer bg-surface-container-lowest rounded-xl p-8 transition-all hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[120px]" data-icon="style">style</span>
+</div>
+<div class="flex flex-col h-full justify-between">
+<div>
+<div class="w-14 h-14 bg-primary rounded-lg flex items-center justify-center mb-6 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-white text-3xl" data-icon="style">style</span>
+</div>
+<h3 class="text-2xl font-display font-bold mb-2">Flashcard</h3>
+<p class="text-on-surface-variant max-w-xs">Create spaced-repetition decks for rapid memorization and concept mastery.</p>
+</div>
+<div class="mt-8 flex items-center text-primary font-bold">
+<span>Create Deck</span>
+<span class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Quiz - Tall Focus -->
+<div class="group cursor-pointer bg-secondary-container rounded-xl p-8 transition-all hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+<div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center mb-6 shadow-md">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="quiz">quiz</span>
+</div>
+<h3 class="text-2xl font-display font-bold text-on-secondary-container mb-2">Quiz</h3>
+<p class="text-on-secondary-container/80 text-sm">Design interactive assessments to track student progress and identify gaps.</p>
+<div class="mt-12 flex items-center text-on-secondary-container font-bold">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</div>
+</div>
+<!-- PDF -->
+<div class="group cursor-pointer bg-surface-container-low rounded-xl p-6 transition-all hover:bg-surface-container-high">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-error text-2xl" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<span class="text-[10px] font-black uppercase tracking-widest text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">Upload</span>
+</div>
+<h3 class="text-xl font-display font-bold mt-6">PDF Document</h3>
+<p class="text-on-surface-variant text-sm mt-2">Study guides, textbooks, or scanned resources.</p>
+</div>
+<!-- Session Recording -->
+<div class="group cursor-pointer bg-tertiary-container rounded-xl p-6 transition-all hover:translate-y-[-4px] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-tertiary text-2xl" data-icon="videocam">videocam</span>
+</div>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse"></div>
+</div>
+</div>
+<h3 class="text-xl font-display font-bold mt-6 text-on-tertiary-container">Session Recording</h3>
+<p class="text-on-tertiary-container/70 text-sm mt-2">Upload or link recorded live sessions for replay.</p>
+</div>
+<!-- Written Note -->
+<div class="group cursor-pointer bg-surface-container-lowest border border-outline-variant/10 rounded-xl p-6 transition-all hover:border-primary/30">
+<div class="w-12 h-12 bg-surface-container-low rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-2xl" data-icon="edit_note">edit_note</span>
+</div>
+<h3 class="text-xl font-display font-bold mt-6">Written Note</h3>
+<p class="text-on-surface-variant text-sm mt-2">Rich-text summaries and contextual explanations.</p>
+</div>
+<!-- Past Paper - Offset Layout -->
+<div class="md:col-span-3 group cursor-pointer bg-primary-container/10 rounded-xl p-8 flex flex-col md:flex-row items-center gap-8 transition-all hover:bg-primary-container/20">
+<div class="flex-shrink-0 w-24 h-24 bg-primary-container rounded-lg flex items-center justify-center shadow-xl rotate-3 group-hover:rotate-0 transition-transform">
+<span class="material-symbols-outlined text-white text-5xl" data-icon="history_edu">history_edu</span>
+</div>
+<div class="text-center md:text-left">
+<h3 class="text-2xl font-display font-bold mb-2">Past Exam Paper</h3>
+<p class="text-on-surface-variant max-w-xl">Curate a library of previous exam questions and memo keys. The best way to build confidence before the real thing.</p>
+</div>
+<div class="md:ml-auto">
+<div class="w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-white" data-icon="add">add</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Momentum Element -->
+<div class="mt-20 flex justify-center opacity-30">
+<div class="w-24 h-1 bg-gradient-to-r from-primary to-transparent rounded-full"></div>
+<div class="w-4 h-1 bg-secondary mx-2 rounded-full"></div>
+<div class="w-1 h-1 bg-tertiary rounded-full"></div>
+</div>
+</main>
+<!-- BottomNavBar Section -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 pb-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_-20px_40px_rgba(0,0,0,0.08)] rounded-t-[3rem]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Sessions</span>
+</a>
+<div class="flex flex-col items-center justify-center bg-blue-600 dark:bg-blue-500 text-white rounded-full p-3 mb-2 scale-110 shadow-lg Active: scale-90 transition-all cubic-bezier(0.34, 1.56, 0.64, 1)">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="hidden">Tools</span>
+</div>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Messages</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

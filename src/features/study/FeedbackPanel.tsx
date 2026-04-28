@@ -67,17 +67,17 @@ const styles = StyleSheet.create({
   },
   correctText: {
     fontSize: 16,
-    fontWeight: '400',
+    fontFamily: 'Nunito_400Regular',
     color: COLORS.text,
   },
   wrongHeader: {
     fontSize: 14,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
     color: COLORS.text,
   },
   explanationText: {
     fontSize: 14,
-    fontWeight: '400',
+    fontFamily: 'Nunito_400Regular',
     color: COLORS.textMuted,
     marginTop: SPACING.xs,
   },
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   continueButtonText: {
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
     color: COLORS.textOnAccent,
     textAlign: 'center',
   },

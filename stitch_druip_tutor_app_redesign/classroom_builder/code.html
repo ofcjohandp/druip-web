@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#674c00",
+                        "on-tertiary-container": "#601500",
+                        "surface-container-low": "#eff1f2",
+                        "secondary-fixed-dim": "#f7ba00",
+                        "surface-variant": "#dadddf",
+                        "surface-container": "#e6e8ea",
+                        "secondary": "#755700",
+                        "primary-dim": "#004ca4",
+                        "on-surface": "#2c2f30",
+                        "surface-container-highest": "#dadddf",
+                        "on-secondary": "#fff1db",
+                        "surface": "#f5f6f7",
+                        "tertiary-container": "#ff9475",
+                        "inverse-surface": "#0c0f10",
+                        "primary-fixed-dim": "#5191ff",
+                        "secondary-dim": "#664b00",
+                        "on-primary": "#f0f2ff",
+                        "on-tertiary-fixed-variant": "#6f1a00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffefeb",
+                        "primary": "#0058bb",
+                        "on-surface-variant": "#595c5d",
+                        "on-secondary-fixed": "#443100",
+                        "on-background": "#2c2f30",
+                        "inverse-primary": "#4b8eff",
+                        "on-secondary-container": "#5c4400",
+                        "tertiary": "#ab2d00",
+                        "surface-tint": "#0058bb",
+                        "outline-variant": "#abadae",
+                        "on-error": "#ffefee",
+                        "on-primary-fixed": "#000000",
+                        "tertiary-fixed": "#ff9475",
+                        "secondary-fixed": "#ffca4d",
+                        "inverse-on-surface": "#9b9d9e",
+                        "on-tertiary-fixed": "#340800",
+                        "surface-container-high": "#e0e3e4",
+                        "error-container": "#fb5151",
+                        "on-error-container": "#570008",
+                        "tertiary-dim": "#962700",
+                        "primary-fixed": "#6c9fff",
+                        "surface-bright": "#f5f6f7",
+                        "error-dim": "#9f0519",
+                        "background": "#f5f6f7",
+                        "outline": "#757778",
+                        "on-primary-container": "#00214f",
+                        "error": "#b31b25",
+                        "secondary-container": "#ffca4d",
+                        "on-primary-fixed-variant": "#002a61",
+                        "primary-container": "#6c9fff",
+                        "surface-dim": "#d1d5d7",
+                        "tertiary-fixed-dim": "#ff7d57"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="p-2 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors rounded-full transition-transform scale-95 active:scale-90">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="text-xl font-black italic text-blue-700 dark:text-blue-300 font-['Plus_Jakarta_Sans'] tracking-tight">The Kinetic Academic</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed shadow-sm">
+<img alt="User profile photo" data-alt="Close up portrait of a smiling young male academic in a modern workspace with natural soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOpvmBxlVPsKLe7WO3zrObJCbQd-a9UZrTXZlikJQlFgMWxhsm1JVmXnUoBc4YXwHf0bljUYpM_2IcLmYbx44pWCnedl5_LrMRLgvZGrbYZ9JfPWp1UOZOjgfgsP-rLO_PrqY7BVCPNh46zXJZf_60ngar7PmJB7wUN3Gc-oXCtPk5uZGIOv1iEgWh0PawRlrj4mFP9XyK-ireSQ12YSQlsTT128o0YiXdRdA2HTbJOMrOvJZSSoZo1duby7Ke3gkw5bBQoiTRgviq"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-3xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-12">
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-primary to-primary-container p-8 text-on-primary">
+<div class="relative z-10">
+<h1 class="text-4xl font-extrabold tracking-tighter mb-2">Classroom Builder</h1>
+<p class="text-primary-container/20 font-medium text-lg leading-snug max-w-md">Design the momentum of your course. Drag to reorder, tap to refine.</p>
+</div>
+<div class="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
+</div>
+</section>
+<!-- Builder Content -->
+<div class="space-y-6">
+<!-- Section Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_20px_40px_rgba(0,0,0,0.05)] flex items-center gap-6 group">
+<div class="cursor-grab text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">drag_indicator</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-3 mb-1">
+<h3 class="text-xl font-bold text-on-surface">Core Concepts</h3>
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Crucial</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-sm font-semibold text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base">format_list_bulleted</span>
+                            12 items
+                        </span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-primary-fixed-dim" title="PDFs">description</span>
+<span class="material-symbols-outlined text-lg text-secondary" title="Flashcards">style</span>
+<span class="material-symbols-outlined text-lg text-error" title="Videos">video_library</span>
+</div>
+</div>
+</div>
+<button class="w-12 h-12 rounded-full flex items-center justify-center hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<!-- Section Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_20px_40px_rgba(0,0,0,0.05)] flex items-center gap-6 group">
+<div class="cursor-grab text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">drag_indicator</span>
+</div>
+<div class="flex-grow">
+<h3 class="text-xl font-bold text-on-surface mb-1">Problem Solving</h3>
+<div class="flex items-center gap-4">
+<span class="text-sm font-semibold text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base">format_list_bulleted</span>
+                            8 items
+                        </span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-primary-fixed-dim">description</span>
+<span class="material-symbols-outlined text-lg text-error">video_library</span>
+</div>
+</div>
+</div>
+<button class="w-12 h-12 rounded-full flex items-center justify-center hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<!-- Section Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_20px_40px_rgba(0,0,0,0.05)] flex items-center gap-6 group">
+<div class="cursor-grab text-outline-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">drag_indicator</span>
+</div>
+<div class="flex-grow">
+<h3 class="text-xl font-bold text-on-surface mb-1">Advanced Applications</h3>
+<div class="flex items-center gap-4">
+<span class="text-sm font-semibold text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-base">format_list_bulleted</span>
+                            5 items
+                        </span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-secondary">style</span>
+</div>
+</div>
+</div>
+<button class="w-12 h-12 rounded-full flex items-center justify-center hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<!-- Add Section Trigger -->
+<button class="w-full py-8 border-2 border-dashed border-outline-variant/30 rounded-xl flex flex-col items-center justify-center gap-2 hover:border-primary-fixed hover:bg-surface-container-low transition-all group mt-8">
+<div class="w-14 h-14 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center group-hover:scale-110 transition-transform shadow-md">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</div>
+<span class="text-lg font-bold text-on-surface-variant group-hover:text-primary transition-colors">Add Section</span>
+</button>
+</div>
+<!-- Secondary CTA Grid -->
+<div class="mt-16 grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-6 rounded-xl relative overflow-hidden group">
+<h4 class="text-lg font-bold mb-1 relative z-10">Resource Library</h4>
+<p class="text-sm text-on-surface-variant relative z-10">Manage all assets</p>
+<span class="material-symbols-outlined absolute bottom-[-10px] right-[-10px] text-7xl text-primary/10 group-hover:rotate-12 transition-transform">folder_open</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl relative overflow-hidden group">
+<h4 class="text-lg font-bold mb-1 relative z-10">Class Settings</h4>
+<p class="text-sm text-on-surface-variant relative z-10">Privacy &amp; visibility</p>
+<span class="material-symbols-outlined absolute bottom-[-10px] right-[-10px] text-7xl text-primary/10 group-hover:rotate-[-12deg] transition-transform">settings</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 flex justify-around items-center px-4 pb-2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl z-50 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 dark:hover:text-orange-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 dark:hover:text-orange-400" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Study</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-200 rounded-full px-5 py-2 scale-110 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Classroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 dark:hover:text-orange-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+<!-- Global Floating Action Button - Focused Context -->
+<div class="fixed bottom-24 right-6 z-40">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary w-14 h-14 rounded-full shadow-lg shadow-primary/20 flex items-center justify-center active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl">publish</span>
+</button>
+</div>
+</body></html>

@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
     color: COLORS.text,
     marginBottom: SPACING.xs,
   },

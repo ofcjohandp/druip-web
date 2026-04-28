@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#0058bb",
+                    "secondary-container": "#ffca4d",
+                    "tertiary": "#ab2d00",
+                    "secondary-fixed": "#ffca4d",
+                    "secondary-dim": "#664b00",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "error-container": "#fb5151",
+                    "surface-bright": "#f5f6f7",
+                    "on-primary": "#f0f2ff",
+                    "primary-fixed-dim": "#5191ff",
+                    "on-secondary-fixed": "#443100",
+                    "on-primary-container": "#00214f",
+                    "surface-variant": "#dadddf",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "surface-container-highest": "#dadddf",
+                    "primary-container": "#6c9fff",
+                    "surface-container": "#e6e8ea",
+                    "primary-fixed": "#6c9fff",
+                    "on-secondary-container": "#5c4400",
+                    "primary-dim": "#004ca4",
+                    "surface-dim": "#d1d5d7",
+                    "on-tertiary-fixed": "#340800",
+                    "inverse-on-surface": "#9b9d9e",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "tertiary-fixed": "#ff9475",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#0c0f10",
+                    "tertiary-dim": "#962700",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "on-tertiary": "#ffefeb",
+                    "on-tertiary-container": "#601500",
+                    "on-error-container": "#570008",
+                    "on-surface-variant": "#595c5d",
+                    "secondary": "#755700",
+                    "primary": "#0058bb",
+                    "on-background": "#2c2f30",
+                    "surface": "#f5f6f7",
+                    "outline-variant": "#abadae",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-error": "#ffefee",
+                    "surface-container-low": "#eff1f2",
+                    "error": "#b31b25",
+                    "background": "#f5f6f7",
+                    "inverse-primary": "#4b8eff",
+                    "error-dim": "#9f0519",
+                    "on-secondary": "#fff1db",
+                    "on-surface": "#2c2f30",
+                    "on-primary-fixed": "#000000",
+                    "outline": "#757778",
+                    "tertiary-container": "#ff9475",
+                    "surface-container-high": "#e0e3e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Be Vietnam Pro', sans-serif;
+        background-color: #f5f6f7;
+        color: #2c2f30;
+      }
+      h1, h2, h3 {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      .asymmetric-bleed {
+        width: calc(100% + 4rem);
+        margin-left: -2rem;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation (Shell suppressed for focused marketing intent, but including minimal brand anchor) -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100/50 transition-colors active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-blue-600">arrow_back</span>
+</button>
+<span class="text-2xl font-black italic text-black dark:text-white font-['Plus_Jakarta_Sans'] tracking-tight">Druip</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden border-2 border-primary-container">
+<img alt="Student Profile Avatar" class="w-full h-full object-cover" data-alt="Portrait of a smiling young student with glasses and short hair in a minimalist digital art style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPLOqwWb28m8nb9DPl94ygYnexEZUlJx1KkqWzc-XJm6D13MSXq74nWtNfkBWQBXw0IBUHghRk7YgB-7okQPIFBhNZaB-UgxjuNnLJI5zqMU5A5Qc8fV2I51XEUTpBdhabC_bDUhhTUgWn4PWLX1T83e6EY8hPpOZV0egs7ypoRyJAMKEsrZfPJi2rm9w495ObzkPufiopCbY3w0hvXQum4OB4N5tmZ6PgtadYg-Fe6ByuW7U79rIWf5bPqRPXqZId356jKyDjBq4P"/>
+</div>
+</nav>
+<main class="pt-24 pb-32 px-6 max-w-lg mx-auto overflow-x-hidden">
+<!-- Hero Section -->
+<section class="relative mb-12">
+<div class="inline-block px-4 py-1.5 mb-6 bg-tertiary-container text-on-tertiary-container rounded-full text-[10px] uppercase tracking-widest font-bold">
+                Student to Mentor
+            </div>
+<h1 class="text-[3.5rem] leading-[1.1] font-extrabold tracking-tight text-primary mb-6">
+                Turn your expertise into <span class="bg-gradient-to-br from-primary to-primary-container bg-clip-text text-transparent">income.</span>
+</h1>
+<p class="text-body-lg text-on-surface-variant mb-8 leading-relaxed max-w-[85%]">
+                Empower your peers while building your bank balance. Your knowledge is a valuable asset in the Druip community.
+            </p>
+<!-- Revenue Highlight Card -->
+<div class="relative bg-gradient-to-br from-primary to-primary-container p-8 rounded-xl shadow-2xl shadow-primary/20 overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+<div class="relative z-10">
+<span class="text-white/80 text-[10px] uppercase font-bold tracking-widest mb-1 block">Potential Earnings</span>
+<div class="text-4xl font-black text-white mb-2">Earn up to R5,000/month</div>
+<p class="text-white/70 text-sm">Based on top-performing tutors in Jo'burg.</p>
+</div>
+<span class="material-symbols-outlined absolute right-6 bottom-6 text-white/20 text-7xl select-none" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+</section>
+<!-- 3-Step Process (Bento-style layout) -->
+<section class="mb-16">
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="w-8 h-1 bg-secondary-container rounded-full"></span>
+                How it works
+            </h2>
+<div class="grid gap-6">
+<!-- Step 1 -->
+<div class="bg-surface-container-low p-6 rounded-lg relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary font-bold shadow-sm">1</div>
+<span class="material-symbols-outlined text-primary/20 text-4xl">badge</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Create Profile</h3>
+<p class="text-on-surface-variant text-sm">Showcase your academic wins and subjects you've mastered. Let your personality shine.</p>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-low p-6 rounded-lg relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary font-bold shadow-sm">2</div>
+<span class="material-symbols-outlined text-primary/20 text-4xl">sell</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Set Your Price</h3>
+<p class="text-on-surface-variant text-sm">You're the boss. Choose your hourly rate and define your own availability schedule.</p>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-low p-6 rounded-lg relative overflow-hidden">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary font-bold shadow-sm">3</div>
+<span class="material-symbols-outlined text-primary/20 text-4xl">account_balance_wallet</span>
+</div>
+<h3 class="text-xl font-bold mb-2">Get Paid</h3>
+<p class="text-on-surface-variant text-sm">Direct deposits for every session completed. Fast, secure, and hassle-free payments.</p>
+</div>
+</div>
+</section>
+<!-- Testimonial Section (Asymmetric Editorial Style) -->
+<section class="mb-16 relative">
+<div class="absolute -left-12 top-0 text-[8rem] font-black text-slate-200/50 leading-none select-none z-0">“</div>
+<div class="relative z-10 bg-white p-8 rounded-xl shadow-xl shadow-black/5 border border-outline-variant/10">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-16 h-16 rounded-full overflow-hidden border-4 border-secondary-container">
+<img alt="Tutor Testimonial" class="w-full h-full object-cover" data-alt="Portrait of a confident young South African woman with braided hair smiling at the camera, warm sunlight background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOLZgz3djc_PYuCl3vjNj20NxcI2s8E9_2aAa3wI8EJgeHDtCwOOrmAgs0jHjGtMSTo27Rh-cEdk9P8C3fkwmIU7kImH17MV3SYwA7Cpjs9Y0-vd4hfEzCavAKzO_xGsfOCjWIoY5z6tDY_k7uwHxspwmfPxurbKo02tRVqpIzJsbZJrSgalt4RGkSTX0ZNBry42E_Fn7Wx1krpL9jz7lYG2QmvLuryf2d33X8IosjtmPVVztiEUA7yqRjQ0RNXcCClohxbZIO1iiK"/>
+</div>
+<div>
+<h4 class="font-bold text-lg">Lerato M.</h4>
+<div class="flex gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<p class="italic text-lg text-on-surface leading-snug mb-4">
+                    "Being a tutor on Druip didn't just help me pay my res fees—it gave me the confidence to lead. Seeing my students ace their stats exams is a feeling money can't buy!"
+                </p>
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-container/30 rounded-full">
+<span class="material-symbols-outlined text-xs text-tertiary">workspace_premium</span>
+<span class="text-[10px] font-bold text-tertiary uppercase tracking-tighter">Gold Level Tutor</span>
+</div>
+</div>
+</section>
+<!-- CTA Floating Area -->
+<div class="fixed bottom-0 left-0 w-full p-6 bg-gradient-to-t from-surface via-surface to-transparent pt-12 z-40">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-5 rounded-full font-bold text-lg shadow-lg shadow-primary/30 active:scale-95 transition-transform flex items-center justify-center gap-3">
+                Start Teaching
+                <span class="material-symbols-outlined">rocket_launch</span>
+</button>
+<p class="text-center text-[10px] uppercase font-bold text-on-surface-variant mt-4 tracking-[0.2em]">Join 1,200+ South African Tutors</p>
+</div>
+</main>
+<!-- Navigation Shell (BottomNavBar mapped from JSON for context, though technically suppressed by task focus, it anchors the app ID) -->
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-end px-6 pb-6 pt-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl z-50 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 dark:hover:text-blue-300 transition-all active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 dark:hover:text-blue-300 transition-all active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Study</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 dark:hover:text-blue-300 transition-all active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Classroom</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-600 text-white rounded-full p-3 mb-1 w-12 h-12 shadow-lg shadow-blue-200 dark:shadow-none active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="sr-only">Profile</span>
+</div>
+</div>
+</body></html>

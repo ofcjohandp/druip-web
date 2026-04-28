@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
   header: { paddingHorizontal: SPACING.lg, paddingTop: SPACING.lg },
   scroll: { flex: 1 },
   scrollContent: { paddingHorizontal: SPACING.lg, paddingBottom: SPACING.xl },
-  sectionLabel: { fontSize: 12, fontWeight: '600', color: COLORS.textMuted, marginBottom: SPACING.xs, textTransform: 'uppercase', letterSpacing: 0.5 },
+  sectionLabel: { fontSize: 12, fontFamily: 'Nunito_600SemiBold', color: COLORS.textMuted, marginBottom: SPACING.xs, textTransform: 'uppercase', letterSpacing: 0.5 },
   sectionLabelMargin: { marginTop: SPACING.lg },
   listItem: {
     padding: SPACING.md,

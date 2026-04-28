@@ -35,7 +35,7 @@ export default function SignUpPromptScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   content: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: SPACING.lg },
-  celebration: { fontSize: 32, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.lg },
+  celebration: { fontSize: 32, fontFamily: 'Syne_800ExtraBold', color: COLORS.text, marginBottom: SPACING.lg },
   scoreCard: {
     backgroundColor: COLORS.surface,
     padding: SPACING.lg,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
   },
-  scoreText: { fontSize: 24, fontWeight: '600', color: COLORS.accent },
+  scoreText: { fontSize: 24, fontFamily: 'Syne_800ExtraBold', color: COLORS.accent },
   subtitle: {
     fontSize: 16,
     color: COLORS.textMuted,
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     minHeight: 48,
   },
-  ctaText: { color: COLORS.textOnAccent, fontSize: 18, fontWeight: '600' },
+  ctaText: { color: COLORS.textOnAccent, fontSize: 18, fontFamily: 'Nunito_600SemiBold' },
   secondaryLink: { marginTop: SPACING.sm, alignItems: 'center' },
   secondaryText: { color: COLORS.textMuted, fontSize: 14 },
 });

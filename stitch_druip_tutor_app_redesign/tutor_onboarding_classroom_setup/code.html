@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tutor Onboarding - Your Classroom</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#fff1db",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "on-surface": "#2c2f30",
+                    "error-dim": "#9f0519",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "surface-container-low": "#eff1f2",
+                    "on-tertiary-fixed": "#340800",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "error-container": "#fb5151",
+                    "surface-tint": "#0058bb",
+                    "on-tertiary-container": "#601500",
+                    "surface": "#f5f6f7",
+                    "surface-container": "#e6e8ea",
+                    "outline-variant": "#abadae",
+                    "inverse-on-surface": "#9b9d9e",
+                    "on-primary-container": "#00214f",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-error-container": "#570008",
+                    "secondary-dim": "#664b00",
+                    "primary-container": "#6c9fff",
+                    "on-primary-fixed": "#000000",
+                    "secondary": "#755700",
+                    "primary": "#0058bb",
+                    "on-secondary-fixed": "#443100",
+                    "on-tertiary": "#ffefeb",
+                    "background": "#f5f6f7",
+                    "surface-container-high": "#e0e3e4",
+                    "on-error": "#ffefee",
+                    "surface-dim": "#d1d5d7",
+                    "surface-container-highest": "#dadddf",
+                    "primary-fixed": "#6c9fff",
+                    "on-surface-variant": "#595c5d",
+                    "tertiary-fixed": "#ff9475",
+                    "secondary-container": "#ffca4d",
+                    "on-background": "#2c2f30",
+                    "on-primary": "#f0f2ff",
+                    "tertiary": "#ab2d00",
+                    "inverse-primary": "#4b8eff",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "secondary-fixed": "#ffca4d",
+                    "primary-dim": "#004ca4",
+                    "tertiary-container": "#ff9475",
+                    "primary-fixed-dim": "#5191ff",
+                    "on-secondary-container": "#5c4400",
+                    "outline": "#757778",
+                    "surface-variant": "#dadddf",
+                    "surface-bright": "#f5f6f7",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#b31b25",
+                    "tertiary-dim": "#962700",
+                    "inverse-surface": "#0c0f10"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24">
+<!-- Top Navigation Anchor -->
+<header class="bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl sticky top-0 z-50 flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl">arrow_back</span>
+<div class="text-2xl font-display text-blue-700 dark:text-blue-300 italic font-bold tracking-tight">Druip</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden md:flex gap-6 mr-6">
+<span class="text-slate-500 dark:text-slate-400 font-medium">Progress</span>
+<div class="w-32 h-2 bg-surface-container-high rounded-full self-center">
+<div class="w-3/4 h-full bg-primary rounded-full"></div>
+</div>
+</div>
+<img alt="Student Profile Picture" class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="Portrait of a young South African male student smiling confidently in a bright outdoor setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5vAUWcqmVVMxQjS6s_uIfPOc6yBlwhO-BXvn_yQ9Vz8EE-iYik2mwZVfOxMkvHqGDIIv386OazBrN9LJ4paK8b1IJmVV0VGaOemmH4iQqCzErOQw_rY0vMye8Aimc2kvjNfnqIB_GSi2pNeYDHkV3HJjnvC49PBZEb64cAhUG502Ga5asKMezMd4emFFHTfRRfvx5_fjMuMU1EzWmBtyyUu86yc2Bk-gCtMPGaoK2LcK5BKVhtNjAwK_1-FtTgZP9SQn1qVsp3WqC"/>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-6 pt-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Main Form Section (Asymmetric Left) -->
+<div class="lg:col-span-7 space-y-12">
+<section>
+<span class="inline-block px-4 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold tracking-widest uppercase mb-4">Step 03 — Finalize</span>
+<h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-primary leading-[1.1] mb-6">
+                    Launch your <br/><span class="text-tertiary italic">Digital Classroom</span>
+</h1>
+<p class="text-on-surface-variant text-lg max-w-xl">
+                    Define how students see your space. This is where the magic happens and your community grows.
+                </p>
+</section>
+<div class="space-y-8">
+<!-- Classroom Name -->
+<div class="group">
+<label class="block text-sm font-bold uppercase tracking-widest text-primary mb-3 ml-2">Classroom Name</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-5 text-lg focus:ring-2 focus:ring-primary-fixed-dim/40 focus:bg-surface-container-lowest transition-all" placeholder="e.g. Master Matrix Algebra" type="text"/>
+</div>
+<!-- Subject Selection (Bento-style chips) -->
+<div>
+<label class="block text-sm font-bold uppercase tracking-widest text-primary mb-4 ml-2">Primary Subject</label>
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-3 bg-primary text-white rounded-full font-bold shadow-md">Mathematics</button>
+<button class="px-6 py-3 bg-surface-container-lowest text-on-surface hover:bg-surface-container-high rounded-full font-bold transition-all">Computer Science</button>
+<button class="px-6 py-3 bg-surface-container-lowest text-on-surface hover:bg-surface-container-high rounded-full font-bold transition-all">Physics</button>
+<button class="px-6 py-3 bg-surface-container-lowest text-on-surface hover:bg-surface-container-high rounded-full font-bold transition-all">Economics</button>
+<button class="p-3 bg-surface-container-low border-2 border-dashed border-outline-variant/30 rounded-full text-outline">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Short Description -->
+<div>
+<label class="block text-sm font-bold uppercase tracking-widest text-primary mb-3 ml-2">Short Description</label>
+<textarea class="w-full bg-surface-container-high border-none rounded-lg p-5 text-lg focus:ring-2 focus:ring-primary-fixed-dim/40 focus:bg-surface-container-lowest transition-all" placeholder="Tell students what makes your approach unique..." rows="4"></textarea>
+<div class="flex justify-end mt-2 text-xs text-outline font-bold uppercase">0 / 240 Characters</div>
+</div>
+</div>
+</div>
+<!-- Pricing & Calculator (Sticky Right Sidebar) -->
+<div class="lg:col-span-5 lg:sticky lg:top-32 space-y-8">
+<!-- Monthly Price Slider Card -->
+<div class="bg-surface-container-low rounded-xl p-8 space-y-8">
+<div class="flex justify-between items-center">
+<h3 class="text-xl font-bold text-primary">Monthly Pricing</h3>
+<div class="bg-primary-container px-4 py-2 rounded-full font-bold text-on-primary-container">
+                        R249<span class="text-xs">/mo</span>
+</div>
+</div>
+<div class="relative py-4">
+<input class="w-full h-3 bg-surface-container-high rounded-full appearance-none cursor-pointer accent-primary" max="999" min="99" type="range" value="249"/>
+<div class="flex justify-between mt-4 text-xs font-bold text-outline">
+<span>R99</span>
+<span>R999</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-lg border-l-4 border-secondary shadow-sm">
+<p class="text-sm italic text-on-surface-variant">"We recommend a price between R199 and R349 for your subject to maximize enrollment."</p>
+</div>
+</div>
+<!-- Earnings Calculator Card -->
+<div class="bg-gradient-to-br from-primary to-primary-container text-white rounded-xl p-8 shadow-[0_20px_40px_rgba(0,88,187,0.2)] overflow-hidden relative">
+<!-- Decorative Abstract Shape -->
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calculate</span>
+<span class="text-xs font-bold uppercase tracking-widest opacity-80">Earnings Potential</span>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-white/20 pb-4">
+<span class="opacity-80 text-sm">Monthly Revenue</span>
+<span class="text-3xl font-black">R12,450</span>
+</div>
+<div class="pt-2">
+<p class="text-sm font-medium leading-relaxed">
+                                At <span class="bg-white/20 px-2 py-0.5 rounded">R249/month</span>, <br/>
+<span class="font-bold text-secondary-container">50 students</span> will earn you over <br/>
+<span class="text-lg font-bold">R149k per year.</span>
+</p>
+</div>
+</div>
+<button class="w-full mt-8 py-4 bg-secondary-container text-on-secondary-container rounded-full font-bold text-center hover:scale-105 transition-transform">
+                        Complete Onboarding
+                    </button>
+<p class="text-center text-[10px] uppercase tracking-tighter opacity-60 mt-4 font-bold">Payouts handled via PayStack</p>
+</div>
+</div>
+<!-- Trust Badge -->
+<div class="flex items-center gap-4 px-4 py-6 bg-surface-container rounded-lg">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<p class="text-sm font-bold">Secure Transactions</p>
+<p class="text-xs text-on-surface-variant">Encrypted classroom interactions and student data protection.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 pb-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-20px_40px_rgba(0,0,0,0.08)]">
+<div class="flex flex-col items-center justify-center text-slate-400 p-2">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 p-2">
+<span class="material-symbols-outlined">event_available</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Sessions</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-600 text-white rounded-full p-3 mb-2 scale-110 shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 p-2">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Messages</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 p-2">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] uppercase tracking-widest font-bold mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

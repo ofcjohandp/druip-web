@@ -99,7 +99,7 @@ export default function LessonListScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   center: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: SPACING.lg },
-  emptyHeading: { fontSize: 16, fontWeight: '600', color: COLORS.text, textAlign: 'center', marginBottom: SPACING.xs },
+  emptyHeading: { fontSize: 16, fontFamily: 'Nunito_600SemiBold', color: COLORS.text, textAlign: 'center', marginBottom: SPACING.xs },
   emptyBody: { fontSize: 14, color: COLORS.textMuted, textAlign: 'center' },
   list: { padding: SPACING.md },
 });

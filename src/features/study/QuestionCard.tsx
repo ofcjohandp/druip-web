@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   },
   questionText: {
     fontSize: 20,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
     lineHeight: 28,
     color: COLORS.text,
     marginBottom: SPACING.lg,
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontSize: 16,
-    fontWeight: '400',
+    fontFamily: 'Nunito_400Regular',
     color: COLORS.text,
     flex: 1,
   },

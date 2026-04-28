@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#674c00",
+                    "on-tertiary-container": "#601500",
+                    "surface-container-low": "#eff1f2",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "surface-variant": "#dadddf",
+                    "surface-container": "#e6e8ea",
+                    "secondary": "#755700",
+                    "primary-dim": "#004ca4",
+                    "on-surface": "#2c2f30",
+                    "surface-container-highest": "#dadddf",
+                    "on-secondary": "#fff1db",
+                    "surface": "#f5f6f7",
+                    "tertiary-container": "#ff9475",
+                    "inverse-surface": "#0c0f10",
+                    "primary-fixed-dim": "#5191ff",
+                    "secondary-dim": "#664b00",
+                    "on-primary": "#f0f2ff",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffefeb",
+                    "primary": "#0058bb",
+                    "on-surface-variant": "#595c5d",
+                    "on-secondary-fixed": "#443100",
+                    "on-background": "#2c2f30",
+                    "inverse-primary": "#4b8eff",
+                    "on-secondary-container": "#5c4400",
+                    "tertiary": "#ab2d00",
+                    "surface-tint": "#0058bb",
+                    "outline-variant": "#abadae",
+                    "on-error": "#ffefee",
+                    "on-primary-fixed": "#000000",
+                    "tertiary-fixed": "#ff9475",
+                    "secondary-fixed": "#ffca4d",
+                    "inverse-on-surface": "#9b9d9e",
+                    "on-tertiary-fixed": "#340800",
+                    "surface-container-high": "#e0e3e4",
+                    "error-container": "#fb5151",
+                    "on-error-container": "#570008",
+                    "tertiary-dim": "#962700",
+                    "primary-fixed": "#6c9fff",
+                    "surface-bright": "#f5f6f7",
+                    "error-dim": "#9f0519",
+                    "background": "#f5f6f7",
+                    "outline": "#757778",
+                    "on-primary-container": "#00214f",
+                    "error": "#b31b25",
+                    "secondary-container": "#ffca4d",
+                    "on-primary-fixed-variant": "#002a61",
+                    "primary-container": "#6c9fff",
+                    "surface-dim": "#d1d5d7",
+                    "tertiary-fixed-dim": "#ff7d57"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #0058bb 0%, #6c9fff 100%);
+        }
+        .frosted-glass {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors p-2 rounded-full scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400">arrow_back</span>
+</button>
+<h1 class="text-xl font-black italic text-blue-700 dark:text-blue-300 font-headline tracking-tight">The Kinetic Academic</h1>
+</div>
+<div class="flex items-center gap-3">
+<img alt="User profile photo" class="w-10 h-10 rounded-full object-cover" data-alt="Close-up professional portrait of a smiling male tutor with glasses in a bright modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx6YmMyQteUPofQ_kDv6fz_HfwjUD4gRwUgPsRTaLbJhcjM7hQSsS_sg-NPC5vPZWIS1eeRBmofqDiVls1Gl1RechLUDRmNmRo0FmZ5b-FJQzfqR5-y8DRLS7LoaZFyk10QFw4qZlYM9tQRpscU-Y_JYMoByhIhoRpvmKi4GpXlpAcJvUFsSIdl4WwY2PXO3WWYoapyGC7D_ozi0RKQSzKt5uMsUUMOFoUjAkXHIL0qoIgiokkSKuTvG0P5ceaxPwv7ul831TZh14t"/>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-screen-xl mx-auto space-y-12">
+<!-- Student Identity & Action Header -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="flex items-center gap-6">
+<div class="relative">
+<img alt="Student avatar" class="w-24 h-24 md:w-32 md:h-32 rounded-xl object-cover" data-alt="Young South African university student smiling confidently, outdoor campus background with warm afternoon sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDPKuUz-cyZNPzIiscoEeXHA8z0G-5e6n0-yDyY6fu5S7kTmlGN8U_sCQmxeGvqXAKkiV8fTupVuGql8s7OreVNH5HrOKtuXpjJfRFrZNWXV0NBtzsY4ckIv3RrwbKg0XKnHSCUO72znhLkP3y-GBhRtd6VKaPja2Phq0vfgNzcUoTbQIf-voe2nacs5YqKahqL3eQ4vpab40WVQlde_N07sTmy4PrSrwZbYFhGLmNM6W0bQIvKBE1-SpVVvkY54OV5HqcbcxhtTZP"/>
+<div class="absolute -bottom-2 -right-2 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border-4 border-surface">
+                        Level 4
+                    </div>
+</div>
+<div>
+<h2 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tight text-on-surface">Thando Myeni</h2>
+<p class="text-on-surface-variant font-medium mt-1">BSc Computer Science • 2nd Year</p>
+<div class="flex gap-2 mt-4">
+<span class="bg-tertiary-container/20 text-on-tertiary-container text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">Consistent Learner</span>
+<span class="bg-primary-container/20 text-on-primary-container text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">Top 10% Math</span>
+</div>
+</div>
+</div>
+<button class="kinetic-gradient text-on-primary font-bold px-8 py-4 rounded-full flex items-center justify-center gap-3 shadow-xl hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">mail</span>
+                Message Student
+            </button>
+</section>
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-8 rounded-xl flex flex-col justify-between aspect-video md:aspect-auto">
+<span class="material-symbols-outlined text-primary-dim text-4xl" style="font-variation-settings: 'FILL' 1;">timer</span>
+<div>
+<p class="text-5xl font-headline font-black text-on-surface">42.5h</p>
+<p class="text-sm font-label font-bold uppercase tracking-widest text-on-surface-variant mt-2">Total Study Time</p>
+</div>
+</div>
+<div class="bg-secondary-container p-8 rounded-xl flex flex-col justify-between aspect-video md:aspect-auto">
+<span class="material-symbols-outlined text-on-secondary-container text-4xl" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<div>
+<p class="text-5xl font-headline font-black text-on-secondary-container">88%</p>
+<p class="text-sm font-label font-bold uppercase tracking-widest text-on-secondary-container mt-2">Average Quiz Score</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl overflow-hidden relative">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-tertiary text-4xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<p class="text-5xl font-headline font-black text-on-surface mt-4">12</p>
+<p class="text-sm font-label font-bold uppercase tracking-widest text-on-surface-variant mt-2">Day Streak</p>
+</div>
+<div class="absolute -right-8 -bottom-8 opacity-10">
+<span class="material-symbols-outlined text-[12rem]">trending_up</span>
+</div>
+</div>
+</section>
+<!-- Main Content Area: Progress and Tests -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Progress List (8 cols) -->
+<section class="lg:col-span-8 space-y-8">
+<div class="flex items-center justify-between">
+<h3 class="text-2xl font-headline font-bold">Curriculum Completion</h3>
+<span class="text-primary font-bold">74% Overall</span>
+</div>
+<div class="space-y-6">
+<!-- Progress Item -->
+<div class="bg-surface-container-lowest p-6 rounded-lg group hover:bg-white transition-colors">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">data_object</span>
+</div>
+<div>
+<p class="font-bold text-lg">Algorithms &amp; Data Structures</p>
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant">4/5 Units Complete</p>
+</div>
+</div>
+<span class="font-black text-xl">92%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full kinetic-gradient rounded-full" style="width: 92%;"></div>
+</div>
+</div>
+<!-- Progress Item -->
+<div class="bg-surface-container-lowest p-6 rounded-lg">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">database</span>
+</div>
+<div>
+<p class="font-bold text-lg">Database Systems</p>
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant">2/5 Units Complete</p>
+</div>
+</div>
+<span class="font-black text-xl">45%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+<!-- Progress Item -->
+<div class="bg-surface-container-lowest p-6 rounded-lg">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">terminal</span>
+</div>
+<div>
+<p class="font-bold text-lg">System Architecture</p>
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant">8/10 Units Complete</p>
+</div>
+</div>
+<span class="font-black text-xl">80%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full kinetic-gradient rounded-full" style="width: 80%;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Tests (4 cols) -->
+<aside class="lg:col-span-4 space-y-8">
+<h3 class="text-2xl font-headline font-bold">Upcoming Tests</h3>
+<div class="space-y-4">
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-secondary-fixed">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-secondary-container/40 text-on-secondary-container text-[10px] font-bold px-2 py-1 rounded">TOMORROW</span>
+<span class="material-symbols-outlined text-secondary">event</span>
+</div>
+<p class="font-bold text-lg leading-tight">Advanced Calculus Final</p>
+<p class="text-sm text-on-surface-variant mt-1">09:00 AM • Venue: Hall B</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-surface-variant text-on-surface-variant text-[10px] font-bold px-2 py-1 rounded">OCT 24</span>
+<span class="material-symbols-outlined text-on-surface-variant">event</span>
+</div>
+<p class="font-bold text-lg leading-tight">UX Design Principles</p>
+<p class="text-sm text-on-surface-variant mt-1">02:30 PM • Online</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl">
+<div class="flex justify-between items-start mb-2">
+<span class="bg-surface-variant text-on-surface-variant text-[10px] font-bold px-2 py-1 rounded">OCT 28</span>
+<span class="material-symbols-outlined text-on-surface-variant">event</span>
+</div>
+<p class="font-bold text-lg leading-tight">Discrete Mathematics</p>
+<p class="text-sm text-on-surface-variant mt-1">11:00 AM • Venue: Lab 4</p>
+</div>
+</div>
+<!-- Featured Tutor Note -->
+<div class="bg-tertiary-container p-6 rounded-xl text-on-tertiary-container">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">tips_and_updates</span>
+<p class="font-label text-xs font-black uppercase tracking-widest">Tutor Observation</p>
+</div>
+<p class="text-sm font-medium italic">"Thando is excelling in logic but needs more practice with recursive functions before the final."</p>
+</div>
+</aside>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 flex justify-around items-center px-4 pb-2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl z-50 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 dark:hover:text-orange-400 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 dark:hover:text-orange-400 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Study</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-200 rounded-full px-5 py-2 scale-110 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Classroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 dark:hover:text-orange-400 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

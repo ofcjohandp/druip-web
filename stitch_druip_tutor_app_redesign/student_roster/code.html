@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Roster | The Kinetic Academic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Be+Vietnam+Pro', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, .display-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        /* Custom scrollbar for a cleaner editorial look */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d1d5d7; border-radius: 10px; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#674c00",
+                      "on-tertiary-container": "#601500",
+                      "surface-container-low": "#eff1f2",
+                      "secondary-fixed-dim": "#f7ba00",
+                      "surface-variant": "#dadddf",
+                      "surface-container": "#e6e8ea",
+                      "secondary": "#755700",
+                      "primary-dim": "#004ca4",
+                      "on-surface": "#2c2f30",
+                      "surface-container-highest": "#dadddf",
+                      "on-secondary": "#fff1db",
+                      "surface": "#f5f6f7",
+                      "tertiary-container": "#ff9475",
+                      "inverse-surface": "#0c0f10",
+                      "primary-fixed-dim": "#5191ff",
+                      "secondary-dim": "#664b00",
+                      "on-primary": "#f0f2ff",
+                      "on-tertiary-fixed-variant": "#6f1a00",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary": "#ffefeb",
+                      "primary": "#0058bb",
+                      "on-surface-variant": "#595c5d",
+                      "on-secondary-fixed": "#443100",
+                      "on-background": "#2c2f30",
+                      "inverse-primary": "#4b8eff",
+                      "on-secondary-container": "#5c4400",
+                      "tertiary": "#ab2d00",
+                      "surface-tint": "#0058bb",
+                      "outline-variant": "#abadae",
+                      "on-error": "#ffefee",
+                      "on-primary-fixed": "#000000",
+                      "tertiary-fixed": "#ff9475",
+                      "secondary-fixed": "#ffca4d",
+                      "inverse-on-surface": "#9b9d9e",
+                      "on-tertiary-fixed": "#340800",
+                      "surface-container-high": "#e0e3e4",
+                      "error-container": "#fb5151",
+                      "on-error-container": "#570008",
+                      "tertiary-dim": "#962700",
+                      "primary-fixed": "#6c9fff",
+                      "surface-bright": "#f5f6f7",
+                      "error-dim": "#9f0519",
+                      "background": "#f5f6f7",
+                      "outline": "#757778",
+                      "on-primary-container": "#00214f",
+                      "error": "#b31b25",
+                      "secondary-container": "#ffca4d",
+                      "on-primary-fixed-variant": "#002a61",
+                      "primary-container": "#6c9fff",
+                      "surface-dim": "#d1d5d7",
+                      "tertiary-fixed-dim": "#ff7d57"
+              },
+              "borderRadius": {
+                      "DEFAULT": "1rem",
+                      "lg": "2rem",
+                      "xl": "3rem",
+                      "full": "9999px"
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-24 md:pb-0 md:pt-16">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl no-border bg-surface-container-low">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-blue-600 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors p-2 rounded-full" data-icon="menu">menu</button>
+<span class="text-xl font-black italic text-blue-700 dark:text-blue-300 font-['Plus_Jakarta_Sans'] tracking-tight">The Kinetic Academic</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden md:flex gap-6 mr-6 font-['Be_Vietnam_Pro'] text-[12px] font-bold uppercase tracking-widest text-gray-500">
+<a class="hover:text-blue-600" href="#">Home</a>
+<a class="hover:text-blue-600" href="#">Study</a>
+<a class="text-blue-600" href="#">Classroom</a>
+<a class="hover:text-blue-600" href="#">Profile</a>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden ring-2 ring-primary/20">
+<img alt="User profile photo" data-alt="Close up portrait of a smiling male academic professional in a light blue shirt with soft natural library lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX17yJjCqE5rDaSZj4x-Uev4TXmeDEU5aaEqHIrzPLd_p9T_IZ66z8_mTzKEDZcY2cjiRVuBgWjq4XAiIqqW7muCD1Kc_Mkb-qorXVAYcR6_7A3HuojZddEE6vbw_CcVmNz5Vt06gZupnzNXv2B1F3o_Zxq0MLNI3QXKrbV0BFLzshDOQVjUzKdbYTLAhGCB6SMo-qLv1PaW2VfVC0F2xmwFphF1pfjzH7INqy8Mr3owP7-w7jfTFX1No0CXNH48WNwTHUBXyulV6Q"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto px-6 py-12">
+<!-- Hero Section -->
+<section class="mb-12 relative overflow-hidden rounded-xl p-8 md:p-12 bg-gradient-to-br from-primary to-primary-container text-on-primary">
+<div class="relative z-10 max-w-2xl">
+<h1 class="text-4xl md:text-6xl font-extrabold font-headline leading-tight tracking-tighter mb-4">
+                    Student Roster
+                </h1>
+<p class="text-lg md:text-xl opacity-90 font-body max-w-md">
+                    Manage your active cohort. Track progress, identify blockers, and accelerate student success in real-time.
+                </p>
+</div>
+<!-- Decorative Bleed Element -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-secondary rounded-full opacity-20 blur-3xl"></div>
+</section>
+<!-- Stats Grid (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<div class="md:col-span-1 bg-surface-container-lowest p-6 rounded-lg flex flex-col justify-between h-40">
+<span class="label-md text-on-surface-variant font-bold uppercase tracking-widest text-xs">Total Students</span>
+<span class="text-4xl font-black font-headline text-primary">124</span>
+</div>
+<div class="md:col-span-1 bg-surface-container-lowest p-6 rounded-lg flex flex-col justify-between h-40">
+<span class="label-md text-on-surface-variant font-bold uppercase tracking-widest text-xs">Avg. Completion</span>
+<span class="text-4xl font-black font-headline text-primary">68%</span>
+</div>
+<div class="md:col-span-2 bg-tertiary-container p-6 rounded-lg flex items-center justify-between h-40 group hover:scale-[1.02] transition-transform cursor-pointer">
+<div>
+<span class="label-md text-on-tertiary-container font-bold uppercase tracking-widest text-xs">Action Required</span>
+<h3 class="text-3xl font-black font-headline text-on-tertiary-container">12 Students At-Risk</h3>
+</div>
+<span class="material-symbols-outlined text-5xl text-on-tertiary-container/30 group-hover:scale-110 transition-transform" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+<!-- Filters & Search -->
+<div class="flex flex-col md:flex-row gap-4 items-center justify-between mb-8">
+<h2 class="text-2xl font-bold font-headline self-start">Active Classroom: Advanced Physics</h2>
+<div class="flex gap-3 w-full md:w-auto">
+<div class="relative flex-grow md:w-64">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-high rounded-md border-none focus:ring-2 focus:ring-primary/40 focus:bg-surface-container-lowest transition-all font-body" placeholder="Search student name..." type="text"/>
+</div>
+<button class="bg-surface-container-high p-3 rounded-md hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined align-middle" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Roster Table (Kinetic Style) -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden p-1 md:p-4">
+<div class="space-y-4">
+<!-- Student Row 1: At-Risk -->
+<div class="bg-surface-container-lowest rounded-lg p-4 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-8 hover:shadow-xl transition-shadow group">
+<div class="flex items-center gap-4 flex-1">
+<div class="w-14 h-14 rounded-full overflow-hidden shrink-0 ring-4 ring-error/10">
+<img alt="Student avatar" data-alt="Portrait of a young South African woman with braided hair smiling confidently in bright daylight outdoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhR95K3zRUmGyAGJYHnaC51Ry_0V5yl-Sx4yPtGkpGCJ0AyibwM8N0RxVaDPi6kJbwc_cnS4sZjFvNpgzlHgn7D7he0LhaHNIiLdbSaCdArDyxIuMNsUbRQM2hPpOSzByXLYmu5JQLEX6shCDsSnCcqTpAox6_B3Bi5pyJSYT5uJ_UkVozRHn_XwVZOgB7eTSxZfICp6uYWKKs_yd637qzyOdolBGGlN7xkG7xcb_Z8fOOP86gAxbbVfrv_WeRmVfroBYGG4Y7Gt3l"/>
+</div>
+<div>
+<h4 class="text-lg font-bold font-headline group-hover:text-primary transition-colors">Zanele Mthembu</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm font-body">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                                Last Active: 2h ago
+                            </div>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Course Progress</span>
+<span class="text-xs font-bold text-primary">34%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 34%"></div>
+</div>
+</div>
+<div class="flex items-center gap-6 justify-between md:justify-end">
+<div class="flex items-center gap-2 bg-error-container/20 px-3 py-1.5 rounded-full text-error font-bold text-xs uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[18px]" data-icon="error" style="font-variation-settings: 'FILL' 1;">error</span>
+                            At-Risk
+                        </div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="more_vert">more_vert</button>
+</div>
+</div>
+<!-- Student Row 2: Good Progress -->
+<div class="bg-surface-container-lowest rounded-lg p-4 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-8 hover:shadow-xl transition-shadow group">
+<div class="flex items-center gap-4 flex-1">
+<div class="w-14 h-14 rounded-full overflow-hidden shrink-0">
+<img alt="Student avatar" data-alt="Close up of a young man with glasses and trendy casual wear, focused expression, neutral urban background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDhPVAqc9sLNU3nAxAOELbk6NAIjGTm-pyV7i4xRF_P4SaaxX_VldJluJHPemaq-J9kYz7EMczKCpKnYavZgfzGm4hz0xZHog-mv3a1WzEnJN4D8OuhfQ7Ma8ZKSPmhw25q0yfl9rP-V97u7vvAMqhCuDzpLvE76Yd_bss9tU7hsyNgKQ06LuQFF6WLbk4V34ppcSjmZvHQz9H_X8dX9T-8TMZ9IWu3eh2Kq_O7dTebC8yCxpolrRuF46pRla2gq8ONcJea9Ldtk1U"/>
+</div>
+<div>
+<h4 class="text-lg font-bold font-headline group-hover:text-primary transition-colors">Liam Jacobs</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm font-body">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                                Last Active: 15m ago
+                            </div>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Course Progress</span>
+<span class="text-xs font-bold text-primary">88%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<div class="flex items-center gap-6 justify-between md:justify-end">
+<div class="px-3 py-1.5 rounded-full text-on-surface-variant/40 font-bold text-xs uppercase tracking-tighter invisible md:visible">
+                            On Track
+                        </div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="more_vert">more_vert</button>
+</div>
+</div>
+<!-- Student Row 3: Mid Progress -->
+<div class="bg-surface-container-lowest rounded-lg p-4 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-8 hover:shadow-xl transition-shadow group">
+<div class="flex items-center gap-4 flex-1">
+<div class="w-14 h-14 rounded-full overflow-hidden shrink-0">
+<img alt="Student avatar" data-alt="Side profile of a young woman laughing, soft natural light, warm artistic studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTr_aOYi3MgvY8n2GOv8b1s1wqEmTnfSDb6waRVHdPSh7sqavJRCf0FUc5La2uuq5WugMc6fGYD2ppyoCuwZ8S8ZXgSguVDDwiya_UjnYycGlKLVelr9Yg4bbVc0MpzOtOIMKY7x5Yp6iIJB9b65qu_8LBgG15uNZBeA09PC11eHnlYeV-qdkNIhfkn9xtP_mhQIE9_oWkfaMpG46n-TVir4y3QPrNsriNocK4w7c_PfDqVr2lPH1JKqG3FTwl0KgpopfnjD2itzGq"/>
+</div>
+<div>
+<h4 class="text-lg font-bold font-headline group-hover:text-primary transition-colors">Sarah Pillay</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm font-body">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                                Last Active: 1d ago
+                            </div>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Course Progress</span>
+<span class="text-xs font-bold text-primary">62%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 62%"></div>
+</div>
+</div>
+<div class="flex items-center gap-6 justify-between md:justify-end">
+<div class="px-3 py-1.5 rounded-full text-on-surface-variant/40 font-bold text-xs uppercase tracking-tighter invisible md:visible">
+                            On Track
+                        </div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="more_vert">more_vert</button>
+</div>
+</div>
+<!-- Student Row 4: At-Risk -->
+<div class="bg-surface-container-lowest rounded-lg p-4 md:p-6 flex flex-col md:flex-row md:items-center gap-4 md:gap-8 hover:shadow-xl transition-shadow group">
+<div class="flex items-center gap-4 flex-1">
+<div class="w-14 h-14 rounded-full overflow-hidden shrink-0 ring-4 ring-error/10">
+<img alt="Student avatar" data-alt="Cheerful young man in a denim jacket standing against a bright yellow wall in sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO0ZQoa7mAh2RUE1l1j3CgTGGR5huwiaih-bDpxP8Ogjba8JlxIJkOv6rRbZp7cj-9hRzUokJmLEeoyi8-giSbc3CMLg5JjLoS2cuJGggq3ahTnUqSedtII4xMweIfe1OLxbHDFJ694c312Co8KD3UGe62loUqap-FwSna0aL8ub5HVrQaYTDQPVzUuVlCNEa3AEnbpSwJldUGlzr2VjmIMDcK7oPa_PT0pUn86N53Hl7B3cY9ZX87W_jQMy-OW-NWcWyH3hj5yCVa"/>
+</div>
+<div>
+<h4 class="text-lg font-bold font-headline group-hover:text-primary transition-colors">Thabo Smith</h4>
+<div class="flex items-center gap-2 text-on-surface-variant text-sm font-body">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                                Last Active: 3h ago
+                            </div>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Course Progress</span>
+<span class="text-xs font-bold text-primary">12%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 12%"></div>
+</div>
+</div>
+<div class="flex items-center gap-6 justify-between md:justify-end">
+<div class="flex items-center gap-2 bg-error-container/20 px-3 py-1.5 rounded-full text-error font-bold text-xs uppercase tracking-tighter">
+<span class="material-symbols-outlined text-[18px]" data-icon="error" style="font-variation-settings: 'FILL' 1;">error</span>
+                            At-Risk
+                        </div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="more_vert">more_vert</button>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="mt-8 text-center pb-4">
+<button class="px-8 py-4 bg-primary text-on-primary rounded-full font-bold font-headline hover:scale-105 active:scale-95 transition-transform shadow-lg shadow-primary/20">
+                    Load More Students
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-20 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl z-50 flex justify-around items-center px-4 pb-2 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Study</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-200 rounded-full px-5 py-2 scale-110" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Classroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   },
   dateText: { flex: 1, fontSize: 16, color: COLORS.text },
   clearButton: { paddingHorizontal: SPACING.sm },
-  clearText: { fontSize: 14, color: COLORS.accent, fontWeight: '600' as const },
+  clearText: { fontSize: 14, color: COLORS.accent, fontFamily: 'Nunito_600SemiBold' },
   pickDateButton: {
     backgroundColor: COLORS.surface,
     padding: SPACING.md,

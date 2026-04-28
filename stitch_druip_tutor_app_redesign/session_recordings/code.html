@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#ff9475",
+                    "on-tertiary-fixed": "#340800",
+                    "on-surface": "#2c2f30",
+                    "on-error-container": "#570008",
+                    "outline": "#757778",
+                    "on-background": "#2c2f30",
+                    "background": "#f5f6f7",
+                    "primary": "#0058bb",
+                    "surface-container": "#e6e8ea",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "primary-dim": "#004ca4",
+                    "secondary-container": "#ffca4d",
+                    "on-tertiary": "#ffefeb",
+                    "tertiary-fixed": "#ff9475",
+                    "on-secondary-fixed": "#443100",
+                    "inverse-primary": "#4b8eff",
+                    "surface-container-high": "#e0e3e4",
+                    "outline-variant": "#abadae",
+                    "error-dim": "#9f0519",
+                    "tertiary": "#ab2d00",
+                    "surface-container-low": "#eff1f2",
+                    "surface-bright": "#f5f6f7",
+                    "inverse-surface": "#0c0f10",
+                    "surface-container-highest": "#dadddf",
+                    "on-primary-fixed": "#000000",
+                    "surface-variant": "#dadddf",
+                    "secondary-fixed": "#ffca4d",
+                    "on-tertiary-container": "#601500",
+                    "surface-tint": "#0058bb",
+                    "on-secondary-container": "#5c4400",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-secondary": "#fff1db",
+                    "error-container": "#fb5151",
+                    "primary-container": "#6c9fff",
+                    "secondary": "#755700",
+                    "on-primary": "#f0f2ff",
+                    "error": "#b31b25",
+                    "primary-fixed-dim": "#5191ff",
+                    "surface": "#f5f6f7",
+                    "secondary-dim": "#664b00",
+                    "on-primary-container": "#00214f",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "primary-fixed": "#6c9fff",
+                    "tertiary-dim": "#962700",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#595c5d",
+                    "inverse-on-surface": "#9b9d9e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift-surface-container-low {
+            background-color: #eff1f2;
+        }
+        .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-slate-500 hover:bg-slate-100/50 p-2 rounded-full transition-colors active:scale-95">arrow_back</button>
+<span class="text-xl font-display text-blue-700 font-black tracking-tight">The Academic Catalyst</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-6 mr-6">
+<span class="text-slate-500 hover:text-blue-500 transition-all cursor-pointer font-bold font-label text-xs uppercase tracking-widest">Dashboard</span>
+<span class="text-blue-700 font-bold font-label text-xs uppercase tracking-widest">Classrooms</span>
+<span class="text-slate-500 hover:text-blue-500 transition-all cursor-pointer font-label text-xs uppercase tracking-widest">Resources</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-white shadow-sm">
+<img class="w-full h-full object-cover" data-alt="close up portrait of a smiling young male student with a friendly expression in a brightly lit academic setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP76XOpqBarLF03dn5s-Rg5NiBCpSiZ325PeTQlo33z19EyPKiCbS4MFfoGZUiSYgXDt5S2SsrwFZUwx07AIkdhCsyxDZ0o06BD7Ok9DW7I8wGoowKfp2UNXjWVOpx0tqi82ITG-D7p857JpQLWUgESH_yXE7iRvpw2c74NZ6yOZ4TgOLvZYb2uSOqlnFYNJnRY6Z-Vv-UrWeYuRVgdPSKpUjKz9Er3xoI3ERhz_Frn9Wv2Km7yWI2Gc2txsGXD17llH92S1pfRZGj"/>
+</div>
+<button class="material-symbols-outlined text-blue-600">menu</button>
+</div>
+</nav>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<header class="mb-12 relative overflow-hidden rounded-xl p-8 bg-gradient-to-br from-primary to-primary-container text-white shadow-2xl">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Live Recording Vault</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tight mb-4 max-w-2xl">
+                    Financial Accounting 1 - Recorded Sessions
+                </h1>
+<p class="text-on-primary/80 max-w-md text-lg">
+                    Master your ledgering and balancing skills. Revisit any session at your own pace to crush your upcoming finals.
+                </p>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -right-12 -bottom-12 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute right-12 top-0 material-symbols-outlined text-[120px] opacity-10 rotate-12 select-none">school</div>
+</header>
+<!-- Search & Filter (Asymmetric Momentum) -->
+<div class="flex flex-col md:flex-row gap-4 mb-12 items-end">
+<div class="w-full md:w-2/3">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2 ml-4">Find a Topic</label>
+<div class="relative group">
+<input class="w-full bg-surface-container-high border-none rounded-lg py-4 px-12 focus:ring-2 focus:ring-primary-fixed-dim/40 focus:bg-surface-container-lowest transition-all" placeholder="Search by chapter or keyword..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+</div>
+</div>
+<div class="flex gap-2 w-full md:w-1/3">
+<button class="flex-1 bg-surface-container-low hover:bg-surface-container-high py-4 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_list</span> Filter
+                </button>
+<button class="flex-1 bg-surface-container-low hover:bg-surface-container-high py-4 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">sort</span> Latest
+                </button>
+</div>
+</div>
+<!-- Bento-style Grid for Recordings -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Featured Latest Recording (Large Card) -->
+<div class="md:col-span-8 group relative overflow-hidden bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.1)] transition-all cursor-pointer">
+<div class="aspect-video w-full relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="a professional workspace with an open laptop showing complex financial spreadsheets and a coffee cup on a wooden desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfE3BU5w20qxqCOIrRC23slIJy2SPt1RSEUQRSmfSzKN_YBrXZkaiWhv1_Zp9EL94ip1jaZ6DsVAsas3bYUw0AOxxmAhoEeXCYzDkv46KexPM6YGNjscmvE4w8V2F-SiYnvc5h3JyTdbcppSu0e-LsZljLtue2i9rO8oAW8TSWY49N6nEnl9v-3fHj11knFmdV4t8oY78GLJ0CvaH2qgy_PJgWBg9KU2N_Qjf4--egTTaA4NsTmiTO4gu0DIsrmdnRFrWHXdPyNRqp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-white text-5xl translate-x-1" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute top-6 left-6 flex gap-2">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Newest Release</span>
+</div>
+<div class="absolute bottom-6 left-6 right-6">
+<div class="flex items-center gap-3 text-white/80 mb-2 font-label text-xs uppercase tracking-widest">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">calendar_month</span> Oct 12, 2024</span>
+<span class="w-1 h-1 bg-white/40 rounded-full"></span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> 45:20</span>
+</div>
+<h3 class="text-3xl font-headline font-bold text-white leading-tight">Chapter 4: Ledgering Deep Dive</h3>
+</div>
+</div>
+</div>
+<!-- Stats/Motivation Sidebar (Bento Piece) -->
+<div class="md:col-span-4 space-y-8">
+<div class="bg-secondary-container p-8 rounded-xl relative overflow-hidden group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-on-secondary-container text-4xl mb-4">trending_up</span>
+<h4 class="text-xl font-headline font-bold text-on-secondary-container mb-2">Keep the Momentum!</h4>
+<p class="text-on-secondary-container/70 text-sm mb-6">You've watched 12% of this module's recordings. Students who reach 80% score 15% higher on average.</p>
+<button class="w-full bg-on-secondary-container text-white py-3 rounded-full font-bold text-sm">Continue Learning</button>
+</div>
+<div class="absolute -right-4 -bottom-4 material-symbols-outlined text-8xl text-black/5 rotate-12 group-hover:rotate-0 transition-transform">bolt</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-outline-variant/10">
+<h5 class="font-label text-xs font-black uppercase tracking-widest text-on-surface-variant mb-4">Upcoming Sessions</h5>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-white flex flex-col items-center justify-center shrink-0 border border-outline-variant/20">
+<span class="text-[10px] font-bold text-primary">OCT</span>
+<span class="text-lg font-black leading-none">15</span>
+</div>
+<div>
+<p class="font-bold text-sm leading-tight">Trial Balances Masterclass</p>
+<p class="text-xs text-on-surface-variant">14:00 PM SAST</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Standard List Content (Grid format) -->
+<div class="md:col-span-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
+<!-- Recording Card 2 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-xl transition-all border border-transparent hover:border-primary/10">
+<div class="aspect-video relative">
+<img class="w-full h-full object-cover" data-alt="close up of financial charts and graphs with a calculator on a clean office desk in soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDObrYTzTUIWZ1LDhP9-u0t3iHdMxCZL_BCuJfReiCFk3Zr6K6phIMWmCioeUbSjfakj10uKXl2nE0DR4AXicJ9aNfyCXdOdnRbwDna3zhq7r9J_Wtk5vmdYvpQMqkR8Shdk7LNUzfrAeO0kvl6EmBHN0IHgk86yNC13DzM1v3DXYnFq611b5BHWpDuKAuveBoI4WzOvcxTqIYyzvomJxUMWu7l5oKNLSaITYMbgdhDBaQs_u61LD4F6JHsxcODxVD6rR2Cpq8FQnSI"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-3 right-3 bg-black/70 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
+                            32:15
+                        </div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2 text-on-surface-variant font-label text-[10px] font-bold uppercase tracking-wider">
+<span>Oct 10, 2024</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span>Chapter 3</span>
+</div>
+<h4 class="text-lg font-headline font-bold mb-4 group-hover:text-primary transition-colors">The Double Entry System Explained</h4>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-200"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-300"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-400"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">42 Students Watched</span>
+</div>
+</div>
+</div>
+<!-- Recording Card 3 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-xl transition-all border border-transparent hover:border-primary/10">
+<div class="aspect-video relative">
+<img class="w-full h-full object-cover" data-alt="macro photograph of gold coins stacked neatly next to a financial ledger under warm professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDe9oxyZf_3ElwKUZpJGONcUesh5zhGxwDN0-B5epB-j7bupQKGX9oiMEfxMxhtIpK1O7w5Es3d5zMBZE3l11jdc4kMcvtQFiK8JoImtmpO0lkFXbiV3E-jCusx3KLmL8jIYkiU_ZLgoXH4X5WPllxA7l5ew_fcn9_E1jif9isdIxGR8qcN432W9VMwzb7mrhf0XPRPMPxBGc683wUpsyoJB2TE83ZpjzLu674_nVQXMi_3FbnXzxugZ8FmRp4zRx8ANHnD7M0Xe0G"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-3 right-3 bg-black/70 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
+                            58:40
+                        </div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2 text-on-surface-variant font-label text-[10px] font-bold uppercase tracking-wider">
+<span>Oct 08, 2024</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span>Chapter 2</span>
+</div>
+<h4 class="text-lg font-headline font-bold mb-4 group-hover:text-primary transition-colors">Accounting Equation Foundations</h4>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-200"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-300"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">89 Students Watched</span>
+</div>
+</div>
+</div>
+<!-- Recording Card 4 -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-xl transition-all border border-transparent hover:border-primary/10">
+<div class="aspect-video relative">
+<img class="w-full h-full object-cover" data-alt="a pair of glasses resting on top of a business report with colorful bar charts and financial data analysis" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi2XlPUAY1lvDs8GVcf_gFF6DSxzqEn7VJ79QFqH-OLzVAgvV7aCGdsJ0zYUfqr672INsaaYdAmmIQR92D4ki9ZuvthknHBapRW3q2Iaiz13ImZuOudFvRVkeAQTLuHmtBLjpe1_LNIwOiDHoYZQ2ZH-_u-fBehkl3EBITjkSQGfCvUHA9Ql3SfzUSBNK3Q7JPqTKKQdnp_rT_R29hIfS_tWIf3EtZWAMDFDlFzpb5fFJxq3y-ju_HXQh1SFrCvQ-xlGm8xLsMf-uH"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-3 right-3 bg-black/70 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
+                            51:05
+                        </div>
+</div>
+<div class="p-6">
+<div class="flex items-center gap-2 mb-2 text-on-surface-variant font-label text-[10px] font-bold uppercase tracking-wider">
+<span>Oct 05, 2024</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span>Intro</span>
+</div>
+<h4 class="text-lg font-headline font-bold mb-4 group-hover:text-primary transition-colors">Course Introduction &amp; Ethics</h4>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-200"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-300"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-400"></div>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-slate-500"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">154 Students Watched</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-[3rem] bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_-10px_40px_rgba(0,0,0,0.08)] flex justify-around items-center px-4 pt-3 pb-8 w-full">
+<div class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-blue-500 transition-all active:scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-be-vietnam-pro text-[11px] font-bold uppercase tracking-widest">Dashboard</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-600 text-white rounded-full px-5 py-2 active:scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined">school</span>
+<span class="font-be-vietnam-pro text-[11px] font-bold uppercase tracking-widest">Classrooms</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-blue-500 transition-all active:scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined">group</span>
+<span class="font-be-vietnam-pro text-[11px] font-bold uppercase tracking-widest">Students</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 px-5 py-2 hover:text-blue-500 transition-all active:scale-110 duration-300 ease-out">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-be-vietnam-pro text-[11px] font-bold uppercase tracking-widest">Messages</span>
+</div>
+</nav>
+</body></html>

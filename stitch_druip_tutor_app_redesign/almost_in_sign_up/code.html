@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#0058bb",
+                    "secondary-container": "#ffca4d",
+                    "tertiary": "#ab2d00",
+                    "secondary-fixed": "#ffca4d",
+                    "secondary-dim": "#664b00",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "error-container": "#fb5151",
+                    "surface-bright": "#f5f6f7",
+                    "on-primary": "#f0f2ff",
+                    "primary-fixed-dim": "#5191ff",
+                    "on-secondary-fixed": "#443100",
+                    "on-primary-container": "#00214f",
+                    "surface-variant": "#dadddf",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "surface-container-highest": "#dadddf",
+                    "primary-container": "#6c9fff",
+                    "surface-container": "#e6e8ea",
+                    "primary-fixed": "#6c9fff",
+                    "on-secondary-container": "#5c4400",
+                    "primary-dim": "#004ca4",
+                    "surface-dim": "#d1d5d7",
+                    "on-tertiary-fixed": "#340800",
+                    "inverse-on-surface": "#9b9d9e",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "tertiary-fixed": "#ff9475",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#0c0f10",
+                    "tertiary-dim": "#962700",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "on-tertiary": "#ffefeb",
+                    "on-tertiary-container": "#601500",
+                    "on-error-container": "#570008",
+                    "on-surface-variant": "#595c5d",
+                    "secondary": "#755700",
+                    "primary": "#0058bb",
+                    "on-background": "#2c2f30",
+                    "surface": "#f5f6f7",
+                    "outline-variant": "#abadae",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-error": "#ffefee",
+                    "surface-container-low": "#eff1f2",
+                    "error": "#b31b25",
+                    "background": "#f5f6f7",
+                    "inverse-primary": "#4b8eff",
+                    "error-dim": "#9f0519",
+                    "on-secondary": "#fff1db",
+                    "on-surface": "#2c2f30",
+                    "on-primary-fixed": "#000000",
+                    "outline": "#757778",
+                    "tertiary-container": "#ff9475",
+                    "surface-container-high": "#e0e3e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #0058bb 0%, #6c9fff 100%);
+        }
+        .frosted-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex flex-col">
+<!-- Header Navigation (TopAppBar Prediction) - Suppressed for focus journey but keeping brand identity -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 frosted-glass">
+<div class="text-2xl font-black italic text-black font-headline tracking-tight">Druip</div>
+<button class="p-2 hover:bg-slate-100/50 transition-colors rounded-full active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-6 pt-24 pb-12">
+<div class="w-full max-w-md">
+<!-- Hero Heading with Asymmetric Momentum -->
+<div class="mb-10 relative">
+<div class="absolute -top-8 -left-4 w-20 h-20 bg-secondary-container rounded-full opacity-20 blur-2xl"></div>
+<h1 class="text-[2.5rem] md:text-[3rem] font-headline font-extrabold text-on-surface leading-[1.1] tracking-tight relative z-10">
+                    Create your account to unlock your tutors
+                </h1>
+<p class="mt-4 text-on-surface-variant font-medium text-lg">
+                    You're one step away from connecting with your perfect academic match.
+                </p>
+</div>
+<!-- Tonal Container for the Form -->
+<div class="bg-surface-container-low p-8 rounded-xl shadow-sm space-y-6">
+<!-- Social Auth Buttons -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-4 bg-surface-container-lowest border border-outline-variant/20 rounded-lg hover:bg-surface transition-all active:scale-95">
+<img alt="" class="w-5 h-5" data-alt="minimalist multi-colored google logo icon on white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFP3XLK_t-FS7BPDH3vBbaplz2EN2oz_dfMBodYRGzhYa0dGPTxMaxNqZmskiPrXOffzyyO8DSBvQgU_30OK_YEmCI4WEd7WaX5nW4ddj3aEa2mFpwq-dpiKSf2y7kAOeF3oKJXF9Z4XVOVKvss0pcedDPfBlFRF95wz91fBlj3Aea72gqzHU7dTH0k4zBnHIqsAbLIqYbzu3h2shXQ9g1Cj2i0srhK-29XRHqsHEC30JDhuFVVpcv4CNr3nlt54vuj-5O0vHt9q67"/>
+<span class="font-bold text-sm">Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-4 bg-black text-white rounded-lg hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined text-xl" data-icon="apple" style="font-variation-settings: 'FILL' 1;">ios</span>
+<span class="font-bold text-sm">Apple</span>
+</button>
+</div>
+<div class="relative flex items-center py-2">
+<div class="flex-grow border-t border-outline-variant/30"></div>
+<span class="flex-shrink mx-4 text-label-md text-outline font-bold uppercase tracking-widest text-[10px]">Or with email</span>
+<div class="flex-grow border-t border-outline-variant/30"></div>
+</div>
+<!-- Registration Form -->
+<form class="space-y-4">
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant px-2">Full Name</label>
+<input class="w-full px-5 py-4 bg-surface-container-high rounded-md border-none focus:ring-2 focus:ring-primary-fixed-dim/40 focus:bg-surface-container-lowest transition-all placeholder:text-outline/60" placeholder="Thabo Mokoena" type="text"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant px-2">Email</label>
+<input class="w-full px-5 py-4 bg-surface-container-high rounded-md border-none focus:ring-2 focus:ring-primary-fixed-dim/40 focus:bg-surface-container-lowest transition-all placeholder:text-outline/60" placeholder="thabo@student.ac.za" type="email"/>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant px-2">Password</label>
+<div class="relative">
+<input class="w-full px-5 py-4 bg-surface-container-high rounded-md border-none focus:ring-2 focus:ring-primary-fixed-dim/40 focus:bg-surface-container-lowest transition-all placeholder:text-outline/60" placeholder="••••••••" type="password"/>
+<button class="absolute right-4 top-1/2 -translate-y-1/2 text-outline" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full kinetic-gradient text-white py-5 rounded-full font-headline font-bold text-lg shadow-lg shadow-primary/20 hover:shadow-primary/30 active:scale-95 transition-all" type="submit">
+                            Create Account
+                        </button>
+</div>
+</form>
+</div>
+<!-- Bottom Navigation Link -->
+<div class="mt-8 text-center">
+<p class="text-on-surface-variant font-medium">
+                    Already have an account? 
+                    <a class="text-primary font-bold hover:underline underline-offset-4 ml-1" href="#">Log in</a>
+</p>
+</div>
+</div>
+</main>
+<!-- Visual Decorative Element (Asymmetric Momentum) -->
+<div class="fixed -bottom-24 -right-24 w-64 h-64 bg-primary-container rounded-full opacity-10 blur-[80px] pointer-events-none"></div>
+<div class="fixed top-1/2 -left-20 w-40 h-40 bg-tertiary-container rounded-full opacity-5 blur-[60px] pointer-events-none"></div>
+<!-- Background texture simulation -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-[-1]" data-alt="subtle geometric cube pattern texture for background depth" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDTppq7ywQFeJ-P8qqkhu5iF9HvGegkTlVeikQ8IJ34-OSNT-4wQQZ7yj8u55GMuFaWJTSJaMdCw1mXKe6w4lz3vrF1t45HhMoRfMFGJjzbDPN3ocsX_1RVEWSoVz2wiffw0lpA3PwrXB769r1ove4KlUo9ixXZCVh91ZSZlp_K-lwnHGX3SUBOxHqQfe3191Th4l0g2Jw5krodyd4T2ptgV1kqQFOhQB-bt1RsLXOfWSxSDv5kiT_rYhl07iC3U5_07bFuDdkiKi9k');">
+</div>
+</body></html>

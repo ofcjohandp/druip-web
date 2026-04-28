@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Achievement Wall | Druip</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;0,800;1,400;1,700&amp;family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-secondary": "#fff1db",
+                "tertiary-fixed-dim": "#ff7d57",
+                "on-surface": "#2c2f30",
+                "error-dim": "#9f0519",
+                "on-secondary-fixed-variant": "#674c00",
+                "surface-container-low": "#eff1f2",
+                "on-tertiary-fixed": "#340800",
+                "on-tertiary-fixed-variant": "#6f1a00",
+                "error-container": "#fb5151",
+                "surface-tint": "#0058bb",
+                "on-tertiary-container": "#601500",
+                "surface": "#f5f6f7",
+                "surface-container": "#e6e8ea",
+                "outline-variant": "#abadae",
+                "inverse-on-surface": "#9b9d9e",
+                "on-primary-container": "#00214f",
+                "on-primary-fixed-variant": "#002a61",
+                "on-error-container": "#570008",
+                "secondary-dim": "#664b00",
+                "primary-container": "#6c9fff",
+                "on-primary-fixed": "#000000",
+                "secondary": "#755700",
+                "primary": "#0058bb",
+                "on-secondary-fixed": "#443100",
+                "on-tertiary": "#ffefeb",
+                "background": "#f5f6f7",
+                "surface-container-high": "#e0e3e4",
+                "on-error": "#ffefee",
+                "surface-dim": "#d1d5d7",
+                "surface-container-highest": "#dadddf",
+                "primary-fixed": "#6c9fff",
+                "on-surface-variant": "#595c5d",
+                "tertiary-fixed": "#ff9475",
+                "secondary-container": "#ffca4d",
+                "on-background": "#2c2f30",
+                "on-primary": "#f0f2ff",
+                "tertiary": "#ab2d00",
+                "inverse-primary": "#4b8eff",
+                "secondary-fixed-dim": "#f7ba00",
+                "secondary-fixed": "#ffca4d",
+                "primary-dim": "#004ca4",
+                "tertiary-container": "#ff9475",
+                "primary-fixed-dim": "#5191ff",
+                "on-secondary-container": "#5c4400",
+                "outline": "#757778",
+                "surface-variant": "#dadddf",
+                "surface-bright": "#f5f6f7",
+                "surface-container-lowest": "#ffffff",
+                "error": "#b31b25",
+                "tertiary-dim": "#962700",
+                "inverse-surface": "#0c0f10"
+            },
+            "borderRadius": {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Plus Jakarta Sans"],
+                "body": ["Be Vietnam Pro"],
+                "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar Navigation Shell -->
+<header class="bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container border-2 border-white shadow-sm">
+<img alt="Student Profile Picture" class="w-full h-full object-cover" data-alt="close-up portrait of a smiling young South African woman with short natural hair in a sunlit university courtyard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtOgeT67B0Cbk5yVFvMudJ_zQ_baQgsa0-gOnQ7Q-EFKo_psmcNmmOMQHucnvISXmtrmuzEIZzZPZRRl4dyyVHvd8-w27I8kq_FyvKzAElf5AJEXpkgnioO-PUtNMRHFMmg0JTbZ0YHKrY9GhN-zvFhOYZBa59D-vmew1CAWsPdo-4PJVSJZ9JBooBNnLICl5McTyQnT26GVcyiDgupUPaP9H-M_pX-0OXDEBAEEY5seNKvVFRG_aFlp-1NjFNuJ3OM3yQpiM3OUHt"/>
+</div>
+<span class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight text-blue-700 dark:text-blue-300 italic text-2xl">Druip</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 hover:text-blue-500 transition-colors font-medium" href="#">Dashboard</a>
+<a class="text-blue-600 dark:text-blue-400 font-bold" href="#">Achievements</a>
+<a class="text-slate-500 hover:text-blue-500 transition-colors font-medium" href="#">Resources</a>
+</div>
+<div class="flex items-center gap-2">
+<button class="material-symbols-outlined p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors text-blue-600 dark:text-blue-400">notifications</button>
+<button class="material-symbols-outlined p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors text-blue-600 dark:text-blue-400 md:hidden">menu</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 py-12 pb-32">
+<!-- Hero Progress Section -->
+<section class="mb-16">
+<div class="relative overflow-hidden bg-gradient-to-br from-primary to-primary-container rounded-xl p-8 md:p-12 text-on-primary shadow-xl">
+<!-- Asymmetric Background Elements -->
+<div class="absolute -right-20 -top-20 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute -left-10 bottom-0 w-64 h-64 bg-secondary/20 rounded-full blur-2xl"></div>
+<div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+<div>
+<span class="inline-block py-1 px-4 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold tracking-widest mb-6 uppercase">Level 14 Trailblazer</span>
+<h1 class="font-headline text-5xl md:text-6xl font-extrabold tracking-tighter mb-4 leading-none">Your Momentum is <span class="italic">Unstoppable.</span></h1>
+<p class="text-xl opacity-90 max-w-md mb-8">You're only 450 XP away from unlocking the "Academic Titan" status. Keep that streak alive!</p>
+<!-- Progress Bar -->
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-sm font-bold uppercase tracking-widest">Mastery Progress</span>
+<span class="text-3xl font-black italic">82%</span>
+</div>
+<div class="h-6 w-full bg-on-primary/20 rounded-full overflow-hidden p-1">
+<div class="h-full bg-secondary shadow-[0_0_20px_rgba(255,202,77,0.5)] rounded-full w-[82%] relative">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden md:flex justify-center">
+<div class="relative group">
+<div class="absolute -inset-4 bg-secondary rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
+<div class="relative w-64 h-64 bg-surface-container-lowest rounded-xl flex items-center justify-center shadow-2xl rotate-3 transition-transform hover:rotate-0">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-8xl text-secondary" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-headline font-black text-on-surface text-center mt-2 px-6">LOCKED:<br/>TITAN SHIELD</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Achievement Bento Grid -->
+<section class="mb-20">
+<div class="flex flex-col md:flex-row justify-between items-baseline gap-4 mb-10">
+<h2 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">The Achievement Wall</h2>
+<div class="flex gap-2">
+<span class="px-4 py-2 bg-surface-container-high rounded-full text-sm font-bold text-on-surface-variant">All</span>
+<span class="px-4 py-2 bg-secondary text-on-secondary-container rounded-full text-sm font-bold">Unlocked (12)</span>
+<span class="px-4 py-2 bg-surface-container-high rounded-full text-sm font-bold text-on-surface-variant">Rare</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6">
+<!-- Large Featured Badge -->
+<div class="md:col-span-2 md:row-span-2 bg-surface-container-lowest rounded-xl p-8 flex flex-col justify-between shadow-sm hover:shadow-lg transition-all relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[100%] transition-all group-hover:scale-150"></div>
+<div>
+<div class="w-16 h-16 bg-primary-container/20 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<h3 class="font-headline text-3xl font-bold text-on-surface mb-2">7-Day Streak</h3>
+<p class="text-on-surface-variant max-w-xs">Maintain your daily study routine for a full week. You’ve shown incredible consistency!</p>
+</div>
+<div class="mt-12">
+<div class="flex -space-x-2 mb-4">
+<img alt="Peer" class="w-8 h-8 rounded-full border-2 border-white" data-alt="headshot of a smiling young woman with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfsHvxVYlBtXNtypFuSt9FdLjkedYuH5ULtbYhPJMpaq3FmxoNGsLqDiTX4P_DmM3_4N6_dMRbMRdBdOviCrbnp4L6zA52dcSyvLLkztKZMYh9D8S8xqsDn1rghxE06PAU3JgLGLCoVTOaLc0QrxmPWWlLBhblxvyHc2g4oceJ_OQ9CEAAlWH2Mx7NOTL1I1ErDjUbMyANszoSbU5IS8swxX7G9zltfFa-GklGbfczkOQOU1PRgRpijrT5xe7w4uJuZ4dFZbPjD5Ne"/>
+<img alt="Peer" class="w-8 h-8 rounded-full border-2 border-white" data-alt="portrait of a confident young man in a library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdS0LVYdQ8F1Z76ZKv2RgazkoVDvEQUEgSzKspc0zWOVvcw1y4RZ9ZT-trOHh4WH4Tgm3L4CdBLvei267YdsR477uewpMmONte9raAqyDJoB2eUpmPVepXYbUn52kDCa9kPmqjS6_Huy0RgS9WiG8MOVIZDG2giMmrWf1GCohXHxFgQiiYz5dcIzw320CxM4R4LPv-FqNt07FtwmG9EgvrGXYbcZ71AHX7LpuS_KZlqhUTSfE_r2bldNQl_yGRL8HzoJB7Qi-tK3hq"/>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-white flex items-center justify-center text-[10px] font-bold">+241</div>
+</div>
+<span class="text-xs font-bold text-primary tracking-widest uppercase">Earned by 12% of Students</span>
+</div>
+</div>
+<!-- Past Paper Pro -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:translate-y-[-4px] transition-transform">
+<div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+</div>
+<h4 class="font-headline font-bold text-xl mb-1">Past Paper Pro</h4>
+<p class="text-sm text-on-surface-variant mb-6">Completed 5 previous exam papers.</p>
+<div class="h-1 w-full bg-surface-container-high rounded-full">
+<div class="h-full bg-secondary rounded-full w-full"></div>
+</div>
+</div>
+<!-- First Lesson -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm hover:translate-y-[-4px] transition-transform">
+<div class="w-12 h-12 bg-tertiary/10 rounded-lg flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+<h4 class="font-headline font-bold text-xl mb-1">First Lesson</h4>
+<p class="text-sm text-on-surface-variant mb-6">Took the leap and attended your first session.</p>
+<span class="text-[10px] font-black py-1 px-2 bg-tertiary-container/30 text-tertiary rounded uppercase">Unlocked Jan 12</span>
+</div>
+<!-- Locked: Night Owl -->
+<div class="bg-surface-container-low rounded-xl p-6 border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center text-center opacity-70 group hover:opacity-100 transition-opacity">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-4 text-outline group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">dark_mode</span>
+</div>
+<h4 class="font-headline font-bold text-lg mb-1">Night Owl</h4>
+<p class="text-xs text-on-surface-variant">Complete a session after 10:00 PM.</p>
+<div class="mt-4 px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold text-outline uppercase tracking-tight">Locked</div>
+</div>
+<!-- Locked: Top Performer -->
+<div class="bg-surface-container-low rounded-xl p-6 border-2 border-dashed border-outline-variant/30 flex flex-col items-center justify-center text-center opacity-70 group hover:opacity-100 transition-opacity">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center mb-4 text-outline group-hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">stars</span>
+</div>
+<h4 class="font-headline font-bold text-lg mb-1">Perfect Score</h4>
+<p class="text-xs text-on-surface-variant">Get 100% on any practice quiz.</p>
+<div class="mt-4 px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-bold text-outline uppercase tracking-tight">Locked</div>
+</div>
+</div>
+</section>
+<!-- Milestones Section -->
+<section class="bg-surface-container-low rounded-xl p-10 overflow-hidden relative">
+<div class="relative z-10">
+<h3 class="font-headline text-3xl font-extrabold mb-8">Upcoming Milestones</h3>
+<div class="space-y-6">
+<!-- Milestone Row 1 -->
+<div class="flex items-center gap-6 p-4 bg-surface-container-lowest rounded-lg">
+<div class="flex-shrink-0 w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center text-2xl font-black">15</div>
+<div class="flex-grow">
+<div class="flex justify-between items-baseline mb-1">
+<h5 class="font-bold text-lg">Hours Mentored</h5>
+<span class="text-sm font-bold text-blue-600">12/15 hrs</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full">
+<div class="h-full bg-blue-600 rounded-full w-[80%]"></div>
+</div>
+</div>
+<div class="hidden md:block">
+<button class="px-6 py-2 bg-primary text-white rounded-full text-sm font-bold shadow-md hover:scale-105 transition-transform">View Progress</button>
+</div>
+</div>
+<!-- Milestone Row 2 -->
+<div class="flex items-center gap-6 p-4 bg-surface-container-lowest rounded-lg">
+<div class="flex-shrink-0 w-16 h-16 bg-orange-50 text-orange-600 rounded-full flex items-center justify-center text-2xl font-black">50</div>
+<div class="flex-grow">
+<div class="flex justify-between items-baseline mb-1">
+<h5 class="font-bold text-lg">Quiz Blitz</h5>
+<span class="text-sm font-bold text-orange-600">42/50 Correct</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full">
+<div class="h-full bg-orange-500 rounded-full w-[84%]"></div>
+</div>
+</div>
+<div class="hidden md:block">
+<button class="px-6 py-2 bg-primary text-white rounded-full text-sm font-bold shadow-md hover:scale-105 transition-transform">View Progress</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Bleed -->
+<div class="absolute -bottom-10 -right-10 text-9xl font-black text-on-surface/5 italic select-none">MOMENTUM</div>
+</section>
+</main>
+<!-- BottomNavBar Mobile Only -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 pb-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-20px_40px_rgba(0,0,0,0.08)]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Sessions</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-600 dark:bg-blue-500 text-white rounded-full p-3 mb-2 scale-110 shadow-lg transition-all active:scale-90">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Tools</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Profile</span>
+</div>
+</nav>
+<!-- FAB Suppression: On Detail/Achievement pages, suppression is active, however for gamification we can provide a small 'Share' action if needed -->
+<button class="fixed bottom-24 right-6 md:bottom-12 md:right-12 w-16 h-16 bg-secondary text-on-secondary-container rounded-full flex items-center justify-center shadow-xl hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-3xl">share</span>
+</button>
+</body></html>

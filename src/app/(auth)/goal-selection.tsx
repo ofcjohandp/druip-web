@@ -50,7 +50,7 @@ export default function GoalSelectionScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   content: { flex: 1, justifyContent: 'center', padding: SPACING.lg },
-  title: { fontSize: 28, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.xs, textAlign: 'center' },
+  title: { fontSize: 28, fontFamily: 'Syne_800ExtraBold', color: COLORS.text, marginBottom: SPACING.xs, textAlign: 'center' },
   subtitle: { fontSize: 16, color: COLORS.textMuted, marginBottom: SPACING.xl, textAlign: 'center' },
   goalCard: {
     backgroundColor: COLORS.surface,
@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
     minHeight: 80,
     justifyContent: 'center',
   },
-  goalLabel: { fontSize: 22, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.xs },
+  goalLabel: { fontSize: 22, fontFamily: 'Syne_800ExtraBold', color: COLORS.text, marginBottom: SPACING.xs },
   goalDescription: { fontSize: 14, color: COLORS.textMuted },
 });

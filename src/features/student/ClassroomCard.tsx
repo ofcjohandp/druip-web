@@ -31,7 +31,9 @@ export function ClassroomCard({ id, name, tutorEmail, subjects, bio, priceCents 
       <Animated.View style={[styles.card, animatedStyle]}>
         {/* Avatar + name row */}
         <View style={styles.avatarRow}>
-          <Avatar name={tutorEmail} size={40} />
+          <View style={styles.avatarRing}>
+            <Avatar name={tutorEmail} size={40} />
+          </View>
           <View style={styles.nameStack}>
             <Text style={[TYPOGRAPHY.subheading, { color: COLORS.text }]}>{name}</Text>
             <Text style={[TYPOGRAPHY.caption, { color: COLORS.textMuted }]}>{tutorEmail}</Text>
@@ -61,7 +63,7 @@ export function ClassroomCard({ id, name, tutorEmail, subjects, bio, priceCents 
 
         {/* Price badge */}
         <View style={styles.priceBadge}>
-          <Text style={[TYPOGRAPHY.caption, { color: COLORS.textOnAccent, fontWeight: '600' }]}>
+          <Text style={[TYPOGRAPHY.caption, { color: COLORS.textOnAccent, fontFamily: 'Nunito_600SemiBold' }]}>
             R{priceCents / 100}/mo
           </Text>
         </View>
@@ -76,16 +78,22 @@ const styles = StyleSheet.create({
     borderRadius: RADII.card,
     padding: SPACING.md,
     marginBottom: SPACING.sm,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.10,
-    shadowRadius: 8,
-    elevation: 4,
+    borderWidth: 1,
+    borderColor: COLORS.border,
   },
   avatarRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: SPACING.sm,
+  },
+  avatarRing: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    borderWidth: 2,
+    borderColor: COLORS.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   nameStack: {
     flex: 1,

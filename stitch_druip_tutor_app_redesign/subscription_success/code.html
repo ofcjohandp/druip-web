@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Subscription Success - Druip</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#0058bb",
+                    "secondary-container": "#ffca4d",
+                    "tertiary": "#ab2d00",
+                    "secondary-fixed": "#ffca4d",
+                    "secondary-dim": "#664b00",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "error-container": "#fb5151",
+                    "surface-bright": "#f5f6f7",
+                    "on-primary": "#f0f2ff",
+                    "primary-fixed-dim": "#5191ff",
+                    "on-secondary-fixed": "#443100",
+                    "on-primary-container": "#00214f",
+                    "surface-variant": "#dadddf",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "surface-container-highest": "#dadddf",
+                    "primary-container": "#6c9fff",
+                    "surface-container": "#e6e8ea",
+                    "primary-fixed": "#6c9fff",
+                    "on-secondary-container": "#5c4400",
+                    "primary-dim": "#004ca4",
+                    "surface-dim": "#d1d5d7",
+                    "on-tertiary-fixed": "#340800",
+                    "inverse-on-surface": "#9b9d9e",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "tertiary-fixed": "#ff9475",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#0c0f10",
+                    "tertiary-dim": "#962700",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "on-tertiary": "#ffefeb",
+                    "on-tertiary-container": "#601500",
+                    "on-error-container": "#570008",
+                    "on-surface-variant": "#595c5d",
+                    "secondary": "#755700",
+                    "primary": "#0058bb",
+                    "on-background": "#2c2f30",
+                    "surface": "#f5f6f7",
+                    "outline-variant": "#abadae",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-error": "#ffefee",
+                    "surface-container-low": "#eff1f2",
+                    "error": "#b31b25",
+                    "background": "#f5f6f7",
+                    "inverse-primary": "#4b8eff",
+                    "error-dim": "#9f0519",
+                    "on-secondary": "#fff1db",
+                    "on-surface": "#2c2f30",
+                    "on-primary-fixed": "#000000",
+                    "outline": "#757778",
+                    "tertiary-container": "#ff9475",
+                    "surface-container-high": "#e0e3e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-asymmetry {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+        .confetti-overlay {
+            background-image: radial-gradient(circle at 20% 30%, #ffca4d 2px, transparent 2px),
+                              radial-gradient(circle at 80% 40%, #0058bb 3px, transparent 3px),
+                              radial-gradient(circle at 40% 80%, #ff9475 2px, transparent 2px),
+                              radial-gradient(circle at 70% 90%, #6c9fff 4px, transparent 4px),
+                              radial-gradient(circle at 10% 60%, #ab2d00 2px, transparent 2px);
+            background-size: 150px 150px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Transactional Screen: Navigation Suppressed per Rule -->
+<main class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-6 py-12">
+<!-- Background Decorations (Asymmetric Momentum) -->
+<div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10"></div>
+<div class="absolute bottom-[-5%] left-[-5%] w-[400px] h-[400px] bg-secondary-container/10 rounded-full blur-[80px] -z-10"></div>
+<!-- Confetti & Celebration Layer -->
+<div class="absolute inset-0 confetti-overlay opacity-30 -z-5"></div>
+<div class="w-full max-w-2xl text-center flex flex-col items-center">
+<!-- Icon/Success Indicator -->
+<div class="mb-8 relative">
+<div class="w-32 h-32 bg-secondary-container rounded-xl flex items-center justify-center shadow-lg shadow-secondary-container/20 rotate-3">
+<span class="material-symbols-outlined text-on-secondary-container text-6xl" style="font-variation-settings: 'FILL' 1;">celebration</span>
+</div>
+<div class="absolute -bottom-2 -right-2 w-12 h-12 bg-primary rounded-full flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-white text-2xl">check</span>
+</div>
+</div>
+<!-- Headline -->
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-4 leading-none">
+                You're in!
+            </h1>
+<!-- Subtext -->
+<p class="font-body text-lg md:text-xl text-on-surface-variant max-w-lg mb-12 leading-relaxed">
+                Welcome to <span class="font-bold text-primary">Advanced Mathematics</span>. Your journey to mastery starts now.
+            </p>
+<!-- Bento Card for Next Step -->
+<div class="w-full grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
+<!-- Main Status Card -->
+<div class="md:col-span-8 bg-surface-container-lowest p-8 rounded-xl flex flex-col items-start text-left shadow-[0_20px_40px_rgba(0,0,0,0.04)] border border-outline-variant/10">
+<div class="bg-tertiary-container px-3 py-1 rounded-full mb-6">
+<span class="font-label text-[10px] uppercase font-bold tracking-widest text-on-tertiary-container">Priority Update</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface mb-2">Next Live Session</h3>
+<div class="flex items-center gap-3 text-primary mb-6">
+<span class="material-symbols-outlined">calendar_today</span>
+<p class="font-bold text-xl">Monday, 4PM</p>
+</div>
+<div class="flex items-center gap-4 w-full">
+<div class="flex -space-x-3">
+<img alt="avatar" class="w-10 h-10 rounded-full border-2 border-white" data-alt="Portrait of a friendly academic tutor with glasses, warm lighting, professional academic setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr1o84zRz-wBFUmJb_ZsXSbkOb47YtnTnBYTRL3UajbH7m87u4JEwrHhe7yCXFSk0l_QZnyv-YUzNgqhtCs4DXCmaXi4RAn982T77JPjUCvXYwB2zsSwOo69ShSNWJqOf631Hq2LAIKQm-wXGB1W9H1PfcQPnOzubs6apeg1mAoUS3nIUrVgdt_XPbrAviADRestwFStSQFu7rR68FghH1wDn5SvlQrc2oORGaLfVIhiOGhdwFxdsWVBWHtWt9lwjJImTvJMZOuSs6"/>
+<img alt="avatar" class="w-10 h-10 rounded-full border-2 border-white" data-alt="Portrait of a young male student smiling, urban university background, soft focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCsaCj7rxMJG_mGGwMVJYWMV2l3ANbMgYT5l7s7ZlcZboXPMa75c_dYeo8DivlT67FAkxHefJV6ZJg26viN7m5OnB43o_LoXUorIpBoyxjaV0tD9nIYWj5g1DCXBLUdPjgUcqtonw7jhuwzN0FXoMru1LwaPzEL_cIkQBygdWwOvKwSbCNLmnzTR9_0zFBfZDXLBFBe9JH4R6EXLAyyQJEfIzonDJS-anQAWZ0FhJlmOgKNHZ_9oByDd_F1DioLhG0AaCbtpvqDVhq"/>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Joined by 12 fellow students</p>
+</div>
+</div>
+<!-- Side Momentum Card -->
+<div class="md:col-span-4 bg-primary text-white p-8 rounded-xl flex flex-col justify-between text-left shadow-lg shadow-primary/20 overflow-hidden relative">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h4 class="font-headline text-lg font-bold leading-tight">Mastery Awaits</h4>
+</div>
+<p class="text-white/80 text-sm relative z-10">Access 40+ modules instantly.</p>
+<!-- Abstract shape for Kinetic Academic look -->
+<div class="absolute -bottom-8 -right-8 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+</div>
+</div>
+<!-- Primary CTA -->
+<div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+<button class="bg-gradient-to-br from-primary to-primary-container text-white font-headline text-lg font-bold px-10 py-5 rounded-full shadow-xl shadow-primary/30 hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-2">
+                    Go to Classroom
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-headline text-lg font-bold px-10 py-5 rounded-full transition-all">
+                    View Schedule
+                </button>
+</div>
+<!-- Footer Message -->
+<div class="mt-16 flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<p class="text-sm font-medium">Receipt sent to your registered email.</p>
+</div>
+</div>
+</main>
+<!-- Visual Polish: Decorative Asymmetric Overlap -->
+<div class="fixed bottom-0 right-0 w-1/3 h-1/4 bg-secondary-container/5 kinetic-asymmetry -z-10 pointer-events-none"></div>
+</body></html>

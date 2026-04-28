@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   pillDefault: {
-    backgroundColor: COLORS.card,
+    backgroundColor: COLORS.surface,
     borderColor: COLORS.border,
   },
   pillSelected: {

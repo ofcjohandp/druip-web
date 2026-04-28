@@ -15,6 +15,6 @@ export default function ProgressScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
   content: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: SPACING.lg },
-  title: { fontSize: 24, fontWeight: '700', color: COLORS.text, marginBottom: SPACING.xs },
+  title: { fontSize: 24, fontFamily: 'Syne_800ExtraBold', color: COLORS.text, marginBottom: SPACING.xs },
   subtitle: { fontSize: 16, color: COLORS.textMuted, textAlign: 'center' },
 });

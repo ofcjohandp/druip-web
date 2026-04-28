@@ -18,3 +18,19 @@ android/
 
 # TypeScript cache
 *.tsbuildinfo
+
+# Secrets and local config
+FRESH_START.md
+.mcp.json
+VERCEL_ENV_VARS.md
+druip-web/VERCEL_ENV_VARS.md
+
+# IDE / tools
+.obsidian/
+
+# Vercel
+.vercel/
+druip-web/.vercel/
+
+# Next.js build artifacts (duplicate dirs)
+druip-web/.next 2/

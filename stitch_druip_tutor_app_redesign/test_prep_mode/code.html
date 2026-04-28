@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Druip - Test Prep Mode</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#0c0f10",
+                        "tertiary-fixed": "#ff9475",
+                        "surface": "#f5f6f7",
+                        "surface-variant": "#dadddf",
+                        "surface-container": "#e6e8ea",
+                        "surface-bright": "#f5f6f7",
+                        "on-error": "#ffefee",
+                        "secondary": "#755700",
+                        "secondary-fixed-dim": "#f7ba00",
+                        "secondary-fixed": "#ffca4d",
+                        "background": "#f5f6f7",
+                        "on-secondary": "#fff1db",
+                        "on-primary-fixed": "#000000",
+                        "tertiary-container": "#ff9475",
+                        "inverse-on-surface": "#9b9d9e",
+                        "surface-container-low": "#eff1f2",
+                        "surface-container-highest": "#dadddf",
+                        "on-tertiary-fixed-variant": "#6f1a00",
+                        "on-tertiary-fixed": "#340800",
+                        "on-primary-container": "#00214f",
+                        "on-surface": "#2c2f30",
+                        "on-background": "#2c2f30",
+                        "surface-tint": "#0058bb",
+                        "surface-dim": "#d1d5d7",
+                        "error": "#b31b25",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#595c5d",
+                        "outline": "#757778",
+                        "tertiary-fixed-dim": "#ff7d57",
+                        "on-primary": "#f0f2ff",
+                        "tertiary": "#ab2d00",
+                        "on-tertiary-container": "#601500",
+                        "on-secondary-fixed": "#443100",
+                        "inverse-primary": "#4b8eff",
+                        "outline-variant": "#abadae",
+                        "error-dim": "#9f0519",
+                        "on-tertiary": "#ffefeb",
+                        "surface-container-high": "#e0e3e4",
+                        "on-secondary-fixed-variant": "#674c00",
+                        "tertiary-dim": "#962700",
+                        "primary-dim": "#004ca4",
+                        "error-container": "#fb5151",
+                        "primary-fixed": "#6c9fff",
+                        "primary": "#0058bb",
+                        "on-error-container": "#570008",
+                        "secondary-dim": "#664b00",
+                        "primary-container": "#6c9fff",
+                        "primary-fixed-dim": "#5191ff",
+                        "on-primary-fixed-variant": "#002a61",
+                        "secondary-container": "#ffca4d",
+                        "on-secondary-container": "#5c4400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #0058bb 0%, #6c9fff 100%);
+        }
+        .frosted-glass {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors scale-95 active:duration-150 rounded-full">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400" data-icon="menu">menu</span>
+</button>
+<h1 class="text-2xl font-extrabold text-blue-600 dark:text-blue-400 italic font-['Plus_Jakarta_Sans'] tracking-tight">Druip</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="User Profile" data-alt="Close up portrait of a young smiling student with a friendly expression and natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdWrT0wrj-REvzyBpapRvhEWzdjv2Ec9xTfq6s5pv8rSmRDil8OGyLX_9IuWlDw2Sw47rUrRidjfq2gvi4-7xw8wB_yv3HqVxCDSLTWqdx7ki1R4YUGgz-LcCO4csemVGWeY_NCZGI3G42ESrPAfnLLs07nc-cfIEiQVFcsy-zdwwFskvRSGtIz_o8yvLiHjezenfr3ocB-2nqq-pCf2PHO_pp3atruw3QnArOcfLEE4LJApNKIZVzcTPPuVH5-Ek_V9fMZtu1YT84"/>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-5xl mx-auto space-y-12">
+<!-- Hero Section: Days to Test -->
+<section class="relative kinetic-gradient rounded-xl p-8 md:p-12 text-on-primary shadow-2xl overflow-hidden">
+<!-- Asymmetric Momentum: Decorative Element -->
+<div class="absolute -right-12 -top-12 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div class="space-y-4">
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full font-label text-[11px] font-bold uppercase tracking-wider">Economics 101 Finals</span>
+<h2 class="font-headline text-5xl md:text-6xl font-extrabold tracking-tight leading-none">
+                        You got this.
+                    </h2>
+<p class="text-lg md:text-xl opacity-90 max-w-md">
+                        One step closer to acing your exams. Your curated path is ready for today.
+                    </p>
+</div>
+<div class="bg-white/20 frosted-glass rounded-xl p-8 flex flex-col items-center justify-center text-center min-w-[200px]">
+<span class="text-6xl font-extrabold leading-none">04</span>
+<span class="font-label text-sm font-bold uppercase tracking-widest mt-2">Days To Test</span>
+</div>
+</div>
+</section>
+<!-- Progress Section -->
+<section class="space-y-4">
+<div class="flex justify-between items-end">
+<h3 class="font-headline text-2xl font-bold">Overall Momentum</h3>
+<span class="font-label font-bold text-primary">68% COMPLETE</span>
+</div>
+<div class="h-4 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full kinetic-gradient rounded-full w-[68%] transition-all duration-1000"></div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Daily Checklist (Bento Left) -->
+<div class="lg:col-span-5 space-y-6">
+<div class="bg-surface-container-low rounded-xl p-8 h-full">
+<h4 class="font-headline text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="task_alt">task_alt</span>
+                        Daily Sprints
+                    </h4>
+<div class="space-y-4">
+<!-- Task Item -->
+<div class="flex items-center gap-4 bg-surface-container-lowest p-5 rounded-lg transition-all hover:translate-x-2">
+<div class="w-6 h-6 rounded border-2 border-primary flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="check" data-weight="fill">check</span>
+</div>
+<span class="font-medium text-on-surface/60 line-through">Review Supply &amp; Demand Curves</span>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-5 rounded-lg border-2 border-primary/10 shadow-sm transition-all hover:translate-x-2">
+<div class="w-6 h-6 rounded border-2 border-primary flex items-center justify-center"></div>
+<span class="font-medium">Watch: Macro Equilibrium Recap</span>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-5 rounded-lg border-2 border-primary/10 shadow-sm transition-all hover:translate-x-2">
+<div class="w-6 h-6 rounded border-2 border-primary flex items-center justify-center"></div>
+<span class="font-medium">Complete Quiz #3: Elasticity</span>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-5 rounded-lg border-2 border-primary/10 shadow-sm transition-all hover:translate-x-2">
+<div class="w-6 h-6 rounded border-2 border-primary flex items-center justify-center"></div>
+<span class="font-medium">Flashcard Deck: Market Structures</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tutor's Curated Study Order (Bento Right) -->
+<div class="lg:col-span-7 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-primary/5">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h4 class="font-headline text-xl font-bold">Recommended Flow</h4>
+<p class="text-on-surface-variant text-sm mt-1">Curated by Tutor Thabo • Pro Educator</p>
+</div>
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label text-[10px] font-bold">HIGH IMPACT</span>
+</div>
+<div class="space-y-0">
+<!-- Vertical Flow Step -->
+<div class="relative pl-10 pb-8 group">
+<div class="absolute left-3 top-2 bottom-0 w-0.5 bg-surface-container group-last:bg-transparent"></div>
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full kinetic-gradient flex items-center justify-center text-white text-[10px] font-bold z-10">1</div>
+<div class="bg-surface-container-low rounded-lg p-5 group-hover:bg-primary-container/10 transition-colors">
+<h5 class="font-bold">Core Concepts Foundation</h5>
+<p class="text-sm text-on-surface-variant mt-2">Spend 45 mins reviewing the fundamental laws. This is 40% of the exam weight.</p>
+<div class="mt-4 flex gap-2">
+<span class="bg-white px-3 py-1 rounded-full text-[10px] font-bold shadow-sm">PDF NOTES</span>
+<span class="bg-white px-3 py-1 rounded-full text-[10px] font-bold shadow-sm">12 MIN VIDEO</span>
+</div>
+</div>
+</div>
+<div class="relative pl-10 pb-8 group">
+<div class="absolute left-3 top-2 bottom-0 w-0.5 bg-surface-container group-last:bg-transparent"></div>
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center text-[10px] font-bold z-10">2</div>
+<div class="bg-surface-container-low rounded-lg p-5">
+<h5 class="font-bold">Active Problem Solving</h5>
+<p class="text-sm text-on-surface-variant mt-2">Apply theory to 10 quantitative problems. Don't look at answers yet!</p>
+</div>
+</div>
+<div class="relative pl-10 group">
+<div class="absolute left-3 top-2 bottom-0 w-0.5 bg-surface-container group-last:bg-transparent"></div>
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center text-[10px] font-bold z-10">3</div>
+<div class="bg-surface-container-low rounded-lg p-5">
+<h5 class="font-bold">Mock Challenge</h5>
+<p class="text-sm text-on-surface-variant mt-2">Simulated test environment. Time yourself for 30 minutes.</p>
+<button class="mt-4 bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-bold text-sm shadow-sm hover:scale-105 transition-transform">
+                                    Unlock Challenge
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Motivation Card -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-primary/5 rounded-xl overflow-hidden p-0">
+<div class="p-12 space-y-6">
+<h3 class="font-headline text-3xl font-bold tracking-tight">Need a quick boost?</h3>
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                    Studies show that taking a 5-minute movement break every hour increases retention by 15%. Stand up, stretch, and get back to it!
+                </p>
+<div class="flex gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+                        Start Focus Timer
+                    </button>
+</div>
+</div>
+<div class="h-full min-h-[300px] relative">
+<img alt="Motivation" class="absolute inset-0 w-full h-full object-cover" data-alt="Modern workspace with colorful pens, open notebooks, and a laptop in a bright airy room with creative energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeNhbMsA5JpRP2D--dWVm4KYwd2Bh4b9Om_i4HAVdF-7x1phyIadSq4mqtzEMLIj7E41gJKEjqmf6BeCW-LitVk2uIReFH5w7v5FDnR23_R1QdHNvc8YpafCGii977rdAmhH8Y1AxA8uccux0m0Gx5vpM0jV4wIwjymXWJVakGQdM-feyG64M45neoxTmYzUUaO5PFMqWQ2YE_Vm57FSEawgpSOeZnBA31MV2G5e71P0IyyKMVICvx9vBtiJZOBhNGoCHdvqyZHhbc"/>
+<div class="absolute inset-0 bg-primary/10"></div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl z-50 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-600 text-white rounded-full p-3 transform -translate-y-2 transition-all tap-highlight-transparent animate-pulse-slow" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book" data-weight="fill">menu_book</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Study</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Classroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

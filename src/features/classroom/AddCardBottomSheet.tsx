@@ -8,6 +8,8 @@ import {
   TouchableWithoutFeedback,
   StyleSheet,
   ActivityIndicator,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
@@ -76,7 +78,6 @@ export function AddCardBottomSheet({
   }
 
   async function handlePickPdf() {
-    onClose();
     try {
       const result = await DocumentPicker.getDocumentAsync({ type: 'application/pdf' });
       if (result.canceled || !result.assets?.[0]) return;
@@ -88,13 +89,13 @@ export function AddCardBottomSheet({
         cardType: 'pdf',
         classroomId,
       });
+      handleClose();
     } catch {
       setUploadError('Upload failed. Tap to retry.');
     }
   }
 
   async function handlePickImage() {
-    onClose();
     try {
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ['images'],
@@ -109,6 +110,7 @@ export function AddCardBottomSheet({
         cardType: 'image',
         classroomId,
       });
+      handleClose();
     } catch {
       setUploadError('Upload failed. Tap to retry.');
     }
@@ -137,6 +139,9 @@ export function AddCardBottomSheet({
       </TouchableWithoutFeedback>
 
       {/* Sheet */}
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
       <View style={styles.sheet}>
         {/* Drag handle */}
         <View style={styles.dragHandle} />
@@ -286,6 +291,7 @@ export function AddCardBottomSheet({
           <Text style={styles.uploadError}>{uploadError}</Text>
         )}
       </View>
+      </KeyboardAvoidingView>
     </Modal>
   );
 }
@@ -312,7 +318,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
     color: COLORS.text,
     marginBottom: SPACING.md,
   },
@@ -355,7 +361,7 @@ const styles = StyleSheet.create({
   },
   saveButtonText: {
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
     color: COLORS.textOnAccent,
   },
   cancelLink: {

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Druip Leaderboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#fff1db",
+                    "on-secondary-container": "#5c4400",
+                    "outline-variant": "#abadae",
+                    "tertiary-dim": "#962700",
+                    "on-background": "#2c2f30",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-dim": "#664b00",
+                    "surface": "#f5f6f7",
+                    "error-container": "#fb5151",
+                    "primary-fixed-dim": "#5191ff",
+                    "on-primary-fixed-variant": "#002a61",
+                    "background": "#f5f6f7",
+                    "outline": "#757778",
+                    "on-tertiary": "#ffefeb",
+                    "on-error": "#ffefee",
+                    "surface-container-highest": "#dadddf",
+                    "surface-container-high": "#e0e3e4",
+                    "inverse-surface": "#0c0f10",
+                    "tertiary-container": "#ff9475",
+                    "surface-tint": "#0058bb",
+                    "on-tertiary-fixed": "#340800",
+                    "secondary": "#755700",
+                    "on-primary-fixed": "#000000",
+                    "primary-dim": "#004ca4",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "surface-bright": "#f5f6f7",
+                    "surface-variant": "#dadddf",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "surface-container": "#e6e8ea",
+                    "on-primary": "#f0f2ff",
+                    "surface-container-low": "#eff1f2",
+                    "surface-dim": "#d1d5d7",
+                    "on-primary-container": "#00214f",
+                    "inverse-on-surface": "#9b9d9e",
+                    "tertiary": "#ab2d00",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "secondary-container": "#ffca4d",
+                    "on-surface": "#2c2f30",
+                    "error": "#b31b25",
+                    "on-tertiary-container": "#601500",
+                    "on-secondary-fixed": "#443100",
+                    "on-error-container": "#570008",
+                    "primary": "#0058bb",
+                    "on-surface-variant": "#595c5d",
+                    "primary-fixed": "#6c9fff",
+                    "primary-container": "#6c9fff",
+                    "secondary-fixed": "#ffca4d",
+                    "tertiary-fixed": "#ff9475",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "inverse-primary": "#4b8eff",
+                    "error-dim": "#9f0519"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-glow {
+            box-shadow: 0 0 20px rgba(0, 88, 187, 0.4), 0 0 40px rgba(108, 159, 255, 0.2);
+        }
+        .frosted-glass {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .asymmetric-bleed {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="User Profile Photo" class="w-full h-full object-cover" data-alt="close-up portrait of a smiling young student with glasses and short dark hair, soft studio lighting, vibrant blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0mqAUbuXMw3yXdH2ssCoBqR2Mx-svP32U9mspCrwPDWhwvhOcFb4N1uQj7GIiDUu0sniK15KRrKRE_C5rmpnZ4PejHVnKXtFjaR2vpRTqu4FdbJIVQrPbExm6e65LdUSShxbi3dUU4CYYrV7PHC9AZFs6ouoDR7u1jxMRcg1gbhjwR8J1hkJOll_I2Kgm0A8b0rm2tL1unv04EPY0Vza_AzQ5sdD8COGVXGPGopL3R9MM0bmDPu_xBb8i2qnNW3lBNsO2cRhn3jrm"/>
+</div>
+<span class="text-2xl font-black text-blue-700 italic font-headline tracking-tight">Druip</span>
+</div>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-slate-100 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-blue-600">notifications</span>
+</button>
+</header>
+<main class="pt-24 pb-32 px-4 space-y-8">
+<!-- Header & Countdown -->
+<section class="relative overflow-hidden bg-primary rounded-xl p-8 text-on-primary asymmetric-bleed">
+<div class="relative z-10">
+<h1 class="text-4xl font-headline font-bold leading-tight mb-2">Top of the Class</h1>
+<p class="text-on-primary/80 mb-6 font-medium">Keep the momentum. You're in the top 10% this week!</p>
+<!-- Countdown Timer -->
+<div class="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">timer</span>
+<div class="flex gap-1 items-baseline">
+<span class="text-xl font-headline font-extrabold tracking-tighter">02</span>
+<span class="text-[10px] font-label uppercase opacity-70">days</span>
+<span class="mx-1 opacity-50">:</span>
+<span class="text-xl font-headline font-extrabold tracking-tighter">14</span>
+<span class="text-[10px] font-label uppercase opacity-70">hrs</span>
+<span class="mx-1 opacity-50">:</span>
+<span class="text-xl font-headline font-extrabold tracking-tighter">39</span>
+<span class="text-[10px] font-label uppercase opacity-70">min</span>
+</div>
+</div>
+</div>
+<!-- Decorative Bleed Image -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 opacity-20 pointer-events-none">
+<span class="material-symbols-outlined text-[180px]">auto_awesome</span>
+</div>
+</section>
+<!-- Classroom Filter -->
+<div class="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+<button class="flex-shrink-0 px-6 py-3 rounded-full bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20">All Classrooms</button>
+<button class="flex-shrink-0 px-6 py-3 rounded-full bg-surface-container-high text-on-surface-variant font-bold text-sm hover:bg-surface-container-highest transition-colors">Advanced Physics</button>
+<button class="flex-shrink-0 px-6 py-3 rounded-full bg-surface-container-high text-on-surface-variant font-bold text-sm hover:bg-surface-container-highest transition-colors">Economics 101</button>
+</div>
+<!-- Podium / Top 3 (Asymmetric Layout) -->
+<div class="grid grid-cols-3 gap-4 items-end pt-4 mb-12">
+<!-- Rank 2 -->
+<div class="flex flex-col items-center gap-3">
+<div class="relative">
+<div class="w-16 h-16 rounded-full border-4 border-slate-200 overflow-hidden bg-white">
+<img alt="Avatar" class="w-full h-full p-2" data-alt="abstract geometric robot avatar in silver and blue tones, minimalist design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkh8RIvhj0EixhjB80Fj2M_8V5Rt0yYwaSr9ce8tPIitcaEEe3Pq0qReTgLqpln_9KRi86sX38KsHXbWykjXnMoKJF3FWjJciEdS50DeL10-xwnTWoZbj4p7IYNP2d0VYoX5dkUuGfCMVpYW4NmAwBHFozo6HT99PT2TmCPQbLCGlfHVhId8amF3n6yydqsxD-xB3FhlvE5VEO7PUAfaGky4xeOO4YSFSUFfguUvWqdDO2JMhMaZgf4ICXGgWSMtbm4fTI9RtsHZJS"/>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-slate-400 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">2</div>
+</div>
+<div class="text-center">
+<p class="font-bold text-sm">Scholar #42</p>
+<p class="text-blue-600 font-bold text-xs">2,840 XP</p>
+</div>
+</div>
+<!-- Rank 1 -->
+<div class="flex flex-col items-center gap-4">
+<div class="relative">
+<div class="w-24 h-24 rounded-full border-4 border-secondary-fixed overflow-hidden bg-white shadow-xl">
+<img alt="Avatar" class="w-full h-full p-3" data-alt="vibrant golden robot avatar with glowing orange eyes, futuristic aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPfGQMnrtHvk-JJsJ_aAM_ud_M2KurVoWUqkXGNvUARv4jVlCmMecKZCGbjhI4mTd-go6NEkkQ9SZ0cD_e7UqwKu_k4X6XB9HdoVtm0M6CHxap89IFD1UOwHW4jjl583TVSpUx2L-I-uLtGnz4D8GUwgzXv3IoK1Bb31hWI3wqAVqROPHhq5PWHVABCZ7MgpjG8g_GDgKVdtzTHpMnhEUNs77qcyCIPIA_ZfOmmjZxAKCzVXhM_C_WyesEELNxQW95M-YLP__HU27b"/>
+</div>
+<div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-secondary-fixed text-on-secondary-container px-3 py-1 rounded-full text-sm font-black shadow-lg">1st</div>
+<div class="absolute -top-4 left-1/2 -translate-x-1/2">
+<span class="material-symbols-outlined text-secondary-fixed text-3xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+</div>
+<div class="text-center">
+<p class="font-headline font-extrabold text-lg">Scholar #09</p>
+<p class="text-blue-700 font-black text-sm">3,120 XP</p>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="flex flex-col items-center gap-3">
+<div class="relative">
+<div class="w-16 h-16 rounded-full border-4 border-tertiary-container/30 overflow-hidden bg-white">
+<img alt="Avatar" class="w-full h-full p-2" data-alt="minimalist robot avatar with bronze accents and friendly digital expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzvBIAWDfwaTOgw1okk-HZKzNcqnCa-j6fJ5LUAbH9QxjZpRYN20zjxLOOfM5KE66oS80hc8meXQGDTHv6KkefimqbiYy1bWFRy0D6iqaU-WAt7Sb8eRXjn7eH-7Q0yda7o5QWSI_4WetGAxbLLyrnM_juz4lkXDvBK3KLJnWXfDMJZIJ7ZYTNhRok9pt8hcmcpR2StrIo-Kzk5gmP-vWjGwM9jc-6ocZZT9YFlTPkxi2y4f52tfuUjQbLqshkjxwAwiA-uMwxVzw7"/>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-tertiary-container text-on-tertiary-container w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">3</div>
+</div>
+<div class="text-center">
+<p class="font-bold text-sm">Scholar #88</p>
+<p class="text-blue-600 font-bold text-xs">2,610 XP</p>
+</div>
+</div>
+</div>
+<!-- Leaderboard List -->
+<div class="space-y-4">
+<!-- User Position (Kinetic Academic Glow) -->
+<div class="bg-primary kinetic-glow rounded-xl p-4 flex items-center justify-between border-none relative overflow-hidden transition-transform active:scale-95">
+<div class="absolute inset-0 bg-gradient-to-r from-primary to-primary-container opacity-50"></div>
+<div class="relative flex items-center gap-4">
+<span class="text-white font-headline font-black text-xl italic w-6">4</span>
+<div class="w-12 h-12 rounded-full border-2 border-white/50 overflow-hidden bg-white">
+<img alt="User Profile Photo" class="w-full h-full object-cover" data-alt="close-up portrait of a smiling young student with glasses and short dark hair, soft studio lighting, vibrant blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZG0sdAcNK3QUoad88NWT2H4nU6pnjY9L_Lhyy_sA6qAqysDBLJ8_aRFqwkmEU0fSP2y_uG06T6DVsWuQkPQrANf9p3UyG82VGx0n9ye46BNvWp_FbS0qfetSFRP_N_GLBW_B7cipAeiiBUgavpDTw6BhIF77YAgNyXCU6rHyW-CG7J884SZrJKOvJXuEtE9JVC6aaIYetKkxeMzWDPORlpJXAfRHVE8o3ODDkTLkaZwUbAfl3GYb8fo8uUlAocuT_IfLRE2gBxZjC"/>
+</div>
+<div>
+<p class="text-white font-bold">You (Alex Smith)</p>
+<p class="text-white/70 text-xs font-label uppercase tracking-widest">Rising Star</p>
+</div>
+</div>
+<div class="relative text-right">
+<p class="text-white font-headline font-black text-lg">2,450</p>
+<p class="text-white/60 text-[10px] font-label uppercase">XP Points</p>
+</div>
+</div>
+<!-- List Item 5 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex items-center justify-between transition-colors hover:bg-surface-container-high">
+<div class="flex items-center gap-4">
+<span class="text-slate-400 font-headline font-bold text-lg w-6">5</span>
+<div class="w-12 h-12 rounded-full overflow-hidden bg-white/50">
+<img alt="Avatar" class="w-full h-full p-2 opacity-60" data-alt="cyan and white robot icon, minimalist avatar design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp2hyZK-HMxrAHOcqsyu8KJUkYIxpOSQXupIj0ndeyIWRULq0Hwr-uCurj1XF0qCqNPtitG5pwvSDIOK9Ax9Q1bzUNFHZHQ4G2IeyjPd30zt_Zj0OxNyvyMDJc_lCUWoqzFxtvwYkP3dnLVex8ZlGCz2ZLvVRFX_Ti_2KAuE3xF1h1Tp6ejjPv-GvYiLUxDsukyaiQCcCfXLpqpcuvwknVRTZwUGJb8b0iGlGWDOhSiSKTPusnZGSG0NbPduh1i5P1i9Ox_us5X-lT"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Scholar #12</p>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-slate-400 text-[10px] font-label uppercase">Online</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<p class="text-primary font-headline font-extrabold text-lg tracking-tight">2,310</p>
+</div>
+</div>
+<!-- List Item 6 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex items-center justify-between transition-colors hover:bg-surface-container-high">
+<div class="flex items-center gap-4">
+<span class="text-slate-400 font-headline font-bold text-lg w-6">6</span>
+<div class="w-12 h-12 rounded-full overflow-hidden bg-white/50">
+<img alt="Avatar" class="w-full h-full p-2 opacity-60" data-alt="purple and grey robot icon, minimalist avatar design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxEQpKxh6-oUMrC8E-ZXI-5bGuZVzATxnLR85PR93icVLU7enn4FSzP2Pd8ZzfLw1ugTrlQfA-TWmLa_ZWfMDdOVwWi2BRHauxe8sJlVaNFhY860mM_zXawYRhYOxPTS4TsQ92gOeYgsjhglvrn6WVIMNQniXhp4cC9tL2U33ZqLqTB6R9h-kklS3QbDoYMBfx_S6_kGeJ2BFU_qdubyPKznXQW3UnpBkKYFXBLTszcJXG2MT-OKaBjexVFBjgwrvZN1ig0GtEFo9X"/>
+</div>
+<p class="font-bold text-on-surface">Scholar #74</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-headline font-extrabold text-lg tracking-tight">2,195</p>
+</div>
+</div>
+<!-- List Item 7 -->
+<div class="bg-surface-container-low rounded-xl p-4 flex items-center justify-between transition-colors hover:bg-surface-container-high">
+<div class="flex items-center gap-4">
+<span class="text-slate-400 font-headline font-bold text-lg w-6">7</span>
+<div class="w-12 h-12 rounded-full overflow-hidden bg-white/50">
+<img alt="Avatar" class="w-full h-full p-2 opacity-60" data-alt="teal robot icon, minimalist avatar design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfQar7uK37Mme4ScXrXoyfdBO_H8KUcZ_T95s3pXZlx_-j_uBLweUptqeJPeNsBzSw1wcF5h7-hma5GWuYklZAj6s191oOHH-m5GOcklI1MtoK80DKE2B-wM3PWfaobojw0z46n1hrRU8CS4DFZ79Snmglk2Xjrw-rmifqM8vpSFwlCvUu_vRDuN3uP1MZtkOmEmq5yYpw-XWqcfV04W-v5T1PckX17t8soH5B2R9dQeDyThMlY3gHzvzW7SV2EF-28riLaGU2LyH0"/>
+</div>
+<p class="font-bold text-on-surface">Scholar #33</p>
+</div>
+<div class="text-right">
+<p class="text-primary font-headline font-extrabold text-lg tracking-tight">2,050</p>
+</div>
+</div>
+<!-- Encouragement Chip -->
+<div class="py-4 text-center">
+<div class="inline-block bg-tertiary-container/20 px-6 py-2 rounded-full">
+<p class="text-tertiary text-xs font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                        You're 120 XP away from Rank 3!
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 backdrop-blur-xl z-50 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 transition-all active:scale-90 tap-highlight-transparent">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium uppercase tracking-wider mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 transition-all active:scale-90 tap-highlight-transparent">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium uppercase tracking-wider mt-1">Study</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-200 rounded-full px-5 py-2 active:scale-90 tap-highlight-transparent">
+<span class="material-symbols-outlined" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium uppercase tracking-wider mt-1">Classroom</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 transition-all active:scale-90 tap-highlight-transparent">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium uppercase tracking-wider mt-1">Profile</span>
+</button>
+</nav>
+</body></html>

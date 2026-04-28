@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Druip - Your Tutor Matches</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#674c00",
+                    "on-secondary": "#fff1db",
+                    "surface-variant": "#dadddf",
+                    "on-primary": "#f0f2ff",
+                    "inverse-on-surface": "#9b9d9e",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "secondary-container": "#ffca4d",
+                    "surface": "#f5f6f7",
+                    "on-secondary-fixed": "#443100",
+                    "surface-container-highest": "#dadddf",
+                    "on-error-container": "#570008",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#ff9475",
+                    "primary-container": "#6c9fff",
+                    "background": "#f5f6f7",
+                    "tertiary-container": "#ff9475",
+                    "primary-fixed-dim": "#5191ff",
+                    "surface-tint": "#0058bb",
+                    "on-background": "#2c2f30",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "secondary-fixed": "#ffca4d",
+                    "secondary-dim": "#664b00",
+                    "outline-variant": "#abadae",
+                    "primary": "#0058bb",
+                    "secondary": "#755700",
+                    "on-tertiary": "#ffefeb",
+                    "tertiary-dim": "#962700",
+                    "surface-bright": "#f5f6f7",
+                    "error-dim": "#9f0519",
+                    "surface-dim": "#d1d5d7",
+                    "inverse-primary": "#4b8eff",
+                    "primary-fixed": "#6c9fff",
+                    "on-surface-variant": "#595c5d",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-tertiary-container": "#601500",
+                    "on-primary-container": "#00214f",
+                    "on-error": "#ffefee",
+                    "surface-container-high": "#e0e3e4",
+                    "surface-container-low": "#eff1f2",
+                    "on-tertiary-fixed": "#340800",
+                    "primary-dim": "#004ca4",
+                    "on-surface": "#2c2f30",
+                    "outline": "#757778",
+                    "error-container": "#fb5151",
+                    "on-primary-fixed": "#000000",
+                    "surface-container": "#e6e8ea",
+                    "inverse-surface": "#0c0f10",
+                    "on-secondary-container": "#5c4400",
+                    "tertiary": "#ab2d00",
+                    "error": "#b31b25"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": [ "Plus Jakarta Sans" ],
+                    "body": [ "Be Vietnam Pro" ],
+                    "label": [ "Be Vietnam Pro" ]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .asymmetric-bleed {
+            width: calc(100% + 4rem);
+            margin-right: -4rem;
+        }
+        .frosted-glass {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body min-h-screen pb-32">
+<!-- Top Navigation Bar - Contextual Suppression Applied for Transactional Flow (Manual variant) -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 frosted-glass">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-high hover:bg-surface-container-highest transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<span class="text-2xl font-extrabold text-blue-700 italic font-headline tracking-tight">Druip</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-2 w-16 bg-primary rounded-full"></div>
+<div class="h-2 w-16 bg-primary rounded-full"></div>
+<div class="h-2 w-16 bg-primary rounded-full"></div>
+</div>
+</div>
+</header>
+<main class="pt-32 px-6 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="mb-12">
+<span class="inline-block px-4 py-1.5 bg-tertiary-container text-on-tertiary-fixed font-label text-xs font-bold rounded-full mb-4 uppercase tracking-widest">Success!</span>
+<h1 class="text-[3.5rem] md:text-[5rem] font-headline font-extrabold leading-[0.95] tracking-tight mb-6 text-primary">
+                We've found <br/><span class="text-on-surface italic">your tribe!</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-xl font-medium leading-relaxed">
+                Based on your preference for <span class="text-primary font-bold">Actuarial Science</span> and <span class="text-primary font-bold">Wits Campus</span>, these top-rated tutors are ready to help you thrive.
+            </p>
+</section>
+<!-- Bento-Style Tutor Reveal Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+<!-- Featured Tutor (Large Card) -->
+<div class="md:col-span-8 group">
+<div class="h-full bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.06)] flex flex-col md:flex-row relative">
+<div class="md:w-1/2 h-80 md:h-auto relative overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="professional portrait of a young South African male tutor smiling confidently in a modern bright study library" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWAQORhNIXnOAGs0Wq3CuW8-IVuF3SgJDpX_hxAHiqgPimjBNdB0E91Wjirt9fJdQTfmtSI8iizpnmqaXZ7F0HHchyWgtuVyqFFoTkni0BHt72NY_MI1pXIuYqnCkGak-1MY8OSxm43nBPuJnygtz0v-dTZ5YOHV65ukN8BqbIK4XTRGZyHRAliusEaz7hZmw4A1TIgEiai1G0uJ2dsmk6fR9WKYFcjoqeMdPBAXziUc7G0iw8oPQdGRmqJDMZskaO3or66mfUEKE3"/>
+<div class="absolute top-6 left-6 flex flex-col gap-2">
+<span class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-full font-bold text-sm flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.9 Rating
+                            </span>
+</div>
+</div>
+<div class="md:w-1/2 p-8 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-3 py-1 bg-primary/10 text-primary rounded-md text-xs font-bold uppercase tracking-wider">Most Compatible</span>
+<span class="px-3 py-1 bg-tertiary/10 text-tertiary rounded-md text-xs font-bold uppercase tracking-wider">Top 1%</span>
+</div>
+<h3 class="text-3xl font-headline font-bold text-on-surface mb-2">Thabo Molefe</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed">Final Year Actuarial Science at Wits. Specialist in Financial Mathematics and Statistics.</p>
+<div class="space-y-3 mb-8">
+<div class="flex items-center gap-3 text-sm font-semibold">
+<span class="material-symbols-outlined text-primary">school</span>
+                                    Honours Graduate
+                                </div>
+<div class="flex items-center gap-3 text-sm font-semibold">
+<span class="material-symbols-outlined text-primary">location_on</span>
+                                    Wits - Braamfontein
+                                </div>
+<div class="flex items-center gap-3 text-sm font-semibold">
+<span class="material-symbols-outlined text-primary">history</span>
+                                    240+ Hours Taught
+                                </div>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-white font-bold py-4 rounded-full text-lg shadow-lg hover:shadow-xl active:scale-95 transition-all">
+                            Choose Thabo
+                        </button>
+</div>
+</div>
+</div>
+<!-- Secondary Matches Column -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<!-- Mini Card 1 -->
+<div class="flex-1 bg-surface-container-low p-6 rounded-lg group hover:bg-surface-container-highest transition-colors">
+<div class="flex items-start gap-4">
+<div class="relative">
+<img class="w-20 h-20 rounded-full object-cover" data-alt="close-up headshot of a friendly female student with glasses in a vibrant outdoor campus setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDEGuRFlnshZThJ5V_7-nSJ_XgHiKLrJzj2k7n8dTPCKJnCzq9zQkFSD9SftWjvGJy2izfWuWLX_XuGN1ZGqbjRtLBd-14nHGY-z2Yumi_Y2dSPHosBE8MTASVVHKzaF5-HIofM_7wuVwGP0L4w5iMF4qB0Qq03Zc8RRAE54dyGk0w44vSauS42u65a2uIy8bJ2tY5JzVdqiSE2QT5uDzL3K4TWkJj8C0iam5Lz58ZJGIa8vhIY1mf3FumlfstxvAvj41IOEie5zQd"/>
+<div class="absolute -bottom-2 -right-2 bg-secondary-container text-xs font-bold w-10 h-10 flex items-center justify-center rounded-full border-4 border-surface-container-low">4.8</div>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-xl mb-1">Sarah Jenkins</h4>
+<p class="text-sm text-on-surface-variant mb-3">Stats &amp; Applied Math</p>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-[10px] font-bold text-on-surface-variant uppercase">Hybrid</span>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-[10px] font-bold text-on-surface-variant uppercase">Patient</span>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full py-3 bg-surface-container-lowest text-primary font-bold rounded-full text-sm border border-primary/10 hover:bg-primary hover:text-white transition-all">
+                        View Profile
+                    </button>
+</div>
+<!-- Mini Card 2 -->
+<div class="flex-1 bg-surface-container-low p-6 rounded-lg group hover:bg-surface-container-highest transition-colors">
+<div class="flex items-start gap-4">
+<div class="relative">
+<img class="w-20 h-20 rounded-full object-cover" data-alt="portrait of a confident young man wearing a denim shirt in a modern co-working space background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbY53em20vr2yqZyodyVjfzJ8-2HES_E6V1_CjlSQ55kKzjqTnc-LsfLrb8LwMLoeZcSn8DnQBXG8rnTq0C6RCih3jsZa7v9bYbBGA9_HknW-7JlECD1AjURMl_m3Se3Kw-Fb1Lex3HRXJcVnh7U_L5IoOkq2Bw6oEf8r0ezhc5-32QmsL6C4TKTULucyIGSB5u12BYuf0hEwgtPKJA4rJhlb99W4_PrCf4uyuvPDaB5QKUaf1Gs9JQSX7W3ymdsR1GBg3YzVdrH23"/>
+<div class="absolute -bottom-2 -right-2 bg-secondary-container text-xs font-bold w-10 h-10 flex items-center justify-center rounded-full border-4 border-surface-container-low">4.7</div>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-xl mb-1">Liam Nkosi</h4>
+<p class="text-sm text-on-surface-variant mb-3">Calc 1 &amp; 2 Master</p>
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-[10px] font-bold text-on-surface-variant uppercase">Wits Library</span>
+<span class="px-2 py-0.5 bg-surface-container-highest rounded text-[10px] font-bold text-on-surface-variant uppercase">Exam Prep</span>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full py-3 bg-surface-container-lowest text-primary font-bold rounded-full text-sm border border-primary/10 hover:bg-primary hover:text-white transition-all">
+                        View Profile
+                    </button>
+</div>
+</div>
+<!-- Wide Secondary Option -->
+<div class="md:col-span-12">
+<div class="bg-primary p-1 rounded-xl shadow-lg">
+<div class="bg-white rounded-lg p-8 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 bg-surface-container-low rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">groups</span>
+</div>
+<div>
+<h4 class="text-2xl font-bold">None of these feel right?</h4>
+<p class="text-on-surface-variant font-medium">We have 42 other matches waiting to meet you.</p>
+</div>
+</div>
+<div class="flex gap-4 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-8 py-4 text-primary font-bold rounded-full hover:bg-surface-container-low transition-colors">Adjust Preferences</button>
+<button class="flex-1 md:flex-none px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary-dim transition-colors">See All Matches</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Social Proof Section -->
+<section class="mt-24 mb-16 relative overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+<div class="md:col-span-1">
+<h2 class="text-3xl font-headline font-bold leading-tight mb-4">Join 15,000+ students acing their degrees.</h2>
+<p class="text-on-surface-variant">Our tutors are vetted, verified, and ready to help you reach your full academic potential.</p>
+</div>
+<div class="md:col-span-2 flex gap-4 overflow-x-auto pb-8 -mr-6 md:mr-0 scrollbar-hide">
+<div class="min-w-[300px] bg-surface-container-low p-6 rounded-lg italic">
+                        "Thabo helped me jump from a 55% to a Distinction in three weeks. Life saver!"
+                        <div class="mt-4 font-bold not-italic flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary"></div>
+                            Buhle, BCom Student
+                        </div>
+</div>
+<div class="min-w-[300px] bg-surface-container-low p-6 rounded-lg italic">
+                        "Sarah is so patient with Stats. I actually enjoy the class now!"
+                        <div class="mt-4 font-bold not-italic flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-tertiary"></div>
+                            Kevin, Engineering Student
+                        </div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Action Bar - Floating style for onboarding flow -->
+<div class="fixed bottom-0 left-0 w-full z-50 p-6 flex justify-center">
+<div class="max-w-7xl w-full bg-white/80 frosted-glass rounded-full px-8 py-4 flex items-center justify-between shadow-[0_-20px_40px_rgba(0,0,0,0.08)]">
+<div class="hidden md:block">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Matched Based on</p>
+<p class="text-sm font-bold text-primary">Wits Campus • Actuarial Science</p>
+</div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<button class="px-6 py-3 font-bold text-on-surface-variant hover:text-primary transition-colors">Skip for now</button>
+<button class="flex-1 md:flex-none px-10 py-3 bg-primary text-white font-bold rounded-full shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group active:scale-95 duration-200">
+                    Continue with Thabo
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

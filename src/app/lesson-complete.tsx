@@ -71,24 +71,24 @@ const styles = StyleSheet.create({
   },
   xpLabel: {
     fontSize: 14,
-    fontWeight: '400',
+    fontFamily: 'Nunito_400Regular',
     color: COLORS.textMuted,
   },
   xpValue: {
     fontSize: 28,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
     color: COLORS.text,
     marginBottom: SPACING.lg,
   },
   scoreText: {
     fontSize: 16,
-    fontWeight: '400',
+    fontFamily: 'Nunito_400Regular',
     color: COLORS.text,
     marginBottom: SPACING.sm,
   },
   streakText: {
     fontSize: 16,
-    fontWeight: '400',
+    fontFamily: 'Nunito_400Regular',
     color: COLORS.text,
     marginBottom: SPACING.xl,
   },
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   continueButtonText: {
     fontSize: 16,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
     color: COLORS.textOnAccent,
     textAlign: 'center',
   },

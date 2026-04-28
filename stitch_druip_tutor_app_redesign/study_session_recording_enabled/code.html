@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;0,800;1,800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#674c00",
+                    "on-secondary": "#fff1db",
+                    "surface-variant": "#dadddf",
+                    "on-primary": "#f0f2ff",
+                    "inverse-on-surface": "#9b9d9e",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "secondary-container": "#ffca4d",
+                    "surface": "#f5f6f7",
+                    "on-secondary-fixed": "#443100",
+                    "surface-container-highest": "#dadddf",
+                    "on-error-container": "#570008",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#ff9475",
+                    "primary-container": "#6c9fff",
+                    "background": "#f5f6f7",
+                    "tertiary-container": "#ff9475",
+                    "primary-fixed-dim": "#5191ff",
+                    "surface-tint": "#0058bb",
+                    "on-background": "#2c2f30",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "secondary-fixed": "#ffca4d",
+                    "secondary-dim": "#664b00",
+                    "outline-variant": "#abadae",
+                    "primary": "#0058bb",
+                    "secondary": "#755700",
+                    "on-tertiary": "#ffefeb",
+                    "tertiary-dim": "#962700",
+                    "surface-bright": "#f5f6f7",
+                    "error-dim": "#9f0519",
+                    "surface-dim": "#d1d5d7",
+                    "inverse-primary": "#4b8eff",
+                    "primary-fixed": "#6c9fff",
+                    "on-surface-variant": "#595c5d",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-tertiary-container": "#601500",
+                    "on-primary-container": "#00214f",
+                    "on-error": "#ffefee",
+                    "surface-container-high": "#e0e3e4",
+                    "surface-container-low": "#eff1f2",
+                    "on-tertiary-fixed": "#340800",
+                    "primary-dim": "#004ca4",
+                    "on-surface": "#2c2f30",
+                    "outline": "#757778",
+                    "error-container": "#fb5151",
+                    "on-primary-fixed": "#000000",
+                    "surface-container": "#e6e8ea",
+                    "inverse-surface": "#0c0f10",
+                    "on-secondary-container": "#5c4400",
+                    "tertiary": "#ab2d00",
+                    "error": "#b31b25"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .animate-pulse-red {
+            animation: pulse-red 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- Top Navigation Anchor -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl fixed top-0 w-full z-50">
+<div class="flex justify-between items-center px-6 py-4 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-600 cursor-pointer">close</span>
+<span class="text-2xl font-extrabold text-blue-700 italic font-['Plus_Jakarta_Sans'] tracking-tight">Druip</span>
+</div>
+<div class="flex items-center gap-4">
+<!-- Recording Status Indicator (Active State) -->
+<div class="flex items-center gap-2 bg-error-container/10 px-3 py-1.5 rounded-full border border-error/20">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse-red"></span>
+<span class="text-[10px] font-black uppercase tracking-tighter text-error">Live</span>
+</div>
+<div class="flex items-center bg-surface-container-high px-4 py-1.5 rounded-full gap-2">
+<span class="material-symbols-outlined text-secondary-dim" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-bold text-on-surface">12 Day Streak</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden border-2 border-white shadow-sm">
+<img alt="Student Profile Photo" class="w-full h-full object-cover" data-alt="Close-up portrait of a friendly male student with a bright smile, natural lighting, soft blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdRSEMjtQW_3XARRnGqRFOvzXdNZFn_Nn1E537AhE7uKTfv0UdMZGgs81clEBSl8-TRQZ7OF9LOZ-U7a3kkNkPUt9rcBeUITCpy03TMTwGKEyv0uxHa8CcW64CKIjr9SBW4NWi9PSA954_8nds7-WciUXke2er9xdq761LNvXUMIuCVf9tyyYiGhC-LeoVoAtln0_2G1anv9-k27R9XdIgMLyOqBge8b_Lk9r9B91QGMICxktHLj2z30hnl2UG4OLaf8Skiyx-fe4P"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 flex flex-col items-center justify-center min-h-screen max-w-4xl mx-auto relative overflow-hidden">
+<!-- Background Decorative Elements -->
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl"></div>
+<div class="absolute top-1/2 -left-32 w-80 h-80 bg-secondary-container/10 rounded-full blur-3xl"></div>
+<!-- Session Progress -->
+<div class="w-full mb-12 relative z-10">
+<div class="flex justify-between items-end mb-4">
+<div>
+<h2 class="text-label-md font-bold text-primary tracking-widest uppercase mb-1">Human Anatomy 101</h2>
+<h1 class="text-headline-md font-extrabold">Cardiovascular System</h1>
+</div>
+<div class="text-right">
+<span class="text-label-md font-bold text-on-surface-variant">14 / 25 CARDS</span>
+</div>
+</div>
+<div class="h-3 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[56%] rounded-full"></div>
+</div>
+</div>
+<!-- Flashcard Container -->
+<div class="w-full perspective-1000 relative z-10">
+<!-- XP Popup Indicator -->
+<div class="absolute -top-6 right-6 bg-tertiary-container text-on-tertiary-container font-bold px-4 py-2 rounded-full shadow-lg flex items-center gap-2 transform -rotate-6 z-20">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+            +50 XP
+        </div>
+<!-- The Main Card -->
+<div class="bg-surface-container-lowest rounded-xl p-12 min-h-[400px] flex flex-col items-center justify-center text-center shadow-[0_20px_40px_rgba(0,0,0,0.04)] border border-surface-container-high/50 relative overflow-hidden">
+<div class="mb-8">
+<span class="material-symbols-outlined text-primary-fixed-dim text-5xl opacity-40">school</span>
+</div>
+<h3 class="text-3xl md:text-4xl font-headline font-extrabold text-on-surface leading-tight relative z-10">
+                What are the primary functions of the Sinoatrial (SA) Node in the heart?
+            </h3>
+<!-- Decorative Pattern -->
+<div class="absolute bottom-0 right-0 p-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-9xl">auto_awesome_motion</span>
+</div>
+</div>
+</div>
+<!-- Interaction Cluster -->
+<div class="mt-12 w-full flex flex-col items-center gap-8 relative z-10">
+<!-- Flip Action -->
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-12 py-5 rounded-full font-headline font-bold text-lg shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center gap-3">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">refresh</span>
+            Flip Card
+        </button>
+<!-- Response Buttons -->
+<div class="grid grid-cols-3 gap-4 w-full">
+<!-- Again -->
+<button class="flex flex-col items-center gap-2 p-6 rounded-lg bg-error-container/10 hover:bg-error-container/20 border-b-4 border-error-dim transition-all group">
+<span class="material-symbols-outlined text-error-dim group-hover:scale-110 transition-transform">replay</span>
+<span class="font-bold text-error-dim">Again</span>
+<span class="text-[10px] uppercase tracking-widest text-error-dim/60 font-bold">1m</span>
+</button>
+<!-- Hard -->
+<button class="flex flex-col items-center gap-2 p-6 rounded-lg bg-secondary-container/10 hover:bg-secondary-container/20 border-b-4 border-secondary-fixed transition-all group">
+<span class="material-symbols-outlined text-secondary-dim group-hover:scale-110 transition-transform">sentiment_neutral</span>
+<span class="font-bold text-secondary-dim">Hard</span>
+<span class="text-[10px] uppercase tracking-widest text-secondary-dim/60 font-bold">2d</span>
+</button>
+<!-- Easy -->
+<button class="flex flex-col items-center gap-2 p-6 rounded-lg bg-tertiary-container/10 hover:bg-tertiary-container/20 border-b-4 border-tertiary-fixed transition-all group">
+<span class="material-symbols-outlined text-tertiary-dim group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<span class="font-bold text-tertiary-dim">Easy</span>
+<span class="text-[10px] uppercase tracking-widest text-tertiary-dim/60 font-bold">6d</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Record Session FAB & Hints -->
+<div class="fixed bottom-10 right-6 flex flex-col gap-4 z-50">
+<!-- Hint Button (Lower Priority) -->
+<button class="w-14 h-14 bg-surface-container-lowest text-primary rounded-full shadow-lg flex items-center justify-center hover:bg-primary-container hover:text-white transition-all group border border-surface-container-high">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform">lightbulb</span>
+</button>
+<!-- Record Session FAB (Primary Action) -->
+<button class="flex items-center gap-3 bg-inverse-surface text-surface px-6 py-4 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all group">
+<div class="relative">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">fiber_manual_record</span>
+<!-- Glow effect when active -->
+<span class="absolute inset-0 bg-error rounded-full blur-md opacity-40 animate-pulse"></span>
+</div>
+<span class="font-headline font-bold text-sm tracking-wide">Record Session</span>
+</button>
+</div>
+<!-- Left Side floating controls (Optional for balance) -->
+<div class="fixed bottom-10 left-6 z-50 flex items-center gap-3 bg-white/50 backdrop-blur-sm p-2 rounded-full border border-surface-container-high">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-xl">share</span>
+</button>
+</div>
+<!-- Image for decorative context -->
+<div class="fixed top-1/3 -right-24 opacity-20 pointer-events-none hidden xl:block">
+<img class="w-64 h-64 object-cover rounded-xl grayscale hover:grayscale-0 transition-all" data-alt="Abstract vibrant conceptual 3D render of a glowing lightbulb floating amidst geometric shapes and scholarly books in soft blue and amber light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8lakD4QJZ6Gt7e0a-S6T711V7yuFP1Erkc-l0uI7zBx4jFjSZmIi1w56SJs_rlijv_NMgjeno3vZCOY9wwBrLCcWOcmWxDrQkuFYyeAnJ4SwADKZTtJZodUgjy2laRsus4tuURM2CAgLYTYObBOG-ta576U3m9svQBBvwJiDyGzr3vRjaSMKB4e_OwJCnzpPht_F_cbnd7_SGH2qkVspzQxUrvfzzcgBS4vIXmUhv8guywyQjwsMAYAWutEZfFbO2gUf4686BQVug"/>
+</div>
+</body></html>

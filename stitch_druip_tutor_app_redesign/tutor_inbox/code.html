@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#fff1db",
+                    "on-secondary-container": "#5c4400",
+                    "outline-variant": "#abadae",
+                    "tertiary-dim": "#962700",
+                    "on-background": "#2c2f30",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-dim": "#664b00",
+                    "surface": "#f5f6f7",
+                    "error-container": "#fb5151",
+                    "primary-fixed-dim": "#5191ff",
+                    "on-primary-fixed-variant": "#002a61",
+                    "background": "#f5f6f7",
+                    "outline": "#757778",
+                    "on-tertiary": "#ffefeb",
+                    "on-error": "#ffefee",
+                    "surface-container-highest": "#dadddf",
+                    "surface-container-high": "#e0e3e4",
+                    "inverse-surface": "#0c0f10",
+                    "tertiary-container": "#ff9475",
+                    "surface-tint": "#0058bb",
+                    "on-tertiary-fixed": "#340800",
+                    "secondary": "#755700",
+                    "on-primary-fixed": "#000000",
+                    "primary-dim": "#004ca4",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "surface-bright": "#f5f6f7",
+                    "surface-variant": "#dadddf",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "surface-container": "#e6e8ea",
+                    "on-primary": "#f0f2ff",
+                    "surface-container-low": "#eff1f2",
+                    "surface-dim": "#d1d5d7",
+                    "on-primary-container": "#00214f",
+                    "inverse-on-surface": "#9b9d9e",
+                    "tertiary": "#ab2d00",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "secondary-container": "#ffca4d",
+                    "on-surface": "#2c2f30",
+                    "error": "#b31b25",
+                    "on-tertiary-container": "#601500",
+                    "on-secondary-fixed": "#443100",
+                    "on-error-container": "#570008",
+                    "primary": "#0058bb",
+                    "on-surface-variant": "#595c5d",
+                    "primary-fixed": "#6c9fff",
+                    "primary-container": "#6c9fff",
+                    "secondary-fixed": "#ffca4d",
+                    "tertiary-fixed": "#ff9475",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "inverse-primary": "#4b8eff",
+                    "error-dim": "#9f0519"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f5f6f7;
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        .editorial-shadow {
+            box-shadow: 0 20px 40px rgba(44, 47, 48, 0.08);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container">
+<img class="w-full h-full object-cover" data-alt="Professional headshot of a young male tutor with a friendly smile, clean indoor lighting with bookshelves in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALpMlrQNbCWQ-9d_dBN7wthApFpCV35j5Yhri3qjj5wv1uXmjBpkPIgT3LSyC66dVsxnz-D0bahViu1X1M7IADm4Okk4bpi5LAlX-bwP-izaa0TgX-A-uqtFIte676uFyCmaS_n1YExnx1JriMJUgWNqIC7TIxV4MhnWPM1sh6ZK6hc3dHJGrlKw9kKjAoUtpgp8VXNxiuemDsAHINgx-44xAQg_NLU1Rs-3NcPNNs1jiSA9ZDQfEIFIO54gDMvxtlvSv9bgZi2gDb"/>
+</div>
+<span class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight text-blue-700 dark:text-blue-500 italic text-2xl">Druip</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 transition-colors">
+<span class="material-symbols-outlined text-slate-600 dark:text-slate-400">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6">
+<!-- Hero Branding / Header -->
+<section class="mb-8">
+<h1 class="font-headline text-[3.5rem] leading-[1] font-extrabold tracking-tight text-on-background mb-2">
+                Inbox
+            </h1>
+<p class="font-body text-on-surface-variant text-lg">Manage your academic momentum.</p>
+</section>
+<!-- Tab System: Kinetic Asymmetry -->
+<div class="flex gap-2 p-1.5 bg-surface-container-low rounded-full mb-8 max-w-fit">
+<button class="px-8 py-3 rounded-full bg-primary text-on-primary font-bold transition-all shadow-lg shadow-primary/20">
+                Direct
+            </button>
+<button class="px-8 py-3 rounded-full text-on-surface-variant font-medium hover:bg-surface-container transition-all">
+                Broadcast
+            </button>
+</div>
+<!-- Search Bar -->
+<div class="relative mb-8 group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-6 py-4 bg-surface-container-high border-none rounded-xl focus:ring-2 focus:ring-primary-fixed-dim/40 focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant" placeholder="Search students or groups..." type="text"/>
+</div>
+<!-- Messages Content -->
+<div class="space-y-4">
+<!-- Message Card: Unread Active -->
+<div class="p-6 bg-surface-container-lowest rounded-xl editorial-shadow relative overflow-hidden group cursor-pointer active:scale-95 transition-transform">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="flex gap-4">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="Young female student portrait, natural outdoor lighting, smiling warmly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxR1_XsV8l7QmYgXXXE6QGI19q6YNQFmLZzr_nHsV2guLm1w4g_LdEaybxRMH__29O2LvcjjQb170NLUXQCp9kS326IJSx-RyplWYrOHwv1oQoqnnR00wzhH0c89R0hA6NgzaJzM_Fu4Z6YYS66URPWd9FWrXW0qLa9xyZMPAf0geyK_GHlURN3AmiSJPGV_u3wkdZaoX00zYuyqCv46n_ERYnyn-M5YyvPHgrFTdPeIpAMs9P5GG6ji-d3w6AKACO7ca-7pRQzRjq"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-primary rounded-full border-4 border-surface-container-lowest flex items-center justify-center">
+<div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface truncate">Thandiwe Nkosi</h3>
+<span class="text-xs font-bold text-primary tracking-wider font-label">2 MIN AGO</span>
+</div>
+<p class="text-on-surface font-bold truncate mb-2">Can we review the kinematics quiz?</p>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase tracking-widest">PHYSICS 101</span>
+<span class="text-xs text-on-surface-variant italic">Typing...</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Message Card: Read -->
+<div class="p-6 bg-surface-container-low/60 rounded-xl flex gap-4 cursor-pointer hover:bg-surface-container-low transition-colors">
+<img class="w-14 h-14 rounded-full object-cover grayscale opacity-80" data-alt="Young male student with glasses, studio lighting, professional but youthful vibe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7eHYbDUeD4ItNr58S9CWSbOHP7vYc5iFX82EPN8pAlnpYx1AHt6rhpcWCbi4FgUSjWhKROfBkyl1tk2k8n3o33-1AQHee7uFSVeQmcshj9RUwiTI-WWEIn65QHK9_WV0BaIB1bGBuJDqja_FgHEtPCx9qZKX_ZoKRc46WZvjk0GW5HzFOewrbOHX2epSuAY0G87Nj00CSS6mDn6Ea9r0hmiPvAO-MsEDbu2IeHOtYbM6RiBUd55r5ZnVvWM7Jq6pQkLi84xErIoKr"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface-variant truncate">Sizwe Maseko</h3>
+<span class="text-xs text-outline font-medium font-label">1 HR AGO</span>
+</div>
+<p class="text-on-surface-variant truncate mb-2">Thanks for the feedback on my essay!</p>
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold rounded uppercase tracking-widest">ENG LITERACY</span>
+</div>
+</div>
+<!-- Message Card: Unread 2 -->
+<div class="p-6 bg-surface-container-lowest rounded-xl editorial-shadow relative overflow-hidden group cursor-pointer active:scale-95 transition-transform">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="flex gap-4">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="Portrait of a female student looking focused, blurred library background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXWbyIkc4q1LW0oyceM5_9_PUNTHQhDcR9XGmkJgynt9LPCaLVwmHMYnK51wqsMx6Bp25hinepGFITj6i-pQTXcimU0v7khyRyYeMkoO8t1t_YWWTbeEfq1pYZxZScp_i-VCIlu6gLA43GljRX-ZNS4Cup0WlPhUouEgrLpcVnCB6wGLAtM-lb6-M0DA_qDUs-YIwu-gP510XMUelW0wcTJZs66CVGuNOG8vDNpATn1eZ9CJKcCbauG8Z_8knB6jveP4ndz7R38csI"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-bold text-lg text-on-surface truncate">Lerato Molefe</h3>
+<span class="text-xs font-bold text-primary tracking-wider font-label">12 MIN AGO</span>
+</div>
+<p class="text-on-surface font-bold truncate mb-2">Is the tutorial still on for 4 PM?</p>
+<span class="px-2 py-0.5 bg-tertiary-container text-on-tertiary-container text-[10px] font-bold rounded uppercase tracking-widest">MATHS CORE</span>
+</div>
+</div>
+</div>
+<!-- Broadcast Placeholder Section (Visual separation without lines) -->
+<div class="pt-8 pb-4">
+<h4 class="font-label text-outline uppercase tracking-[0.2em] text-xs">Recent Broadcasts</h4>
+</div>
+<!-- Broadcast Card -->
+<div class="p-6 bg-gradient-to-br from-primary to-primary-dim rounded-xl shadow-xl shadow-blue-500/20 text-on-primary group cursor-pointer">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-secondary-fixed">campaign</span>
+<span class="font-bold tracking-tight">CLASSROOM ANNOUNCEMENT</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">Final Mock Exam Schedule Posted</h3>
+<p class="text-blue-100/80 text-sm line-clamp-2 mb-4">Please check the resources folder for the full breakdown of dates and topics for the upcoming prelims...</p>
+<div class="flex justify-between items-center">
+<div class="flex -space-x-3">
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-slate-300 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Female student avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCruREMj5EIx7jnQGZwXyd1kYFJ_x9yW1zqxjyb8nHNphYtR-x2knAOU8-FARVrfkMUk4xVHgeFjwXTVyBEM3aHl8ZGiMUx34Ax4UvK6iHiFIceJiJLdLz7OMRAb2ipEAlHWX8zssDsCzwig-EMyoVqkR-6ZKSDjzX8KoOTqKMSvKk3RrpQc8YFhB94fDZHXPwytNOKuMrhRA7eOJk3ZVpw8BXHBeyJmp6GiQOgVDpKwy4IEwMWZNG3apzADaKwoiaS5PYJ2yqEprRV"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-slate-300 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Male student avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1h8OHNqwgMsJ28QNYZSToWRsbyKHbPXUSXtgZtDvBeytvkZ4I0ufu_dtuh0GDPQ5dTeDCTQx0OGBiqDfrvCfTlQvoyQanPrqkaWKzkZJ0Ed4zx0UEGrmhL6bqTppex1qAM59i3zlQ4p3We4LD79oC9PoHTO7xi2LsSXeLc_HNi3FUCPbVEDKq8ap-xP6skV1VcfXyKrTEsCR31Qn5R8FwNE-VW_o4cvTbUjUdMM9OroBCwBAecaC4Ja3UZQR90O94amqqmPBsW2Op"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-primary-fixed flex items-center justify-center text-[10px] font-bold">+42</div>
+</div>
+<span class="text-xs font-medium opacity-80 italic">Sent 4 hrs ago</span>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB: Contextual to Tutor -->
+<button class="fixed bottom-32 right-6 w-16 h-16 bg-secondary-container text-on-secondary-container rounded-full shadow-2xl flex items-center justify-center active:scale-90 transition-transform z-40">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl z-50 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">menu_book</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium uppercase tracking-wider">Study</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-200 rounded-full px-5 py-2" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium uppercase tracking-wider">Classroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-medium uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+</body></html>

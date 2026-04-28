@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffefee",
+                    "secondary-fixed": "#ffca4d",
+                    "primary-container": "#6c9fff",
+                    "primary": "#0058bb",
+                    "tertiary-fixed": "#ff9475",
+                    "primary-dim": "#004ca4",
+                    "on-secondary-container": "#5c4400",
+                    "on-primary-container": "#00214f",
+                    "error-dim": "#9f0519",
+                    "outline": "#757778",
+                    "primary-fixed-dim": "#5191ff",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "inverse-primary": "#4b8eff",
+                    "secondary-container": "#ffca4d",
+                    "surface-bright": "#f5f6f7",
+                    "surface-container-highest": "#dadddf",
+                    "inverse-surface": "#0c0f10",
+                    "tertiary-dim": "#962700",
+                    "surface-variant": "#dadddf",
+                    "on-primary-fixed": "#000000",
+                    "surface-container-high": "#e0e3e4",
+                    "on-primary": "#f0f2ff",
+                    "on-background": "#2c2f30",
+                    "tertiary-container": "#ff9475",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "on-tertiary-container": "#601500",
+                    "on-surface-variant": "#595c5d",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#9b9d9e",
+                    "background": "#f5f6f7",
+                    "surface-dim": "#d1d5d7",
+                    "surface-container": "#e6e8ea",
+                    "tertiary": "#ab2d00",
+                    "error": "#b31b25",
+                    "surface-tint": "#0058bb",
+                    "surface": "#f5f6f7",
+                    "on-secondary-fixed": "#443100",
+                    "surface-container-low": "#eff1f2",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "outline-variant": "#abadae",
+                    "on-error-container": "#570008",
+                    "on-tertiary": "#ffefeb",
+                    "secondary": "#755700",
+                    "primary-fixed": "#6c9fff",
+                    "error-container": "#fb5151",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "secondary-dim": "#664b00",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-surface": "#2c2f30",
+                    "on-secondary": "#fff1db",
+                    "on-tertiary-fixed": "#340800"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-separation {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #0058bb 0%, #6c9fff 100%);
+        }
+        .asymmetric-momentum {
+            transform: skewY(-1deg);
+        }
+        .asymmetric-momentum > * {
+            transform: skewY(1deg);
+        }
+        ::-webkit-scrollbar { width: 0px; background: transparent; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<img alt="Student profile" class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="close-up portrait of a cheerful South African university student wearing a casual hoodie with soft library lighting background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMZI3NS73akMQW1AIeJhH-RVYLMOdam0ZizF92zgdKd_vRPg5mRQNmYm9JUGBV_Yyx2DvGLMSK0WXgousOhU0kCaQ_Gul8kyekD-_yS3ug-CzfIXPRmuh7z8T3WPZF4t3CTstxQKHJ60Ewdi7bwnAbcmzLQH62kNnrsdiyfWTbLQT_mzcGVUw9ipx767S5JGXMNpsuLn7QDVuvNzyaRF5xvZKdVc1Jc2KEzR4A45nlZoSnSiRuEOReCY4PiV1mNjCawzLK3i6ClrB6"/>
+<span class="text-2xl font-black italic text-blue-700 dark:text-blue-500 font-headline">Druip</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Hero Section & Search -->
+<section class="mb-12">
+<h1 class="font-headline text-5xl font-extrabold tracking-tight text-on-surface mb-2">Find your <span class="text-primary italic">tribe.</span></h1>
+<p class="text-on-surface-variant body-lg mb-8 max-w-md">Join live classrooms and ace your modules with top tutors from across Mzansi.</p>
+<div class="relative group">
+<div class="absolute inset-y-0 left-5 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full pl-14 pr-6 py-5 bg-surface-container-high rounded-lg border-none focus:ring-2 focus:ring-primary-fixed-dim/40 focus:bg-surface-container-lowest transition-all text-lg placeholder:text-outline-variant" placeholder="Search subjects or tutors..." type="text"/>
+</div>
+</section>
+<!-- University Filters -->
+<section class="mb-12 overflow-x-auto">
+<div class="flex gap-3 pb-2 no-scrollbar">
+<button class="px-6 py-3 rounded-full bg-primary text-white font-bold whitespace-nowrap active:scale-95 transition-transform">All Unis</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-low text-on-surface font-medium whitespace-nowrap hover:bg-surface-container-high transition-colors">UCT</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-low text-on-surface font-medium whitespace-nowrap hover:bg-surface-container-high transition-colors">Wits</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-low text-on-surface font-medium whitespace-nowrap hover:bg-surface-container-high transition-colors">UP (Tuks)</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-low text-on-surface font-medium whitespace-nowrap hover:bg-surface-container-high transition-colors">Stellenbosch</button>
+<button class="px-6 py-3 rounded-full bg-surface-container-low text-on-surface font-medium whitespace-nowrap hover:bg-surface-container-high transition-colors">UJ</button>
+</div>
+</section>
+<!-- Bento Grid Classrooms -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Classroom Card 1 (Active/Trending) -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden p-1">
+<div class="bg-surface-container-lowest rounded-lg p-6 h-full flex flex-col justify-between shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div>
+<div class="flex justify-between items-start mb-6">
+<div class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Trending Now</div>
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-white" data-alt="profile photo of a smiling male student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCndOGnEPkIheCsDFMsptYS_UmSUvg1davmY0b8crVKj_a2BdB1nmNKVFYrTxFnHwx06TYG1P2ktG-A2LzvhhPRj2p4TxlB0MHRBjRQq9heFXbdI_H0Xo4XE8ptH1LM6DeYyiuNhVdGOQxotmtnwPmdjaS2iEv91b4H9Veu07zoKsVPFOpIN2JkzvY0qtX9kqAisbEadgpxdu1fof9BAiTxDUv2LRMiSfB_6kEqwzSkPitYHzW8ZqI7xqdwgjjfpirfKc4WRjorxJFU"/>
+<img class="w-8 h-8 rounded-full border-2 border-white" data-alt="profile photo of a female student with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuVkzSA2xn9RlGNBmNPZ5kMl5u8iCsO1eYFZA9TZW9QRRS7T17LGNsWrMmXEr_c5wKBPQ3joGjJsQR_ZcGuvBLs61S4kwXFKSkN42b2FeoaerczvMtugvo1ABv8nW0N2HhI_QOqTZ6mRa85VDHh18PmAm8_KHNCfMEW7_YlR81jnB6Kj_x-sWo3Q9xllUrCHZul7ZtMNLYxqDyQWIYfEoWE8Srf4LTbCdTqGJ7Q84jS5rlzB5XZCk6-vwfsmV-Q1RZVoypgUQh80G_"/>
+<div class="w-8 h-8 rounded-full bg-primary-container text-white text-[10px] flex items-center justify-center font-bold border-2 border-white">+12</div>
+</div>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface mb-1">Eco 101: Macro</h3>
+<p class="text-on-surface-variant body-lg mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">person</span> Thabo M. • <span class="text-primary font-bold">UCT</span>
+</p>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-2 text-error font-bold text-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span>
+</span>
+                            Live Now
+                        </div>
+<button class="px-8 py-3 kinetic-gradient text-white rounded-full font-bold shadow-lg hover:shadow-primary/30 transition-all active:scale-95">Join</button>
+</div>
+</div>
+</div>
+<!-- Classroom Card 2 -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden p-1">
+<div class="bg-surface-container-lowest rounded-lg p-6 h-full flex flex-col justify-between shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div>
+<div class="flex justify-between items-start mb-6">
+<div class="bg-primary-container/20 text-primary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Starts in 20m</div>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface mb-1">Stats 204: Probability</h3>
+<p class="text-on-surface-variant body-lg mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">person</span> Sarah Jenkins • <span class="text-primary font-bold">UP</span>
+</p>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="text-on-surface-variant font-medium text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> 14:00 PM
+                        </div>
+<button class="px-8 py-3 bg-secondary-container text-on-secondary-container rounded-full font-bold hover:bg-secondary-fixed transition-all active:scale-95">Remind Me</button>
+</div>
+</div>
+</div>
+<!-- Classroom Card 3 (High Energy Highlight) -->
+<div class="group relative bg-primary rounded-xl overflow-hidden p-6 flex flex-col justify-between text-white md:col-span-1 lg:col-span-1">
+<div class="absolute top-0 right-0 opacity-10">
+<span class="material-symbols-outlined text-[120px] translate-x-10 -translate-y-10" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+</div>
+<div>
+<h3 class="font-headline text-3xl font-extrabold mb-2 leading-tight">Mastering Civil Law</h3>
+<p class="text-on-primary body-lg opacity-80 mb-6">Exclusive deep-dive session for final year students.</p>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="professional portrait of a law professor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnP9udOD3iI__xyvTuIRrgSzVQEnGbRUIvbSEvRwLhOIrBym294Ftr3i3_MxFeEYInn7thU5ep_oT2LTK7aFrojvKb-7t5OJoh8EmJlvjLdzveQs7FtTQ_ZehTDgrUkkSuQq9RxxibBUtgCVm6b5C6tdzIn1Z_McRiWxlxG5wETixerP8vdAfAGcVr1k-WbxzzmYXCs1srD7Py4-OFVPbYZ1bQz06dVK_ASJIkVdZwbXwqG4bBBImdjaqRkiRQVTiKtLx34I3CtpgX"/>
+<span class="font-bold">Prof. Zondo</span>
+</div>
+<button class="bg-white text-primary px-6 py-2 rounded-full font-bold active:scale-95 transition-transform">Join</button>
+</div>
+</div>
+<!-- Classroom Card 4 -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden p-1">
+<div class="bg-surface-container-lowest rounded-lg p-6 h-full flex flex-col justify-between shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div>
+<div class="flex justify-between items-start mb-6">
+<div class="bg-surface-container-high text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Tomorrow</div>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface mb-1">Acc 101: Ledgering</h3>
+<p class="text-on-surface-variant body-lg mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">person</span> Kevin Khoza • <span class="text-primary font-bold">Wits</span>
+</p>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="text-on-surface-variant font-medium text-sm">
+                            45 Students Joined
+                        </div>
+<button class="px-8 py-3 border-2 border-primary-container/30 text-primary rounded-full font-bold hover:bg-primary-container/10 transition-all active:scale-95">Save Spot</button>
+</div>
+</div>
+</div>
+<!-- Classroom Card 5 -->
+<div class="group relative bg-surface-container-low rounded-xl overflow-hidden p-1">
+<div class="bg-surface-container-lowest rounded-lg p-6 h-full flex flex-col justify-between shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div>
+<div class="flex justify-between items-start mb-6">
+<div class="bg-tertiary-container/30 text-tertiary px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Exam Prep</div>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface mb-1">Physics: Mechanics</h3>
+<p class="text-on-surface-variant body-lg mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">person</span> Emily Chen • <span class="text-primary font-bold">UCT</span>
+</p>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center gap-2 text-error font-bold text-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-error"></span>
+</span>
+                            Live Now
+                        </div>
+<button class="px-8 py-3 kinetic-gradient text-white rounded-full font-bold shadow-lg hover:shadow-primary/30 transition-all active:scale-95">Join</button>
+</div>
+</div>
+</div>
+<!-- Classroom Card 6 (Inspirational/Decorative) -->
+<div class="group relative bg-secondary-container rounded-xl overflow-hidden p-6 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-on-secondary-container text-5xl mb-4" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<h3 class="font-headline text-xl font-extrabold text-on-secondary-container mb-2">Can't find your module?</h3>
+<p class="text-on-secondary-container/80 body-md mb-6">Request a session and we'll match you with a top-rated tutor.</p>
+<button class="bg-on-secondary-container text-white px-8 py-3 rounded-full font-bold active:scale-95 transition-transform">Request Module</button>
+</div>
+</div>
+<!-- Featured Tutors Section -->
+<section class="mt-16">
+<h2 class="font-headline text-3xl font-extrabold mb-8">Top-Rated Tutors</h2>
+<div class="flex gap-6 overflow-x-auto no-scrollbar pb-8">
+<!-- Tutor Chip -->
+<div class="flex-shrink-0 bg-white rounded-lg p-4 flex items-center gap-4 shadow-sm min-w-[280px]">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="headshot of a smiling female university tutor in a sunny outdoor setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA14dSwxQ6MUxDDw54kTP5b8VZ_aHPfxxyLQdP3p8w6CAkp49AsFG_zYHfer4_dE-s6CyqTjnZtJrW_Mlv4_SPX4W_q0ObXMNpYqZttl9SH6Uu5gXuJy72pmx0ArKDwImslbp6MuxqCg5Z3MlaVS9hMmOqoh3yxUFu5X7ZUxqjPTIlxK9GAx2T2JdfzEHz9C0cXHYnrer4E8exkcmd4ScKdWMVa5i0PK5w6tVmNoYZmwHvOwbUs4jYLsCviM-F0m83pX6VYrfhQ8sCU"/>
+<div>
+<h4 class="font-bold text-on-surface">Lindiwe Dlamini</h4>
+<p class="text-label text-outline text-xs mb-1 uppercase tracking-wider">Mathematics • UCT</p>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm">4.9 (120 reviews)</span>
+</div>
+</div>
+</div>
+<!-- Tutor Chip -->
+<div class="flex-shrink-0 bg-white rounded-lg p-4 flex items-center gap-4 shadow-sm min-w-[280px]">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="headshot of a confident male tutor in business casual attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVat4clWKVTglb5lTe8zmIJXqlOc79EAgKYjUxEmyQujPsraV5PMo51Xt4L9QCJRDJE4GXkmziWdmWEROCLBPXe2yE_7Ma1gmMQXa3Cgf3Wsh1TM99CTbny99PqmTNYvS5R7LiL0_y6lsnOijZl-xhw9aBhTUIRBy1_bMIKkpCzDUIlVeolrEHB4KKeL0oF1tzQhrSUhmvxDfTErigSpkE9sJIZBsK_KobzTozUM4Pl8hktw2QoidOEOIcwwH4xTTBTmexZJX5Zxh0"/>
+<div>
+<h4 class="font-bold text-on-surface">Mark van Wyk</h4>
+<p class="text-label text-outline text-xs mb-1 uppercase tracking-wider">Accounting • UP</p>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm">5.0 (88 reviews)</span>
+</div>
+</div>
+</div>
+<!-- Tutor Chip -->
+<div class="flex-shrink-0 bg-white rounded-lg p-4 flex items-center gap-4 shadow-sm min-w-[280px]">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="headshot of a friendly female tutor smiling with books in her hand" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5i48q-Xc-ANx9-9AIsenI_Ckcl37WajKnElLH5gfUqD3rlxsncSylrJw9GxK_GhzOH0efkiY_YjGsIiJ2_mHn9vCINMbND3xrjb3a0FxJCwvAu2-zsIkPhPZUurRbGb1eqztX5zYxElXDiK0JL17AyKU6yHqm07oyuIQcq0Xk6_Ax-wiJC1KfD1IK6_jwDmoS6AJsuS_oUweyQITeM9yHj0aBusmxIRjKY1CtBx2538CcQmnGT-MvTcZTgf402m3uRzpvkU6oyLfb"/>
+<div>
+<h4 class="font-bold text-on-surface">Sasha Moodley</h4>
+<p class="text-label text-outline text-xs mb-1 uppercase tracking-wider">Economics • Wits</p>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-sm">4.8 (210 reviews)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 pb-6 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-[0_-20px_40px_rgba(0,0,0,0.08)] rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 p-2 hover:text-blue-500 transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-600 dark:bg-blue-500 text-white rounded-full p-3 mb-1 transform -translate-y-2 transition-all active:scale-110 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Study</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 p-2 hover:text-blue-500 transition-colors" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Classroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 p-2 hover:text-blue-500 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button - Contextual for Study Page -->
+<button class="fixed right-6 bottom-28 md:bottom-10 w-16 h-16 kinetic-gradient text-white rounded-full flex items-center justify-center shadow-2xl z-40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

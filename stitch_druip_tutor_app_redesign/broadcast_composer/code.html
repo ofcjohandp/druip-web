@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#0058bb",
+                    "secondary-container": "#ffca4d",
+                    "tertiary": "#ab2d00",
+                    "secondary-fixed": "#ffca4d",
+                    "secondary-dim": "#664b00",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "error-container": "#fb5151",
+                    "surface-bright": "#f5f6f7",
+                    "on-primary": "#f0f2ff",
+                    "primary-fixed-dim": "#5191ff",
+                    "on-secondary-fixed": "#443100",
+                    "on-primary-container": "#00214f",
+                    "surface-variant": "#dadddf",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "surface-container-highest": "#dadddf",
+                    "primary-container": "#6c9fff",
+                    "surface-container": "#e6e8ea",
+                    "primary-fixed": "#6c9fff",
+                    "on-secondary-container": "#5c4400",
+                    "primary-dim": "#004ca4",
+                    "surface-dim": "#d1d5d7",
+                    "on-tertiary-fixed": "#340800",
+                    "inverse-on-surface": "#9b9d9e",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "tertiary-fixed": "#ff9475",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#0c0f10",
+                    "tertiary-dim": "#962700",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "on-tertiary": "#ffefeb",
+                    "on-tertiary-container": "#601500",
+                    "on-error-container": "#570008",
+                    "on-surface-variant": "#595c5d",
+                    "secondary": "#755700",
+                    "primary": "#0058bb",
+                    "on-background": "#2c2f30",
+                    "surface": "#f5f6f7",
+                    "outline-variant": "#abadae",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-error": "#ffefee",
+                    "surface-container-low": "#eff1f2",
+                    "error": "#b31b25",
+                    "background": "#f5f6f7",
+                    "inverse-primary": "#4b8eff",
+                    "error-dim": "#9f0519",
+                    "on-secondary": "#fff1db",
+                    "on-surface": "#2c2f30",
+                    "on-primary-fixed": "#000000",
+                    "outline": "#757778",
+                    "tertiary-container": "#ff9475",
+                    "surface-container-high": "#e0e3e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen pb-32">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400 cursor-pointer p-2 hover:bg-slate-100/50 transition-colors rounded-full active:scale-90" data-icon="menu">menu</span>
+<span class="text-2xl font-black italic text-black dark:text-white font-['Plus_Jakarta_Sans'] tracking-tight">Druip</span>
+</div>
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="Student Profile Avatar" data-alt="Close-up portrait of a professional smiling tutor in a bright modern office setting with warm natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB85GKhuoKmDNoPN6FqFtzoBkZA0nNtRWCqd8AZqUw1KJ2iFzM-813swrNTcQ6Q0eikqML__eRnvchHpDgVPeseMeawACElTbXytJJfgKF2pM5zfwzQ2uQRiDVx76GHJISXxnFq74n5IhujeyXwtTi7k-Jnwp8OmFjqUnF70ZjP9inXd5xRfRoKR4Yv025dtqymlf6JnnHdFoClTmd0Va73cW4uV6jUfYx5W_cBPwH7IUX3azaTBJTGD7IaCgOjKpYDs8FaWWnBsOQX"/>
+</div>
+</nav>
+<main class="pt-24 px-6 max-w-4xl mx-auto">
+<!-- Hero Header -->
+<header class="mb-12">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 bg-tertiary-container text-on-tertiary-container rounded-full mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="campaign">campaign</span>
+<span class="font-label text-xs font-bold uppercase tracking-widest">Global Broadcast</span>
+</div>
+<h1 class="font-headline text-[3.5rem] leading-none font-extrabold tracking-tight text-on-surface mb-4">
+                New Announcement
+            </h1>
+<p class="text-lg text-on-surface-variant max-w-xl">
+                Ready to inspire your students? Craft a message that creates momentum for the upcoming week.
+            </p>
+</header>
+<!-- Composition Section -->
+<section class="space-y-8">
+<!-- Composer Card -->
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Form Area -->
+<div class="md:col-span-8 space-y-6">
+<div class="space-y-2">
+<label class="font-label text-xs font-bold uppercase text-outline pl-2">Announcement Title</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all text-lg font-bold" placeholder="e.g., Mid-term Prep Strategies 🚀" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label text-xs font-bold uppercase text-outline pl-2">Message Body</label>
+<textarea class="w-full bg-surface-container-high border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all resize-none text-body-lg" placeholder="Type your message here students will see..." rows="8"></textarea>
+</div>
+<!-- Preview Toggle -->
+<div class="flex items-center justify-between p-4 bg-surface rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="visibility">visibility</span>
+<span class="font-bold">Preview Broadcast</span>
+</div>
+<button class="w-12 h-6 bg-primary rounded-full relative">
+<span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></span>
+</button>
+</div>
+</div>
+<!-- Sidebar Stats / Context -->
+<div class="md:col-span-4 space-y-6">
+<div class="bg-surface-container-low rounded-lg p-6">
+<h3 class="font-headline text-lg font-bold mb-4">Audience summary</h3>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+</div>
+<div>
+<p class="text-2xl font-black text-primary">124</p>
+<p class="text-xs font-bold text-outline uppercase tracking-wider">Active Students</p>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                Your message will reach 124 active students instantly across mobile and web platforms.
+                            </p>
+</div>
+<div class="relative rounded-lg overflow-hidden h-40 group">
+<img alt="Students learning" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Group of diverse South African students laughing and studying together in a vibrant, sunlit university common room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQZKNnjE4W37i3uZWKOJGZDn-znwVRvpcRk49pxZ7LB6lJw59XI3dzsUenckDi4H-jvqoJssUuq7W2NP_9tcxIBXfmT84ZAHhoZDtS2QVATT3IvUPJ3LBVj5BrhEJsEiF5MiSDxWANRj_lN3ciWFgkEkBNLk6YMO5yfoFNRxGNToGH1nUJUqLHoO9oPtuanH1lS5BUUzXJlypnczqiNmq8OAJdeatnMWDDj0_OICXKyj5qvVrId1I8oxvmLCr9XlrfbjBednBAiP9W"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-4">
+<span class="text-white font-bold text-sm">Engagement Tip</span>
+<span class="text-white/80 text-xs">Use emojis to increase read rates by 40%!</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-6 pt-4">
+<button class="text-primary font-bold px-8 py-4 hover:bg-surface-container-high rounded-lg transition-colors">
+                    Save as Draft
+                </button>
+<button class="w-full md:w-auto px-12 py-5 bg-gradient-to-br from-primary to-primary-container text-white font-bold rounded-full shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all text-lg flex items-center justify-center gap-3">
+                    Send to All Students
+                    <span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</section>
+<!-- Bento Style Recent Activity -->
+<section class="mt-24">
+<h2 class="font-headline text-2xl font-bold mb-8">Recent Activity</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-low p-6 rounded-lg border border-white/40">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<h4 class="font-bold mt-4">Welcome Week</h4>
+<p class="text-sm text-on-surface-variant mt-2">Sent 2 days ago • 98% opened</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-white/40">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<h4 class="font-bold mt-4">Exam Prep Talk</h4>
+<p class="text-sm text-on-surface-variant mt-2">Scheduled for Oct 12 • 09:00 AM</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-lg border border-white/40">
+<span class="material-symbols-outlined text-tertiary" data-icon="drafts">drafts</span>
+<h4 class="font-bold mt-4">New Resource</h4>
+<p class="text-sm text-on-surface-variant mt-2">Last edited 1 hour ago</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Confirmation Toast (Absolute Layer) -->
+<div class="fixed bottom-32 left-1/2 -translate-x-1/2 z-[60] w-[90%] max-w-md">
+<div class="bg-inverse-surface text-surface px-6 py-4 rounded-xl flex items-center justify-between shadow-2xl animate-bounce-subtle">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-bold">Broadcast Sent Successfully!</span>
+</div>
+<button class="material-symbols-outlined text-inverse-on-surface hover:text-white" data-icon="close">close</button>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-end px-6 pb-6 pt-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl z-50 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all active:scale-90 duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all active:scale-90 duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Study</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-600 text-white rounded-full p-3 mb-1 w-12 h-12 shadow-lg shadow-blue-200 dark:shadow-none active:scale-90 transition-transform duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-all active:scale-90 duration-200 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

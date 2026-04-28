@@ -7,6 +7,7 @@ type SectionRow = Database['public']['Tables']['classroom_sections']['Row'];
 
 export type ClassroomDetail = ClassroomRow & {
   classroom_sections: SectionRow[];
+  tutors: { profiles: { full_name: string | null; email: string } | null } | null;
 };
 
 export function useClassroomDetail(classroomId: string | undefined) {
@@ -15,7 +16,7 @@ export function useClassroomDetail(classroomId: string | undefined) {
     queryFn: async (): Promise<ClassroomDetail> => {
       const { data, error } = await supabase
         .from('classrooms')
-        .select('*, classroom_sections(*)')
+        .select('*, classroom_sections(*), tutors(profiles(full_name, email))')
         .eq('id', classroomId!)
         .order('sort_order', { referencedTable: 'classroom_sections', ascending: true })
         .single();

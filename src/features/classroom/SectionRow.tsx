@@ -213,13 +213,13 @@ const styles = StyleSheet.create({
   },
   sectionName: {
     fontSize: 20,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
     color: COLORS.text,
   },
   nameInput: {
     flex: 1,
     fontSize: 20,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
     color: COLORS.text,
     borderBottomWidth: 1,
     borderBottomColor: COLORS.border,

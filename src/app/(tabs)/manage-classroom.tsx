@@ -403,7 +403,7 @@ const styles = StyleSheet.create({
   },
   messagesHeading: {
     ...TYPOGRAPHY.bodySmall,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
     color: COLORS.textMuted,
     marginBottom: SPACING.sm,
   },

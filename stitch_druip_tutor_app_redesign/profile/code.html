@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be_Vietnam_Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffefee",
+                    "secondary-fixed": "#ffca4d",
+                    "primary-container": "#6c9fff",
+                    "primary": "#0058bb",
+                    "tertiary-fixed": "#ff9475",
+                    "primary-dim": "#004ca4",
+                    "on-secondary-container": "#5c4400",
+                    "on-primary-container": "#00214f",
+                    "error-dim": "#9f0519",
+                    "outline": "#757778",
+                    "primary-fixed-dim": "#5191ff",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "inverse-primary": "#4b8eff",
+                    "secondary-container": "#ffca4d",
+                    "surface-bright": "#f5f6f7",
+                    "surface-container-highest": "#dadddf",
+                    "inverse-surface": "#0c0f10",
+                    "tertiary-dim": "#962700",
+                    "surface-variant": "#dadddf",
+                    "on-primary-fixed": "#000000",
+                    "surface-container-high": "#e0e3e4",
+                    "on-primary": "#f0f2ff",
+                    "on-background": "#2c2f30",
+                    "tertiary-container": "#ff9475",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "on-tertiary-container": "#601500",
+                    "on-surface-variant": "#595c5d",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#9b9d9e",
+                    "background": "#f5f6f7",
+                    "surface-dim": "#d1d5d7",
+                    "surface-container": "#e6e8ea",
+                    "tertiary": "#ab2d00",
+                    "error": "#b31b25",
+                    "surface-tint": "#0058bb",
+                    "surface": "#f5f6f7",
+                    "on-secondary-fixed": "#443100",
+                    "surface-container-low": "#eff1f2",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "outline-variant": "#abadae",
+                    "on-error-container": "#570008",
+                    "on-tertiary": "#ffefeb",
+                    "secondary": "#755700",
+                    "primary-fixed": "#6c9fff",
+                    "error-container": "#fb5151",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "secondary-dim": "#664b00",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-surface": "#2c2f30",
+                    "on-secondary": "#fff1db",
+                    "on-tertiary-fixed": "#340800"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-separation {
+            background-color: rgba(245, 246, 247, 0.8);
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f5f6f7;
+            color: #2c2f30;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-background pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container">
+<img alt="Student profile photo" class="w-full h-full object-cover" data-alt="Close up portrait of a young South African student with a friendly smile, warm natural lighting in an urban setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPT43KvI8jQKn7CCzNTXQOXAStHbJjN-ZEw7-A320VPeaGngXx44rTzay4pI9vW14HE01PudwFLgCprrFTodF58CN7KKfCosmkc-OCRYsi21u9W7tF-7v3OLtqUzvLrlM1SX_PsdFW_46WjwAAwfJrM9ar_EacNVy00jdUkKGCxQ1yE8B0ZUVo59hHuyrbpUQRq0Woi8WDagrZGkO2DnHqgGh-3pah51-h0MXcEaazYsVAPMbJ7BICzvvREQNy8yHy-3LEVN6PR6tQ"/>
+</div>
+<span class="text-2xl font-black italic text-blue-700 dark:text-blue-500 font-['Plus_Jakarta_Sans'] tracking-tight">Druip</span>
+</div>
+<button class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400">notifications</span>
+</button>
+</header>
+<main class="mt-24 px-6 max-w-2xl mx-auto">
+<!-- Hero Motivation Section -->
+<section class="mb-12">
+<h1 class="text-display-lg font-headline font-extrabold text-5xl text-on-background leading-tight tracking-tighter mb-2">
+                Keep going, Thabo!
+            </h1>
+<p class="text-title-lg font-body text-on-surface-variant">You're making incredible progress this semester.</p>
+</section>
+<!-- Student Info Bento Card -->
+<section class="mb-10 bg-surface-container-low rounded-xl p-8 flex flex-col gap-6 relative overflow-hidden">
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
+<div class="flex flex-col gap-1">
+<span class="text-label-md font-label uppercase tracking-widest text-primary font-bold">Current Status</span>
+<h2 class="text-3xl font-headline font-bold text-on-surface">Thabo Mokoena</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-lg flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<p class="text-label-md text-on-surface-variant font-medium">University</p>
+<p class="font-headline font-bold">Wits University</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div>
+<p class="text-label-md text-on-surface-variant font-medium">Major</p>
+<p class="font-headline font-bold">BSc Computer Science</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section (Asymmetric Momentum) -->
+<section class="mb-12">
+<div class="flex gap-4">
+<div class="flex-1 bg-gradient-to-br from-primary to-primary-container p-6 rounded-xl text-on-primary">
+<span class="material-symbols-outlined text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">timer</span>
+<p class="text-4xl font-headline font-black">24</p>
+<p class="text-body-lg opacity-90 font-medium">Sessions Completed</p>
+</div>
+<div class="flex-1 bg-tertiary-container p-6 rounded-xl text-on-tertiary-container">
+<span class="material-symbols-outlined text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<p class="text-4xl font-headline font-black">112</p>
+<p class="text-body-lg opacity-90 font-medium">Materials Read</p>
+</div>
+</div>
+</section>
+<!-- My Classrooms -->
+<section class="mb-12">
+<div class="flex justify-between items-end mb-6">
+<h3 class="text-headline-md font-headline font-bold">My Classrooms</h3>
+<span class="text-primary font-bold text-sm">View All</span>
+</div>
+<div class="space-y-4">
+<!-- Classroom Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-lg flex justify-between items-center group hover:bg-white transition-all shadow-sm">
+<div class="flex items-center gap-5">
+<div class="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">terminal</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg">Data Structures 101</h4>
+<p class="text-body-lg text-on-surface-variant">42 Active Students</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+<!-- Classroom Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-lg flex justify-between items-center group hover:bg-white transition-all shadow-sm">
+<div class="flex items-center gap-5">
+<div class="w-14 h-14 rounded-full bg-orange-50 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-3xl">functions</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg">Advanced Calculus</h4>
+<p class="text-body-lg text-on-surface-variant">18 Active Students</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Settings & Support -->
+<section class="mb-20">
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<button class="w-full flex items-center gap-4 p-5 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+<span class="font-body font-semibold flex-1 text-left">Account Settings</span>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</button>
+<button class="w-full flex items-center gap-4 p-5 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">help_center</span>
+<span class="font-body font-semibold flex-1 text-left">Support &amp; Feedback</span>
+<span class="material-symbols-outlined text-outline-variant">chevron_right</span>
+</button>
+<button class="w-full flex items-center gap-4 p-5 hover:bg-red-50 text-error transition-colors">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-body font-semibold flex-1 text-left">Logout</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 pb-6 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-20px_40px_rgba(0,0,0,0.08)]">
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 p-2 hover:text-blue-500" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 p-2 hover:text-blue-500" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Study</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 p-2 hover:text-blue-500" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Classroom</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-600 dark:bg-blue-500 text-white rounded-full p-3 mb-1 transform -translate-y-2 transition-all scale-110" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

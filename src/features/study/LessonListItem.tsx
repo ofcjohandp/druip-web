@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 16,
-    fontWeight: '400',
+    fontFamily: 'Nunito_400Regular',
     color: COLORS.text,
     flex: 1,
     marginRight: SPACING.xs,

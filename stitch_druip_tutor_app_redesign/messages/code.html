@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Druip - Messages</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;family=Be+Vietnam+Pro:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f5f6f7",
+                        "outline-variant": "#abadae",
+                        "on-primary-fixed-variant": "#002a61",
+                        "on-surface-variant": "#595c5d",
+                        "secondary": "#755700",
+                        "primary": "#0058bb",
+                        "on-background": "#2c2f30",
+                        "surface-container-low": "#eff1f2",
+                        "on-error": "#ffefee",
+                        "tertiary-dim": "#962700",
+                        "on-tertiary-fixed-variant": "#6f1a00",
+                        "on-tertiary-container": "#601500",
+                        "on-error-container": "#570008",
+                        "on-tertiary": "#ffefeb",
+                        "outline": "#757778",
+                        "on-primary-fixed": "#000000",
+                        "surface-container-high": "#e0e3e4",
+                        "tertiary-container": "#ff9475",
+                        "error": "#b31b25",
+                        "background": "#f5f6f7",
+                        "inverse-primary": "#4b8eff",
+                        "error-dim": "#9f0519",
+                        "on-surface": "#2c2f30",
+                        "on-secondary": "#fff1db",
+                        "error-container": "#fb5151",
+                        "surface-bright": "#f5f6f7",
+                        "on-primary": "#f0f2ff",
+                        "secondary-dim": "#664b00",
+                        "tertiary-fixed-dim": "#ff7d57",
+                        "on-primary-container": "#00214f",
+                        "surface-variant": "#dadddf",
+                        "primary-fixed-dim": "#5191ff",
+                        "on-secondary-fixed": "#443100",
+                        "secondary-container": "#ffca4d",
+                        "surface-tint": "#0058bb",
+                        "secondary-fixed": "#ffca4d",
+                        "tertiary": "#ab2d00",
+                        "on-tertiary-fixed": "#340800",
+                        "primary-dim": "#004ca4",
+                        "surface-dim": "#d1d5d7",
+                        "inverse-on-surface": "#9b9d9e",
+                        "secondary-fixed-dim": "#f7ba00",
+                        "tertiary-fixed": "#ff9475",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#0c0f10",
+                        "surface-container-highest": "#dadddf",
+                        "primary-container": "#6c9fff",
+                        "surface-container": "#e6e8ea",
+                        "on-secondary-fixed-variant": "#674c00",
+                        "primary-fixed": "#6c9fff",
+                        "on-secondary-container": "#5c4400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f5f6f7;
+        }
+        .header-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass-nav {
+            backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400 cursor-pointer hover:opacity-80 transition-opacity">menu</span>
+<h1 class="text-2xl font-black italic text-blue-700 dark:text-blue-400 font-['Plus_Jakarta_Sans'] tracking-tight">Druip</h1>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Student Profile Avatar" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary/10" data-alt="portrait of a young student with a friendly expression, soft natural lighting, professional photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHticwk1pTdzsybQBsqhbsvRZMQwFkTZTR9LxWpC_H1hpZ7cEBofhmjg1aLbM8XejwpZXUgPEpuHguUNcOow9bzsJ0ouvSxe5fcNfEkVXgqSPWLFP8tvY3KI6_Tuavxv_QdIcbMGZKNe34NKNS8lGBC0Hu_2MGHrhvYKGGH6ij_-iXwhfYvavmDm8VDc0MtJpTp2JZBj0aVKi7mqJ7ooIb72cdACkduJJtFkSKmedP1KRK-MBX-SGIlkR-Amuc3au3TGBhreWXD5tU"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto min-h-screen">
+<!-- Search & Editorial Header -->
+<div class="mb-8">
+<h2 class="text-5xl font-['Plus_Jakarta_Sans'] font-extrabold tracking-tight mb-6 leading-tight text-on-surface">
+                Inbox<span class="text-primary">.</span>
+</h2>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-high border-none rounded-full py-4 pl-12 pr-6 focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all placeholder:text-outline-variant" placeholder="Find a conversation..." type="text"/>
+</div>
+</div>
+<!-- Tab System -->
+<div class="flex gap-2 p-1.5 bg-surface-container-low rounded-full mb-8">
+<button class="flex-1 py-3 px-6 rounded-full bg-surface-container-lowest text-primary font-bold shadow-sm transition-all text-sm">
+                Direct
+            </button>
+<button class="flex-1 py-3 px-6 rounded-full text-on-surface-variant font-semibold hover:bg-surface-container-high transition-all text-sm">
+                Announcements
+            </button>
+</div>
+<!-- Conversation List (Asymmetric/Layered Cards) -->
+<div class="space-y-4">
+<!-- Conversation Item 1 (Active/Unread) -->
+<div class="relative group cursor-pointer">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-primary-container rounded-[2.25rem] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+<div class="relative flex items-center gap-4 p-5 bg-surface-container-lowest rounded-xl shadow-sm border border-transparent hover:shadow-md transition-all">
+<div class="relative">
+<img alt="Tutor" class="w-14 h-14 rounded-full object-cover" data-alt="Close up portrait of a smiling female tutor in a bright office space, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeHAl1_E1HpIrp0gCWSg3AoswdaruYvFRJ11Ludapw1EvHKH1m_ZDv1fFXY1LN6wgqQQcEwmuVM5l3RC6XDXoF4r27MjjMzkCGpYh_uPjCd4nrhraEHjOKRsLThxMnMJjShSsZxEMgFrffUDpuEG5oj6Iu605rTbO9oj_L8VH1Bq0xJyRopw9SUDRgtWBjraY2eKt0TWm79pyiyt3U-prCsd8xFZEgsPxLkGYmaBPqjH2e4_WBKeG6o4QCeUKQZqXarsZnVylYrsVV"/>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-on-surface truncate">Sarah Jenkins</h3>
+<span class="text-xs font-bold text-primary">12:45 PM</span>
+</div>
+<p class="text-sm text-on-surface-variant font-medium truncate">Hey Alex! That BSc Computer Science project is looking great. Did you check the...</p>
+</div>
+<div class="flex flex-col items-end gap-2">
+<span class="w-6 h-6 bg-primary text-white text-[10px] font-bold flex items-center justify-center rounded-full shadow-lg shadow-primary/30">2</span>
+</div>
+</div>
+</div>
+<!-- Conversation Item 2 -->
+<div class="relative group cursor-pointer">
+<div class="relative flex items-center gap-4 p-5 bg-surface-container-low/50 rounded-xl hover:bg-surface-container-lowest transition-all">
+<img alt="Tutor" class="w-14 h-14 rounded-full object-cover" data-alt="Professional male instructor portrait, warm natural light, blurred bookshelf background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZE6gWUmps5DuTvdlvNHQxFYnKOqC7rYBCWti_mWseW07vkINsfvps8TJbqhJnCkpeA-yoeBBc6wM2rGU9YqI8OwXG5KxQNquERRYfyfXBO6yYB74th72Pk9l37NWczXq1zia27rKE6K_zFnAghEdiJ3UZAMB-rXTjJT2GBhtlzS0koIfKbn8QK3lda1n3drWxUaI9fMwr0KOhLkMhHQMLUEVdiPZlqVKtA5XUsnUv4fvJr8HswTBPCAMbb-A8NVfBx6WqGxYQr1gU"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-on-surface truncate">Prof. David Zuma</h3>
+<span class="text-xs text-outline-variant">Yesterday</span>
+</div>
+<p class="text-sm text-on-surface-variant truncate">The resources for Level 3 Discrete Math are now live on the portal. Let me know if you need any further help.</p>
+</div>
+</div>
+</div>
+<!-- Featured "Catalyst" Message Card (Asymmetric Design) -->
+<div class="mt-12 mb-8 bg-primary-container/20 rounded-xl p-8 relative overflow-hidden group">
+<div class="absolute -right-8 -bottom-8 w-48 h-48 bg-primary/10 rounded-full blur-3xl group-hover:scale-125 transition-transform duration-500"></div>
+<div class="relative z-10">
+<span class="inline-block px-3 py-1 bg-tertiary-container text-on-tertiary-container text-[10px] font-black uppercase tracking-widest rounded-full mb-4">Study Group</span>
+<h4 class="text-2xl font-['Plus_Jakarta_Sans'] font-extrabold text-on-primary-container mb-2 leading-tight">Braamfontein Study Circle</h4>
+<p class="text-on-surface-variant text-sm mb-6 max-w-[80%]">Join 12 others discussing the upcoming exam prep strategies!</p>
+<button class="bg-primary text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
+                        Jump in Chat
+                    </button>
+</div>
+</div>
+<!-- Conversation Item 3 -->
+<div class="relative group cursor-pointer">
+<div class="relative flex items-center gap-4 p-5 bg-surface-container-low/50 rounded-xl hover:bg-surface-container-lowest transition-all">
+<img alt="Tutor" class="w-14 h-14 rounded-full object-cover" data-alt="Confident female professor looking at camera, corporate university setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCanvDmUXgu5F1ygh8lGbTx9XkSFD_VshbpVievb-Y57gwUXbqq_xrtyofCTe7MZ9B2U_zizAFyDl8QlNoP_b9I4jS8Ry0ewA6tGWzPEF500Q7OWzlomgGZEMszDnzmef1CjRWhx5zKKw9igwqGA5h-7jJ2KGgMPh6ly-5Y5WJx-1LnH_331AdPxiIBODE7GJWrxTjMcgTyZxMjuD2B5JUlCJGsM8wwHJV_6wqmYI0CMALLTfZ4j9Pfvaw8GhcfuodbfXGG0WF6AAob"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-on-surface truncate">Dr. Thandi Khumalo</h3>
+<span class="text-xs text-outline-variant">Tuesday</span>
+</div>
+<p class="text-sm text-on-surface-variant truncate">Your paper on AI Ethics was insightful. I've sent some feedback to your email.</p>
+</div>
+</div>
+</div>
+<!-- Conversation Item 4 -->
+<div class="relative group cursor-pointer">
+<div class="relative flex items-center gap-4 p-5 bg-surface-container-low/50 rounded-xl hover:bg-surface-container-lowest transition-all">
+<div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-black text-xl">
+                        M
+                    </div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<h3 class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-on-surface truncate">Marcus Wright</h3>
+<span class="text-xs text-outline-variant">Monday</span>
+</div>
+<p class="text-sm text-on-surface-variant truncate">Thanks for the notes, see you in the lab!</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation Drawer (Left Hidden) -->
+<aside class="fixed inset-y-0 left-0 w-80 z-[60] py-8 flex flex-col bg-white dark:bg-slate-900 rounded-r-[3rem] h-full shadow-2xl -translate-x-full transition-all duration-300 ease-in-out">
+<div class="px-8 mb-10 flex items-center gap-4">
+<img alt="Student Avatar" class="w-16 h-16 rounded-full border-4 border-surface shadow-md" data-alt="portrait of a young student with a friendly expression, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmThduh50Xmgf4k5D3o56dovQrB_kaICvdJvlQft-fjLKc3H6VHIaL5Sv2ZmFDRnFwNrb9fWmmv4abC2xY-M9y25aUAU0fv-DD8aRpIp41sNV_jKgjCZbqfqPq9kuJ7gYwRFVJ9KChm6Z0FB6pfFr-xGBfMJh7K7GyfuDnmWVWh2juUfyWLw515p9QmhqNXZ5s9S9m8mUylBxFM1tXTlQtiQeKfcbkOMZERNioXNoGExalEtQAZEwvrjH5PNSwjwFRAMXGcoWuh1t-"/>
+<div>
+<h3 class="font-['Plus_Jakarta_Sans'] text-lg font-bold text-on-surface">Alex Mokoena</h3>
+<p class="text-xs text-outline-variant">BSc Computer Science • Level 3</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 py-4 px-8 text-slate-600 dark:text-slate-400 mx-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full font-semibold" href="#">
+<span class="material-symbols-outlined">school</span>
+                My Tutors
+            </a>
+<a class="flex items-center gap-4 py-4 px-8 text-slate-600 dark:text-slate-400 mx-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full font-semibold" href="#">
+<span class="material-symbols-outlined">groups</span>
+                Study Groups
+            </a>
+<a class="flex items-center gap-4 py-4 px-8 text-slate-600 dark:text-slate-400 mx-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full font-semibold" href="#">
+<span class="material-symbols-outlined">payments</span>
+                Payment
+            </a>
+<a class="flex items-center gap-4 py-4 px-8 text-slate-600 dark:text-slate-400 mx-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full font-semibold" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</nav>
+</aside>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end pb-6 px-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-colors">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-widest mt-1">Learn</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-600 text-white rounded-full p-3 mb-2 scale-110 shadow-lg shadow-blue-500/30 active:scale-90 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="forum" style="font-variation-settings: 'FILL' 1;">forum</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-widest mt-1">Messages</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-widest mt-1">Notify</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 transition-colors">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-['Plus_Jakarta_Sans'] text-[10px] font-bold uppercase tracking-widest mt-1">Files</span>
+</div>
+</nav>
+<!-- Floating Action Button (FAB) - New Message -->
+<button class="fixed bottom-28 right-6 w-16 h-16 bg-gradient-to-br from-primary to-primary-container text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40">
+<span class="material-symbols-outlined text-3xl">edit_square</span>
+</button>
+</body></html>

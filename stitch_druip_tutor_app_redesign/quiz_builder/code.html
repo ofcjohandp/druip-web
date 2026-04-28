@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#0058bb",
+                    "secondary-container": "#ffca4d",
+                    "tertiary": "#ab2d00",
+                    "secondary-fixed": "#ffca4d",
+                    "secondary-dim": "#664b00",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "error-container": "#fb5151",
+                    "surface-bright": "#f5f6f7",
+                    "on-primary": "#f0f2ff",
+                    "primary-fixed-dim": "#5191ff",
+                    "on-secondary-fixed": "#443100",
+                    "on-primary-container": "#00214f",
+                    "surface-variant": "#dadddf",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "surface-container-highest": "#dadddf",
+                    "primary-container": "#6c9fff",
+                    "surface-container": "#e6e8ea",
+                    "primary-fixed": "#6c9fff",
+                    "on-secondary-container": "#5c4400",
+                    "primary-dim": "#004ca4",
+                    "surface-dim": "#d1d5d7",
+                    "on-tertiary-fixed": "#340800",
+                    "inverse-on-surface": "#9b9d9e",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "tertiary-fixed": "#ff9475",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#0c0f10",
+                    "tertiary-dim": "#962700",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "on-tertiary": "#ffefeb",
+                    "on-tertiary-container": "#601500",
+                    "on-error-container": "#570008",
+                    "on-surface-variant": "#595c5d",
+                    "secondary": "#755700",
+                    "primary": "#0058bb",
+                    "on-background": "#2c2f30",
+                    "surface": "#f5f6f7",
+                    "outline-variant": "#abadae",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-error": "#ffefee",
+                    "surface-container-low": "#eff1f2",
+                    "error": "#b31b25",
+                    "background": "#f5f6f7",
+                    "inverse-primary": "#4b8eff",
+                    "error-dim": "#9f0519",
+                    "on-secondary": "#fff1db",
+                    "on-surface": "#2c2f30",
+                    "on-primary-fixed": "#000000",
+                    "outline": "#757778",
+                    "tertiary-container": "#ff9475",
+                    "surface-container-high": "#e0e3e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-nav {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100/50 transition-colors rounded-full active:scale-90 transition-transform">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="text-2xl font-black italic text-black dark:text-white font-['Plus_Jakarta_Sans'] tracking-tight">Druip</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Student Profile Avatar" data-alt="professional headshot of a young male student with a friendly expression and stylish glasses in a sunlit studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmj9kJqA42xhCWdVGEFWjn5YzBQ3Ea3y9fFl_B5C9JfJ0b95VvuTmRtGequWWxXnyCbFur9Y89P7Us1FO0P1OungsPkllUW9KzlGjDM1RVdA0RRMPpt9KdenqeQb0gdFF1pZsp0oKWuzqwMSZhz54qsRXZhtmjWxDlBCiI5RzGWJzR_8mjL-p5OO4R6SUM98F_ZADyj606f4mxMLkT7hado-SUs7iox06xfJr6kxD2U44BOcF61RBEBDjBCIKkERRg0eu-oVTyu3hW"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-4xl mx-auto">
+<!-- Hero Branding Section -->
+<section class="mb-12">
+<span class="text-primary font-bold tracking-widest text-[10px] uppercase mb-2 block">Tutor Dashboard</span>
+<h2 class="text-[3.5rem] leading-none editorial-display font-bold tracking-tight text-on-surface mb-4">Quiz Builder</h2>
+<p class="text-body-lg text-on-surface-variant max-w-xl">
+                Create engaging assessments with our Kinetic Builder. Craft questions that spark curiosity and measure mastery.
+            </p>
+</section>
+<!-- Quiz Meta Details -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<label class="block text-label-md font-bold mb-3 uppercase tracking-widest text-primary">Quiz Title</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary-fixed-dim/40 focus:bg-surface-container-lowest transition-all text-title-lg font-medium" placeholder="e.g., Intro to Quantum Mechanics" type="text"/>
+</div>
+<div class="bg-secondary-container/20 p-8 rounded-xl flex flex-col justify-center">
+<span class="material-symbols-outlined text-secondary text-4xl mb-2">auto_awesome</span>
+<p class="text-sm font-bold text-secondary-dim">Pro Tip: Keep quizzes between 5-10 questions for maximum engagement.</p>
+</div>
+</section>
+<!-- Question Builder Section -->
+<section class="space-y-8">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-md editorial-display font-bold">Add Question</h3>
+<span class="px-4 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-xs font-bold uppercase tracking-widest">Question 1</span>
+</div>
+<!-- Question Card -->
+<div class="bg-surface-container-low p-1 rounded-xl">
+<div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm">
+<div class="mb-8">
+<label class="block text-label-md font-bold mb-3 uppercase tracking-widest text-on-surface-variant">Question Text</label>
+<textarea class="w-full bg-surface-container-high border-none rounded-lg p-4 focus:ring-2 focus:ring-primary-fixed-dim/40 focus:bg-surface-container-lowest transition-all text-body-lg" placeholder="What happens when an unstoppable force meets an immovable object?" rows="3"></textarea>
+</div>
+<!-- MCQ Options -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Option A -->
+<div class="group flex items-center gap-4 p-4 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors border border-transparent has-[:checked]:border-primary-fixed-dim has-[:checked]:bg-primary-container/10">
+<label class="relative flex items-center cursor-pointer">
+<input class="peer h-6 w-6 cursor-pointer appearance-none rounded-full border border-outline-variant checked:border-primary checked:bg-primary transition-all" name="correct_answer_1" type="radio"/>
+<span class="material-symbols-outlined absolute text-white opacity-0 peer-checked:opacity-100 left-0 right-0 text-center text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</label>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 text-body-lg font-medium" placeholder="Option A" type="text" value="They both surrender"/>
+</div>
+<!-- Option B -->
+<div class="group flex items-center gap-4 p-4 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors border border-transparent has-[:checked]:border-primary-fixed-dim has-[:checked]:bg-primary-container/10">
+<label class="relative flex items-center cursor-pointer">
+<input class="peer h-6 w-6 cursor-pointer appearance-none rounded-full border border-outline-variant checked:border-primary checked:bg-primary transition-all" name="correct_answer_1" type="radio"/>
+<span class="material-symbols-outlined absolute text-white opacity-0 peer-checked:opacity-100 left-0 right-0 text-center text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</label>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 text-body-lg font-medium" placeholder="Option B" type="text" value="They pass through each other"/>
+</div>
+<!-- Option C -->
+<div class="group flex items-center gap-4 p-4 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors border border-transparent has-[:checked]:border-primary-fixed-dim has-[:checked]:bg-primary-container/10">
+<label class="relative flex items-center cursor-pointer">
+<input class="peer h-6 w-6 cursor-pointer appearance-none rounded-full border border-outline-variant checked:border-primary checked:bg-primary transition-all" name="correct_answer_1" type="radio"/>
+<span class="material-symbols-outlined absolute text-white opacity-0 peer-checked:opacity-100 left-0 right-0 text-center text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</label>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 text-body-lg font-medium" placeholder="Option C" type="text" value="The universe resets"/>
+</div>
+<!-- Option D -->
+<div class="group flex items-center gap-4 p-4 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors border border-transparent has-[:checked]:border-primary-fixed-dim has-[:checked]:bg-primary-container/10">
+<label class="relative flex items-center cursor-pointer">
+<input class="peer h-6 w-6 cursor-pointer appearance-none rounded-full border border-outline-variant checked:border-primary checked:bg-primary transition-all" name="correct_answer_1" type="radio"/>
+<span class="material-symbols-outlined absolute text-white opacity-0 peer-checked:opacity-100 left-0 right-0 text-center text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</label>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 text-body-lg font-medium" placeholder="Option D" type="text" value="Energy is conserved"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Another Question Button -->
+<button class="w-full py-6 rounded-lg border-2 border-dashed border-outline-variant text-on-surface-variant font-bold flex items-center justify-center gap-2 hover:bg-surface-container-low hover:border-primary transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">add_circle</span>
+                Add Another Question
+            </button>
+</section>
+<!-- Final Action Section -->
+<section class="mt-16 flex flex-col md:flex-row gap-4 justify-end items-center">
+<button class="w-full md:w-auto px-8 py-4 text-primary font-bold rounded-full hover:bg-surface-container-high transition-colors">
+                Save Draft
+            </button>
+<button class="w-full md:w-auto px-12 py-4 bg-gradient-to-br from-primary to-primary-container text-white font-bold rounded-full shadow-lg shadow-primary-container/40 hover:scale-[1.02] active:scale-95 transition-all">
+                Publish Quiz
+            </button>
+</section>
+</main>
+<!-- Floating Preview Button -->
+<button class="fixed bottom-24 right-6 md:right-12 z-50 flex items-center gap-3 bg-white/80 backdrop-blur-xl p-4 md:px-6 md:py-4 rounded-full shadow-[0_20px_40px_rgba(0,0,0,0.12)] border border-outline-variant/20 group hover:bg-primary hover:text-white transition-all active:scale-90">
+<span class="material-symbols-outlined">visibility</span>
+<span class="font-bold hidden md:inline">Preview Quiz</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-end px-6 pb-6 pt-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl z-50 rounded-t-xl md:hidden">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-600 text-white rounded-full p-3 mb-1 w-12 h-12 shadow-lg shadow-blue-200 dark:shadow-none" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="sr-only">Study</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Classroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Profile</span>
+</a>
+</nav>
+<!-- Sidebar Layout for Desktop (Simulated) -->
+<div class="hidden md:block fixed left-0 top-0 h-full w-20 bg-white border-r border-outline-variant/10 flex-col items-center py-24 gap-8 z-40">
+<div class="p-3 bg-primary-container/20 text-primary rounded-xl">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">quiz</span>
+</div>
+<div class="p-3 text-outline hover:bg-surface-container-low rounded-xl transition-all cursor-pointer">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div class="p-3 text-outline hover:bg-surface-container-low rounded-xl transition-all cursor-pointer">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<div class="p-3 text-outline hover:bg-surface-container-low rounded-xl transition-all cursor-pointer">
+<span class="material-symbols-outlined">settings</span>
+</div>
+</div>
+</body></html>

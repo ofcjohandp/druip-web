@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #FAF7F2;
+  --cream-warm: #F4EFE4;
+  --cream-deep: #EDE5D3;
+  --white: #FFFFFF;
+
+  --sage: #7A9E7E;
+  --sage-deep: #5C7E61;
+  --sage-soft: #D7E3D3;
+
+  --gold: #C9A84C;
+  --gold-deep: #A88934;
+  --gold-soft: #F1E3B6;
+
+  --turquoise: #7EC8C8;
+  --turquoise-deep: #5BA8A8;
+  --turquoise-soft: #D4ECEC;
+
+  --charcoal: #2C2C2C;
+  --charcoal-soft: #5A5A5A;
+  --charcoal-muted: #8C8A85;
+
+  --coral: #E08868;
+  --coral-soft: #F5D9CE;
+
+  --bg: var(--cream);
+  --bg-card: var(--cream-warm);
+  --bg-card-lift: var(--white);
+  --bg-inset: var(--cream-deep);
+  --fg: var(--charcoal);
+  --fg-soft: var(--charcoal-soft);
+  --fg-muted: var(--charcoal-muted);
+  --primary: var(--sage);
+  --primary-deep: var(--sage-deep);
+  --primary-soft: var(--sage-soft);
+  --accent: var(--gold);
+  --accent-soft: var(--gold-soft);
+  --info: var(--turquoise);
+  --info-soft: var(--turquoise-soft);
+  --danger: var(--coral);
+  --danger-soft: var(--coral-soft);
+  --hairline: rgba(60, 50, 30, 0.08);
+  --hairline-strong: rgba(60, 50, 30, 0.14);
+  --scrim: rgba(44, 44, 44, 0.32);
+
+  --shadow-card: 0 6px 20px rgba(60, 50, 30, 0.06);
+  --shadow-lift: 0 12px 32px rgba(60, 50, 30, 0.10);
+  --shadow-press: inset 0 2px 6px rgba(60, 50, 30, 0.08);
+  --shadow-pop: 0 18px 48px rgba(60, 50, 30, 0.14);
+
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur: 220ms;
+  --dur-slow: 320ms;
+}
+
+@layer base {
+  html, body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Nunito', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--gold-soft);
+    color: var(--charcoal);
+  }
+
+  * { box-sizing: border-box; }
+}
+
+@keyframes skel {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-12px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

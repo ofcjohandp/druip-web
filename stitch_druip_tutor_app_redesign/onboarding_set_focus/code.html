@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#674c00",
+                    "on-secondary": "#fff1db",
+                    "surface-variant": "#dadddf",
+                    "on-primary": "#f0f2ff",
+                    "inverse-on-surface": "#9b9d9e",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "secondary-container": "#ffca4d",
+                    "surface": "#f5f6f7",
+                    "on-secondary-fixed": "#443100",
+                    "surface-container-highest": "#dadddf",
+                    "on-error-container": "#570008",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#ff9475",
+                    "primary-container": "#6c9fff",
+                    "background": "#f5f6f7",
+                    "tertiary-container": "#ff9475",
+                    "primary-fixed-dim": "#5191ff",
+                    "surface-tint": "#0058bb",
+                    "on-background": "#2c2f30",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "secondary-fixed": "#ffca4d",
+                    "secondary-dim": "#664b00",
+                    "outline-variant": "#abadae",
+                    "primary": "#0058bb",
+                    "secondary": "#755700",
+                    "on-tertiary": "#ffefeb",
+                    "tertiary-dim": "#962700",
+                    "surface-bright": "#f5f6f7",
+                    "error-dim": "#9f0519",
+                    "surface-dim": "#d1d5d7",
+                    "inverse-primary": "#4b8eff",
+                    "primary-fixed": "#6c9fff",
+                    "on-surface-variant": "#595c5d",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-tertiary-container": "#601500",
+                    "on-primary-container": "#00214f",
+                    "on-error": "#ffefee",
+                    "surface-container-high": "#e0e3e4",
+                    "surface-container-low": "#eff1f2",
+                    "on-tertiary-fixed": "#340800",
+                    "primary-dim": "#004ca4",
+                    "on-surface": "#2c2f30",
+                    "outline": "#757778",
+                    "error-container": "#fb5151",
+                    "on-primary-fixed": "#000000",
+                    "surface-container": "#e6e8ea",
+                    "inverse-surface": "#0c0f10",
+                    "on-secondary-container": "#5c4400",
+                    "tertiary": "#ab2d00",
+                    "error": "#b31b25"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #0058bb 0%, #6c9fff 100%);
+        }
+        .frosted-glass {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar suppressed for transactional onboarding flow -->
+<main class="min-h-screen pt-12 pb-24 px-6 md:px-12 max-w-5xl mx-auto overflow-x-hidden">
+<!-- Header Section with Asymmetric Momentum -->
+<section class="relative mb-12">
+<div class="inline-block px-4 py-1 mb-4 rounded-full bg-tertiary-container text-on-tertiary-container font-label text-[10px] font-bold uppercase tracking-widest">
+                Step 2 of 4
+            </div>
+<h1 class="font-headline text-[3.5rem] leading-[1.1] font-extrabold tracking-tight text-primary mb-4 max-w-2xl">
+                What are we <br/> <span class="italic text-secondary">smashing</span> first?
+            </h1>
+<p class="font-body text-lg text-on-surface-variant max-w-lg">
+                Pick your priority subjects and mark your next big challenge. We'll build your momentum from here.
+            </p>
+<!-- Decorative Bleed Element -->
+<div class="absolute -top-10 -right-20 w-64 h-64 kinetic-gradient opacity-10 rounded-full blur-3xl pointer-events-none"></div>
+</section>
+<!-- Main Content Area: Bento-inspired grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Subjects Selection Column -->
+<div class="lg:col-span-7 space-y-8">
+<div class="bg-surface-container-low rounded-xl p-8">
+<h3 class="font-headline text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">category</span>
+                        Core Subjects
+                    </h3>
+<!-- Subject Chips Grid -->
+<div class="flex flex-wrap gap-3">
+<!-- Active Subject -->
+<button class="kinetic-gradient text-white px-6 py-3 rounded-full font-bold shadow-lg flex items-center gap-2 transition-transform active:scale-95">
+                            Mathematics <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<button class="bg-surface-container-lowest text-on-surface-variant px-6 py-3 rounded-full font-bold hover:bg-white hover:text-primary transition-all active:scale-95">
+                            Physical Sciences
+                        </button>
+<button class="bg-surface-container-lowest text-on-surface-variant px-6 py-3 rounded-full font-bold hover:bg-white hover:text-primary transition-all active:scale-95">
+                            Economics
+                        </button>
+<button class="kinetic-gradient text-white px-6 py-3 rounded-full font-bold shadow-lg flex items-center gap-2 transition-transform active:scale-95">
+                            Life Sciences <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+<button class="bg-surface-container-lowest text-on-surface-variant px-6 py-3 rounded-full font-bold hover:bg-white hover:text-primary transition-all active:scale-95">
+                            History
+                        </button>
+<button class="bg-surface-container-lowest text-on-surface-variant px-6 py-3 rounded-full font-bold hover:bg-white hover:text-primary transition-all active:scale-95">
+                            Accounting
+                        </button>
+<button class="bg-surface-container-lowest text-on-surface-variant px-6 py-3 rounded-full font-bold hover:bg-white hover:text-primary transition-all active:scale-95">
+                            English FAL
+                        </button>
+<button class="border-2 border-dashed border-outline-variant/30 text-on-surface-variant px-6 py-3 rounded-full font-bold hover:bg-white hover:text-primary transition-all">
+                            + Add Custom
+                        </button>
+</div>
+</div>
+<!-- Motivation Card -->
+<div class="bg-secondary-container rounded-xl p-8 relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="font-headline text-on-secondary-container text-2xl font-extrabold mb-2">Join the 15k Crew</h4>
+<p class="text-on-secondary-container/80 font-medium max-w-sm">
+                            Students who set a test date on day one are 45% more likely to reach their GPA targets.
+                        </p>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl text-on-secondary-container opacity-10 rotate-12 group-hover:rotate-0 transition-transform duration-500">trending_up</span>
+</div>
+</div>
+<!-- Date Selection Column -->
+<div class="lg:col-span-5">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<h3 class="font-headline text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+                        Set Test Date
+                    </h3>
+<!-- Custom Styled Calendar Widget -->
+<div class="space-y-4">
+<div class="flex justify-between items-center mb-4 px-2">
+<span class="font-bold text-lg">October 2024</span>
+<div class="flex gap-2">
+<button class="p-2 rounded-full hover:bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-low text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-2 text-center text-xs font-bold text-outline uppercase tracking-tighter mb-2">
+<span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+</div>
+<div class="grid grid-cols-7 gap-1">
+<!-- Empty days -->
+<div class="aspect-square"></div><div class="aspect-square"></div>
+<!-- Days -->
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">1</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">2</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">3</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">4</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">5</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">6</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">7</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">8</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">9</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">10</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">11</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">12</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">13</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">14</button>
+<button class="aspect-square flex items-center justify-center rounded-lg kinetic-gradient text-white font-bold ring-4 ring-primary/20">15</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">16</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">17</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium text-tertiary font-bold relative">
+                                18
+                                <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-tertiary rounded-full"></span>
+</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">19</button>
+<button class="aspect-square flex items-center justify-center rounded-lg hover:bg-surface-container-low font-medium">20</button>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-surface-container-low">
+<label class="block text-sm font-bold text-on-surface-variant mb-2">Selected Goal</label>
+<div class="flex items-center gap-4 bg-surface-container-low p-4 rounded-xl">
+<div class="p-3 bg-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+</div>
+<div>
+<p class="font-bold">Finals Preparation</p>
+<p class="text-xs text-on-surface-variant">Oct 15, 2024 • 14 days away</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Progress & Next Action -->
+<div class="fixed bottom-0 left-0 w-full p-6 frosted-glass border-t border-surface-container-high z-40">
+<div class="max-w-5xl mx-auto flex items-center justify-between">
+<div class="hidden md:block">
+<p class="text-sm font-bold text-on-surface-variant">Your Progress</p>
+<div class="w-48 h-2 bg-surface-container-high rounded-full mt-2 overflow-hidden">
+<div class="h-full kinetic-gradient w-1/2"></div>
+</div>
+</div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<button class="px-8 py-4 rounded-full font-bold text-on-surface-variant hover:bg-surface-container-low transition-colors active:scale-95">
+                        Back
+                    </button>
+<button class="flex-1 md:flex-none kinetic-gradient text-white px-12 py-4 rounded-full font-bold shadow-xl shadow-primary/20 flex items-center justify-center gap-3 active:scale-95 transition-all">
+                        Let's Go!
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Visual Polish: Floating Shapes -->
+<div class="fixed -bottom-20 -left-20 w-80 h-80 bg-secondary/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+<div class="fixed top-1/4 right-0 w-64 h-96 bg-primary/5 rounded-full blur-[80px] pointer-events-none -z-10"></div>
+</body></html>

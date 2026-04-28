@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weekly Study Report | The Kinetic Academic</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#674c00",
+                    "on-tertiary-container": "#601500",
+                    "surface-container-low": "#eff1f2",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "surface-variant": "#dadddf",
+                    "surface-container": "#e6e8ea",
+                    "secondary": "#755700",
+                    "primary-dim": "#004ca4",
+                    "on-surface": "#2c2f30",
+                    "surface-container-highest": "#dadddf",
+                    "on-secondary": "#fff1db",
+                    "surface": "#f5f6f7",
+                    "tertiary-container": "#ff9475",
+                    "inverse-surface": "#0c0f10",
+                    "primary-fixed-dim": "#5191ff",
+                    "secondary-dim": "#664b00",
+                    "on-primary": "#f0f2ff",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffefeb",
+                    "primary": "#0058bb",
+                    "on-surface-variant": "#595c5d",
+                    "on-secondary-fixed": "#443100",
+                    "on-background": "#2c2f30",
+                    "inverse-primary": "#4b8eff",
+                    "on-secondary-container": "#5c4400",
+                    "tertiary": "#ab2d00",
+                    "surface-tint": "#0058bb",
+                    "outline-variant": "#abadae",
+                    "on-error": "#ffefee",
+                    "on-primary-fixed": "#000000",
+                    "tertiary-fixed": "#ff9475",
+                    "secondary-fixed": "#ffca4d",
+                    "inverse-on-surface": "#9b9d9e",
+                    "on-tertiary-fixed": "#340800",
+                    "surface-container-high": "#e0e3e4",
+                    "error-container": "#fb5151",
+                    "on-error-container": "#570008",
+                    "tertiary-dim": "#962700",
+                    "primary-fixed": "#6c9fff",
+                    "surface-bright": "#f5f6f7",
+                    "error-dim": "#9f0519",
+                    "background": "#f5f6f7",
+                    "outline": "#757778",
+                    "on-primary-container": "#00214f",
+                    "error": "#b31b25",
+                    "secondary-container": "#ffca4d",
+                    "on-primary-fixed-variant": "#002a61",
+                    "primary-container": "#6c9fff",
+                    "surface-dim": "#d1d5d7",
+                    "tertiary-fixed-dim": "#ff7d57"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .asymmetric-bleed {
+            width: calc(100% + 4rem);
+            margin-right: -4rem;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl no-border bg-surface-container-low">
+<nav class="flex justify-between items-center px-6 h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-blue-600 dark:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors p-2 rounded-full scale-95 active:scale-90 transition-transform" data-icon="menu">menu</button>
+<span class="text-xl font-black italic text-blue-700 dark:text-blue-300 font-['Plus_Jakarta_Sans'] tracking-tight">The Kinetic Academic</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 hover:text-orange-500 transition-colors" href="#">Home</a>
+<a class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 hover:text-orange-500 transition-colors" href="#">Study</a>
+<a class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 hover:text-orange-500 transition-colors" href="#">Classroom</a>
+<a class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 hover:text-orange-500 transition-colors" href="#">Profile</a>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container border-2 border-white shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Portrait of a focused young male student with glasses in a modern library setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjUHb8VGjGvzFTaM2psni9XrOKVmEOv1fHf7NlFFKX65Z2zRmcVn7EfbQO2ReaAQJ_rEhuUstZ-jJKYaH03tCTmLWEg6LpM1vwUekFMC21BonRCcY_1qtxIOhDh8mzRA63q7NMHFXJj4S2a-QSSQtBiRNPNInQ42_FzlEBM3fAvgGFlzHuWtINWf2Ba0HC8AWGimwOdeRMR5_X585M7pu17oc46TYeoMAiXY6nfa8MfNwgI1DHcGf2C4z2MwOtquk9KalonuWPD3Wh"/>
+</div>
+</nav>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-screen-xl mx-auto">
+<!-- Hero Section: Academic Momentum -->
+<section class="mb-12 relative overflow-hidden">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label text-xs font-bold uppercase tracking-widest mb-4">Weekly Performance</span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter leading-tight text-on-surface mb-4">
+                        Crushing your goals, <span class="text-primary italic">Sipho.</span>
+</h1>
+<p class="text-lg text-on-surface-variant max-w-lg font-body leading-relaxed">
+                        Your academic momentum is reaching a tipping point. You've outpaced 84% of your peers this week. Keep that fire burning.
+                    </p>
+</div>
+<div class="flex-shrink-0 bg-primary-container/20 p-8 rounded-xl border-l-4 border-primary">
+<span class="block text-sm font-bold text-primary uppercase tracking-widest mb-1">XP Earned This Week</span>
+<div class="flex items-baseline gap-2">
+<span class="text-6xl font-headline font-black text-primary tracking-tighter">12,450</span>
+<span class="text-xl font-bold text-primary-dim">XP</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Comparison Chart Card -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(0,0,0,0.04)] relative group">
+<div class="flex justify-between items-start mb-10">
+<div>
+<h3 class="text-xl font-headline font-bold text-on-surface">Study Consistency</h3>
+<p class="text-sm text-on-surface-variant">Hours logged vs. previous week</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-xs font-bold text-on-surface-variant">This Week</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-surface-variant"></span>
+<span class="text-xs font-bold text-on-surface-variant">Last Week</span>
+</div>
+</div>
+</div>
+<!-- Simple Custom CSS Bar Chart -->
+<div class="flex items-end justify-between h-48 gap-3 md:gap-6">
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-1/2 bg-surface-variant rounded-t-lg h-[40%] transition-all group-hover:h-[45%]"></div>
+<div class="w-1/2 bg-primary rounded-t-lg h-[70%] transition-all group-hover:h-[75%]"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">Mon</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-1/2 bg-surface-variant rounded-t-lg h-[60%]"></div>
+<div class="w-1/2 bg-primary rounded-t-lg h-[40%]"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">Tue</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-1/2 bg-surface-variant rounded-t-lg h-[50%]"></div>
+<div class="w-1/2 bg-primary rounded-t-lg h-[90%]"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">Wed</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-1/2 bg-surface-variant rounded-t-lg h-[40%]"></div>
+<div class="w-1/2 bg-primary rounded-t-lg h-[80%]"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">Thu</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-1/2 bg-surface-variant rounded-t-lg h-[30%]"></div>
+<div class="w-1/2 bg-primary rounded-t-lg h-[100%]"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">Fri</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2">
+<div class="w-full flex items-end justify-center gap-1 h-full">
+<div class="w-1/2 bg-surface-variant rounded-t-lg h-[20%]"></div>
+<div class="w-1/2 bg-primary rounded-t-lg h-[30%]"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">Sat</span>
+</div>
+</div>
+</div>
+<!-- Achievement Badges Card -->
+<div class="bg-surface-container-low rounded-xl p-8 flex flex-col justify-between">
+<div>
+<h3 class="text-xl font-headline font-bold text-on-surface mb-2">New Achievements</h3>
+<p class="text-sm text-on-surface-variant mb-6">Earned in the last 7 days</p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-white p-3 rounded-lg shadow-sm">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<p class="font-bold text-sm">7-Day Streak</p>
+<p class="text-xs text-on-surface-variant italic">Unstoppable energy!</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white p-3 rounded-lg shadow-sm">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+</div>
+<div>
+<p class="font-bold text-sm">Deep Diver</p>
+<p class="text-xs text-on-surface-variant italic">4 hours in one session</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white/40 p-3 rounded-lg border border-white/50">
+<div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-gray-500">lock</span>
+</div>
+<div>
+<p class="font-bold text-sm text-gray-500">Night Owl</p>
+<p class="text-xs text-gray-400 italic">Next target: 11 PM study</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Lower Section: Tests & Insights -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+<!-- Upcoming Tests Summary -->
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">event_upcoming</span>
+<h2 class="text-2xl font-headline font-extrabold text-on-surface">Upcoming Tests</h2>
+</div>
+<div class="space-y-4">
+<div class="group bg-surface-container-highest/30 hover:bg-surface-container-lowest p-6 rounded-xl transition-all border-l-8 border-primary">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-primary">Mathematics P1</span>
+<span class="text-xs font-bold text-on-surface-variant">24 OCT • 09:00</span>
+</div>
+<h4 class="text-lg font-bold mb-3">Calculus &amp; Algebra Fundamentals</h4>
+<div class="flex items-center gap-4">
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-[85%] h-full bg-primary rounded-full"></div>
+</div>
+<span class="text-sm font-bold text-on-surface">85% Ready</span>
+</div>
+</div>
+<div class="group bg-surface-container-highest/30 hover:bg-surface-container-lowest p-6 rounded-xl transition-all border-l-8 border-secondary">
+<div class="flex justify-between items-start mb-2">
+<span class="text-xs font-bold uppercase tracking-widest text-secondary">Physical Sciences</span>
+<span class="text-xs font-bold text-on-surface-variant">27 OCT • 14:00</span>
+</div>
+<h4 class="text-lg font-bold mb-3">Newtonian Mechanics</h4>
+<div class="flex items-center gap-4">
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-[40%] h-full bg-secondary rounded-full"></div>
+</div>
+<span class="text-sm font-bold text-on-surface">40% Ready</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Kinetic Insights / Momentum Message -->
+<div class="relative bg-primary-dim p-10 rounded-xl overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay group-hover:scale-105 transition-transform duration-700" data-alt="Close-up of vibrant South African street art with bold geometric patterns and bright primary colors, reflecting urban energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBPTID7_LewK9Wb818XxXbG7rUO3dQHZR5jdhlmeytZuUwPFr_EnDzSdRdxFzzyx6vZA5dYiMbRRZsPDVTxbFddp0SmSH1RcsNh30jBaXqKz6m4hlP8DHgSh3GiAJs25WleiwAIIPl0oBUgR_87XMWyISa1vWacG-KtmXtvARc9oTV31iyViKtLk5pGLhu_Rhc9wIdBXQEto3m_h064q42Sry82ORmIuVFZd4JbwfAJh5m0dd42wbOgFllCOlqiFeei7GY8COomdnN"/>
+<div class="relative z-10 text-white">
+<h3 class="font-headline text-3xl font-extrabold mb-6 leading-tight">Master the hustle. <br/>The future is yours to script.</h3>
+<p class="text-primary-fixed leading-relaxed mb-8 text-lg font-light">
+                        "Education is the most powerful weapon which you can use to change the world." — Nelson Mandela. 
+                        <br/><br/>
+                        Your performance in <span class="font-bold text-white underline decoration-secondary decoration-4 underline-offset-4">Mathematics</span> is trending upwards. If you maintain this pace for 2 more weeks, you are projected to hit a Distiction average.
+                    </p>
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:scale-105 transition-transform">
+<span>Book a Tutor Session</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-20 flex justify-around items-center px-4 pb-2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl z-50 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)] no-border bg-surface-container-low">
+<div class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-200 rounded-full px-5 py-2 scale-110 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Study</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Classroom</span>
+</div>
+<div class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 px-5 py-2 hover:text-orange-500 transition-all duration-300 ease-out">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] font-bold uppercase tracking-widest mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

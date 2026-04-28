@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     borderBottomColor: COLORS.border,
   },
   dropdownText: { fontSize: 16, color: COLORS.text },
-  yearLabel: { fontSize: 16, fontWeight: '600' as const, color: COLORS.text, marginBottom: SPACING.sm },
+  yearLabel: { fontSize: 16, fontFamily: 'Nunito_600SemiBold', color: COLORS.text, marginBottom: SPACING.sm },
   yearsRow: { flexDirection: 'row', gap: SPACING.sm, marginBottom: SPACING.lg },
   yearBubble: {
     width: 48,
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   yearBubbleSelected: { backgroundColor: COLORS.accent, borderColor: COLORS.accent },
-  yearText: { fontSize: 16, fontWeight: '600', color: COLORS.text },
+  yearText: { fontSize: 16, fontFamily: 'Nunito_600SemiBold', color: COLORS.text },
   yearTextSelected: { color: COLORS.textOnAccent },
   errorText: { color: COLORS.error, fontSize: 14 as const, marginBottom: SPACING.sm },
   loader: { marginTop: SPACING.sm },

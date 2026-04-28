@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: TYPOGRAPHY.body.fontSize,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
   },
   iconRow: {
     flexDirection: 'row',

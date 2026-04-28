@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#0058bb",
+                        "secondary-container": "#ffca4d",
+                        "tertiary": "#ab2d00",
+                        "secondary-fixed": "#ffca4d",
+                        "secondary-dim": "#664b00",
+                        "tertiary-fixed-dim": "#ff7d57",
+                        "error-container": "#fb5151",
+                        "surface-bright": "#f5f6f7",
+                        "on-primary": "#f0f2ff",
+                        "primary-fixed-dim": "#5191ff",
+                        "on-secondary-fixed": "#443100",
+                        "on-primary-container": "#00214f",
+                        "surface-variant": "#dadddf",
+                        "on-secondary-fixed-variant": "#674c00",
+                        "surface-container-highest": "#dadddf",
+                        "primary-container": "#6c9fff",
+                        "surface-container": "#e6e8ea",
+                        "primary-fixed": "#6c9fff",
+                        "on-secondary-container": "#5c4400",
+                        "primary-dim": "#004ca4",
+                        "surface-dim": "#d1d5d7",
+                        "on-tertiary-fixed": "#340800",
+                        "inverse-on-surface": "#9b9d9e",
+                        "secondary-fixed-dim": "#f7ba00",
+                        "tertiary-fixed": "#ff9475",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#0c0f10",
+                        "tertiary-dim": "#962700",
+                        "on-tertiary-fixed-variant": "#6f1a00",
+                        "on-tertiary": "#ffefeb",
+                        "on-tertiary-container": "#601500",
+                        "on-error-container": "#570008",
+                        "on-surface-variant": "#595c5d",
+                        "secondary": "#755700",
+                        "primary": "#0058bb",
+                        "on-background": "#2c2f30",
+                        "surface": "#f5f6f7",
+                        "outline-variant": "#abadae",
+                        "on-primary-fixed-variant": "#002a61",
+                        "on-error": "#ffefee",
+                        "surface-container-low": "#eff1f2",
+                        "error": "#b31b25",
+                        "background": "#f5f6f7",
+                        "inverse-primary": "#4b8eff",
+                        "error-dim": "#9f0519",
+                        "on-secondary": "#fff1db",
+                        "on-surface": "#2c2f30",
+                        "on-primary-fixed": "#000000",
+                        "outline": "#757778",
+                        "tertiary-container": "#ff9475",
+                        "surface-container-high": "#e0e3e4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Be Vietnam Pro"],
+                        "label": ["Be Vietnam Pro"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface mb-24">
+<!-- TopAppBar -->
+<header class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<button class="hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors p-2 rounded-full scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">menu</span>
+</button>
+<span class="text-2xl font-black italic text-black dark:text-white font-['Plus_Jakarta_Sans'] tracking-tight">Druip</span>
+</div>
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary-container scale-95 active:scale-90 transition-transform cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="close-up portrait of a cheerful South African university student in a sunlit campus setting with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuuI-3OD99bY351h3-2GAmID1IamLIBxmTRTFqThxD2NpZX4pv_j94WAsmP5-5BwtIf0a_7b7YL1L0TZ3lmvzLoXmipvWa36iRVsOPKMuyeI5F-nxL9OkFotJ4zBtBGpxu_rOpDQwQWgUFJ5MiV6lt9sG3m5gNTDcz04g58EJBDW283tnv7P6mLg1MrEaLCQhuftv-t6lYtOl8nkkeOas2680Oou6co1NPqyxH5IJBGySZzXqKFd5R1hyuypIS0Oe35MIUDGfJTYUc"/>
+</div>
+</header>
+<main class="mt-24 px-6 max-w-5xl mx-auto">
+<!-- Hero Section & Search -->
+<section class="mb-12">
+<h1 class="text-5xl font-extrabold text-on-surface mb-4 tracking-tight leading-tight">Test Roster</h1>
+<p class="text-on-surface-variant text-lg mb-8 max-w-2xl">Keep track of upcoming assessments and ensure your students are fully prepared with the right resources.</p>
+<div class="flex flex-col md:flex-row gap-4">
+<div class="relative flex-grow group">
+<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-14 pr-6 py-4 bg-surface-container-high rounded-lg border-0 focus:ring-2 focus:ring-primary-fixed-dim/40 focus:bg-surface-container-lowest transition-all" placeholder="Search by subject or student..." type="text"/>
+</div>
+<button class="bg-surface-container-high px-6 py-4 rounded-lg flex items-center justify-center gap-2 font-bold hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+                    Filter
+                </button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-primary/20 flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+                    Add New Test Date
+                </button>
+</div>
+</section>
+<!-- Bento Grid Layout for Tests -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Test Card 1: Imminent -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border-l-8 border-tertiary shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group h-full">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="bg-tertiary-container text-on-tertiary-container text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">12 Days Left</span>
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+<h2 class="text-2xl font-bold text-on-surface mb-2">Advanced Calculus</h2>
+<p class="text-on-surface-variant flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+                        Oct 24, 2023
+                    </p>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center gap-4 group-hover:bg-primary/5 transition-colors">
+<div class="bg-white p-2 rounded-md shadow-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">folder</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-outline">PREP BUNDLE</span>
+<span class="text-sm font-bold text-on-surface">Differentiation Mastery</span>
+</div>
+</div>
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="portrait of a female student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5XZd1BT4lpu2v_qPejwU7M1fVHAVjIsEh0HztkJVoZHhkWRL9WGw1zeo6v1qA3AFiA5QNK5qJO6SQi7m9Tp-IyvEaj5jgQ4L1hwXlTzFeM_U5mPRruVsMfJyBLK_-uQaCb7wWzvlFHmPhFrCPlI8nYl2pPzrJXF6IsgpKIsYGPIUbhbesOkF8dlPAupL9f6b96_AAwKfZZ6zwcD2F8ObHTYhOxG5OvXcslBupu_x_MC8eMiVkVmpXKuI7q3Ey9PddmbTAFgS3Lq47"/>
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="portrait of a male student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6hHdpR2015etRF1z_QvHlhDUWOB2UNYzSwAV6TjItJtShg0fmjmWgTX8x73XrcbmHQ0-dOlIgNoKvwvOJ8qnuy1bsEtcnmdja75vlxQ3FG3x-YkC3qwM-CyA82UdEllZY2uerGMygcGPUuVstwfjHRbd42gWg8szjVEGR1e7zDJdamnItl_rVvbYajI7vxu5vIt_gcWQH8QN7XKIK90BbhkPKVpNrHdrFiKvzN9G_lblHAjf9K0qL9D0P0QAIofARWpo7hs5vSKeC"/>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">+5</div>
+</div>
+</div>
+</div>
+<!-- Test Card 2: Moderate -->
+<div class="bg-surface-container-lowest p-8 rounded-xl border-l-8 border-secondary shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group h-full">
+<div>
+<div class="flex justify-between items-start mb-6">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">22 Days Left</span>
+<button class="text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+<h2 class="text-2xl font-bold text-on-surface mb-2">Molecular Biology</h2>
+<p class="text-on-surface-variant flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+                        Nov 03, 2023
+                    </p>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center gap-4 group-hover:bg-primary/5 transition-colors">
+<div class="bg-white p-2 rounded-md shadow-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-bold text-outline">PREP BUNDLE</span>
+<span class="text-sm font-bold text-on-surface">Genetics Cheat Sheet</span>
+</div>
+</div>
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="portrait of a student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxWusjQWnMr3M9XaluYSHc3uFddig_ObJnk8AM3ti_bGekKx8QwMKR40AllekJENIiF9_tiVtb3n5lF5MqzyrhTCvyW9kgFais4A-4fJqalkox6Rz7cZ9hC0-iU0YtuYsiVQDDGIsCVoo3kc9alg2lG2DC7L8Fwo-DWOEb1GvgKtdFcyGlqUzquV2Iog6GyeWrw7rDAnCM5XVQCov6P0U00qepwCFuNiHG-myAXFcJ8phnm9G8gRuwVfoueitRMgC2bSG_J3m63E1N"/>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+</div>
+</div>
+<!-- Test Card 3: Featured visual/Bento Hero -->
+<div class="bg-primary rounded-xl overflow-hidden relative min-h-[300px] group md:col-span-2 lg:col-span-1">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="close up of a student writing in a textbook in a modern library with blue architectural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLrYso7G_rtQK4k93J63zWIhlqp8fj3gupm6p-I2h8_o6f_4gKcJQ-bb_5HEAWEhU_QFGe5ZDlRI0LYVyhZ3gOfh68HNBOO_oaRcSqXhW8mI5_ps94q_HYjFj3-_MIr5-FkW-ZXzdFvF0z895ZlG0UTzr8QoxqCUqC-60ZGNDE-R2VaDum3LKGEA8z3JCMBnCeJymWKylDH0Ew7qqHiIMihEliyCxnwtD6ZRCth6TWWuyFb2Bdh1CzsXcj8ZxR94-Bw2q8BuHDDvKS"/>
+<div class="relative z-20 p-8 flex flex-col h-full justify-end text-white">
+<span class="bg-white/20 backdrop-blur-md text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full w-fit mb-4">Pro Tip</span>
+<h3 class="text-2xl font-extrabold mb-2">Revision Sprint</h3>
+<p class="text-primary-container text-sm font-medium">Tests scheduled in the next 14 days should have daily check-ins enabled.</p>
+<button class="mt-6 bg-white text-primary px-6 py-3 rounded-full font-bold text-sm w-fit active:scale-95 transition-transform">Enable Alerts</button>
+</div>
+</div>
+<!-- Empty State Placeholder (Visual example of what empty looks like if filtered) -->
+<div class="md:col-span-2 lg:col-span-3 flex flex-col items-center justify-center py-20 bg-surface-container-low rounded-xl border-2 border-dashed border-outline-variant/30 mt-8 hidden">
+<div class="w-24 h-24 bg-surface-container-highest rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-4xl text-outline">event_busy</span>
+</div>
+<h3 class="text-2xl font-bold text-on-surface mb-2">No tests scheduled yet</h3>
+<p class="text-on-surface-variant mb-8 text-center max-w-sm">Keep your students on track by adding an exam date and attaching study materials.</p>
+<button class="bg-primary text-white px-10 py-4 rounded-full font-bold shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined">add_circle</span>
+                    Schedule First Test
+                </button>
+</div>
+</div>
+<!-- Pagination/Footer Actions -->
+<div class="mt-12 flex items-center justify-between border-t border-surface-container-highest pt-8 mb-32">
+<p class="text-sm text-outline font-bold">SHOWING 2 UPCOMING TESTS</p>
+<div class="flex gap-2">
+<button class="w-12 h-12 rounded-full flex items-center justify-center bg-surface-container-high text-outline hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full flex items-center justify-center bg-primary text-white shadow-lg">
+                    1
+                </button>
+<button class="w-12 h-12 rounded-full flex items-center justify-center bg-surface-container-high text-outline hover:bg-primary-container hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed bottom-28 right-8 md:bottom-12 md:right-12 w-16 h-16 bg-gradient-to-br from-primary to-primary-container text-white rounded-full shadow-2xl flex items-center justify-center scale-100 hover:scale-110 active:scale-90 transition-transform z-[60]">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-end px-6 pb-6 pt-2 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl z-50 rounded-t-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.08)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 dark:hover:text-blue-300 transition-all active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-600 text-white rounded-full p-3 mb-1 w-12 h-12 shadow-lg shadow-blue-200 dark:shadow-none active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<!-- Study is active context -->
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 dark:hover:text-blue-300 transition-all active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Classroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500 dark:hover:text-blue-300 transition-all active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

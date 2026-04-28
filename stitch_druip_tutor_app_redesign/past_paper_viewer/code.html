@@ -1,0 +1,264 @@
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "inverse-surface": "#0c0f10",
+                  "tertiary-fixed": "#ff9475",
+                  "surface": "#f5f6f7",
+                  "surface-variant": "#dadddf",
+                  "surface-container": "#e6e8ea",
+                  "surface-bright": "#f5f6f7",
+                  "on-error": "#ffefee",
+                  "secondary": "#755700",
+                  "secondary-fixed-dim": "#f7ba00",
+                  "secondary-fixed": "#ffca4d",
+                  "background": "#f5f6f7",
+                  "on-secondary": "#fff1db",
+                  "on-primary-fixed": "#000000",
+                  "tertiary-container": "#ff9475",
+                  "inverse-on-surface": "#9b9d9e",
+                  "surface-container-low": "#eff1f2",
+                  "surface-container-highest": "#dadddf",
+                  "on-tertiary-fixed-variant": "#6f1a00",
+                  "on-tertiary-fixed": "#340800",
+                  "on-primary-container": "#00214f",
+                  "on-surface": "#2c2f30",
+                  "on-background": "#2c2f30",
+                  "surface-tint": "#0058bb",
+                  "surface-dim": "#d1d5d7",
+                  "error": "#b31b25",
+                  "surface-container-lowest": "#ffffff",
+                  "on-surface-variant": "#595c5d",
+                  "outline": "#757778",
+                  "tertiary-fixed-dim": "#ff7d57",
+                  "on-primary": "#f0f2ff",
+                  "tertiary": "#ab2d00",
+                  "on-tertiary-container": "#601500",
+                  "on-secondary-fixed": "#443100",
+                  "inverse-primary": "#4b8eff",
+                  "outline-variant": "#abadae",
+                  "error-dim": "#9f0519",
+                  "on-tertiary": "#ffefeb",
+                  "surface-container-high": "#e0e3e4",
+                  "on-secondary-fixed-variant": "#674c00",
+                  "tertiary-dim": "#962700",
+                  "primary-dim": "#004ca4",
+                  "error-container": "#fb5151",
+                  "primary-fixed": "#6c9fff",
+                  "primary": "#0058bb",
+                  "on-error-container": "#570008",
+                  "secondary-dim": "#664b00",
+                  "primary-container": "#6c9fff",
+                  "primary-fixed-dim": "#5191ff",
+                  "on-primary-fixed-variant": "#002a61",
+                  "secondary-container": "#ffca4d",
+                  "on-secondary-container": "#5c4400"
+          },
+          "borderRadius": {
+                  "DEFAULT": "1rem",
+                  "lg": "2rem",
+                  "xl": "3rem",
+                  "full": "9999px"
+          },
+          "fontFamily": {
+                  "headline": ["Plus Jakarta Sans"],
+                  "body": ["Be Vietnam Pro"],
+                  "label": ["Be Vietnam Pro"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #dadddf;
+      border-radius: 10px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased overflow-hidden">
+<!-- TopAppBar Component -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-full scale-95 active:duration-150">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex flex-col">
+<span class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight text-2xl italic text-blue-600 dark:text-blue-400">Druip</span>
+<span class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface-variant">Mathematics Paper 1 - 2023</span>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex items-center gap-6">
+<a class="text-blue-700 dark:text-blue-300 font-bold text-sm tracking-tight" href="#">Home</a>
+<a class="text-slate-500 dark:text-slate-400 font-bold text-sm tracking-tight hover:text-blue-500 transition-all" href="#">Study</a>
+<a class="text-slate-500 dark:text-slate-400 font-bold text-sm tracking-tight hover:text-blue-500 transition-all" href="#">Classroom</a>
+</nav>
+<div class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="user profile picture" data-alt="close-up portrait of a young male student with a friendly expression and short dark hair in a bright indoor setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB8uBKB3ngC3CdSpaYgo4pgVk-cSi3Fh21s3KLoysteZvQgakYaj-fVb2VIxGQeO6Oq0nbMfrH2zVMHwzDTUO-RlUHAj-lE-GT1YBJWsSTl9GxUDlpggl8EV5tb6GLChD55iU0tBEUL4Je0orZYNIWD_2btiQuWa9yFPBNvesEXcqoeNaaq3_D_klj2CQ-i3DXPTPkh7rIh8ZcdKombXNOp63k2W9Yma9lQ9Uc0ooGqKrKx2D1rJiDQAhX2J71RyoYwzR21KP5RQng"/>
+</div>
+</div>
+</header>
+<!-- Main Viewer Layout -->
+<main class="flex h-screen pt-[72px] relative">
+<!-- Question Navigation Sidebar (Left) -->
+<aside class="hidden lg:flex flex-col w-80 bg-surface-container-low p-6 overflow-y-auto custom-scrollbar">
+<div class="mb-8">
+<h2 class="font-headline text-headline-md text-on-surface leading-tight mb-2">Question List</h2>
+<p class="text-label-md text-on-surface-variant opacity-70">SELECT A QUESTION TO VIEW</p>
+</div>
+<div class="space-y-4">
+<!-- Active Question Card -->
+<button class="w-full text-left p-5 bg-surface-container-lowest rounded-lg shadow-sm border-l-4 border-primary transition-all">
+<div class="flex justify-between items-center mb-1">
+<span class="text-label-md font-bold text-primary">QUESTION 01</span>
+<span class="text-label-md text-on-surface-variant">15 MARKS</span>
+</div>
+<p class="text-body-lg font-medium text-on-surface">Calculus and Optimization</p>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded-full uppercase">Difficult</span>
+</div>
+</button>
+<!-- Inactive Question Cards -->
+<button class="w-full text-left p-5 bg-surface-container-lowest/40 hover:bg-surface-container-lowest rounded-lg transition-all group">
+<div class="flex justify-between items-center mb-1">
+<span class="text-label-md font-bold text-on-surface-variant group-hover:text-primary">QUESTION 02</span>
+<span class="text-label-md text-on-surface-variant">12 MARKS</span>
+</div>
+<p class="text-body-lg font-medium text-on-surface">Functions and Inverses</p>
+</button>
+<button class="w-full text-left p-5 bg-surface-container-lowest/40 hover:bg-surface-container-lowest rounded-lg transition-all group">
+<div class="flex justify-between items-center mb-1">
+<span class="text-label-md font-bold text-on-surface-variant group-hover:text-primary">QUESTION 03</span>
+<span class="text-label-md text-on-surface-variant">20 MARKS</span>
+</div>
+<p class="text-body-lg font-medium text-on-surface">Financial Mathematics</p>
+</button>
+<button class="w-full text-left p-5 bg-surface-container-lowest/40 hover:bg-surface-container-lowest rounded-lg transition-all group">
+<div class="flex justify-between items-center mb-1">
+<span class="text-label-md font-bold text-on-surface-variant group-hover:text-primary">QUESTION 04</span>
+<span class="text-label-md text-on-surface-variant">10 MARKS</span>
+</div>
+<p class="text-body-lg font-medium text-on-surface">Probability and Stats</p>
+</button>
+<button class="w-full text-left p-5 bg-surface-container-lowest/40 hover:bg-surface-container-lowest rounded-lg transition-all group">
+<div class="flex justify-between items-center mb-1">
+<span class="text-label-md font-bold text-on-surface-variant group-hover:text-primary">QUESTION 05</span>
+<span class="text-label-md text-on-surface-variant">18 MARKS</span>
+</div>
+<p class="text-body-lg font-medium text-on-surface">Trigonometric Functions</p>
+</button>
+</div>
+</aside>
+<!-- Document Viewer Canvas (Center) -->
+<section class="flex-1 bg-surface-container p-4 md:p-8 overflow-y-auto custom-scrollbar flex justify-center">
+<div class="w-full max-w-4xl relative">
+<!-- Floating Document controls -->
+<div class="absolute top-4 left-1/2 -translate-x-1/2 flex items-center gap-1 p-2 bg-surface-container-lowest/90 backdrop-blur shadow-xl rounded-full z-10 border border-outline-variant/10">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface">
+<span class="material-symbols-outlined">zoom_out</span>
+</button>
+<span class="px-4 text-sm font-bold border-x border-outline-variant/20">100%</span>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+<div class="w-px h-6 bg-outline-variant/20 mx-1"></div>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors text-on-surface">
+<span class="material-symbols-outlined">fit_screen</span>
+</button>
+</div>
+<!-- The Paper Canvas -->
+<div class="bg-white min-h-[1200px] w-full shadow-2xl rounded-sm p-12 md:p-20 mt-16 flex flex-col gap-12 relative overflow-hidden">
+<!-- Decorative Bleed Element -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32"></div>
+<div class="border-b-2 border-on-surface/10 pb-6">
+<span class="text-label-md font-bold tracking-widest text-primary">QUESTION 1 [15 MARKS]</span>
+<h1 class="font-headline text-display-lg leading-none mt-4 text-on-surface tracking-tight">Differential <br/> Calculus.</h1>
+</div>
+<div class="space-y-8">
+<div class="space-y-4">
+<p class="text-body-lg leading-relaxed">1.1 Solve for $x$ in the following quadratic inequality. Show all your working steps clearly to ensure full marks:</p>
+<div class="bg-surface-container-low p-8 rounded-lg font-mono text-xl text-center border-l-4 border-primary">
+                        x² - 5x + 6 &gt; 0
+                    </div>
+</div>
+<div class="space-y-4">
+<p class="text-body-lg leading-relaxed">1.2 Given the function $f(x) = 3x^2 - 12x + 1$, determine the coordinates of the turning point of the parabola using the derivative method.</p>
+</div>
+<div class="pt-8 flex flex-col items-center gap-6">
+<img alt="parabola graph diagram" class="w-full rounded-xl shadow-lg border border-outline-variant/10" data-alt="stylized architectural sketch of a geometric parabola graph with mathematical notations on textured cream paper with clean lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsnDTkl5VMbU2cvb7T-QDS1rPSfoiJQRRo64sO-3sOSrwOZIMmN2xXfZKEeUKHWaTVaao8TywIpWrJJirtUmDwRngwcxw9fOY6lGq7OStqjXKBiUa_eNTL1TgMmLPjBDjdE7xB9t3MVj71dACLnGOfLXDB45Kpqm31byTHQuayz4904mRx8rqHUO9FN66ImJF0kkIFt1t9okCYM6LTMoO008xsPwazT3KptPICJdGo8ivtaccaOgQngpdhRA7Xl2MpLHPsUG4J92Ms"/>
+<span class="text-label-md italic text-on-surface-variant opacity-60">Figure 1.1: Parabolic representation of f(x)</span>
+</div>
+<div class="space-y-4 mt-8">
+<p class="text-body-lg leading-relaxed">1.3 Find the average rate of change of the function $g(x) = \sqrt{x + 2}$ between $x = 2$ and $x = 7$.</p>
+</div>
+</div>
+<!-- Page Number -->
+<div class="mt-auto pt-12 flex justify-between items-center text-label-md text-on-surface-variant font-bold opacity-40">
+<span>DRUIP ACADEMIC REPOSITORY</span>
+<span>PAGE 01 OF 12</span>
+</div>
+</div>
+<!-- Pagination Controls -->
+<div class="mt-8 mb-32 flex justify-center items-center gap-4">
+<button class="flex items-center gap-2 px-6 py-3 bg-surface-container-lowest text-on-surface-variant font-bold rounded-full shadow-sm hover:text-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span> PREVIOUS
+            </button>
+<div class="flex gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="w-2 h-2 rounded-full bg-on-surface-variant/20"></span>
+<span class="w-2 h-2 rounded-full bg-on-surface-variant/20"></span>
+</div>
+<button class="flex items-center gap-2 px-6 py-3 bg-surface-container-lowest text-on-surface-variant font-bold rounded-full shadow-sm hover:text-primary transition-all">
+                NEXT <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Contextual FAB (Reveal Answer) -->
+<div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-50">
+<button class="flex items-center gap-3 px-8 py-5 bg-gradient-to-br from-primary to-primary-container text-white font-headline text-lg rounded-full shadow-[0_20px_40px_rgba(0,88,187,0.3)] hover:scale-105 active:scale-95 transition-all group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">visibility</span>
+            REVEAL ANSWER
+            <span class="text-xs bg-white/20 px-2 py-1 rounded-full group-hover:bg-white/30 transition-colors uppercase">Shortcut: SPACE</span>
+</button>
+</div>
+<!-- Mobile Bottom Navigation (Suppressed per "Task-Focused" rule but kept as placeholder logic if needed) -->
+<!-- Suppressed: This is a document viewer task focused sub-page -->
+</main>
+<!-- Notification Overlay (Optional Toast simulation) -->
+<div class="fixed top-24 right-8 z-50 pointer-events-none">
+<div class="bg-secondary-container text-on-secondary-container p-4 rounded-lg shadow-lg flex items-center gap-4 animate-bounce-slow">
+<div class="bg-on-secondary-container text-secondary-container p-2 rounded-full">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">timer</span>
+</div>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest opacity-80">Practice Timer</p>
+<p class="font-headline text-lg">12:45 <span class="text-sm font-normal">remaining</span></p>
+</div>
+</div>
+</div>
+</body></html>

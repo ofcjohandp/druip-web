@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#0058bb",
+                    "secondary-container": "#ffca4d",
+                    "tertiary": "#ab2d00",
+                    "secondary-fixed": "#ffca4d",
+                    "secondary-dim": "#664b00",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "error-container": "#fb5151",
+                    "surface-bright": "#f5f6f7",
+                    "on-primary": "#f0f2ff",
+                    "primary-fixed-dim": "#5191ff",
+                    "on-secondary-fixed": "#443100",
+                    "on-primary-container": "#00214f",
+                    "surface-variant": "#dadddf",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "surface-container-highest": "#dadddf",
+                    "primary-container": "#6c9fff",
+                    "surface-container": "#e6e8ea",
+                    "primary-fixed": "#6c9fff",
+                    "on-secondary-container": "#5c4400",
+                    "primary-dim": "#004ca4",
+                    "surface-dim": "#d1d5d7",
+                    "on-tertiary-fixed": "#340800",
+                    "inverse-on-surface": "#9b9d9e",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "tertiary-fixed": "#ff9475",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#0c0f10",
+                    "tertiary-dim": "#962700",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "on-tertiary": "#ffefeb",
+                    "on-tertiary-container": "#601500",
+                    "on-error-container": "#570008",
+                    "on-surface-variant": "#595c5d",
+                    "secondary": "#755700",
+                    "primary": "#0058bb",
+                    "on-background": "#2c2f30",
+                    "surface": "#f5f6f7",
+                    "outline-variant": "#abadae",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-error": "#ffefee",
+                    "surface-container-low": "#eff1f2",
+                    "error": "#b31b25",
+                    "background": "#f5f6f7",
+                    "inverse-primary": "#4b8eff",
+                    "error-dim": "#9f0519",
+                    "on-secondary": "#fff1db",
+                    "on-surface": "#2c2f30",
+                    "on-primary-fixed": "#000000",
+                    "outline": "#757778",
+                    "tertiary-container": "#ff9475",
+                    "surface-container-high": "#e0e3e4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .asymmetric-gradient {
+        background: linear-gradient(135deg, #0058bb 0%, #6c9fff 100%);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-on-surface/20 backdrop-blur-md">
+<!-- Modal Container -->
+<div class="relative w-full max-w-2xl bg-surface-container-low rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.12)]">
+<!-- Close Button -->
+<button class="absolute top-6 right-6 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="flex flex-col md:flex-row">
+<!-- Visual Anchor Section -->
+<div class="relative w-full md:w-5/12 h-48 md:h-auto overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Modern bright study space with organized wooden desk, open textbooks, and warm natural sunlight through a window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8XAcYJDoeGSj4fSlYxJlf60e3L2jeigRS99BqDum6odIHA0FzpBuZxxr8Aj1sn3nq8Ry_jWqkEObWWmFS9aTE9qaQpyVcCJvvDe6AubcgWiL3boiPX1id0_ZS9B2mP5dQY1zT39IuXH0lm0icWImWLbEvRo6iBB2Iz1CQKPHjWqGxQQ1NXc4t7nhLVKMXnWNUebbguy4mEBWOaN3jf_Yn2ErD_0rQ4M8m-_ozTIpr-5jREODgPKYWAIE1aZCvhQ8Wx-Q8h8vZXjC5"/>
+<div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<div class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase inline-block mb-2">
+                            PREMIUM ACCESS
+                        </div>
+</div>
+</div>
+<!-- Content Section -->
+<div class="w-full md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+<header class="mb-8">
+<h1 class="font-headline font-extrabold text-3xl md:text-4xl text-on-surface leading-tight tracking-tight mb-4">
+                            Join Dr. Sipho's Classroom
+                        </h1>
+<div class="flex items-baseline gap-2">
+<span class="text-4xl font-headline font-bold text-primary">R249</span>
+<span class="text-on-surface-variant font-medium">/month</span>
+</div>
+</header>
+<!-- Feature Bento-ish List -->
+<div class="space-y-4 mb-10">
+<div class="flex items-start gap-4 p-4 rounded-lg bg-surface-container-lowest transition-all hover:translate-x-2">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface leading-none mb-1">Full access to materials</h3>
+<p class="text-sm text-on-surface-variant leading-snug">Every lecture note, PDF, and recording.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-lg bg-surface-container-lowest transition-all hover:translate-x-2 text-on-surface">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+</div>
+<div>
+<h3 class="font-bold leading-none mb-1">Direct messaging</h3>
+<p class="text-sm text-on-surface-variant leading-snug">A direct line for your academic queries.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-lg bg-surface-container-lowest transition-all hover:translate-x-2">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="event_available">event_available</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface leading-none mb-1">Priority session booking</h3>
+<p class="text-sm text-on-surface-variant leading-snug">Get first pick for 1-on-1 consultations.</p>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="space-y-4">
+<button class="w-full asymmetric-gradient text-white font-headline font-bold py-5 rounded-full shadow-lg shadow-primary/20 active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+                            Confirm &amp; Subscribe
+                            <span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-center text-[10px] text-on-surface-variant font-bold tracking-widest uppercase">
+                            Cancel anytime • Secure checkout
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Background Content (Faded) -->
+<div class="opacity-10 pointer-events-none select-none">
+<!-- TopAppBar Placeholder -->
+<nav class="flex justify-between items-center px-6 py-4 w-full bg-white">
+<div class="text-2xl font-black italic text-black">Druip</div>
+<div class="w-10 h-10 rounded-full bg-slate-300"></div>
+</nav>
+<main class="max-w-7xl mx-auto p-12">
+<div class="h-[707px] flex flex-col gap-8">
+<div class="h-40 bg-white rounded-xl"></div>
+<div class="grid grid-cols-3 gap-8">
+<div class="h-64 bg-white rounded-xl"></div>
+<div class="h-64 bg-white rounded-xl"></div>
+<div class="h-64 bg-white rounded-xl"></div>
+</div>
+<div class="h-96 bg-white rounded-xl"></div>
+</div>
+</main>
+</div>
+</body></html>

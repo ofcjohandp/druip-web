@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error": "#ffefee",
+                    "secondary-fixed": "#ffca4d",
+                    "primary-container": "#6c9fff",
+                    "primary": "#0058bb",
+                    "tertiary-fixed": "#ff9475",
+                    "primary-dim": "#004ca4",
+                    "on-secondary-container": "#5c4400",
+                    "on-primary-container": "#00214f",
+                    "error-dim": "#9f0519",
+                    "outline": "#757778",
+                    "primary-fixed-dim": "#5191ff",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "inverse-primary": "#4b8eff",
+                    "secondary-container": "#ffca4d",
+                    "surface-bright": "#f5f6f7",
+                    "surface-container-highest": "#dadddf",
+                    "inverse-surface": "#0c0f10",
+                    "tertiary-dim": "#962700",
+                    "surface-variant": "#dadddf",
+                    "on-primary-fixed": "#000000",
+                    "surface-container-high": "#e0e3e4",
+                    "on-primary": "#f0f2ff",
+                    "on-background": "#2c2f30",
+                    "tertiary-container": "#ff9475",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "on-tertiary-container": "#601500",
+                    "on-surface-variant": "#595c5d",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#9b9d9e",
+                    "background": "#f5f6f7",
+                    "surface-dim": "#d1d5d7",
+                    "surface-container": "#e6e8ea",
+                    "tertiary": "#ab2d00",
+                    "error": "#b31b25",
+                    "surface-tint": "#0058bb",
+                    "surface": "#f5f6f7",
+                    "on-secondary-fixed": "#443100",
+                    "surface-container-low": "#eff1f2",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "outline-variant": "#abadae",
+                    "on-error-container": "#570008",
+                    "on-tertiary": "#ffefeb",
+                    "secondary": "#755700",
+                    "primary-fixed": "#6c9fff",
+                    "error-container": "#fb5151",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "secondary-dim": "#664b00",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-surface": "#2c2f30",
+                    "on-secondary": "#fff1db",
+                    "on-tertiary-fixed": "#340800"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #0058bb 0%, #6c9fff 100%);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden">
+<img alt="Student profile photo" class="w-full h-full object-cover" data-alt="Portrait of a young South African student smiling confidently, natural lighting, urban campus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAksKfGalM1y39BYzztXqanu0FUlYz0VRv9D7YacwRcWOO0yDenaCvCAZGT-QgTut5cr4TlJybHbCKCy5RzX6KOMQihKHYw8TNVE41tVZp_NEQWnQnf6WnTxToyZ0IjgjAVU_CwN94dieuPGtJcZ2WzCfgIqFNdQkF3kZB23sl1j_S1xFt_ST1x-4NTif4V-I81ECxRqzL4dnvakMMVt36ngMqdd3KxrYb8wQKe_EIufPdYXTnKQNq0QtKyJStXdvGcBGgxJGThz_mB"/>
+</div>
+<span class="text-2xl font-black italic text-blue-700 dark:text-blue-500">Druip</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-blue-600 dark:text-blue-400" data-icon="notifications">notifications</span>
+</button>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto">
+<!-- Hero Greeting -->
+<section class="mb-12">
+<h1 class="font-headline text-[3.5rem] font-extrabold leading-none tracking-tight mb-2 text-on-surface">
+                Hey Thabo, <br/>
+<span class="text-primary italic">you've got this!</span>
+</h1>
+<p class="text-on-surface-variant text-lg">Your momentum is looking great today. 3 sessions to go.</p>
+</section>
+<!-- Bento Layout for Stats and Sessions -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Large Session Card -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(0,0,0,0.04)] flex flex-col justify-between relative overflow-hidden group">
+<div class="relative z-10">
+<span class="bg-tertiary-container text-on-tertiary-container px-4 py-1 rounded-full font-label text-[11px] font-bold tracking-wider mb-6 inline-block">UPCOMING SESSION</span>
+<h2 class="font-headline text-3xl font-bold mb-2">Macroeconomics 101</h2>
+<p class="text-on-surface-variant mb-6">With Dr. Sipho M. • 14:00 PM (Today)</p>
+<button class="kinetic-gradient text-white px-8 py-3 rounded-full font-bold shadow-lg hover:opacity-90 transition-all active:scale-95">
+                        Join Room
+                    </button>
+</div>
+<!-- Decorative element -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container/10 rounded-full -mr-20 -mt-20 group-hover:scale-110 transition-transform duration-700"></div>
+</div>
+<!-- Smaller Stat/Quick Action -->
+<div class="bg-secondary-container rounded-xl p-8 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-on-secondary-container text-5xl mb-4" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<div class="font-headline text-4xl font-black text-on-secondary-container">12</div>
+<div class="font-label text-on-secondary-container font-bold">DAY STREAK</div>
+</div>
+</div>
+<!-- Continue Learning Section -->
+<section class="mb-12">
+<div class="flex justify-between items-end mb-6">
+<h3 class="font-headline text-2xl font-bold">Continue Learning</h3>
+<button class="text-primary font-bold hover:underline">View All</button>
+</div>
+<div class="flex gap-6 overflow-x-auto no-scrollbar pb-4 -mx-6 px-6">
+<!-- Course Card 1 -->
+<div class="min-w-[280px] bg-surface-container-low rounded-lg p-2 transition-transform hover:scale-[1.02]">
+<div class="h-40 rounded-md overflow-hidden mb-4">
+<img class="w-full h-full object-cover" data-alt="Digital representation of complex mathematical equations glowing on a dark blue background, scientific aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpy0fesJtyp0LIi3_FyuBkA20lUgBYhxGSd9zQra21m6NyIzAbCQljWcm4MpJ7oSYcmv5OlccZ2ZMHbismNBQZ19Hco_Jfe5pSRqrc-jcjIvLP2p6GVXOV5Ee6XG3I64JKycQ3Zpm9QvI4p7QyL5G0X0gdIuf7Xgx8pkQbFLx5jQ149toPWCSdil9zT957VANb6V8VEGhZEbucS3FJujSh-jrhSdUBKwJhab-a_BcTHBXU69aRKoT9GpjsFDTq44yhNXqiITDngAC6"/>
+</div>
+<div class="px-3 pb-4">
+<h4 class="font-bold text-lg leading-tight mb-1">Advanced Statistics</h4>
+<div class="flex items-center gap-2 mb-4">
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-3/4 h-full bg-primary"></div>
+</div>
+<span class="text-xs font-bold">75%</span>
+</div>
+<button class="w-full py-2 bg-white rounded-full text-primary font-bold text-sm shadow-sm">Resume Lecture</button>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="min-w-[280px] bg-surface-container-low rounded-lg p-2 transition-transform hover:scale-[1.02]">
+<div class="h-40 rounded-md overflow-hidden mb-4">
+<img class="w-full h-full object-cover" data-alt="Abstract visual of data points and lines connecting in a network, vibrant blue and orange tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0x9jyBZAuX-BazeRsunKhDxg7DQvbO8UovXttUi8KnxWvh_UjYH6vocHqX7ftMCToVeTBK9KM0ZToakT_5NjaO8kP3P10URbN-Cl91Y0qnBLffHy2UO2A5HVZX3cBcgTnifMETILFWzOon5PqVwh4FiADRLDjWaBLAVys-HXdb1m1s31UTpepxmdvMuf1Sm4W7ar97eGpCVnPSLhLQD1RbaqvQMRwfMUa8X1i3DB4zEjLSiR3oQzmMC5Uznj9o529GZqDZ_BJVJyj"/>
+</div>
+<div class="px-3 pb-4">
+<h4 class="font-bold text-lg leading-tight mb-1">Commercial Law</h4>
+<div class="flex items-center gap-2 mb-4">
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-1/3 h-full bg-primary"></div>
+</div>
+<span class="text-xs font-bold">33%</span>
+</div>
+<button class="w-full py-2 bg-white rounded-full text-primary font-bold text-sm shadow-sm">Resume Lecture</button>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="min-w-[280px] bg-surface-container-low rounded-lg p-2 transition-transform hover:scale-[1.02]">
+<div class="h-40 rounded-md overflow-hidden mb-4">
+<img class="w-full h-full object-cover" data-alt="Workspace with a laptop and open notebooks, soft natural morning light, clean and focused study vibe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvE-jaJlQymPy3YKBkTUsHzn7jEWNjI4Fziguwqkj3kp0WQPUOmJForzBywP6xvgqyFEYSEOOmByg7Aqmgh4FQaOuh4rvY99Xbsy9fTURm4cHKXD9y0cfB-Q9f8khCSiU9vcFYos6P0AJK0RyTQRMfeB47UXvmSlNjI4e9Hro6j12KKleWsfBmhe81i2E4IfiJwrRc9yGOVPa16L4k_NHozPKBYz6IuLolSzBZdTGj6m_sv-UvuMI0alME8BWQzfIYNeumdpDwX8jD"/>
+</div>
+<div class="px-3 pb-4">
+<h4 class="font-bold text-lg leading-tight mb-1">Media Studies II</h4>
+<div class="flex items-center gap-2 mb-4">
+<div class="flex-1 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-1/2 h-full bg-primary"></div>
+</div>
+<span class="text-xs font-bold">50%</span>
+</div>
+<button class="w-full py-2 bg-white rounded-full text-primary font-bold text-sm shadow-sm">Resume Lecture</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Tutors of the Week Section -->
+<section class="mb-20">
+<div class="bg-surface-container-low rounded-xl p-8">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+<div>
+<h3 class="font-headline text-2xl font-bold mb-1">Tutors of the Week</h3>
+<p class="text-on-surface-variant">Handpicked experts to help you excel this week.</p>
+</div>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-3 rounded-full font-bold active:scale-95 transition-transform">
+                        Book a Session
+                    </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Tutor Card 1 -->
+<div class="bg-white rounded-lg p-4 flex items-center gap-4 shadow-sm">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a male tutor, smiling, professional studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF-kWivC3cZmHEqRdZa4Zu3lQsCvV-2W4GJQMyu80dPnQJl2oUOp4mwqzLxpt_xArwIOAlRPjn7RThtTPZHX20L6ZWXHh4s7FraZYPq7Wh3GqcztwVfELnXtdsJvoFyv-BMxdGKXgVZmzTfiXA7tLz5_eHws7qVU247KOC-DYZ2K6_q1MkhjaqmyJihkUaji7Zxi-fr1SV1adPtcP2luche3BrR9AcH3p9Br0snLaLJ_LGxs-HZemFzhVNRkC4WtGFUEzfbvWpBzEq"/>
+</div>
+<div>
+<div class="font-bold text-sm">Mandla K.</div>
+<div class="text-xs text-on-surface-variant mb-1">Pure Math Expert</div>
+<span class="bg-tertiary-container/20 text-on-tertiary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase">PRO</span>
+</div>
+</div>
+<!-- Tutor Card 2 -->
+<div class="bg-white rounded-lg p-4 flex items-center gap-4 shadow-sm">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of a female tutor with glasses, academic setting background, soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlx9NiwXz9oOtcx3lLe71frA_R5c1iDtPP3m4MJBnl2v99T-7hxZRFGvcIv6Yp-TEjCKeRv3Zdhgk0T0v7dZAOqCxe627gZURjWRXZFm0u2n17h41wPCihR79yBQbcGagIW1Up4NhUt85jXq5Hqa6vwQW8o44mvPN7S35EWkmEoAcfRmvW5ACUOuhKD-qRcWSjfelDP737GkZX_pNCCIr5yNHOf83i5Blue0EFs8tbDj_KQJB2GZyYRnmrGS9QeFfzxlu2ZOq_q2Er"/>
+</div>
+<div>
+<div class="font-bold text-sm">Nomusa Z.</div>
+<div class="text-xs text-on-surface-variant mb-1">Accounting 1</div>
+<span class="bg-tertiary-container/20 text-on-tertiary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase">TOP RATED</span>
+</div>
+</div>
+<!-- Tutor Card 3 -->
+<div class="bg-white rounded-lg p-4 flex items-center gap-4 shadow-sm">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of a young male tutor, friendly expression, vibrant office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDajqOEb7PlR7AjxX4Qo-nDjXGvhZenrLS86dt8X5VoeWe0KALGMb-Rj7qrhbIUqURRslFKswdKBDlFFgDiHk9BJefUV89Y_SElBRY5_WV6dO1JqR6QS2mWOzfliVJ9DA8CK83uPPB7C8piY0e6lmgIv0clgkSGuTtwgNK2MuUEFvsMLRGU8WPM99DzRZ88bt9GEV6PEhyJx6accN8VSCxHT6y3ITtUjey24aciRRMTkjukkBpOFDMl9UUef3mtbLXEanXgUg4VvVwy"/>
+</div>
+<div>
+<div class="font-bold text-sm">Kabelo S.</div>
+<div class="text-xs text-on-surface-variant mb-1">Physics &amp; Chem</div>
+<span class="bg-tertiary-container/20 text-on-tertiary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase">NEW STAR</span>
+</div>
+</div>
+<!-- Tutor Card 4 -->
+<div class="bg-white rounded-lg p-4 flex items-center gap-4 shadow-sm">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of a professional female tutor, soft natural lighting, creative studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmLlqazeqlOtq5TBYhOKFA0UnSHISAyPwbboXAKL2kgblypD8CD9TjgxkllhfGtzQ7hBujf3KDdT_ztvyeSVUaz24WbRzt-oPlIMcFHdq2dVDA-clGqpbUFtXebYLniiJjvIKr_slG1IPK3egLZiiJE6ExttvBh584nmrhHPNC7yuV8X7ODlhzSsZpEzfnZsXIgTyHCIr3UcpnzvRoQfeF8ZONj1yevg3ul05PdX9hyqU16pJ1w_7klsU4uBmPGZ_7B1ts8r-SQaTS"/>
+</div>
+<div>
+<div class="font-bold text-sm">Lerato M.</div>
+<div class="text-xs text-on-surface-variant mb-1">Philosophy</div>
+<span class="bg-tertiary-container/20 text-on-tertiary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase">PRO</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 pb-6 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl shadow-[0_-20px_40px_rgba(0,0,0,0.08)] rounded-t-[3rem]">
+<a class="flex flex-col items-center justify-center bg-blue-600 dark:bg-blue-500 text-white rounded-full p-3 mb-1 transform -translate-y-2 transition-all scale-110 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 p-2 hover:text-blue-500 dark:hover:text-blue-300 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Study</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 p-2 hover:text-blue-500 dark:hover:text-blue-300 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Classroom</span>
+</a>
+<a class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 p-2 hover:text-blue-500 dark:hover:text-blue-300 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[11px] font-bold uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button - Supressed as per Shell Visibility rules for home dashboard focusing on content flow, but including if primary action aligns. 
+         Actually, the Design System says FABs are contextual. 'Study' is the focus here, but the bottom nav serves the main flow. 
+         Suppressing FAB to keep the clean 'BottomNavBar' aesthetic intact. -->
+</body></html>

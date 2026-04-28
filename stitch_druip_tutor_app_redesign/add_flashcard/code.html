@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#fff1db",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "on-surface": "#2c2f30",
+                    "error-dim": "#9f0519",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "surface-container-low": "#eff1f2",
+                    "on-tertiary-fixed": "#340800",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "error-container": "#fb5151",
+                    "surface-tint": "#0058bb",
+                    "on-tertiary-container": "#601500",
+                    "surface": "#f5f6f7",
+                    "surface-container": "#e6e8ea",
+                    "outline-variant": "#abadae",
+                    "inverse-on-surface": "#9b9d9e",
+                    "on-primary-container": "#00214f",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-error-container": "#570008",
+                    "secondary-dim": "#664b00",
+                    "primary-container": "#6c9fff",
+                    "on-primary-fixed": "#000000",
+                    "secondary": "#755700",
+                    "primary": "#0058bb",
+                    "on-secondary-fixed": "#443100",
+                    "on-tertiary": "#ffefeb",
+                    "background": "#f5f6f7",
+                    "surface-container-high": "#e0e3e4",
+                    "on-error": "#ffefee",
+                    "surface-dim": "#d1d5d7",
+                    "surface-container-highest": "#dadddf",
+                    "primary-fixed": "#6c9fff",
+                    "on-surface-variant": "#595c5d",
+                    "tertiary-fixed": "#ff9475",
+                    "secondary-container": "#ffca4d",
+                    "on-background": "#2c2f30",
+                    "on-primary": "#f0f2ff",
+                    "tertiary": "#ab2d00",
+                    "inverse-primary": "#4b8eff",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "secondary-fixed": "#ffca4d",
+                    "primary-dim": "#004ca4",
+                    "tertiary-container": "#ff9475",
+                    "primary-fixed-dim": "#5191ff",
+                    "on-secondary-container": "#5c4400",
+                    "outline": "#757778",
+                    "surface-variant": "#dadddf",
+                    "surface-bright": "#f5f6f7",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#b31b25",
+                    "tertiary-dim": "#962700",
+                    "inverse-surface": "#0c0f10"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container flex items-center justify-center">
+<img alt="Student Profile Picture" class="w-full h-full object-cover" data-alt="Student Profile Picture of a young man smiling in a vibrant campus setting with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABFyj2a97MtHy7dPqCdqTm9FpjjzSe9iKFlRPGxPi8C08oYepUBM_sglnnoqqOT5FLK1ngQp4BDX6uI9fMMeliGZQfPqKufikaDsCusDyTkvvSzYOjLYlL2Bkv7isnuCvi0hPpdkFrMvxG7TahpDO6jrDeAQrm45TbAarSL_P0xyM-0CTJPB3vE9KpEWEA1jYBPzt1U1zyCZWVW2zqqUwfQvvZjTH5-RjsPF9hEMZkFp74SnvIsO5JU8leeCULB3UtILMgTY6KIn4K"/>
+</div>
+<span class="text-2xl font-headline font-bold tracking-tight text-blue-700 dark:text-blue-300 italic">Druip</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 hover:bg-slate-200/50 transition-colors px-3 py-1 rounded-full font-label text-sm tracking-wide" href="#">Dashboard</a>
+<a class="text-blue-600 dark:text-blue-400 font-bold px-3 py-1 rounded-full font-label text-sm tracking-wide" href="#">Flashcards</a>
+<a class="text-slate-500 hover:bg-slate-200/50 transition-colors px-3 py-1 rounded-full font-label text-sm tracking-wide" href="#">Tutors</a>
+</div>
+<button class="text-blue-600 dark:text-blue-400 hover:bg-slate-200/50 transition-colors p-2 rounded-full Active: scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-5xl mx-auto px-6 py-12 pb-32">
+<!-- Header Section -->
+<section class="mb-12">
+<h1 class="font-headline text-5xl md:text-6xl font-extrabold tracking-tight text-on-surface mb-4">
+                Add <span class="text-primary italic">Flashcard</span>
+</h1>
+<p class="font-body text-on-surface-variant text-lg max-w-2xl">
+                Break down complex BSc Computer Science concepts into digestible bites. Momentum is built one card at a time.
+            </p>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Editor Canvas -->
+<div class="lg:col-span-7 space-y-8">
+<div class="bg-surface-container-low p-8 rounded-xl">
+<!-- Front Side Input -->
+<div class="mb-10">
+<label class="block font-headline text-on-surface-variant font-bold text-sm tracking-widest uppercase mb-4 px-2">Front Side (Concept)</label>
+<div class="bg-surface-container-lowest rounded-lg p-1 transition-all focus-within:ring-2 focus-within:ring-primary/20">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-xl font-body p-6 min-h-[160px] resize-none placeholder:text-outline-variant" placeholder="e.g. What is the time complexity of QuickSort in the average case?"></textarea>
+</div>
+</div>
+<!-- Back Side Input -->
+<div>
+<label class="block font-headline text-on-surface-variant font-bold text-sm tracking-widest uppercase mb-4 px-2">Back Side (Definition)</label>
+<div class="bg-surface-container-lowest rounded-lg p-1 transition-all focus-within:ring-2 focus-within:ring-primary/20">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-lg font-body p-6 min-h-[220px] resize-none placeholder:text-outline-variant" placeholder="e.g. O(n log n). The algorithm uses a divide-and-conquer strategy by picking a pivot."></textarea>
+</div>
+</div>
+</div>
+<!-- Action Controls -->
+<div class="flex flex-col sm:flex-row gap-4 items-center">
+<button class="w-full sm:w-auto px-10 py-5 bg-gradient-to-br from-primary to-primary-container text-white font-headline font-extrabold text-lg rounded-full shadow-lg hover:shadow-primary/20 transition-all active:scale-95">
+                        Add Card
+                    </button>
+<button class="w-full sm:w-auto px-10 py-5 bg-surface-container-high text-on-surface font-headline font-bold text-lg rounded-full hover:bg-surface-dim transition-all active:scale-95">
+                        Preview
+                    </button>
+</div>
+</div>
+<!-- Meta & Sidebar -->
+<aside class="lg:col-span-5 space-y-8">
+<!-- Difficulty Selection -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
+<h3 class="font-headline text-xl font-extrabold mb-6">Difficulty Level</h3>
+<div class="flex flex-wrap gap-3">
+<button class="flex-1 flex flex-col items-center gap-2 p-4 rounded-lg bg-surface-container transition-all hover:bg-secondary-container/20 border-2 border-transparent focus:border-secondary focus:bg-secondary-container/10 group">
+<span class="material-symbols-outlined text-slate-400 group-focus:text-secondary" data-icon="sentiment_satisfied">sentiment_satisfied</span>
+<span class="font-label text-[10px] font-black uppercase tracking-tighter">Easy</span>
+</button>
+<button class="flex-1 flex flex-col items-center gap-2 p-4 rounded-lg bg-secondary-container text-on-secondary-container border-2 border-secondary group">
+<span class="material-symbols-outlined" data-icon="sentiment_neutral">sentiment_neutral</span>
+<span class="font-label text-[10px] font-black uppercase tracking-tighter">Medium</span>
+</button>
+<button class="flex-1 flex flex-col items-center gap-2 p-4 rounded-lg bg-surface-container transition-all hover:bg-tertiary-container/20 border-2 border-transparent focus:border-tertiary focus:bg-tertiary-container/10 group">
+<span class="material-symbols-outlined text-slate-400 group-focus:text-tertiary" data-icon="sentiment_very_dissatisfied">sentiment_very_dissatisfied</span>
+<span class="font-label text-[10px] font-black uppercase tracking-tighter">Hard</span>
+</button>
+</div>
+</div>
+<!-- Deck Info Card -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<div class="h-32 w-full relative">
+<img class="w-full h-full object-cover grayscale opacity-50" data-alt="abstract tech visualization with glowing blue circuits and lines on a dark background representing data and algorithms" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsIO7-HEJk6FRBdsopEaUll0P0G8CoUmK44w2uK4OJHhMb3HJzfeBHRatMKjFLSwBLiab3gw5Mi92uPX-PhhO5wMQnSCJQ1iaN3kHE-EEM6N3XA72Z6BIlfq1wmD-qDiViVBzPxpVY7Vi3NaN8VHITVa8JpiPOiOsSgO5g1el2N1IpoJ4ar0OyIjFEDAvm5rukUE01z_XKfXYVIlkWTqKKWH-edEjT1JGwuI5AvCKS1vMuy2oA5hlv-3MSNSo4UyrcZcYtxCsuyfqB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+</div>
+<div class="p-8 -mt-12 relative z-10">
+<span class="inline-block px-3 py-1 bg-tertiary-container text-on-tertiary-container rounded-full text-[10px] font-black uppercase tracking-widest mb-4">Deck Info</span>
+<h4 class="font-headline text-2xl font-extrabold mb-2">Algorithms 101</h4>
+<div class="space-y-3">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-on-surface-variant text-sm font-medium">Cards in Deck</span>
+<span class="font-headline font-bold text-primary">42</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<span class="text-on-surface-variant text-sm font-medium">Last Modified</span>
+<span class="text-on-surface text-sm">2 hours ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tip Card -->
+<div class="bg-secondary text-on-secondary p-8 rounded-xl flex gap-6">
+<div class="flex-shrink-0">
+<span class="material-symbols-outlined text-4xl" data-icon="lightbulb" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div>
+<p class="font-body font-bold leading-snug">
+                            "Keep your flashcards atomic. One question, one answer. Momentum comes from quick wins!"
+                        </p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- NavigationDrawer (Suppressed on this task-focused screen) -->
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 pb-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-[0_-20px_40px_rgba(0,0,0,0.08)] rounded-t-[3rem]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-600 dark:bg-blue-500 text-white rounded-full p-3 mb-2 scale-110 shadow-lg Active: scale-90 transition-all cubic-bezier(0.34, 1.56, 0.64, 1)" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Tools</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

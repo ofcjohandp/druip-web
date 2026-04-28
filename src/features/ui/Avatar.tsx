@@ -38,6 +38,6 @@ const styles = StyleSheet.create({
   },
   initialsText: {
     color: COLORS.textOnAccent,
-    fontWeight: '600',
+    fontFamily: 'Nunito_600SemiBold',
   },
 });

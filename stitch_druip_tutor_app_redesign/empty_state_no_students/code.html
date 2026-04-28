@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary": "#fff1db",
+                    "tertiary-fixed-dim": "#ff7d57",
+                    "on-surface": "#2c2f30",
+                    "error-dim": "#9f0519",
+                    "on-secondary-fixed-variant": "#674c00",
+                    "surface-container-low": "#eff1f2",
+                    "on-tertiary-fixed": "#340800",
+                    "on-tertiary-fixed-variant": "#6f1a00",
+                    "error-container": "#fb5151",
+                    "surface-tint": "#0058bb",
+                    "on-tertiary-container": "#601500",
+                    "surface": "#f5f6f7",
+                    "surface-container": "#e6e8ea",
+                    "outline-variant": "#abadae",
+                    "inverse-on-surface": "#9b9d9e",
+                    "on-primary-container": "#00214f",
+                    "on-primary-fixed-variant": "#002a61",
+                    "on-error-container": "#570008",
+                    "secondary-dim": "#664b00",
+                    "primary-container": "#6c9fff",
+                    "on-primary-fixed": "#000000",
+                    "secondary": "#755700",
+                    "primary": "#0058bb",
+                    "on-secondary-fixed": "#443100",
+                    "on-tertiary": "#ffefeb",
+                    "background": "#f5f6f7",
+                    "surface-container-high": "#e0e3e4",
+                    "on-error": "#ffefee",
+                    "surface-dim": "#d1d5d7",
+                    "surface-container-highest": "#dadddf",
+                    "primary-fixed": "#6c9fff",
+                    "on-surface-variant": "#595c5d",
+                    "tertiary-fixed": "#ff9475",
+                    "secondary-container": "#ffca4d",
+                    "on-background": "#2c2f30",
+                    "on-primary": "#f0f2ff",
+                    "tertiary": "#ab2d00",
+                    "inverse-primary": "#4b8eff",
+                    "secondary-fixed-dim": "#f7ba00",
+                    "secondary-fixed": "#ffca4d",
+                    "primary-dim": "#004ca4",
+                    "tertiary-container": "#ff9475",
+                    "primary-fixed-dim": "#5191ff",
+                    "on-secondary-container": "#5c4400",
+                    "outline": "#757778",
+                    "surface-variant": "#dadddf",
+                    "surface-bright": "#f5f6f7",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#b31b25",
+                    "tertiary-dim": "#962700",
+                    "inverse-surface": "#0c0f10"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #f5f6f7;
+        }
+        .font-display { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col overflow-x-hidden">
+<!-- TopAppBar -->
+<nav class="bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-container flex items-center justify-center">
+<img alt="Student Profile Picture" class="w-full h-full object-cover" data-alt="Professional portrait of a young South African tutor with friendly expression in a modern sunlit office space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4e1jhNi0geQCrktEK9lyaQebTIv_CKaUoIpFfLk8NDunX8rq9U3VUCdflQdDojfQEP0iWURCYK6nPBIOTTUHu0C61YQBvcvuoP1GJNDYde7cgc29iJokZx0Ut9sbOCLEzVUL254FaiLIUwUmOsuz5_Ie2Wp7qqtZTvpZbfnun9CP_kt2v1YVhzaz03UBbB-rDRW5VETu4ceVNsZXEnM3IOak32TjAGcCv8NwAgPtO0R6YbojYxyQA3APRALigq-5PopbM1MDEjXn9"/>
+</div>
+<h1 class="Druip text-2xl font-display text-blue-700 dark:text-blue-300 italic font-bold tracking-tight">Druip</h1>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-blue-600 dark:text-blue-400 font-bold font-['Plus_Jakarta_Sans'] transition-transform active:scale-95" href="#">Home</a>
+<a class="text-slate-500 dark:text-slate-400 font-['Plus_Jakarta_Sans'] hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors" href="#">Sessions</a>
+<a class="text-slate-500 dark:text-slate-400 font-['Plus_Jakarta_Sans'] hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors" href="#">Messages</a>
+</div>
+<button class="material-symbols-outlined text-blue-600 dark:text-blue-400 p-2 rounded-full hover:bg-slate-200/50 transition-colors">notifications</button>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-6 py-12 md:py-24 max-w-7xl mx-auto w-full relative">
+<!-- Asymmetric Background Decorative Elements -->
+<div class="absolute top-20 right-[-5%] w-96 h-96 bg-secondary-container opacity-20 rounded-full blur-[100px] -z-10"></div>
+<div class="absolute bottom-10 left-[-5%] w-80 h-80 bg-primary-container opacity-10 rounded-full blur-[80px] -z-10"></div>
+<!-- Empty State Container: Surface Hierarchy Applied -->
+<div class="w-full max-w-4xl bg-surface-container-low rounded-xl p-1 md:p-1.5 overflow-hidden">
+<div class="bg-surface-container-lowest rounded-xl px-8 py-16 md:py-24 flex flex-col items-center text-center relative overflow-hidden">
+<!-- Graphic Element -->
+<div class="relative mb-10">
+<div class="w-48 h-48 md:w-64 md:h-64 rounded-xl bg-surface-container flex items-center justify-center overflow-hidden relative">
+<img alt="Classroom Visual" class="w-full h-full object-cover opacity-80" data-alt="Modern collaborative university workspace with empty sleek wooden desks and vibrant orange and blue chairs in soft focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEHj6UbukSxtPBf5sSTfQ3WmhfdbqYDQVNRb864BMvTDr_dLfJgNE3HcUnvQlwd8FvTwe2neKxvBIbTxHx2dQykbSEp6thc0ROrCUjDC0iBPxo0W2slXD8p_aLn3i5RdXMqEUOlg7ZMHBDj7K8AYIUkiR4E-Q0UtaBiggJj6cWvVVk85XDtq55mGeL-p-x_hfMgMvoZwrzL6JFYqW6AAcTScJtfQwURVy8Q1jgeYNCOuq0XVlFYM-nAnEYG35ihhT8qIz0iBjSSCc8"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/40 to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-6xl md:text-8xl drop-shadow-lg">school</span>
+</div>
+</div>
+<!-- Asymmetric Floating Chip -->
+<div class="absolute -bottom-4 -right-4 bg-tertiary-container text-on-tertiary-container px-6 py-3 rounded-lg shadow-lg font-bold rotate-3">
+                        New Semester Ready
+                    </div>
+</div>
+<!-- Text Content: Editorial Authority Typography -->
+<h2 class="font-headline text-3xl md:text-5xl font-extrabold text-on-surface mb-6 max-w-2xl leading-tight">
+                    Your classroom is ready!
+                </h2>
+<p class="font-body text-lg md:text-xl text-on-surface-variant max-w-xl mb-12 leading-relaxed">
+                    Share your link to welcome your first scholars. Your expertise is the catalyst they've been waiting for.
+                </p>
+<!-- CTA: Kinetic Pill -->
+<div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-10 py-5 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-3 group">
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">share</span>
+                        Share Link
+                    </button>
+<button class="bg-surface-container-high text-primary px-10 py-5 rounded-full font-bold text-lg hover:bg-surface-container-highest transition-colors active:scale-95">
+                        Tutor Dashboard
+                    </button>
+</div>
+<!-- Decorative Subtle Label -->
+<div class="mt-16 pt-8 border-t border-outline-variant/10 w-full">
+<p class="font-label text-slate-400 uppercase tracking-widest text-xs">Empowering the next generation of leaders</p>
+</div>
+</div>
+</div>
+<!-- Featured Section (Bento Lite) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mt-12 md:mt-24">
+<div class="md:col-span-2 bg-surface-container-low rounded-lg p-8 flex flex-col justify-between min-h-[300px] relative overflow-hidden group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary text-4xl mb-4">rocket_launch</span>
+<h3 class="font-headline text-2xl font-bold mb-2">Growth Tracking</h3>
+<p class="text-on-surface-variant max-w-sm">Detailed analytics on how your students are performing and where they need your help most.</p>
+</div>
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<img class="w-full h-full object-cover" data-alt="Digital dashboard interface showing vibrant growth charts and data visualization in a high-tech clean aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYGBsL8G9Fd40K73EWsBg3EA9yWfHriyeyLxpW9iMliuSlWDIHejQ-1JL4ODTxYUyjxlomC3PrDfib9UkbYvykoTQNVkjyGR_l90C4218tHKQIfz0Ke6aSgFIR1cAQQ5FxaF9VORkgszs7FFTkpI0-b2y1ULBIhXS42bzT4pL3CHkyFaCeEfPqHduUdwIhJIqLueWkGlFYc7Zm_9w-5yDIKAqW22dzbgyarGM8NJiTIhR_9FM77EBbQaV3nYgAGyQSNbgbI4uLqf2v"/>
+</div>
+</div>
+<div class="bg-secondary-container text-on-secondary-container rounded-lg p-8 flex flex-col justify-between">
+<div>
+<h3 class="font-headline text-2xl font-bold mb-2">Student Insights</h3>
+<p class="font-body text-sm opacity-90">Personalize your teaching style based on real-time feedback and engagement scores.</p>
+</div>
+<div class="mt-8 flex -space-x-4">
+<div class="w-12 h-12 rounded-full border-4 border-secondary-container bg-surface-container-low overflow-hidden">
+<img alt="Avatar" data-alt="Portrait of a focused student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkBtjIWbQvncKZ0KFn1Rg3AkUokKuDRlog9EgnY8fVSkxtToN4HBmD39W-jdlw-Fb_QQninPQC3gs677OoJpR18Meeq_NcSqjftK8S3TwbUu949vpm5ycNk8a7yBHujUnD5bPKwhuqpIKgXM7uIwUzWDPmQ6Ep_LvbIgotA-EAYyO9Cq9GGqkum3n6YJsfz5Qvce8Tt5Hqfa0CvLz4MCpQ7mO3VzV-wt-E-iHLj61fNR71YUKoWbeqdHAQ60ITQ7GKeZofqGyByL_5"/>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-secondary-container bg-surface-container-low overflow-hidden">
+<img alt="Avatar" data-alt="Portrait of a young learner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtQkGV6-TWWwZR1zcXhEzyqFx6GLsMmZ7A0UpHCsaV06s8Iko32Daqv-8KYRibwu7Pr1dQfeABsVM6jRjxnmole9ksuRMxPWxwqUz-QJRuGoy7inejl8fRC-9mpaKUNLkLQXpRVQYYd14C-r2dbgeYqT-2M2cvz9tPYP-4W-qoJg9ugpBjAoQWQW_8D3GhdQtK1-H83sDmAKbFevrc4FCE1r5GDXtH42p_pgWxlEpKbu5t5puzEmql-ghmGrYFXxkt3hhobTmwDsCG"/>
+</div>
+<div class="w-12 h-12 rounded-full border-4 border-secondary-container bg-surface-container-low flex items-center justify-center font-bold text-xs">+42</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-end px-4 pb-6 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-20px_40px_rgba(0,0,0,0.08)] md:hidden">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-600 dark:bg-blue-500 text-white rounded-full p-3 mb-2 scale-110 shadow-lg transition-all cubic-bezier(0.34, 1.56, 0.64, 1) active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Profile</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500" href="#">
+<span class="material-symbols-outlined">event_available</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Sessions</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Messages</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 p-2 hover:text-blue-500" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-['Be_Vietnam_Pro'] text-[10px] uppercase tracking-widest font-bold mt-1">Tools</span>
+</a>
+</nav>
+<!-- NavigationDrawer (Large Screen Hover Hidden State) -->
+<aside class="fixed inset-y-0 left-0 w-80 z-[60] p-8 bg-slate-50 dark:bg-slate-950 rounded-r-[3rem] h-full shadow-2xl transition-transform -translate-x-full lg:translate-x-0 hidden lg:block">
+<div class="flex items-center gap-4 mb-12">
+<div class="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Tutor avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMYxZYKkSBDWGv9igtbBz3f3xxr-3hdUNoC9yBITgMLKDXWgge2fMv3cAt0MhI3sfpHNbX8YhRvqMq8Arq9e_KXMvj5f4niY0dxum2Iu-gGfyVxVVCIRjOh99-ozyjyObzJCadxXgn4yt3f6psjBDkOdX6pupzJzWlssJ9qSwZVv9Vx_3GHhVTVWw9Sjy1msf8RVRue3CHRR0J4COeUUYNQZtMZaD7WnL1C8BEqLjHDV5sCt2cCnuyemi4UdTO_R2rbVs76WregI_k"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-lg text-blue-600">Thabo Mokoena</h4>
+<p class="font-body text-xs text-slate-500">BSc Computer Science</p>
+</div>
+</div>
+<nav class="flex flex-col gap-y-4">
+<a class="flex items-center gap-4 p-4 text-slate-600 hover:bg-slate-200 rounded-full transition-transform hover:translate-x-2 group" href="#">
+<span class="material-symbols-outlined text-blue-600">search</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium">Find Tutors</span>
+</a>
+<a class="flex items-center gap-4 p-4 bg-yellow-400 text-slate-900 font-bold rounded-full transition-transform hover:translate-x-2 scale-98" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-['Plus_Jakarta_Sans']">Study Groups</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-slate-600 hover:bg-slate-200 rounded-full transition-transform hover:translate-x-2" href="#">
+<span class="material-symbols-outlined text-blue-600">payments</span>
+<span class="font-['Plus_Jakarta_Sans']">Payment History</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-slate-600 hover:bg-slate-200 rounded-full transition-transform hover:translate-x-2" href="#">
+<span class="material-symbols-outlined text-blue-600">support_agent</span>
+<span class="font-['Plus_Jakarta_Sans']">Help Center</span>
+</a>
+</nav>
+<div class="absolute bottom-12 left-8 right-8">
+<div class="bg-primary p-6 rounded-lg text-white">
+<p class="font-headline font-bold mb-2">Pro Tip</p>
+<p class="text-xs opacity-80 leading-relaxed">Active tutors earn 25% more when they respond within 30 mins.</p>
+</div>
+</div>
+</aside>
+</body></html>
