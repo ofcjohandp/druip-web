@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Shell } from '@/components/druip/shell'
@@ -11,6 +11,10 @@ import type { Pack } from '@/components/druip/ui'
 const VALID_TONES = ['sage', 'gold', 'turquoise', 'coral', 'cream'] as const
 
 export default function LibraryPage() {
+  return <Suspense><LibraryInner /></Suspense>
+}
+
+function LibraryInner() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const initialTab = searchParams.get('tab') === 'saved' ? 'saved' : 'mine'
