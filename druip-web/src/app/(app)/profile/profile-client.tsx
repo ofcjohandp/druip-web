@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Shell } from '@/components/druip/shell'
@@ -23,13 +23,35 @@ interface Props {
   lastName: string
   email: string
   university: string
+  roles: string[]
   listings: Listing[]
   salesCount: number
 }
 
-export default function ProfileClient({ firstName, lastName, email, university, listings, salesCount }: Props) {
+const ROLE_TONES: Record<string, 'white' | 'gold' | 'turquoise' | 'sage'> = {
+  Student: 'white',
+  Lecturer: 'gold',
+  Teacher: 'turquoise',
+  Scholar: 'sage',
+}
+
+const AVATAR_TONES = ['sage', 'gold', 'turquoise', 'coral'] as const
+type AvatarTone = typeof AVATAR_TONES[number]
+
+export default function ProfileClient({ firstName, lastName, email, university, roles, listings, salesCount }: Props) {
   const router = useRouter()
   const [tab, setTab] = useState<'listings' | 'reviews' | 'settings'>('listings')
+  const [avatarTone, setAvatarTone] = useState<AvatarTone>('sage')
+
+  useEffect(() => {
+    const stored = localStorage.getItem('druip_avatar_tone') as AvatarTone | null
+    if (stored && (AVATAR_TONES as readonly string[]).includes(stored)) setAvatarTone(stored)
+  }, [])
+
+  function pickAvatarTone(tone: AvatarTone) {
+    setAvatarTone(tone)
+    localStorage.setItem('druip_avatar_tone', tone)
+  }
 
   async function signOut() {
     const supabase = createClient()
@@ -39,22 +61,36 @@ export default function ProfileClient({ firstName, lastName, email, university, 
   }
 
   const publishedListings = listings.filter(l => l.status === 'published')
+  const displayRoles = roles.length > 0 ? roles : ['Student']
 
   return (
     <Shell title="You" sticky>
       <section style={{ padding: '8px 20px 20px' }}>
         <div style={{ background: 'linear-gradient(140deg, var(--cream-warm) 0%, var(--gold-soft) 100%)', borderRadius: 28, padding: 22, position: 'relative', overflow: 'hidden' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            <Avatar name={firstName} tone="sage" size={64}/>
+            <Avatar name={firstName} tone={avatarTone} size={64}/>
             <div style={{ flex: 1 }}>
               <h1 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 22, lineHeight: 1.1, letterSpacing: '-.02em', margin: 0, color: 'var(--charcoal)' }}>{firstName} {lastName}</h1>
               <div style={{ fontSize: 12, color: 'var(--charcoal-soft)', marginTop: 4 }}>{university}</div>
-              <div style={{ display: 'flex', gap: 6, marginTop: 8 }}>
-                <Chip tone="white" size="sm"><Icon.shield size={10}/> Student</Chip>
+              <div style={{ display: 'flex', gap: 6, marginTop: 8, flexWrap: 'wrap' }}>
+                {displayRoles.map(r => (
+                  <Chip key={r} tone={ROLE_TONES[r] || 'white'} size="sm">
+                    <Icon.shield size={10}/> {r}
+                  </Chip>
+                ))}
               </div>
             </div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 18 }}>
+
+          <div style={{ display: 'flex', gap: 8, marginTop: 14, alignItems: 'center' }}>
+            <span style={{ fontSize: 10, color: 'var(--charcoal-soft)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.05em', marginRight: 2 }}>Colour</span>
+            {AVATAR_TONES.map(t => (
+              <button key={t} onClick={() => pickAvatarTone(t)}
+                style={{ width: 22, height: 22, borderRadius: '50%', background: `var(--${t})`, border: `2.5px solid ${avatarTone === t ? 'var(--charcoal)' : 'transparent'}`, outline: avatarTone === t ? '1.5px solid rgba(255,255,255,0.7)' : 'none', outlineOffset: -4, cursor: 'pointer', padding: 0, transition: 'border-color 200ms', flexShrink: 0 }}/>
+            ))}
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 16 }}>
             {[
               { n: String(salesCount), l: 'Sales' },
               { n: '-', l: 'Rating' },
@@ -124,6 +160,7 @@ export default function ProfileClient({ firstName, lastName, email, university, 
       {tab === 'settings' && (
         <section style={{ padding: '14px 0' }}>
           <div style={{ background: 'var(--white)', margin: '0 16px 12px', borderRadius: 20, border: '1px solid var(--hairline)', overflow: 'hidden' }}>
+            <ListRow icon={<Icon.zap size={18}/>} label="Earnings" sub="View sales and cash out" onClick={() => router.push('/earnings')}/>
             <ListRow icon={<Icon.user size={18}/>} label="Personal info" sub={email}/>
             <ListRow icon={<Icon.card size={18}/>} label="Payout method" sub="Not set up yet"/>
             <ListRow icon={<Icon.shield size={18}/>} label="Verification" sub={university} right={<Chip tone="sage" size="sm">Active</Chip>}/>

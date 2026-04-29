@@ -37,6 +37,23 @@ export default function EarningsPage() {
           </div>
         </section>
 
+        {/* Wallet top-up */}
+        <section style={{ padding: '0 20px 20px' }}>
+          <div style={{ background: 'var(--gold-soft)', borderRadius: 24, padding: '16px 20px', display: 'flex', alignItems: 'center', gap: 14 }}>
+            <div style={{ width: 44, height: 44, borderRadius: 14, background: 'var(--gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <Icon.card size={20}/>
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--charcoal)' }}>Top up your wallet</div>
+              <div style={{ fontSize: 12, color: 'var(--charcoal-soft)', marginTop: 2 }}>Ask a parent or guardian to load funds for you.</div>
+            </div>
+            <button onClick={() => setToast({ tone: 'gold', msg: 'Top-up links coming soon.' })}
+              style={{ padding: '8px 16px', background: 'var(--gold)', border: 'none', borderRadius: 999, fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 12, color: 'var(--charcoal)', cursor: 'pointer', flexShrink: 0 }}>
+              Top up
+            </button>
+          </div>
+        </section>
+
         {/* Range picker */}
         <section style={{ padding: '0 20px 16px' }}>
           <div style={{ display: 'flex', gap: 6, padding: 4, background: 'var(--cream-warm)', borderRadius: 14 }}>
