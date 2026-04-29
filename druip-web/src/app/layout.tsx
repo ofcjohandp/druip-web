@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Druip — Study to make money",
-  description: "Buy and sell notes, past papers and cheat sheets — student to student. Your varsity grind, finally paying you back.",
+  title: "Druip: Study to make money",
+  description: "Buy and sell notes, past papers and cheat sheets - student to student. Your varsity grind, finally paying you back.",
 };
 
 export default function RootLayout({

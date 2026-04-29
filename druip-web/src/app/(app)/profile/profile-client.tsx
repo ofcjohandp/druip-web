@@ -57,7 +57,7 @@ export default function ProfileClient({ firstName, lastName, email, university, 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 18 }}>
             {[
               { n: String(salesCount), l: 'Sales' },
-              { n: '—', l: 'Rating' },
+              { n: '-', l: 'Rating' },
               { n: String(publishedListings.length), l: 'Listings' },
             ].map((s, i) => (
               <div key={i} style={{ background: 'rgba(255,255,255,0.55)', borderRadius: 14, padding: '10px 8px', textAlign: 'center', backdropFilter: 'blur(8px)' }}>

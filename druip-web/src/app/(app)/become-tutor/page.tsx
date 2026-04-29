@@ -189,7 +189,7 @@ export default function BecomeTutorPage() {
                   className="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-3 font-body text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary transition resize-none"
                 />
                 <p className="font-label text-xs text-on-surface-variant mt-1">
-                  {bio.length} characters — aim for at least 150 for a strong profile
+                  {bio.length} characters - aim for at least 150 for a strong profile
                 </p>
               </div>
 
@@ -215,7 +215,7 @@ export default function BecomeTutorPage() {
               Launch your <span className="text-primary italic">Digital Classroom</span>
             </h1>
             <p className="text-on-surface-variant mb-8">
-              Set up your first classroom — you can always create more later.
+              Set up your first classroom - you can always create more later.
             </p>
 
             <div className="flex flex-col gap-5">
@@ -266,7 +266,7 @@ export default function BecomeTutorPage() {
                     type="text"
                     value={moduleCode}
                     onChange={(e) => setModuleCode(e.target.value)}
-                    placeholder="e.g. FISI 111 — Human Physiology"
+                    placeholder="e.g. FISI 111 - Human Physiology"
                     className="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-3 font-body text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary transition"
                   />
                 </div>
