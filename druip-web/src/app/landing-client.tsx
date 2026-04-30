@@ -12,7 +12,7 @@ export default function LandingClient() {
       {/* Top bar */}
       <header style={{ position: 'sticky', top: 0, zIndex: 30, background: 'rgba(250,247,242,.85)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', padding: '14px 20px' }}>
         <div style={{ maxWidth: 720, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 24, color: 'var(--sage)', letterSpacing: '-.02em' }}>druip</span>
+          <img src="/logo.png" alt="Druip" style={{ height: 40, width: 'auto', display: 'block' }} />
           <Button variant="ghost" size="sm" onClick={() => router.push('/sign-in')}>Sign in</Button>
         </div>
       </header>
