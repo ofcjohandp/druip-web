@@ -28,10 +28,10 @@ export default function LandingClient() {
             Study to <span style={{ color: 'var(--sage)' }}>make money.</span>
           </h1>
           <p style={{ fontSize: 16, lineHeight: 1.5, color: 'var(--charcoal-soft)', margin: '0 0 24px', maxWidth: 320 }}>
-            Buy and sell notes, past papers and cheat sheets — student to student. Your varsity grind, finally paying you back.
+            Buy and sell notes, past papers and cheat sheets - student to student. Your varsity grind, finally paying you back.
           </p>
           <div style={{ display: 'flex', gap: 10, marginBottom: 18, flexWrap: 'wrap' }}>
-            <Button variant="primary" size="lg" onClick={() => router.push('/sign-up')}>Get started — free</Button>
+            <Button variant="primary" size="lg" onClick={() => router.push('/sign-up')}>Get started - free</Button>
             <Button variant="ghost" size="lg" onClick={() => router.push('/sign-in')}>I have an account</Button>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: 'var(--fg-muted)' }}>
@@ -61,7 +61,7 @@ export default function LandingClient() {
             {[
               { name: 'Lerato, 3rd-year Physio', tone: 'sage', q: 'I made R 1,420 last month from FISI notes I already had. Honestly mad.' },
               { name: 'Karabo, 2nd-year Med', tone: 'gold', q: 'Anatomy past papers all in one place. Saved me a full weekend before exams.' },
-              { name: 'Nadia, 4th-year Health Sci', tone: 'turquoise', q: "I sell flashcards while I study. The streak keeps me consistent — wild combo." },
+              { name: 'Nadia, 4th-year Health Sci', tone: 'turquoise', q: "I sell flashcards while I study. The streak keeps me consistent - wild combo." },
             ].map((t, i) => (
               <div key={i} style={{ background: 'var(--white)', borderRadius: 24, padding: 18, border: '1px solid var(--hairline)' }}>
                 <div style={{ fontSize: 22, fontFamily: 'Fraunces, serif', color: 'var(--gold)', lineHeight: 0.5, marginBottom: 4 }}>"</div>
@@ -85,7 +85,7 @@ export default function LandingClient() {
             {[
               { n: '01', tone: 'sage', icon: <Icon.upload size={22}/>, t: 'Upload your notes', s: 'Snap your hand-written pages or upload your PDFs. Set a price in rands.' },
               { n: '02', tone: 'gold', icon: <Icon.zap size={22}/>, t: 'Other students buy', s: 'Your notes show up in their faculty feed. They pay, you get paid.' },
-              { n: '03', tone: 'turquoise', icon: <Icon.card size={22}/>, t: 'Cash out to your bank', s: 'Withdraw to Capitec, FNB, ABSA, anything — typically same day.' },
+              { n: '03', tone: 'turquoise', icon: <Icon.card size={22}/>, t: 'Cash out to your bank', s: 'Withdraw to Capitec, FNB, ABSA, anything - typically same day.' },
             ].map((s, i) => (
               <div key={i} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
                 <div style={{ width: 50, height: 50, borderRadius: 16, background: `var(--${s.tone}-soft)`, color: `var(--${s.tone}-deep)`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{s.icon}</div>
@@ -108,7 +108,7 @@ export default function LandingClient() {
             <div style={{ position: 'relative' }}>
               <h3 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 26, lineHeight: 1.1, letterSpacing: '-.02em', margin: '0 0 8px' }}>Ready to start the side hustle?</h3>
               <p style={{ fontSize: 14, opacity: 0.9, margin: '0 0 18px', lineHeight: 1.5 }}>Free to sign up. No subscription. We take a small cut only when you sell.</p>
-              <Button variant="gold" size="lg" onClick={() => router.push('/sign-up')}>Sign up — it&apos;s free</Button>
+              <Button variant="gold" size="lg" onClick={() => router.push('/sign-up')}>Sign up - it&apos;s free</Button>
             </div>
           </div>
         </div>
