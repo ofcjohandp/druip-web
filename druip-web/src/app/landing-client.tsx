@@ -106,7 +106,7 @@ export default function LandingClient() {
                 { label: 'Paid out this week', value: 'R 12,840', tone: 'gold',      icon: <Icon.card size={20}/> },
                 { label: 'Student sellers',    value: '340+',    tone: 'sage',      icon: <Icon.upload size={20}/> },
                 { label: 'Notes sold this month', value: '1,200+', tone: 'turquoise', icon: <Icon.zap size={20}/> },
-                { label: 'Average payout',     value: 'Same day', tone: 'gold',      icon: <Icon.card size={20}/> },
+                { label: 'Payout schedule',    value: 'Weekly',   tone: 'gold',      icon: <Icon.card size={20}/> },
               ].map((stat, i) => (
                 <div key={i} data-reveal="scale" data-delay={String(i + 1)} style={{ background: 'var(--white)', borderRadius: 24, padding: 22, border: '1px solid var(--hairline)', boxShadow: 'var(--shadow-lift)' }}>
                   <div style={{ width: 38, height: 38, borderRadius: 11, background: `var(--${stat.tone}-soft)`, color: `var(--${stat.tone}-deep)`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 14 }}>{stat.icon}</div>
@@ -165,7 +165,7 @@ export default function LandingClient() {
               {[
                 { n: '01', tone: 'sage',      icon: <Icon.upload size={28}/>, t: 'Upload your notes',    s: 'Snap your hand-written pages or upload your PDFs. Set a price in rands. Takes 2 minutes.' },
                 { n: '02', tone: 'gold',      icon: <Icon.zap size={28}/>,    t: 'Other students buy',   s: 'Your notes show up in their faculty feed. They pay, you get paid. No chasing anyone.' },
-                { n: '03', tone: 'turquoise', icon: <Icon.card size={28}/>,   t: 'Cash out to your bank',s: 'Withdraw to Capitec, FNB, ABSA, anything - typically same day.' },
+                { n: '03', tone: 'turquoise', icon: <Icon.card size={28}/>,   t: 'Cash out to your bank',s: 'Withdraw to Capitec, FNB, ABSA, anything - payouts every week.' },
               ].map((step, i) => (
                 <>
                   <div key={step.n} data-reveal="scale" data-delay={String(i + 1)} style={{ flex: 1, background: 'var(--white)', borderRadius: 28, padding: '28px 28px', border: '1px solid var(--hairline)', boxShadow: 'var(--shadow-lift)', minWidth: 0 }}>
