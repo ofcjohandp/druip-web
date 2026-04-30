@@ -63,9 +63,9 @@ export default function LandingClient() {
 
         {/* Header */}
         <header style={{ position: 'sticky', top: 0, zIndex: 30, background: 'rgba(250,247,242,.92)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}>
-          <div className="header-inner" style={{ maxWidth: 1100, margin: '0 auto', padding: '8px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div className="header-inner" style={{ padding: '8px 40px' }}>
             <img src="/logo.png" alt="Druip" style={{ height: 100, width: 'auto', display: 'block' }} />
-            <Button variant="ghost" size="sm" onClick={() => router.push('/sign-in')}>Sign in</Button>
+            
           </div>
         </header>
 
