@@ -48,7 +48,7 @@ export default function LandingClient() {
           display: inline-block;
           overflow: hidden;
           vertical-align: bottom;
-          padding-bottom: 0.06em;
+          padding-bottom: 0.18em;
         }
         .word-in {
           display: inline-block;
@@ -109,7 +109,7 @@ export default function LandingClient() {
             {/* Left */}
             <div>
               <div data-reveal="up">
-                <Chip tone="gold" style={{ marginBottom: 20 }}>★ For SA varsity students</Chip>
+                <Chip tone="gold" style={{ marginBottom: 20 }}>★ For SA students</Chip>
               </div>
 
               {/* Slogan with word-mask animation */}
@@ -133,7 +133,7 @@ export default function LandingClient() {
                     <div key={i} style={{ width: 28, height: 28, borderRadius: '50%', background: ['var(--sage-soft)','var(--gold-soft)','var(--turquoise-soft)','var(--coral-soft)'][i], color: ['var(--sage-deep)','var(--gold-deep)','var(--turquoise-deep)','#B05B3F'][i], fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: i ? -10 : 0, border: '2px solid var(--cream)' }}>{l}</div>
                   ))}
                 </div>
-                <span><b style={{ color: 'var(--charcoal)' }}>340+</b> NWU Potch students already earning</span>
+                <span><b style={{ color: 'var(--charcoal)' }}>340+</b> SA students already earning</span>
               </div>
             </div>
 
