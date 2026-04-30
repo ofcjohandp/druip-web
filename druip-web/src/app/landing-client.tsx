@@ -81,7 +81,7 @@ export default function LandingClient() {
                 <Chip tone="gold" style={{ marginBottom: 24 }}>★ For SA varsity students</Chip>
               </div>
               <h1 data-reveal="up" data-delay="1" className="hero-h1" style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 72, lineHeight: 0.97, letterSpacing: '-.035em', color: 'var(--charcoal)', margin: '0 0 22px' }}>
-                Study to<br/><span style={{ color: 'var(--sage)' }}>make money.</span>
+                Earn while you <span style={{ color: "var(--sage)" }}>learn.</span>
               </h1>
               <p data-reveal="up" data-delay="2" style={{ fontSize: 18, lineHeight: 1.65, color: 'var(--charcoal-soft)', margin: '0 0 32px', maxWidth: 420 }}>
                 Buy and sell notes, past papers and cheat sheets - student to student. Your varsity grind, finally paying you back.
