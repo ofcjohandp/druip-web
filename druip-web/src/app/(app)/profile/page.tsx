@@ -11,6 +11,7 @@ export default async function ProfilePage() {
   const lastName = user.user_metadata?.last_name ?? ''
   const email = user.email ?? ''
   const university = user.user_metadata?.university ?? 'NWU Potchefstroom'
+  const roles: string[] = user.user_metadata?.roles ?? ['Student']
 
   const { data: listings } = await supabase
     .from('listings')
@@ -34,6 +35,7 @@ export default async function ProfilePage() {
       lastName={lastName}
       email={email}
       university={university}
+      roles={roles}
       listings={listings || []}
       salesCount={salesCount}
     />

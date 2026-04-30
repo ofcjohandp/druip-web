@@ -115,6 +115,11 @@ export const NoteCard = ({ pack, onClick, saved, onSave }: NoteCardProps) => {
           {pack.badge && <Chip tone={(pack.badgeTone as ChipProps['tone']) || 'gold'} size="sm">{pack.badge}</Chip>}
         </div>
         <div style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 22, lineHeight: 1.05, letterSpacing: '-.02em', color: 'var(--charcoal)' }}>{pack.thumb}</div>
+        {saved && (
+          <div style={{ position: 'absolute', bottom: 10, left: 10, display: 'inline-flex', alignItems: 'center', gap: 4, padding: '3px 8px', background: 'rgba(255,255,255,0.92)', borderRadius: 999, fontSize: 10, fontWeight: 700, color: 'var(--turquoise-deep, #2a7a7a)' }}>
+            <Icon.bookmark size={10}/> Saved
+          </div>
+        )}
         {onSave && (
           <button onClick={e => { e.stopPropagation(); onSave() }} aria-label="save"
             style={{ position: 'absolute', top: 10, right: 10, width: 32, height: 32, borderRadius: 999, background: 'rgba(255,255,255,0.9)', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', color: saved ? 'var(--coral)' : 'var(--charcoal-soft)', cursor: 'pointer' }}>

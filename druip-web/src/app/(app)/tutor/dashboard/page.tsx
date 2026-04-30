@@ -100,7 +100,7 @@ export default async function TutorDashboardPage() {
             </div>
           </div>
 
-          {/* Classrooms — primary gradient */}
+          {/* Classrooms - primary gradient */}
           <div className="kinetic-gradient rounded-xl p-8 flex flex-col justify-between shadow-[0_8px_24px_rgba(0,88,187,0.25)]">
             <span className="material-symbols-outlined text-white/80 text-3xl mb-4"
               style={{ fontVariationSettings: "'FILL' 1" }}>

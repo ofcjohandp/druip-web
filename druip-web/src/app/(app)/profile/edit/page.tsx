@@ -192,7 +192,7 @@ export default function ProfileEditPage() {
       </header>
 
       <main className="pt-28 pb-16 px-6 max-w-xl mx-auto">
-        {/* Profile picture placeholder — ready for future */}
+        {/* Profile picture placeholder - ready for future */}
         <div className="flex flex-col items-center mb-8">
           <div className="relative">
             <div className="w-24 h-24 rounded-full kinetic-gradient flex items-center justify-center text-white font-headline font-black text-3xl shadow-lg">

@@ -97,7 +97,7 @@ export default function NewClassroomPage() {
           <h2 className="font-headline text-4xl font-extrabold leading-tight mb-2">
             Launch your <span className="text-primary italic">Digital Classroom</span>
           </h2>
-          <p className="text-on-surface-variant">Set it up once — students can find and subscribe from day one.</p>
+          <p className="text-on-surface-variant">Set it up once - students can find and subscribe from day one.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
@@ -149,7 +149,7 @@ export default function NewClassroomPage() {
                 type="text"
                 value={moduleCode}
                 onChange={(e) => setModuleCode(e.target.value)}
-                placeholder="e.g. FISI 111 — Human Physiology"
+                placeholder="e.g. FISI 111 - Human Physiology"
                 className="w-full bg-surface-container-high border-none rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all placeholder:text-outline-variant"
               />
             </div>

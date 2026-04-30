@@ -19,12 +19,16 @@ export default function BrowsePage() {
   const [loading, setLoading] = useState(true)
   const [saved, setSaved] = useState<Set<string>>(new Set())
   const [userId, setUserId] = useState<string | null>(null)
+  const [studentCount, setStudentCount] = useState(0)
 
   useEffect(() => {
     async function init() {
       const supabase = createClient()
       const { data: { user } } = await supabase.auth.getUser()
       if (user) setUserId(user.id)
+
+      const { count } = await supabase.from('profiles').select('*', { count: 'exact', head: true })
+      setStudentCount(count || 0)
 
       const { data: listingsData } = await supabase
         .from('listings')
@@ -89,6 +93,15 @@ export default function BrowsePage() {
     <Shell title="Browse" sticky
       rightAction={<IconButton ariaLabel="filter"><Icon.filter size={18}/></IconButton>}
     >
+      {studentCount > 0 && (
+        <section style={{ padding: '0 20px 10px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '5px 12px', background: 'var(--sage-soft)', borderRadius: 999 }}>
+            <div style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--sage)', animation: 'pulse 2s infinite' }}/>
+            <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--sage-deep)' }}>{studentCount} student{studentCount !== 1 ? 's' : ''} on Druip</span>
+          </div>
+        </section>
+      )}
+
       <section style={{ padding: '0 20px 16px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, background: 'var(--white)', borderRadius: 16, padding: '0 16px', border: '1px solid var(--hairline)' }}>
           <Icon.search size={16}/>

@@ -52,7 +52,7 @@ export default function ForgotPasswordPage() {
             </div>
             <h1 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 32, lineHeight: 1.05, letterSpacing: '-.02em', color: 'var(--charcoal)', margin: '0 0 12px' }}>Check your email.</h1>
             <p style={{ fontSize: 14, color: 'var(--charcoal-soft)', margin: '0 0 28px', lineHeight: 1.6 }}>
-              We&apos;ve sent a reset link to <strong>{email}</strong>. It might take a minute to arrive — check your spam folder too.
+              We&apos;ve sent a reset link to <strong>{email}</strong>. It might take a minute to arrive - check your spam folder too.
             </p>
             <Button variant="ghost" full size="lg" onClick={() => router.push('/sign-in')}>Back to sign in</Button>
           </>

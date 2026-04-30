@@ -139,7 +139,7 @@ export default function SignUpPage() {
   function goStep2() {
     const e: Record<string, string> = {}
     if (!name.trim()) e.name = 'We need to know what to call you.'
-    if (!email.includes('@') || !email.includes('.')) e.email = "That doesn't look right — check the email."
+    if (!email.includes('@') || !email.includes('.')) e.email = "That doesn't look right - check the email."
     if (password.length < 8) e.pwd = 'Make it at least 8 characters.'
     setErrs(e)
     if (!Object.keys(e).length) { setErrs({}); setStep(2) }

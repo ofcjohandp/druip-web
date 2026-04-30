@@ -176,7 +176,7 @@ export default async function ClassroomDetailPage({
                   type="submit"
                   className="w-full kinetic-gradient text-white py-4 rounded-full font-bold text-base shadow-lg hover:opacity-90 active:scale-95 transition-all"
                 >
-                  {isFree ? 'Subscribe — Free' : `Subscribe — R${classroom.price}`}
+                  {isFree ? 'Subscribe - Free' : `Subscribe - R${classroom.price}`}
                 </button>
               </form>
             )}
@@ -221,7 +221,7 @@ export default async function ClassroomDetailPage({
               <div className="flex flex-col items-center justify-center py-16 gap-3 text-center">
                 <span className="material-symbols-outlined text-outline text-5xl">folder_open</span>
                 <p className="text-on-surface-variant font-medium">Your tutor hasn&apos;t added content yet</p>
-                <p className="text-on-surface-variant/60 text-sm">Check back soon — they&apos;re working on it.</p>
+                <p className="text-on-surface-variant/60 text-sm">Check back soon - they&apos;re working on it.</p>
               </div>
             ) : (
               <div className="flex flex-col gap-3">

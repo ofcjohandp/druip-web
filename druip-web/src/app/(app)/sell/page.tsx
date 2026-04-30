@@ -170,7 +170,7 @@ export default function SellPage() {
               <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 24, letterSpacing: '-.02em', margin: '0 0 20px', color: 'var(--charcoal)' }}>Tell us about it</h2>
               <div style={{ marginBottom: 16 }}>
                 <label style={{ display: 'block', fontSize: 13, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 6 }}>Title</label>
-                <input value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g. Human physiology — full term" style={inputStyle}/>
+                <input value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g. Human physiology - full term" style={inputStyle}/>
               </div>
               <div style={{ marginBottom: 16 }}>
                 <label style={{ display: 'block', fontSize: 13, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 6 }}>Course code</label>
