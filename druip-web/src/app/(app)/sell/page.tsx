@@ -20,6 +20,9 @@ export default function SellPage() {
   const [desc, setDesc] = useState('')
   const [lang, setLang] = useState('English')
   const [format, setFormat] = useState('PDF')
+  const coverInputRef = useRef<HTMLInputElement>(null)
+  const [coverFile, setCoverFile] = useState<File | null>(null)
+  const [coverPreview, setCoverPreview] = useState<string | null>(null)
   const [publishing, setPublishing] = useState(false)
   const [uploadProgress, setUploadProgress] = useState('')
   const [toast, setToast] = useState<{ tone: 'sage' | 'gold' | 'coral'; msg: string } | null>(null)
@@ -27,6 +30,14 @@ export default function SellPage() {
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = Array.from(e.target.files || [])
     setFiles(f => [...f, ...selected])
+    e.target.value = ''
+  }
+
+  const handleCoverSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+    setCoverFile(file)
+    setCoverPreview(URL.createObjectURL(file))
     e.target.value = ''
   }
 
@@ -48,6 +59,15 @@ export default function SellPage() {
       if (!uploadError) uploadedPaths.push(path)
     }
 
+    let coverPath: string | null = null
+    if (coverFile) {
+      setUploadProgress('Uploading cover…')
+      const safeName = coverFile.name.replace(/[^a-zA-Z0-9._-]/g, '_')
+      const path = `covers/${user.id}/${Date.now()}-${safeName}`
+      const { error: coverError } = await supabase.storage.from('notes').upload(path, coverFile)
+      if (!coverError) coverPath = path
+    }
+
     setUploadProgress('')
     const { error } = await supabase.from('listings').insert({
       seller_id: user.id,
@@ -60,6 +80,7 @@ export default function SellPage() {
       price,
       pages: files.length,
       file_urls: uploadedPaths,
+      cover_url: coverPath,
       language: lang,
       format,
       status: 'published',
@@ -72,24 +93,6 @@ export default function SellPage() {
     }
     setToast({ tone: 'gold', msg: 'Listing published! 🎉' })
     setTimeout(() => router.push('/profile'), 800)
-  }
-
-  const saveDraft = async () => {
-    const supabase = createClient()
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) { router.push('/sign-in'); return }
-    await supabase.from('listings').insert({
-      seller_id: user.id,
-      title,
-      code,
-      type,
-      faculty,
-      description: desc,
-      price,
-      pages: files.length,
-      status: 'draft',
-    })
-    setToast({ tone: 'sage', msg: 'Saved as draft' })
   }
 
   const FACULTY_TONES: Record<string, string> = {
@@ -121,14 +124,8 @@ export default function SellPage() {
               <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 24, letterSpacing: '-.02em', margin: '0 0 8px', color: 'var(--charcoal)' }}>Add your pages</h2>
               <p style={{ fontSize: 13, color: 'var(--charcoal-soft)', margin: '0 0 20px', lineHeight: 1.5 }}>Snap photos or upload PDFs. Better-quality scans sell faster.</p>
 
-              <input
-                ref={fileInputRef}
-                type="file"
-                multiple
-                accept=".pdf,.jpg,.jpeg,.png"
-                onChange={handleFileSelect}
-                style={{ display: 'none' }}
-              />
+              <input ref={fileInputRef} type="file" multiple accept=".pdf,.jpg,.jpeg,.png" onChange={handleFileSelect} style={{ display: 'none' }}/>
+              <input ref={coverInputRef} type="file" accept=".jpg,.jpeg,.png" onChange={handleCoverSelect} style={{ display: 'none' }}/>
 
               {files.length === 0 ? (
                 <div onClick={() => fileInputRef.current?.click()} style={{ border: '2px dashed var(--sage)', borderRadius: 24, padding: '40px 20px', textAlign: 'center', cursor: 'pointer', background: 'var(--sage-soft)' }}>
@@ -158,6 +155,32 @@ export default function SellPage() {
                 </div>
               )}
             </section>
+            {/* Cover image */}
+            <section style={{ padding: '0 20px 12px' }}>
+              <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 6 }}>
+                Note preview <span style={{ fontWeight: 400, color: 'var(--fg-muted)' }}>(optional)</span>
+              </div>
+              <p style={{ fontSize: 12, color: 'var(--charcoal-soft)', margin: '0 0 8px', lineHeight: 1.5 }}>An image buyers see before purchasing. Use a clean photo of your notes.</p>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, padding: '5px 10px', background: 'var(--sage-soft)', borderRadius: 999, marginBottom: 12 }}>
+                <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--sage)' }}/>
+                <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--sage-deep)' }}>Notes with a preview are far more likely to sell</span>
+              </div>
+              {coverPreview ? (
+                <div style={{ position: 'relative', display: 'inline-block' }}>
+                  <img src={coverPreview} alt="Cover" style={{ height: 120, borderRadius: 14, objectFit: 'cover', display: 'block', boxShadow: 'var(--shadow-card)' }}/>
+                  <button onClick={() => { setCoverFile(null); setCoverPreview(null) }}
+                    style={{ position: 'absolute', top: 6, right: 6, width: 24, height: 24, borderRadius: '50%', background: 'var(--charcoal)', color: '#fff', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+                    <Icon.close size={11}/>
+                  </button>
+                </div>
+              ) : (
+                <button onClick={() => coverInputRef.current?.click()}
+                  style={{ padding: '12px 20px', borderRadius: 14, border: '1.5px dashed var(--sage)', background: 'var(--sage-soft)', color: 'var(--sage-deep)', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 13, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <Icon.upload size={16}/> Upload cover image
+                </button>
+              )}
+            </section>
+
             <section style={{ padding: '0 20px 32px' }}>
               <Button variant="primary" size="lg" full disabled={files.length < 1} onClick={() => setStep(2)}>Continue</Button>
             </section>
@@ -256,7 +279,6 @@ export default function SellPage() {
               <Button variant="primary" size="lg" full onClick={publish} disabled={publishing}>
                 {publishing ? (uploadProgress || 'Publishing…') : 'Publish listing 🎉'}
               </Button>
-              <Button variant="ghost" size="md" full onClick={saveDraft} style={{ marginTop: 8 }}>Save as draft</Button>
             </section>
           </>
         )}
