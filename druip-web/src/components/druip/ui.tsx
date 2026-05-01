@@ -114,7 +114,9 @@ export const NoteCard = ({ pack, onClick, saved, onSave }: NoteCardProps) => {
           <span style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 13, color: 'var(--charcoal)', opacity: 0.7 }}>{pack.code}</span>
           {pack.badge && <Chip tone={(pack.badgeTone as ChipProps['tone']) || 'gold'} size="sm">{pack.badge}</Chip>}
         </div>
-        <div style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 22, lineHeight: 1.05, letterSpacing: '-.02em', color: 'var(--charcoal)' }}>{pack.thumb}</div>
+        {pack.thumb ? (
+          <img src={pack.thumb} alt={pack.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', borderRadius: 16 }}/>
+        ) : null}
         {saved && (
           <div style={{ position: 'absolute', bottom: 10, left: 10, display: 'inline-flex', alignItems: 'center', gap: 4, padding: '3px 8px', background: 'rgba(255,255,255,0.92)', borderRadius: 999, fontSize: 10, fontWeight: 700, color: 'var(--turquoise-deep, #2a7a7a)' }}>
             <Icon.bookmark size={10}/> Saved

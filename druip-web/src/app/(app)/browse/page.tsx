@@ -34,6 +34,7 @@ export default function BrowsePage() {
         .from('listings')
         .select('*')
         .eq('status', 'published')
+        .order('avg_rating', { ascending: false, nullsFirst: false })
         .order('created_at', { ascending: false })
 
       if (user && listingsData?.length) {
@@ -51,15 +52,29 @@ export default function BrowsePage() {
         .from('profiles').select('id, first_name, last_name').in('id', sellerIds)
       const profileMap = Object.fromEntries((profilesData || []).map((p: any) => [p.id, p]))
 
-      setListings(listingsData.map((l: any) => ({
+      // Batch-generate signed URLs for cover images
+      const coverPaths = listingsData.map((l: any) => {
+        if (l.cover_url) return l.cover_url
+        const firstImage = (l.file_urls as string[] | null)?.find((p: string) => !p.toLowerCase().endsWith('.pdf'))
+        return firstImage ?? null
+      })
+      const { data: signedData } = await supabase.storage.from('notes').createSignedUrls(
+        coverPaths.filter(Boolean) as string[], 3600
+      )
+      const signedMap: Record<string, string> = {}
+      if (signedData) {
+        signedData.forEach((item: any) => { if (item.signedUrl) signedMap[item.path] = item.signedUrl })
+      }
+
+      setListings(listingsData.map((l: any, i: number) => ({
         id: l.id,
         code: l.code,
         faculty: l.faculty,
         tone: (VALID_TONES.includes(l.tone) ? l.tone : 'sage') as Pack['tone'],
-        thumb: '',
+        thumb: coverPaths[i] ? (signedMap[coverPaths[i]] ?? '') : '',
         title: l.title,
         pages: l.pages,
-        rating: 0,
+        rating: l.avg_rating ? Math.round(Number(l.avg_rating) * 10) / 10 : 0,
         seller: [profileMap[l.seller_id]?.first_name, profileMap[l.seller_id]?.last_name].filter(Boolean).join(' ') || 'Anonymous',
         price: `R ${Number(l.price).toFixed(0)}`,
         desc: l.description,
