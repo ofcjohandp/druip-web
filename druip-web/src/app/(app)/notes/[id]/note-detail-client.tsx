@@ -58,6 +58,11 @@ export default function NoteDetailClient({ listing, sellerName, coverUrl, previe
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return
     await supabase.from('ratings').upsert({ listing_id: listing.id, buyer_id: user.id, score }, { onConflict: 'listing_id,buyer_id' })
+    const { data: allRatings } = await supabase.from('ratings').select('score').eq('listing_id', listing.id)
+    if (allRatings?.length) {
+      const avg = allRatings.reduce((s, r) => s + r.score, 0) / allRatings.length
+      await supabase.from('listings').update({ avg_rating: Number(avg.toFixed(2)), rating_count: allRatings.length }).eq('id', listing.id)
+    }
     setUserRating(score)
     setToast({ tone: 'sage', msg: 'Rating saved!' })
   }
@@ -191,8 +196,8 @@ export default function NoteDetailClient({ listing, sellerName, coverUrl, previe
                 This is your listing
               </div>
             ) : alreadyPurchased ? (
-              <Button variant="primary" size="lg" full onClick={() => setToast({ tone: 'sage', msg: 'Download coming in Phase 4.' })}>
-                <Icon.download size={16}/> Download notes
+              <Button variant="primary" size="lg" full onClick={() => router.push(`/notes/${listing.id}/view`)}>
+                <Icon.doc size={16}/> View notes
               </Button>
             ) : (
               <>

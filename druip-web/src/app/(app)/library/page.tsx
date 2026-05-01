@@ -17,10 +17,11 @@ export default function LibraryPage() {
 function LibraryInner() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const initialTab = searchParams.get('tab') === 'saved' ? 'saved' : 'mine'
-  const [tab, setTab] = useState<'saved' | 'mine'>(initialTab)
+  const initialTab = (searchParams.get('tab') as 'saved' | 'mine' | 'purchased') || 'mine'
+  const [tab, setTab] = useState<'saved' | 'mine' | 'purchased'>(initialTab)
   const [saved, setSaved] = useState<Pack[]>([])
   const [mine, setMine] = useState<Pack[]>([])
+  const [purchased, setPurchased] = useState<Pack[]>([])
   const [loading, setLoading] = useState(true)
   const [showPersonalForm, setShowPersonalForm] = useState(false)
   const [personalTitle, setPersonalTitle] = useState('')
@@ -34,9 +35,10 @@ function LibraryInner() {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) { router.push('/sign-in'); return }
 
-    const [savedRes, mineRes] = await Promise.all([
+    const [savedRes, mineRes, purchasedRes] = await Promise.all([
       supabase.from('saved_items').select('listing_id, listings(*)').eq('user_id', user.id),
       supabase.from('listings').select('*').eq('seller_id', user.id).order('created_at', { ascending: false }),
+      supabase.from('purchases').select('listing_id, listings(*)').eq('buyer_id', user.id).eq('payment_status', 'paid'),
     ])
 
     const toPack = (l: any): Pack => ({
@@ -51,6 +53,7 @@ function LibraryInner() {
 
     setSaved((savedRes.data || []).map((s: any) => s.listings).filter(Boolean).map(toPack))
     setMine((mineRes.data || []).map(toPack))
+    setPurchased((purchasedRes.data || []).map((p: any) => p.listings).filter(Boolean).map(toPack))
     setLoading(false)
   }
 
@@ -86,7 +89,7 @@ function LibraryInner() {
     load()
   }
 
-  const tabBtn = (key: 'saved' | 'mine', label: string) => (
+  const tabBtn = (key: 'saved' | 'mine' | 'purchased', label: string) => (
     <button onClick={() => setTab(key)}
       style={{ flex: 1, padding: '10px', background: 'none', border: 'none', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 14, color: tab === key ? 'var(--charcoal)' : 'var(--fg-muted)', borderBottom: `2px solid ${tab === key ? 'var(--sage)' : 'transparent'}`, marginBottom: -1, cursor: 'pointer' }}>
       {label}
@@ -99,6 +102,7 @@ function LibraryInner() {
     <>
       <Shell title="Library" sticky>
         <div style={{ padding: '0 20px', borderBottom: '1px solid var(--hairline)', display: 'flex' }}>
+          {tabBtn('purchased', 'Purchased')}
           {tabBtn('saved', 'Wishlist')}
           {tabBtn('mine', 'My Notes')}
         </div>
@@ -108,6 +112,32 @@ function LibraryInner() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
               {[1,2,3,4].map(i => <Skeleton key={i} h={200} r={20}/>)}
             </div>
+          ) : tab === 'purchased' ? (
+            purchased.length === 0 ? (
+              <div style={{ textAlign: 'center', padding: '48px 20px' }}>
+                <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--gold-soft, #fff8e1)', color: 'var(--gold-deep, #b8860b)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}><Icon.doc size={24}/></div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--charcoal)', marginBottom: 6 }}>No purchases yet.</div>
+                <div style={{ fontSize: 13, color: 'var(--charcoal-soft)', marginBottom: 20 }}>Notes you buy will appear here.</div>
+                <Button variant="primary" size="sm" onClick={() => router.push('/browse')}>Browse notes</Button>
+              </div>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {purchased.map(p => (
+                  <div key={p.id}
+                    style={{ background: 'var(--white)', borderRadius: 20, border: '1px solid var(--hairline)', padding: '16px', display: 'flex', alignItems: 'center', gap: 14, cursor: 'pointer' }}
+                    onClick={() => router.push(`/notes/${p.id}/view`)}>
+                    <div style={{ width: 44, height: 44, borderRadius: 14, background: `var(--${p.tone}-soft)`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: `var(--${p.tone}-deep)` }}>
+                      <Icon.doc size={20}/>
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--charcoal)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{p.title}</div>
+                      <div style={{ fontSize: 12, color: 'var(--charcoal-soft)', marginTop: 2 }}>{p.code} · {p.pages} pages</div>
+                    </div>
+                    <Icon.chevron size={16}/>
+                  </div>
+                ))}
+              </div>
+            )
           ) : tab === 'saved' ? (
             saved.length === 0 ? (
               <div style={{ textAlign: 'center', padding: '48px 20px' }}>

@@ -63,7 +63,7 @@ export default function SellPage() {
     if (coverFile) {
       setUploadProgress('Uploading cover…')
       const safeName = coverFile.name.replace(/[^a-zA-Z0-9._-]/g, '_')
-      const path = `covers/${user.id}/${Date.now()}-${safeName}`
+      const path = `${user.id}/covers/${Date.now()}-${safeName}`
       const { error: coverError } = await supabase.storage.from('notes').upload(path, coverFile)
       if (!coverError) coverPath = path
     }

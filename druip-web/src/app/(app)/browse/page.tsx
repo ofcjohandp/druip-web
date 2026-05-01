@@ -52,18 +52,21 @@ export default function BrowsePage() {
         .from('profiles').select('id, first_name, last_name').in('id', sellerIds)
       const profileMap = Object.fromEntries((profilesData || []).map((p: any) => [p.id, p]))
 
-      // Batch-generate signed URLs for cover images
+      // Batch-generate signed URLs via server-side API (bypasses storage RLS)
       const coverPaths = listingsData.map((l: any) => {
         if (l.cover_url) return l.cover_url
         const firstImage = (l.file_urls as string[] | null)?.find((p: string) => !p.toLowerCase().endsWith('.pdf'))
         return firstImage ?? null
       })
-      const { data: signedData } = await supabase.storage.from('notes').createSignedUrls(
-        coverPaths.filter(Boolean) as string[], 3600
-      )
+      const validPaths = coverPaths.filter(Boolean) as string[]
       const signedMap: Record<string, string> = {}
-      if (signedData) {
-        signedData.forEach((item: any) => { if (item.signedUrl) signedMap[item.path] = item.signedUrl })
+      if (validPaths.length) {
+        const res = await fetch('/api/signed-urls', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ paths: validPaths }),
+        })
+        if (res.ok) Object.assign(signedMap, await res.json())
       }
 
       setListings(listingsData.map((l: any, i: number) => ({
