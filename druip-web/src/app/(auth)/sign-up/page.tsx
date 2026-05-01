@@ -169,7 +169,15 @@ export default function SignUpPage() {
         },
       },
     })
-    if (signUpError) { setError(signUpError.message); setLoading(false); return }
+    if (signUpError) {
+      const msg = signUpError.message.toLowerCase()
+      setError(msg.includes('already registered') || msg.includes('already exists') || msg.includes('email') && msg.includes('taken')
+        ? 'DUPLICATE_EMAIL'
+        : signUpError.message
+      )
+      setLoading(false)
+      return
+    }
     if (data.user) {
       await supabase.from('profiles').update({ university }).eq('id', data.user.id)
     }
@@ -291,7 +299,17 @@ export default function SignUpPage() {
               </div>
             )}
 
-            {error && <div style={{ marginBottom: 16, padding: '12px 16px', background: 'var(--coral-soft)', color: '#B05B3F', borderRadius: 14, fontSize: 13, fontWeight: 600 }}>{error}</div>}
+            {error && (
+              error === 'DUPLICATE_EMAIL' ? (
+                <div style={{ marginBottom: 16, padding: '14px 16px', background: 'var(--coral-soft)', borderRadius: 14, fontSize: 13 }}>
+                  <div style={{ fontWeight: 700, color: '#B05B3F', marginBottom: 6 }}>An account with this email already exists.</div>
+                  <span style={{ color: '#B05B3F' }}>Want to </span>
+                  <span onClick={() => router.push('/sign-in')} style={{ color: '#B05B3F', fontWeight: 700, textDecoration: 'underline', cursor: 'pointer' }}>sign in instead?</span>
+                </div>
+              ) : (
+                <div style={{ marginBottom: 16, padding: '12px 16px', background: 'var(--coral-soft)', color: '#B05B3F', borderRadius: 14, fontSize: 13, fontWeight: 600 }}>{error}</div>
+              )
+            )}
             <Button variant="primary" full size="lg" type="submit" disabled={loading} style={{ marginTop: 8 }}>
               {loading ? 'Creating account…' : 'Create account'}
             </Button>

@@ -7,7 +7,8 @@ export default async function HomePage() {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/sign-in')
 
-  const firstName = user.user_metadata?.first_name ?? 'there'
+  const rawName = user.user_metadata?.first_name ?? user.user_metadata?.full_name ?? user.user_metadata?.name ?? ''
+  const firstName = rawName ? rawName.split(' ')[0] : ''
 
   return <HomeClient firstName={firstName} streak={0} />
 }

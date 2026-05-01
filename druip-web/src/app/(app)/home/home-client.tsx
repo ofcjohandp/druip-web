@@ -121,7 +121,7 @@ export default function HomeClient({ firstName, streak }: Props) {
       >
         {/* Greeting */}
         <section style={{ padding: '4px 20px 16px' }}>
-          <div style={{ fontSize: 13, color: 'var(--charcoal-soft)', fontWeight: 600 }}>Sawubona, {firstName} 👋</div>
+          <div style={{ fontSize: 13, color: 'var(--charcoal-soft)', fontWeight: 600 }}>{firstName ? `Welcome back, ${firstName} 👋` : 'Welcome back 👋'}</div>
           <h1 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 30, lineHeight: 1.05, letterSpacing: '-.02em', color: 'var(--charcoal)', margin: '6px 0 0' }}>Let&apos;s make this year count.</h1>
         </section>
 
