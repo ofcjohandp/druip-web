@@ -1,9 +1,16 @@
 import { createClient } from '@/lib/supabase/server'
+import { createClient as createServiceClient } from '@supabase/supabase-js'
 import { notFound } from 'next/navigation'
 import NoteDetailClient from './note-detail-client'
 
 export default async function NoteDetailPage({ params, searchParams }: { params: { id: string }, searchParams: { payment?: string } }) {
   const supabase = await createClient()
+  // Service role client bypasses RLS for storage signed URL generation
+  const storage = createServiceClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  )
+
   const { data: { user } } = await supabase.auth.getUser()
 
   const { data: listing } = await supabase
@@ -34,26 +41,27 @@ export default async function NoteDetailPage({ params, searchParams }: { params:
     alreadyPurchased = !!data
   }
 
-  // Generate cover URL — priority: dedicated cover, then first image file, else null
+  // Cover URL: dedicated cover first, then first image file, then first PDF
   let coverSignedUrl: string | null = null
+  const filePaths: string[] = Array.isArray(listing.file_urls) ? listing.file_urls : []
+
   if (listing.cover_url) {
-    const { data } = await supabase.storage.from('notes').createSignedUrl(listing.cover_url, 3600)
+    const { data } = await storage.storage.from('notes').createSignedUrl(listing.cover_url, 3600)
     coverSignedUrl = data?.signedUrl ?? null
   }
-  if (!coverSignedUrl && listing.file_urls?.length) {
-    const firstImage = (listing.file_urls as string[]).find(p => !p.toLowerCase().includes('.pdf'))
-    if (firstImage) {
-      const { data } = await supabase.storage.from('notes').createSignedUrl(firstImage, 3600)
-      coverSignedUrl = data?.signedUrl ?? null
-    }
+  if (!coverSignedUrl && filePaths.length) {
+    const firstImage = filePaths.find(p => !p.toLowerCase().endsWith('.pdf'))
+    const fallbackPath = firstImage ?? filePaths[0]
+    const { data } = await storage.storage.from('notes').createSignedUrl(fallbackPath, 3600)
+    coverSignedUrl = data?.signedUrl ?? null
   }
 
   const previewItems: { url: string; type: 'image' | 'pdf' }[] = []
-  if ((isOwner || alreadyPurchased) && listing.file_urls?.length) {
-    for (const path of listing.file_urls) {
-      const { data } = await supabase.storage.from('notes').createSignedUrl(path, 3600)
+  if ((isOwner || alreadyPurchased) && filePaths.length) {
+    for (const path of filePaths) {
+      const { data } = await storage.storage.from('notes').createSignedUrl(path, 3600)
       if (data?.signedUrl) {
-        const isPdf = path.toLowerCase().includes('.pdf')
+        const isPdf = path.toLowerCase().endsWith('.pdf')
         previewItems.push({ url: data.signedUrl, type: isPdf ? 'pdf' : 'image' })
       }
     }
