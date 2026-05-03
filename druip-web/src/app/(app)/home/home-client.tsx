@@ -99,9 +99,9 @@ const QUOTES = [
   "Impumelelo iqala nokuqala - success begins with beginning.",
 ]
 
-interface Props { firstName: string; streak: number }
+interface Props { firstName: string; streak: number; isSeller: boolean }
 
-export default function HomeClient({ firstName, streak }: Props) {
+export default function HomeClient({ firstName, streak, isSeller }: Props) {
   const router = useRouter()
   const [toast, setToast] = useState<{ tone: 'sage' | 'gold' | 'coral'; msg: string } | null>(null)
 
@@ -142,12 +142,12 @@ export default function HomeClient({ firstName, streak }: Props) {
 
         {/* Quick actions */}
         <section style={{ padding: '0 20px 24px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: `repeat(${isSeller ? 4 : 3}, 1fr)`, gap: 8 }}>
             {[
               { icon: <Icon.search size={18}/>, label: 'Discover', tone: 'gold', href: '/browse' },
               { icon: <Icon.bookmark size={18}/>, label: 'Wishlist', tone: 'turquoise', href: '/library?tab=saved' },
               { icon: <Icon.doc size={18}/>, label: 'My Notes', tone: 'sage', href: '/library' },
-              { icon: <Icon.zap size={18}/>, label: 'Earn', tone: 'coral', href: '/earnings' },
+              ...(isSeller ? [{ icon: <Icon.zap size={18}/>, label: 'Earn', tone: 'coral', href: '/earnings' }] : []),
             ].map((q, i) => (
               <button key={i} onClick={() => router.push(q.href)}
                 style={{ background: `var(--${q.tone}-soft)`, color: `var(--${q.tone}-deep)`, border: 'none', borderRadius: 18, padding: '14px 8px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, cursor: 'pointer', fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 12, transition: 'transform 200ms' }}

@@ -32,6 +32,12 @@ export default async function ProfilePage() {
     salesCount = count || 0
   }
 
+  const { data: application } = await supabase
+    .from('seller_applications')
+    .select('status, reviewer_notes')
+    .eq('user_id', user.id)
+    .maybeSingle()
+
   return (
     <ProfileClient
       firstName={firstName}
@@ -41,6 +47,8 @@ export default async function ProfilePage() {
       roles={roles}
       listings={listings || []}
       salesCount={salesCount}
+      applicationStatus={(application?.status as 'pending' | 'approved' | 'denied') ?? null}
+      reviewerNotes={application?.reviewer_notes ?? null}
     />
   )
 }

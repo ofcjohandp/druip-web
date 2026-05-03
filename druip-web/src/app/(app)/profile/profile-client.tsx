@@ -26,6 +26,8 @@ interface Props {
   roles: string[]
   listings: Listing[]
   salesCount: number
+  applicationStatus: 'pending' | 'approved' | 'denied' | null
+  reviewerNotes: string | null
 }
 
 const ROLE_TONES: Record<string, 'white' | 'gold' | 'turquoise' | 'sage'> = {
@@ -39,7 +41,7 @@ const ROLE_TONES: Record<string, 'white' | 'gold' | 'turquoise' | 'sage'> = {
 const AVATAR_TONES = ['sage', 'gold', 'turquoise', 'coral'] as const
 type AvatarTone = typeof AVATAR_TONES[number]
 
-export default function ProfileClient({ firstName, lastName, email, university, roles, listings, salesCount }: Props) {
+export default function ProfileClient({ firstName, lastName, email, university, roles, listings, salesCount, applicationStatus, reviewerNotes }: Props) {
   const router = useRouter()
   const [tab, setTab] = useState<'listings' | 'reviews' | 'settings'>('listings')
   const [avatarTone, setAvatarTone] = useState<AvatarTone>('sage')
@@ -161,7 +163,15 @@ export default function ProfileClient({ firstName, lastName, email, university, 
       {tab === 'settings' && (
         <section style={{ padding: '14px 0' }}>
           <div style={{ background: 'var(--white)', margin: '0 16px 12px', borderRadius: 20, border: '1px solid var(--hairline)', overflow: 'hidden' }}>
-            <ListRow icon={<Icon.zap size={18}/>} label="Earnings" sub="View sales and cash out" onClick={() => router.push('/earnings')}/>
+            {listings.length > 0 ? (
+              <ListRow icon={<Icon.zap size={18}/>} label="Earnings" sub="View sales and cash out" onClick={() => router.push('/earnings')}/>
+            ) : applicationStatus === 'pending' ? (
+              <ListRow icon={<Icon.zap size={18}/>} label="Application under review" sub="We'll notify you once approved"/>
+            ) : applicationStatus === 'denied' ? (
+              <ListRow icon={<Icon.zap size={18}/>} label="Reapply to sell" sub={reviewerNotes || 'Your application was not approved'} onClick={() => router.push('/apply-to-sell')}/>
+            ) : (
+              <ListRow icon={<Icon.zap size={18}/>} label="Earn from your notes" sub="Apply to become a seller" onClick={() => router.push('/apply-to-sell')}/>
+            )}
             <ListRow icon={<Icon.user size={18}/>} label="Personal info" sub={email}/>
             <ListRow icon={<Icon.card size={18}/>} label="Payout method" sub="Not set up yet"/>
             <ListRow icon={<Icon.shield size={18}/>} label="Verification" sub={university} right={<Chip tone="sage" size="sm">Active</Chip>}/>
