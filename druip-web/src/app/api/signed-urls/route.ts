@@ -15,7 +15,8 @@ export async function POST(request: NextRequest) {
   const { data } = await storage.storage.from('notes').createSignedUrls(paths, 3600)
   const result: Record<string, string> = {}
   if (data) {
-    data.forEach(item => { if (item.signedUrl && item.path) result[item.path] = item.signedUrl })
+    // Key by original submitted path (not item.path which Supabase may normalise)
+    data.forEach((item, idx) => { if (item.signedUrl) result[paths[idx]] = item.signedUrl })
   }
 
   return NextResponse.json(result)

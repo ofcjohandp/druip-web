@@ -91,6 +91,10 @@ export default function SellPage() {
       setToast({ tone: 'coral', msg: 'Something went wrong. Try again.' })
       return
     }
+    const existingRoles: string[] = user.user_metadata?.roles ?? ['Student']
+    if (!existingRoles.includes('Seller')) {
+      await supabase.auth.updateUser({ data: { roles: [...existingRoles, 'Seller'] } })
+    }
     setToast({ tone: 'gold', msg: 'Listing published! 🎉' })
     setTimeout(() => router.push('/profile'), 800)
   }

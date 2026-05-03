@@ -30,6 +30,7 @@ interface Props {
 
 const ROLE_TONES: Record<string, 'white' | 'gold' | 'turquoise' | 'sage'> = {
   Student: 'white',
+  Seller: 'gold',
   Lecturer: 'gold',
   Teacher: 'turquoise',
   Scholar: 'sage',

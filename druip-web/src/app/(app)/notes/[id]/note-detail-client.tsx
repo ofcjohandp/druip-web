@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Shell } from '@/components/druip/shell'
 import { Avatar, Chip, Button, Toast } from '@/components/druip/ui'
@@ -44,6 +44,8 @@ export default function NoteDetailClient({ listing, sellerName, coverUrl, previe
   const router = useRouter()
   const [userRating, setUserRating] = useState<number | null>(initialUserRating)
   const [hoverRating, setHoverRating] = useState<number | null>(null)
+  const [isSaved, setIsSaved] = useState(false)
+  const [userId, setUserId] = useState<string | null>(null)
   const [toast, setToast] = useState<{ tone: 'sage' | 'gold' | 'coral'; msg: string } | null>(
     paymentStatus === 'success' ? { tone: 'sage', msg: 'Payment successful! Your notes are ready to download.' } :
     paymentStatus === 'cancelled' ? { tone: 'coral', msg: 'Payment cancelled.' } : null
@@ -51,6 +53,35 @@ export default function NoteDetailClient({ listing, sellerName, coverUrl, previe
 
   const accentColor = TONE_COLORS[listing.tone] || 'var(--sage)'
   const sellerInitial = sellerName.charAt(0).toUpperCase()
+
+  useEffect(() => {
+    if (!isSignedIn || isOwner) return
+    async function loadSaved() {
+      const { createClient } = await import('@/lib/supabase/client')
+      const supabase = createClient()
+      const { data: { user } } = await supabase.auth.getUser()
+      if (!user) return
+      setUserId(user.id)
+      const { data } = await supabase.from('saved_items').select('id').eq('user_id', user.id).eq('listing_id', listing.id).maybeSingle()
+      setIsSaved(!!data)
+    }
+    loadSaved()
+  }, [isSignedIn, isOwner, listing.id])
+
+  async function toggleSave() {
+    if (!isSignedIn) { router.push('/sign-in'); return }
+    if (!userId) return
+    const { createClient } = await import('@/lib/supabase/client')
+    const supabase = createClient()
+    if (isSaved) {
+      await supabase.from('saved_items').delete().eq('user_id', userId).eq('listing_id', listing.id)
+      setIsSaved(false)
+    } else {
+      await supabase.from('saved_items').insert({ user_id: userId, listing_id: listing.id })
+      setIsSaved(true)
+      setToast({ tone: 'sage', msg: 'Saved to your library.' })
+    }
+  }
 
   async function submitRating(score: number) {
     const { createClient } = await import('@/lib/supabase/client')
@@ -69,7 +100,14 @@ export default function NoteDetailClient({ listing, sellerName, coverUrl, previe
 
   return (
     <>
-      <Shell hideNav onBack={() => router.back()} title="">
+      <Shell hideNav onBack={() => router.back()} title=""
+        rightAction={!isOwner ? (
+          <button onClick={toggleSave} aria-label={isSaved ? 'Unsave' : 'Save'}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6, color: isSaved ? 'var(--sage-deep)' : 'var(--fg-muted)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Icon.bookmark size={22} fill={isSaved ? 'currentColor' : 'none'}/>
+          </button>
+        ) : undefined}
+      >
 
         {/* Cover */}
         <section style={{ padding: '0 20px 20px' }}>

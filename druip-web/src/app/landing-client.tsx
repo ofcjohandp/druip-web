@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, Fragment } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button, Chip, BlobBg } from '@/components/druip/ui'
 import { Icon } from '@/components/druip/icons'
@@ -196,8 +196,8 @@ export default function LandingClient() {
                 { n: '02', tone: 'gold',      icon: <Icon.zap size={28}/>,    t: 'Other students buy',    s: 'Your notes show up in their faculty feed. They pay, you get paid. No chasing anyone.' },
                 { n: '03', tone: 'turquoise', icon: <Icon.card size={28}/>,   t: 'Cash out to your bank', s: 'Withdraw to Capitec, FNB, ABSA, anything - payouts every week.' },
               ].map((step, i) => (
-                <>
-                  <div key={step.n} data-reveal="scale" data-delay={String(i + 1)} style={{ flex: 1, background: 'var(--white)', borderRadius: 28, padding: '28px 28px', border: '1px solid var(--hairline)', boxShadow: 'var(--shadow-lift)', minWidth: 0 }}>
+                <Fragment key={step.n}>
+                  <div data-reveal="scale" data-delay={String(i + 1)} style={{ flex: 1, background: 'var(--white)', borderRadius: 28, padding: '28px 28px', border: '1px solid var(--hairline)', boxShadow: 'var(--shadow-lift)', minWidth: 0 }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 18 }}>
                       <div style={{ width: 54, height: 54, borderRadius: 17, background: `var(--${step.tone}-soft)`, color: `var(--${step.tone}-deep)`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{step.icon}</div>
                       <div style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 20, color: `var(--${step.tone})`, opacity: 0.5 }}>{step.n}</div>
@@ -206,13 +206,13 @@ export default function LandingClient() {
                     <div style={{ fontSize: 14, color: 'var(--charcoal-soft)', lineHeight: 1.65 }}>{step.s}</div>
                   </div>
                   {i < 2 && (
-                    <div key={`arrow-${i}`} className="flow-arrow">
+                    <div className="flow-arrow">
                       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                         <path d="M6 16 H26 M19 9 L26 16 L19 23" stroke="var(--charcoal)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
                   )}
-                </>
+                </Fragment>
               ))}
             </div>
           </div>
