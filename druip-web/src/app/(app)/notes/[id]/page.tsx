@@ -56,6 +56,14 @@ export default async function NoteDetailPage({ params, searchParams }: { params:
     coverSignedUrl = data?.signedUrl ?? null
   }
 
+  // First PDF signed URL — available to all users for the preview
+  let firstPdfSignedUrl: string | null = null
+  const firstPdfPath = filePaths.find(p => p.toLowerCase().endsWith('.pdf'))
+  if (firstPdfPath) {
+    const { data } = await storage.storage.from('notes').createSignedUrl(firstPdfPath, 3600)
+    firstPdfSignedUrl = data?.signedUrl ?? null
+  }
+
   const previewItems: { url: string; type: 'image' | 'pdf' }[] = []
   if ((isOwner || alreadyPurchased) && filePaths.length) {
     for (const path of filePaths) {
@@ -82,6 +90,7 @@ export default async function NoteDetailPage({ params, searchParams }: { params:
     <NoteDetailClient
       listing={listing}
       sellerName={[seller?.first_name, seller?.last_name].filter(Boolean).join(' ') || 'Anonymous'}
+      firstPdfUrl={firstPdfSignedUrl}
       coverUrl={coverSignedUrl}
       previewItems={previewItems}
       isOwner={isOwner}

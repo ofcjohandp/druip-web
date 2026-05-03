@@ -2,9 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { Document, Page, pdfjs } from 'react-pdf'
+import 'react-pdf/dist/Page/AnnotationLayer.css'
+import 'react-pdf/dist/Page/TextLayer.css'
 import { Shell } from '@/components/druip/shell'
 import { Avatar, Chip, Button, Toast } from '@/components/druip/ui'
 import { Icon } from '@/components/druip/icons'
+
+pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
 
 interface Listing {
   id: string
@@ -24,6 +29,7 @@ interface PreviewItem { url: string; type: 'image' | 'pdf' }
 interface Props {
   listing: Listing
   sellerName: string
+  firstPdfUrl: string | null
   coverUrl: string | null
   previewItems: PreviewItem[]
   isOwner: boolean
@@ -40,12 +46,15 @@ const TONE_COLORS: Record<string, string> = {
   coral: 'var(--coral)', cream: 'var(--cream-deep)',
 }
 
-export default function NoteDetailClient({ listing, sellerName, coverUrl, previewItems, isOwner, alreadyPurchased, isSignedIn, paymentStatus, avgRating, ratingCount, userRating: initialUserRating }: Props) {
+export default function NoteDetailClient({ listing, sellerName, firstPdfUrl, coverUrl, previewItems, isOwner, alreadyPurchased, isSignedIn, paymentStatus, avgRating, ratingCount, userRating: initialUserRating }: Props) {
   const router = useRouter()
   const [userRating, setUserRating] = useState<number | null>(initialUserRating)
   const [hoverRating, setHoverRating] = useState<number | null>(null)
   const [isSaved, setIsSaved] = useState(false)
   const [userId, setUserId] = useState<string | null>(null)
+  const [pdfWidth, setPdfWidth] = useState(335)
+
+  useEffect(() => { setPdfWidth(Math.min(window.innerWidth - 40, 680)) }, [])
   const [toast, setToast] = useState<{ tone: 'sage' | 'gold' | 'coral'; msg: string } | null>(
     paymentStatus === 'success' ? { tone: 'sage', msg: 'Payment successful! Your notes are ready to download.' } :
     paymentStatus === 'cancelled' ? { tone: 'coral', msg: 'Payment cancelled.' } : null
@@ -109,43 +118,45 @@ export default function NoteDetailClient({ listing, sellerName, coverUrl, previe
         ) : undefined}
       >
 
-        {/* Cover */}
+        {/* Preview */}
         <section style={{ padding: '0 20px 20px' }}>
-          <div style={{ borderRadius: 24, overflow: 'hidden', background: `linear-gradient(140deg, ${accentColor}22 0%, var(--cream-warm) 100%)`, minHeight: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--hairline)', position: 'relative' }}>
-            {(isOwner || alreadyPurchased) && previewItems.length > 0 ? (
-              // Owners and buyers see all files
-              <div style={{ display: 'flex', gap: 8, padding: 16, overflowX: 'auto', width: '100%' }}>
-                {previewItems.map((item, i) => (
-                  item.type === 'pdf' ? (
-                    <a key={i} href={item.url} target="_blank" rel="noreferrer"
-                      style={{ height: 200, width: 140, borderRadius: 12, flexShrink: 0, boxShadow: 'var(--shadow-card)', background: 'var(--white)', border: '1px solid var(--hairline)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8, textDecoration: 'none', color: accentColor }}>
-                      <Icon.doc size={36}/>
-                      <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--charcoal-soft)' }}>PDF · Tap to open</span>
-                    </a>
-                  ) : (
-                    <img key={i} src={item.url} alt={`Page ${i + 1}`} style={{ height: 200, borderRadius: 12, objectFit: 'cover', flexShrink: 0, boxShadow: 'var(--shadow-card)' }}/>
-                  )
-                ))}
-              </div>
+          <div style={{ borderRadius: 24, overflow: 'hidden', border: '1px solid var(--hairline)', position: 'relative', background: `linear-gradient(140deg, ${accentColor}22 0%, var(--cream-warm) 100%)`, minHeight: 180 }}>
+            {firstPdfUrl ? (
+              <>
+                <Document
+                  file={firstPdfUrl}
+                  loading={<div style={{ minHeight: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, color: 'var(--charcoal-soft)' }}>Loading preview…</div>}
+                  error={<div style={{ minHeight: 180, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8, color: accentColor }}><Icon.doc size={40}/><span style={{ fontSize: 12, color: 'var(--charcoal-soft)', fontWeight: 600 }}>{listing.pages} pages</span></div>}
+                >
+                  <Page pageNumber={1} width={pdfWidth} renderTextLayer={false} renderAnnotationLayer={false}/>
+                </Document>
+                {!isOwner && !alreadyPurchased && (
+                  <>
+                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '52%', background: 'linear-gradient(to bottom, transparent, var(--cream-warm))', pointerEvents: 'none' }}/>
+                    <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+                      <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'var(--white)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-card)' }}>
+                        <Icon.lock size={20}/>
+                      </div>
+                      <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--charcoal)', background: 'var(--white)', borderRadius: 20, padding: '4px 14px', boxShadow: 'var(--shadow-card)' }}>
+                        {listing.pages} pages · Buy to unlock
+                      </div>
+                    </div>
+                  </>
+                )}
+              </>
             ) : coverUrl ? (
-              // Everyone else sees the cover with fade + lock
               <div style={{ position: 'relative', width: '100%' }}>
                 <img src={coverUrl} alt="Preview" style={{ width: '100%', maxHeight: 300, objectFit: 'cover', display: 'block' }}/>
                 {!isOwner && !alreadyPurchased && <>
                   <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '55%', background: 'linear-gradient(to bottom, transparent, var(--cream-warm))' }}/>
                   <div style={{ position: 'absolute', bottom: 16, left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
-                    <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--white)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-card)' }}>
-                      <Icon.lock size={18}/>
-                    </div>
-                    <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--charcoal)', background: 'var(--white)', borderRadius: 20, padding: '4px 12px', boxShadow: 'var(--shadow-card)' }}>
-                      {listing.pages} pages · Buy to unlock
-                    </div>
+                    <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'var(--white)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-card)' }}><Icon.lock size={18}/></div>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--charcoal)', background: 'var(--white)', borderRadius: 20, padding: '4px 12px', boxShadow: 'var(--shadow-card)' }}>{listing.pages} pages · Buy to unlock</div>
                   </div>
                 </>}
               </div>
             ) : (
-              // No cover uploaded
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, padding: 32, color: accentColor }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, padding: 32, minHeight: 180, justifyContent: 'center', color: accentColor }}>
                 <Icon.doc size={48}/>
                 <div style={{ fontSize: 13, color: 'var(--charcoal-soft)', fontWeight: 600 }}>{listing.pages} pages</div>
               </div>
