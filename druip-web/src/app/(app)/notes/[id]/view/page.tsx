@@ -1,7 +1,9 @@
 import { notFound, redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { createClient as createServiceClient } from '@supabase/supabase-js'
-import ViewClient from './view-client'
+import dynamic from 'next/dynamic'
+
+const ViewClient = dynamic(() => import('./view-client'), { ssr: false })
 
 export default async function ViewPage({ params }: { params: { id: string } }) {
   const supabase = await createClient()

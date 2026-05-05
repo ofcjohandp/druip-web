@@ -1,7 +1,9 @@
 import { createClient } from '@/lib/supabase/server'
 import { createClient as createServiceClient } from '@supabase/supabase-js'
 import { notFound } from 'next/navigation'
-import NoteDetailClient from './note-detail-client'
+import dynamic from 'next/dynamic'
+
+const NoteDetailClient = dynamic(() => import('./note-detail-client'), { ssr: false })
 
 export default async function NoteDetailPage({ params, searchParams }: { params: { id: string }, searchParams: { payment?: string } }) {
   const supabase = await createClient()
