@@ -9,7 +9,6 @@ import { Shell } from '@/components/druip/shell'
 import { Avatar, Chip, Button, Toast } from '@/components/druip/ui'
 import { Icon } from '@/components/druip/icons'
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
 
 interface Listing {
   id: string
@@ -54,7 +53,10 @@ export default function NoteDetailClient({ listing, sellerName, firstPdfUrl, cov
   const [userId, setUserId] = useState<string | null>(null)
   const [pdfWidth, setPdfWidth] = useState(335)
 
-  useEffect(() => { setPdfWidth(Math.min(window.innerWidth - 40, 680)) }, [])
+  useEffect(() => {
+    pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
+    setPdfWidth(Math.min(window.innerWidth - 40, 680))
+  }, [])
   const [toast, setToast] = useState<{ tone: 'sage' | 'gold' | 'coral'; msg: string } | null>(
     paymentStatus === 'success' ? { tone: 'sage', msg: 'Payment successful! Your notes are ready to download.' } :
     paymentStatus === 'cancelled' ? { tone: 'coral', msg: 'Payment cancelled.' } : null
