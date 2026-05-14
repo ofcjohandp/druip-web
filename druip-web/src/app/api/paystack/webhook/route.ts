@@ -1,13 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient as createServiceClient } from '@supabase/supabase-js'
+import crypto from 'crypto'
 
 export async function POST(request: NextRequest) {
-  const body = await request.json()
+  const rawBody = await request.text()
+  const signature = request.headers.get('x-paystack-signature')
+  const secret = process.env.PAYSTACK_SECRET_KEY!
 
-  const paymentRequestId = body?.data?.clientPaymentInitiationRequest?.id
-  const status = body?.data?.clientPaymentInitiationRequest?.status?.__typename
+  const expectedSig = crypto.createHmac('sha512', secret).update(rawBody).digest('hex')
+  if (signature !== expectedSig) {
+    return NextResponse.json({ error: 'Invalid signature' }, { status: 401 })
+  }
 
-  if (!paymentRequestId || status !== 'PaymentInitiationRequestCompleted') {
+  const body = JSON.parse(rawBody)
+
+  if (body.event !== 'charge.success') {
+    return NextResponse.json({ ok: true })
+  }
+
+  const reference: string = body.data?.reference
+  const metadata: Record<string, string> = body.data?.metadata || {}
+  const listingId: string = metadata.listing_id
+  const buyerId: string = metadata.buyer_id
+
+  if (!reference || !listingId || !buyerId) {
     return NextResponse.json({ ok: true })
   }
 
@@ -16,19 +32,13 @@ export async function POST(request: NextRequest) {
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   )
 
-  // Skip if already recorded by callback
   const { data: existing } = await supabase
     .from('purchases')
     .select('id')
-    .eq('payfast_payment_id', paymentRequestId)
+    .eq('payfast_payment_id', reference)
     .maybeSingle()
 
   if (existing) return NextResponse.json({ ok: true })
-
-  const extRef: string = body?.data?.clientPaymentInitiationRequest?.externalReference
-  if (!extRef) return NextResponse.json({ ok: true })
-
-  const [listingId, buyerId] = extRef.split(':')
 
   const { data: listing } = await supabase
     .from('listings')
@@ -49,7 +59,7 @@ export async function POST(request: NextRequest) {
     amount_paid: amountPaid,
     platform_fee: platformFee,
     seller_amount: sellerAmount,
-    payfast_payment_id: paymentRequestId,
+    payfast_payment_id: reference,
     payment_status: 'paid',
   })
 

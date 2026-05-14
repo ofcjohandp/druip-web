@@ -254,7 +254,7 @@ export default function NoteDetailClient({ listing, sellerName, firstPdfUrl, cov
               <>
                 <Button variant="gold" size="lg" full onClick={() => {
                   if (!isSignedIn) { router.push('/sign-in'); return }
-                  router.push(`/api/stitch/initiate?listing_id=${listing.id}`)
+                  router.push(`/api/paystack/initiate?listing_id=${listing.id}`)
                 }}>
                   Buy for R {Number(listing.price).toFixed(0)}
                 </Button>
