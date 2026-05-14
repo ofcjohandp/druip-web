@@ -54,7 +54,15 @@ Progress: [░░░░░░░░░░] 0%
 
 None.
 
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 260514-fop | Fix all open gaps: delete dead PayFast files, replace Stitch with Paystack, wire Earnings page, provide migration 00021 SQL | 2026-05-14 | 14c2e63 | [260514-fop-fix-all-open-gaps-delete-dead-payfast-fi](.planning/quick/260514-fop-fix-all-open-gaps-delete-dead-payfast-fi/) |
+
 ## Session Continuity
+
+Last activity: 2026-05-14 - Completed quick task 260514-fop: Fix all open gaps: delete dead PayFast files, replace Stitch with Paystack, wire Earnings page, provide migration 00021 SQL
 
 Last session: 2026-04-09T17:40:42.405Z
 Stopped at: Completed 01-real-dashboard 01-01-PLAN.md
