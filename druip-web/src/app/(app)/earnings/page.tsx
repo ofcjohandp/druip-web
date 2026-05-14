@@ -149,7 +149,7 @@ export default function EarningsPage() {
         .select('seller_amount, payment_status, created_at, listing_id, listings(title)')
         .eq('seller_id', user.id)
         .order('created_at', { ascending: false })
-      setPurchases((data as Purchase[]) || [])
+      setPurchases((data as unknown as Purchase[]) || [])
       setLoading(false)
     }
     load()
