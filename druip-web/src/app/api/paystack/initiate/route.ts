@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
-import { createPaymentRequest } from '@/lib/stitch'
+import { initializeTransaction } from '@/lib/paystack'
 
 export async function GET(request: NextRequest) {
   const listingId = request.nextUrl.searchParams.get('listing_id')
@@ -21,16 +21,19 @@ export async function GET(request: NextRequest) {
   if (listing.seller_id === user.id) return NextResponse.json({ error: 'Cannot buy your own listing' }, { status: 400 })
 
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || `https://${request.headers.get('host')}`
+  const reference = `druip_${listingId}_${user.id}_${Date.now()}`
 
   try {
-    const payment = await createPaymentRequest({
+    const { authorization_url } = await initializeTransaction({
       amountRands: Number(listing.price),
-      externalReference: `${listingId}:${user.id}`,
-      redirectUri: `${baseUrl}/api/stitch/callback`,
+      email: user.email!,
+      reference,
+      metadata: { listing_id: listingId, buyer_id: user.id },
+      callbackUrl: `${baseUrl}/api/paystack/callback`,
     })
-    return NextResponse.redirect(payment.url)
+    return NextResponse.redirect(authorization_url)
   } catch (err) {
-    console.error('Stitch initiate error:', err)
+    console.error('Paystack initiate error:', err)
     return NextResponse.redirect(`${baseUrl}/notes/${listingId}?payment=error`)
   }
 }
