@@ -54,7 +54,7 @@ export default function NoteDetailClient({ listing, sellerName, firstPdfUrl, cov
   const [pdfWidth, setPdfWidth] = useState(335)
 
   useEffect(() => {
-    pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
+    pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs'
     setPdfWidth(Math.min(window.innerWidth - 40, 680))
   }, [])
   const [toast, setToast] = useState<{ tone: 'sage' | 'gold' | 'coral'; msg: string } | null>(

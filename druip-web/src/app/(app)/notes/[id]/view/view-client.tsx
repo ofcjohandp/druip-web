@@ -8,7 +8,7 @@ import 'react-pdf/dist/Page/TextLayer.css'
 import { Shell } from '@/components/druip/shell'
 import { Icon } from '@/components/druip/icons'
 
-pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`
+pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs'
 
 interface FileItem { url: string; type: 'image' | 'pdf' }
 
