@@ -58,7 +58,7 @@ export default function NoteDetailClient({ listing, sellerName, firstPdfUrl, cov
     setPdfWidth(Math.min(window.innerWidth - 40, 680))
   }, [])
   const [toast, setToast] = useState<{ tone: 'sage' | 'gold' | 'coral'; msg: string } | null>(
-    paymentStatus === 'success' ? { tone: 'sage', msg: 'Payment successful! Your notes are ready to download.' } :
+    paymentStatus === 'success' ? { tone: 'sage', msg: 'Payment successful! Good luck studying.' } :
     paymentStatus === 'cancelled' ? { tone: 'coral', msg: 'Payment cancelled.' } : null
   )
 
