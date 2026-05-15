@@ -12,11 +12,16 @@ export async function POST(request: NextRequest) {
     process.env.SUPABASE_SERVICE_ROLE_KEY!
   )
 
-  const { data } = await storage.storage.from('notes').createSignedUrls(paths, 3600)
   const result: Record<string, string> = {}
-  if (data) {
-    // Key by original submitted path (not item.path which Supabase may normalise)
-    data.forEach((item, idx) => { if (item.signedUrl) result[paths[idx]] = item.signedUrl })
+  const external = paths.filter(p => p.startsWith('http'))
+  const storagePaths = paths.filter(p => !p.startsWith('http'))
+  external.forEach(url => { result[url] = url })
+
+  if (storagePaths.length) {
+    const { data } = await storage.storage.from('notes').createSignedUrls(storagePaths, 3600)
+    if (data) {
+      data.forEach((item, idx) => { if (item.signedUrl) result[storagePaths[idx]] = item.signedUrl })
+    }
   }
 
   return NextResponse.json(result)

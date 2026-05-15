@@ -48,22 +48,34 @@ export default async function NoteDetailPage({ params, searchParams }: { params:
   const filePaths: string[] = Array.isArray(listing.file_urls) ? listing.file_urls : []
 
   if (listing.cover_url) {
-    const { data } = await storage.storage.from('notes').createSignedUrl(listing.cover_url, 3600)
-    coverSignedUrl = data?.signedUrl ?? null
+    if (listing.cover_url.startsWith('http')) {
+      coverSignedUrl = listing.cover_url
+    } else {
+      const { data } = await storage.storage.from('notes').createSignedUrl(listing.cover_url, 3600)
+      coverSignedUrl = data?.signedUrl ?? null
+    }
   }
   if (!coverSignedUrl && filePaths.length) {
     const firstImage = filePaths.find(p => !p.toLowerCase().endsWith('.pdf'))
     const fallbackPath = firstImage ?? filePaths[0]
-    const { data } = await storage.storage.from('notes').createSignedUrl(fallbackPath, 3600)
-    coverSignedUrl = data?.signedUrl ?? null
+    if (fallbackPath.startsWith('http')) {
+      coverSignedUrl = fallbackPath
+    } else {
+      const { data } = await storage.storage.from('notes').createSignedUrl(fallbackPath, 3600)
+      coverSignedUrl = data?.signedUrl ?? null
+    }
   }
 
   // First PDF signed URL — available to all users for the preview
   let firstPdfSignedUrl: string | null = null
   const firstPdfPath = filePaths.find(p => p.toLowerCase().endsWith('.pdf'))
   if (firstPdfPath) {
-    const { data } = await storage.storage.from('notes').createSignedUrl(firstPdfPath, 3600)
-    firstPdfSignedUrl = data?.signedUrl ?? null
+    if (firstPdfPath.startsWith('http')) {
+      firstPdfSignedUrl = firstPdfPath
+    } else {
+      const { data } = await storage.storage.from('notes').createSignedUrl(firstPdfPath, 3600)
+      firstPdfSignedUrl = data?.signedUrl ?? null
+    }
   }
 
   const previewItems: { url: string; type: 'image' | 'pdf' }[] = []
