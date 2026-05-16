@@ -1,9 +1,12 @@
 import { notFound, redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { createClient as createServiceClient } from '@supabase/supabase-js'
-import dynamic from 'next/dynamic'
+import dynamicImport from 'next/dynamic'
 
-const ViewClient = dynamic(() => import('./view-client'), { ssr: false })
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
+const ViewClient = dynamicImport(() => import('./view-client'), { ssr: false })
 
 export default async function ViewPage({ params }: { params: { id: string } }) {
   const supabase = await createClient()
@@ -43,11 +46,11 @@ export default async function ViewPage({ params }: { params: { id: string } }) {
   const files: { url: string; type: 'image' | 'pdf' }[] = []
 
   for (const path of filePaths) {
-    const { data } = await storage.storage.from('notes').createSignedUrl(path, 3600)
+    const { data } = await storage.storage.from('notes').createSignedUrl(path, 600)
     if (data?.signedUrl) {
       files.push({ url: data.signedUrl, type: path.toLowerCase().endsWith('.pdf') ? 'pdf' : 'image' })
     }
   }
 
-  return <ViewClient title={listing.title} files={files} />
+  return <ViewClient title={listing.title} files={files} userEmail={user.email ?? user.id} />
 }
