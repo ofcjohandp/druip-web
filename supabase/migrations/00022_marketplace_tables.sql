@@ -1,14 +1,6 @@
-# Migration 00022 — Create purchases, saved_items, ratings tables
+-- Creates purchases, saved_items, and ratings tables
+-- These were never formally migrated — run this to set them up in production
 
-**Run this in Supabase Dashboard → SQL Editor → project `vpmrgidheamgerimkaox`**
-
-These tables were never formally created via a migration. Without them:
-- Payments fail silently (purchases can't be recorded)
-- Library Purchased tab returns 404
-- Library Wishlist tab returns 404
-- Star ratings can't be saved
-
-```sql
 CREATE TABLE IF NOT EXISTS purchases (
   id                 uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   listing_id         uuid NOT NULL REFERENCES listings(id) ON DELETE CASCADE,
@@ -39,14 +31,19 @@ CREATE TABLE IF NOT EXISTS ratings (
   UNIQUE (listing_id, buyer_id)
 );
 
+-- RLS
 ALTER TABLE purchases   ENABLE ROW LEVEL SECURITY;
 ALTER TABLE saved_items ENABLE ROW LEVEL SECURITY;
 ALTER TABLE ratings     ENABLE ROW LEVEL SECURITY;
 
+-- purchases: buyer and seller can read their own rows; service role inserts on payment
 CREATE POLICY "purchases_buyer_read"  ON purchases FOR SELECT USING (auth.uid() = buyer_id);
 CREATE POLICY "purchases_seller_read" ON purchases FOR SELECT USING (auth.uid() = seller_id);
+
+-- saved_items: user owns their own rows
 CREATE POLICY "saved_items_owner" ON saved_items FOR ALL USING (auth.uid() = user_id);
+
+-- ratings: anyone can read; buyer can insert/update their own
 CREATE POLICY "ratings_read"   ON ratings FOR SELECT USING (true);
 CREATE POLICY "ratings_write"  ON ratings FOR INSERT WITH CHECK (auth.uid() = buyer_id);
 CREATE POLICY "ratings_update" ON ratings FOR UPDATE USING (auth.uid() = buyer_id);
-```
