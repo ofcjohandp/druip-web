@@ -69,31 +69,30 @@ export default function SellClient() {
     }
 
     setUploadProgress('')
-    const { error } = await supabase.from('listings').insert({
-      seller_id: user.id,
-      title,
-      code,
-      type,
-      faculty,
-      tone: FACULTY_TONES[faculty] || 'sage',
-      description: desc,
-      price,
-      pages: files.length,
-      file_urls: uploadedPaths,
-      cover_url: coverPath,
-      language: lang,
-      format,
-      status: 'published',
+    const res = await fetch('/api/listings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title,
+        code,
+        type,
+        faculty,
+        tone: FACULTY_TONES[faculty] || 'sage',
+        description: desc,
+        price,
+        pages: files.length,
+        file_urls: uploadedPaths,
+        cover_url: coverPath,
+        language: lang,
+        format,
+      }),
     })
 
     setPublishing(false)
-    if (error) {
-      setToast({ tone: 'coral', msg: 'Something went wrong. Try again.' })
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}))
+      setToast({ tone: 'coral', msg: data.error === 'Seller approval required' ? 'You need seller approval to publish.' : 'Something went wrong. Try again.' })
       return
-    }
-    const existingRoles: string[] = user.user_metadata?.roles ?? ['Student']
-    if (!existingRoles.includes('Seller')) {
-      await supabase.auth.updateUser({ data: { roles: [...existingRoles, 'Seller'] } })
     }
     setToast({ tone: 'gold', msg: 'Listing published! 🎉' })
     setTimeout(() => router.push('/profile'), 800)

@@ -100,9 +100,12 @@ export default async function NoteDetailPage({ params, searchParams }: { params:
     userRating = ratingData?.score ?? null
   }
 
+  // Strip raw storage paths — only needed server-side, not safe to send to client
+  const listingForClient = { ...listing, file_urls: [] }
+
   return (
     <NoteDetailClient
-      listing={listing}
+      listing={listingForClient}
       sellerName={[seller?.first_name, seller?.last_name].filter(Boolean).join(' ') || 'Anonymous'}
       firstPdfUrl={firstPdfSignedUrl}
       coverUrl={coverSignedUrl}

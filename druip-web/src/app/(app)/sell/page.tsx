@@ -9,11 +9,12 @@ export default async function SellPage() {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) redirect('/sign-in')
 
-  // Existing sellers bypass the approval gate
+  // Existing sellers bypass the approval gate — only count published listings, not personal notes
   const { count: listingsCount } = await supabase
     .from('listings')
     .select('*', { count: 'exact', head: true })
     .eq('seller_id', user.id)
+    .eq('status', 'published')
 
   if ((listingsCount ?? 0) > 0) return <SellClient/>
 
