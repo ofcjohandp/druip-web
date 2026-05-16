@@ -15,7 +15,7 @@ export default async function ProfilePage() {
 
   const { data: listings } = await supabase
     .from('listings')
-    .select('id, title, code, price, pages, tone, status, created_at')
+    .select('id, title, code, price, pages, tone, status, description, created_at')
     .eq('seller_id', user.id)
     .order('created_at', { ascending: false })
 
