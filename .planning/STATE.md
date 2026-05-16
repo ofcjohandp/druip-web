@@ -60,7 +60,8 @@ None.
 |---|-------------|------|--------|-----------|
 | 260514-fop | Fix all open gaps: delete dead PayFast files, replace Stitch with Paystack, wire Earnings page, provide migration 00021 SQL | 2026-05-14 | 14c2e63 | [260514-fop-fix-all-open-gaps-delete-dead-payfast-fi](.planning/quick/260514-fop-fix-all-open-gaps-delete-dead-payfast-fi/) |
 | 260516-sec | Harden notes viewer: auth-gate signed-URL API, tighten TTL, watermark, zoom, page counter, print/keyboard blocks | 2026-05-16 | 9462683 | [260516-sec-harden-notes-viewer](.planning/quick/260516-sec-harden-notes-viewer/) |
-| 260516-bsf | Fix buyer-seller flow gaps: personal-notes bypass, server-side listing creation, file_urls client leak, delete seed endpoints, RLS migration | 2026-05-16 | pending | [260516-buyer-seller-flow-fixes](.planning/quick/260516-buyer-seller-flow-fixes/) |
+| 260516-bsf | Fix buyer-seller flow gaps: personal-notes bypass, server-side listing creation, file_urls client leak, delete seed endpoints, RLS migration | 2026-05-16 | 52e9404 | [260516-buyer-seller-flow-fixes](.planning/quick/260516-buyer-seller-flow-fixes/) |
+| 260516-snf | Seller approval notification via Resend — approved and denied emails with warm Druip tone | 2026-05-16 | pending | [260516-seller-notification](.planning/quick/260516-seller-notification/) |
 
 ## Session Continuity
 
