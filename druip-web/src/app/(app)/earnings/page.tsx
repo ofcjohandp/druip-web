@@ -143,7 +143,14 @@ export default function EarningsPage() {
     async function load() {
       const supabase = createClient()
       const { data: { user } } = await supabase.auth.getUser()
-      if (!user) { setLoading(false); return }
+      if (!user) { router.replace('/sign-in'); return }
+      const { data: application } = await supabase
+        .from('seller_applications')
+        .select('status')
+        .eq('user_id', user.id)
+        .eq('status', 'approved')
+        .maybeSingle()
+      if (!application) { router.replace('/apply-to-sell'); return }
       const { data } = await supabase
         .from('purchases')
         .select('seller_amount, payment_status, created_at, listing_id, listings(title)')

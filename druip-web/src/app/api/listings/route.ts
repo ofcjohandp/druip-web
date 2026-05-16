@@ -1,29 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { createClient as createServiceClient } from '@supabase/supabase-js'
+import { isApprovedSeller } from '@/lib/seller'
 
 export async function POST(request: NextRequest) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  // Verify seller: must have an approved application OR an existing published listing
-  const [{ data: application }, { count: publishedCount }] = await Promise.all([
-    supabase
-      .from('seller_applications')
-      .select('status')
-      .eq('user_id', user.id)
-      .eq('status', 'approved')
-      .maybeSingle(),
-    supabase
-      .from('listings')
-      .select('*', { count: 'exact', head: true })
-      .eq('seller_id', user.id)
-      .eq('status', 'published'),
-  ])
-
-  const isSeller = !!application || (publishedCount ?? 0) > 0
-  if (!isSeller) {
+  if (!(await isApprovedSeller(supabase, user.id))) {
     return NextResponse.json({ error: 'Seller approval required' }, { status: 403 })
   }
 
