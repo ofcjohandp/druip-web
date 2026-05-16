@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { createClient as createAdminClient } from '@supabase/supabase-js'
+import { Resend } from 'resend'
 
 const ADMIN_EMAIL = 'ofc.johandp@gmail.com'
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://druip.co.za'
@@ -56,26 +57,17 @@ async function sendApprovalEmail(
 
   const firstName = user.user_metadata?.first_name || user.email.split('@')[0]
 
-  const subject = action === 'approved'
-    ? 'You\'re approved to sell on Druip'
-    : 'Your Druip seller application'
+  const resend = new Resend(apiKey)
 
-  const html = action === 'approved'
-    ? approvedEmailHtml(firstName, APP_URL)
-    : deniedEmailHtml(firstName, notes, APP_URL)
-
-  await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      from: 'Druip <noreply@druip.co.za>',
-      to: [user.email],
-      subject,
-      html,
-    }),
+  await resend.emails.send({
+    from: 'Druip <onboarding@resend.dev>',
+    to: user.email,
+    subject: action === 'approved'
+      ? 'You\'re approved to sell on Druip'
+      : 'Your Druip seller application',
+    html: action === 'approved'
+      ? approvedEmailHtml(firstName, APP_URL)
+      : deniedEmailHtml(firstName, notes, APP_URL),
   })
 }
 
