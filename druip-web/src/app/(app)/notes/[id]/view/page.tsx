@@ -20,9 +20,9 @@ export default async function ViewPage({ params }: { params: { id: string } }) {
 
   const { data: listing } = await supabase
     .from('listings')
-    .select('id, title, file_urls, seller_id')
+    .select('id, title, file_urls, seller_id, status')
     .eq('id', params.id)
-    .eq('status', 'published')
+    .in('status', ['published', 'personal'])
     .single()
 
   if (!listing) notFound()

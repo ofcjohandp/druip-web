@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, Suspense } from 'react'
+import { useState, useEffect, useRef, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Shell } from '@/components/druip/shell'
@@ -26,7 +26,10 @@ function LibraryInner() {
   const [showPersonalForm, setShowPersonalForm] = useState(false)
   const [personalTitle, setPersonalTitle] = useState('')
   const [personalDesc, setPersonalDesc] = useState('')
+  const [personalFile, setPersonalFile] = useState<File | null>(null)
   const [saving, setSaving] = useState(false)
+  const [uploadProgress, setUploadProgress] = useState('')
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const [toast, setToast] = useState<{ tone: 'sage' | 'gold' | 'coral'; msg: string } | null>(null)
 
   async function load() {
@@ -66,6 +69,22 @@ function LibraryInner() {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) { router.push('/sign-in'); return }
 
+    const fileUrls: string[] = []
+    if (personalFile) {
+      setUploadProgress('Uploading PDF…')
+      const ext = personalFile.name.split('.').pop() || 'pdf'
+      const path = `${user.id}/personal/${Date.now()}.${ext}`
+      const { error: uploadError } = await supabase.storage.from('notes').upload(path, personalFile)
+      if (uploadError) {
+        setSaving(false)
+        setUploadProgress('')
+        setToast({ tone: 'coral', msg: 'Upload failed. Try again.' })
+        return
+      }
+      fileUrls.push(path)
+      setUploadProgress('')
+    }
+
     const { error } = await supabase.from('listings').insert({
       seller_id: user.id,
       title: personalTitle.trim(),
@@ -76,7 +95,7 @@ function LibraryInner() {
       tone: 'turquoise',
       price: 0,
       pages: 0,
-      file_urls: [],
+      file_urls: fileUrls,
       status: 'personal',
     })
 
@@ -84,6 +103,8 @@ function LibraryInner() {
     if (error) { setToast({ tone: 'coral', msg: 'Could not save. Try again.' }); return }
     setPersonalTitle('')
     setPersonalDesc('')
+    setPersonalFile(null)
+    if (fileInputRef.current) fileInputRef.current.value = ''
     setShowPersonalForm(false)
     setToast({ tone: 'sage', msg: 'Personal note saved.' })
     load()
@@ -166,8 +187,8 @@ function LibraryInner() {
               ) : (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   {mine.map(p => (
-                    <div key={p.id} onClick={() => p.price !== 'Personal' ? router.push(`/notes/${p.id}`) : undefined}
-                      style={{ background: 'var(--white)', borderRadius: 20, border: '1px solid var(--hairline)', padding: '16px', display: 'flex', alignItems: 'center', gap: 14, cursor: p.price !== 'Personal' ? 'pointer' : 'default' }}>
+                    <div key={p.id} onClick={() => router.push(p.price !== 'Personal' ? `/notes/${p.id}` : `/notes/${p.id}/view`)}
+                      style={{ background: 'var(--white)', borderRadius: 20, border: '1px solid var(--hairline)', padding: '16px', display: 'flex', alignItems: 'center', gap: 14, cursor: 'pointer' }}>
                       <div style={{ width: 44, height: 44, borderRadius: 14, background: `var(--${p.tone}-soft)`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: `var(--${p.tone}-deep)` }}>
                         <Icon.doc size={20}/>
                       </div>
@@ -175,7 +196,7 @@ function LibraryInner() {
                         <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--charcoal)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{p.title}</div>
                         <div style={{ fontSize: 12, color: 'var(--charcoal-soft)', marginTop: 2 }}>{p.price === 'Personal' ? 'Personal note' : `${p.code} · ${p.pages} pages · ${p.price}`}</div>
                       </div>
-                      {p.price !== 'Personal' && <Icon.chevron size={16}/>}
+                      <Icon.chevron size={16}/>
                     </div>
                   ))}
                   {!showPersonalForm && (
@@ -202,6 +223,16 @@ function LibraryInner() {
                       onFocus={e => (e.currentTarget.style.borderColor = 'var(--sage)')}
                       onBlur={e => (e.currentTarget.style.borderColor = 'transparent')}/>
                   </div>
+                  <div style={{ marginBottom: 10 }}>
+                    <label style={{ display: 'block', fontSize: 12, fontWeight: 700, color: 'var(--charcoal-soft)', marginBottom: 6 }}>PDF (optional)</label>
+                    <input ref={fileInputRef} type="file" accept="application/pdf" style={{ display: 'none' }}
+                      onChange={e => setPersonalFile(e.target.files?.[0] ?? null)}/>
+                    <button type="button" onClick={() => fileInputRef.current?.click()}
+                      style={{ width: '100%', padding: '12px 14px', background: personalFile ? 'var(--sage-soft)' : 'var(--cream-warm)', border: `1.5px dashed ${personalFile ? 'var(--sage)' : 'var(--hairline)'}`, borderRadius: 14, fontFamily: 'Nunito, sans-serif', fontSize: 13, fontWeight: 700, color: personalFile ? 'var(--sage-deep)' : 'var(--charcoal-soft)', cursor: 'pointer', textAlign: 'left' as const, display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <Icon.upload size={16}/>
+                      {personalFile ? personalFile.name : 'Choose PDF…'}
+                    </button>
+                  </div>
                   <div style={{ marginBottom: 16 }}>
                     <label style={{ display: 'block', fontSize: 12, fontWeight: 700, color: 'var(--charcoal-soft)', marginBottom: 6 }}>Notes (optional)</label>
                     <textarea value={personalDesc} onChange={e => setPersonalDesc(e.target.value)}
@@ -213,9 +244,9 @@ function LibraryInner() {
                   </div>
                   <div style={{ display: 'flex', gap: 10 }}>
                     <Button variant="primary" size="sm" onClick={createPersonalNote} disabled={saving || !personalTitle.trim()}>
-                      {saving ? 'Saving...' : 'Save note'}
+                      {saving ? (uploadProgress || 'Saving…') : 'Save note'}
                     </Button>
-                    <Button variant="ghost" size="sm" onClick={() => { setShowPersonalForm(false); setPersonalTitle(''); setPersonalDesc('') }}>Cancel</Button>
+                    <Button variant="ghost" size="sm" onClick={() => { setShowPersonalForm(false); setPersonalTitle(''); setPersonalDesc(''); setPersonalFile(null); if (fileInputRef.current) fileInputRef.current.value = '' }}>Cancel</Button>
                   </div>
                 </div>
               )}
