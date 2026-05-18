@@ -361,7 +361,9 @@ export default function ProfileClient({ firstName, lastName, email, university, 
                 <ListRow icon={<Icon.zap size={18}/>} label="Earn from your notes" sub="Apply to become a seller" onClick={() => router.push('/apply-to-sell')}/>
               )}
               <ListRow icon={<Icon.user size={18}/>} label="Personal info" sub={email}/>
-              <ListRow icon={<Icon.card size={18}/>} label="Payout method" sub="Not set up yet"/>
+              {listings.length > 0 && (
+                <ListRow icon={<Icon.card size={18}/>} label="Payout method" sub="Manage cash-out details" onClick={() => router.push('/earnings')}/>
+              )}
               <ListRow icon={<Icon.shield size={18}/>} label="Verification" sub={university} right={<Chip tone="sage" size="sm">Active</Chip>}/>
               <ListRow icon={<Icon.bell size={18}/>} label="Notifications" last/>
             </div>

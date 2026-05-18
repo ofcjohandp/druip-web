@@ -20,7 +20,15 @@ export default async function AdminApplicationsPage() {
     .select('id, user_id, report_url, status, reviewer_notes, created_at')
     .order('created_at', { ascending: false })
 
-  const userIds = (applications || []).map((a: { user_id: string }) => a.user_id)
+  const { data: payouts } = await admin
+    .from('payout_requests')
+    .select('id, seller_id, amount, bank_name, account_number, account_holder, status, paid_at, created_at')
+    .order('created_at', { ascending: false })
+
+  const appUserIds = (applications || []).map((a: { user_id: string }) => a.user_id)
+  const payoutSellerIds = (payouts || []).map((p: { seller_id: string }) => p.seller_id)
+  const userIds = Array.from(new Set([...appUserIds, ...payoutSellerIds]))
+
   const { data: profiles } = userIds.length > 0
     ? await admin.from('profiles').select('id, first_name, last_name').in('id', userIds)
     : { data: [] }
@@ -39,13 +47,26 @@ export default async function AdminApplicationsPage() {
     (profiles || []).map((p: { id: string; first_name: string; last_name: string }) => [p.id, p])
   )
 
+  function nameFor(id: string) {
+    const p = profileMap[id] as { first_name: string; last_name: string } | undefined
+    if (!p) return 'Unknown'
+    return [p.first_name, p.last_name].filter(Boolean).join(' ') || 'Unknown'
+  }
+
   const enriched = (applications || []).map((a: { id: string; user_id: string; report_url: string; status: string; reviewer_notes: string | null; created_at: string }) => ({
     ...a,
-    name: profileMap[a.user_id]
-      ? `${(profileMap[a.user_id] as { first_name: string; last_name: string }).first_name} ${(profileMap[a.user_id] as { first_name: string; last_name: string }).last_name}`
-      : 'Unknown',
+    name: nameFor(a.user_id),
     reportSignedUrl: signedUrls[a.report_url] || null,
   }))
 
-  return <AdminApplicationsClient applications={enriched}/>
+  const enrichedPayouts = (payouts || []).map((p: {
+    id: string; seller_id: string; amount: number; bank_name: string;
+    account_number: string; account_holder: string; status: string;
+    paid_at: string | null; created_at: string
+  }) => ({
+    ...p,
+    seller_name: nameFor(p.seller_id),
+  }))
+
+  return <AdminApplicationsClient applications={enriched} payouts={enrichedPayouts}/>
 }

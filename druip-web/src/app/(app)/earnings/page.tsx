@@ -15,6 +15,19 @@ interface Purchase {
   listings: { title: string } | null
 }
 
+interface PayoutRow {
+  id: string
+  amount: number
+  bank_name: string
+  account_number: string
+  account_holder: string
+  status: 'pending' | 'paid' | 'rejected'
+  paid_at: string | null
+  created_at: string
+}
+
+const BANKS = ['Absa', 'FNB', 'Nedbank', 'Standard Bank', 'Capitec', 'Other'] as const
+
 interface BarBucket {
   l: string
   h: number
@@ -137,7 +150,28 @@ export default function EarningsPage() {
   const [range, setRange] = useState('Week')
   const [toast, setToast] = useState<{ tone: 'sage' | 'gold' | 'coral'; msg: string } | null>(null)
   const [purchases, setPurchases] = useState<Purchase[]>([])
+  const [payouts, setPayouts] = useState<PayoutRow[]>([])
   const [loading, setLoading] = useState(true)
+
+  // Cash-out modal state
+  const [showCashOut, setShowCashOut] = useState(false)
+  const [cashOutAmount, setCashOutAmount] = useState<string>('')
+  const [cashOutBank, setCashOutBank] = useState<typeof BANKS[number]>('Absa')
+  const [cashOutNumber, setCashOutNumber] = useState('')
+  const [cashOutHolder, setCashOutHolder] = useState('')
+  const [submittingCashOut, setSubmittingCashOut] = useState(false)
+
+  async function refreshPayouts() {
+    try {
+      const res = await fetch('/api/payouts')
+      if (res.ok) {
+        const data = await res.json()
+        setPayouts(data.requests || [])
+      }
+    } catch {
+      // ignore
+    }
+  }
 
   useEffect(() => {
     async function load() {
@@ -157,17 +191,87 @@ export default function EarningsPage() {
         .eq('seller_id', user.id)
         .order('created_at', { ascending: false })
       setPurchases((data as unknown as Purchase[]) || [])
+      await refreshPayouts()
       setLoading(false)
     }
     load()
-  }, [])
+  }, [router])
 
   const paidPurchases = purchases.filter(p => p.payment_status === 'paid')
-  const available = paidPurchases.reduce((s, p) => s + Number(p.seller_amount), 0)
+  const earned = paidPurchases.reduce((s, p) => s + Number(p.seller_amount), 0)
+  const reservedByPayouts = payouts
+    .filter(p => p.status !== 'rejected')
+    .reduce((s, p) => s + Number(p.amount), 0)
+  const available = Math.max(earned - reservedByPayouts, 0)
   const pending = purchases.filter(p => p.payment_status !== 'paid').reduce((s, p) => s + Number(p.seller_amount), 0)
   const lifetime = purchases.reduce((s, p) => s + Number(p.seller_amount), 0)
   const rangeTotal = getRangePaidTotal(purchases, range)
   const barData = buildBarData(purchases, range)
+
+  function openCashOut() {
+    if (available <= 0) {
+      setToast({ tone: 'gold', msg: 'No balance to cash out yet.' })
+      return
+    }
+    const last = payouts[0]
+    setCashOutAmount(available.toFixed(2))
+    setCashOutBank((last && (BANKS as readonly string[]).includes(last.bank_name) ? last.bank_name : 'Absa') as typeof BANKS[number])
+    setCashOutNumber(last?.account_number ?? '')
+    setCashOutHolder(last?.account_holder ?? '')
+    setShowCashOut(true)
+  }
+
+  function closeCashOut() {
+    if (submittingCashOut) return
+    setShowCashOut(false)
+  }
+
+  async function submitCashOut() {
+    const amount = Number(cashOutAmount)
+    if (!Number.isFinite(amount) || amount <= 0) {
+      setToast({ tone: 'coral', msg: 'Enter a valid amount.' })
+      return
+    }
+    if (amount > available + 0.005) {
+      setToast({ tone: 'coral', msg: 'Amount exceeds available balance.' })
+      return
+    }
+    if (!/^\d{6,20}$/.test(cashOutNumber.trim())) {
+      setToast({ tone: 'coral', msg: 'Account number must be 6-20 digits.' })
+      return
+    }
+    if (cashOutHolder.trim().length < 2) {
+      setToast({ tone: 'coral', msg: 'Enter the account holder name.' })
+      return
+    }
+    setSubmittingCashOut(true)
+    const res = await fetch('/api/payouts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount,
+        bank_name: cashOutBank,
+        account_number: cashOutNumber.trim(),
+        account_holder: cashOutHolder.trim(),
+      }),
+    })
+    setSubmittingCashOut(false)
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({} as { error?: string }))
+      setToast({ tone: 'coral', msg: data.error || 'Could not submit request.' })
+      return
+    }
+    setShowCashOut(false)
+    setToast({ tone: 'sage', msg: 'Request submitted. We process payouts within 2 business days.' })
+    await refreshPayouts()
+  }
+
+  const inputStyle: React.CSSProperties = {
+    width: '100%', padding: '13px 16px', background: 'var(--cream-warm)',
+    border: '1.5px solid transparent', borderRadius: 14,
+    fontFamily: 'Nunito, sans-serif', fontSize: 15, outline: 'none',
+    boxSizing: 'border-box', color: 'var(--charcoal)',
+  }
 
   return (
     <>
@@ -195,7 +299,7 @@ export default function EarningsPage() {
                   {loading ? <Skeleton h={24} w={60} r={4} style={{ marginTop: 4 }}/> : <div style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 18 }}>R {lifetime.toFixed(0)}</div>}
                 </div>
               </div>
-              <Button variant="gold" size="lg" full onClick={() => setToast({ tone: 'sage', msg: 'Nothing to cash out yet.' })} style={{ marginTop: 18 }}>
+              <Button variant="gold" size="lg" full onClick={openCashOut} style={{ marginTop: 18 }}>
                 <Icon.download size={16}/> Cash out
               </Button>
             </div>
@@ -286,7 +390,83 @@ export default function EarningsPage() {
             </div>
           )}
         </section>
+
+        {/* Payout history */}
+        {payouts.length > 0 && (
+          <section style={{ padding: '0 20px 100px' }}>
+            <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 18, letterSpacing: '-.02em', margin: '0 0 12px', color: 'var(--charcoal)' }}>Payouts</h2>
+            <div style={{ background: 'var(--white)', borderRadius: 20, border: '1px solid var(--hairline)', overflow: 'hidden' }}>
+              {payouts.map(p => {
+                const tone = p.status === 'paid' ? 'sage' : p.status === 'rejected' ? 'coral' : 'gold'
+                return (
+                  <ListRow
+                    key={p.id}
+                    label={`R ${Number(p.amount).toFixed(2)} to ${p.bank_name}`}
+                    sub={`${formatDate(p.created_at)} · ****${p.account_number.slice(-4)}`}
+                    right={<Chip tone={tone} size="sm">{p.status}</Chip>}
+                  />
+                )
+              })}
+            </div>
+          </section>
+        )}
       </Shell>
+
+      {/* Cash out bottom sheet */}
+      {showCashOut && (
+        <div style={{ position: 'fixed', inset: 0, zIndex: 200, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+          <div onClick={closeCashOut} style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.35)', backdropFilter: 'blur(2px)' }}/>
+          <div style={{ position: 'relative', background: 'var(--cream)', borderRadius: '28px 28px 0 0', padding: '24px 20px 40px', maxHeight: '85vh', overflowY: 'auto' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
+              <div style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 22, color: 'var(--charcoal)' }}>Cash out</div>
+              <button onClick={closeCashOut} aria-label="Close"
+                style={{ background: 'var(--cream-warm)', border: 'none', borderRadius: 10, width: 32, height: 32, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--charcoal-soft)' }}>
+                <Icon.close size={16}/>
+              </button>
+            </div>
+            <div style={{ fontSize: 13, color: 'var(--charcoal-soft)', marginBottom: 18 }}>
+              Available: <span style={{ fontWeight: 700, color: 'var(--charcoal)' }}>R {available.toFixed(2)}</span>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--charcoal-soft)', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 6 }}>Amount (R)</div>
+                <input type="number" min={0} step="0.01"
+                  value={cashOutAmount}
+                  onChange={e => setCashOutAmount(e.target.value)}
+                  style={inputStyle} placeholder="0.00"/>
+              </div>
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--charcoal-soft)', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 6 }}>Bank</div>
+                <select value={cashOutBank} onChange={e => setCashOutBank(e.target.value as typeof BANKS[number])}
+                  style={{ ...inputStyle, appearance: 'none' }}>
+                  {BANKS.map(b => <option key={b} value={b}>{b}</option>)}
+                </select>
+              </div>
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--charcoal-soft)', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 6 }}>Account number</div>
+                <input value={cashOutNumber} onChange={e => setCashOutNumber(e.target.value.replace(/\D/g, ''))}
+                  inputMode="numeric" style={inputStyle} placeholder="123456789"/>
+              </div>
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--charcoal-soft)', textTransform: 'uppercase', letterSpacing: '.05em', marginBottom: 6 }}>Account holder</div>
+                <input value={cashOutHolder} onChange={e => setCashOutHolder(e.target.value)}
+                  style={inputStyle} placeholder="Full name as on account"/>
+              </div>
+            </div>
+
+            <div style={{ marginTop: 24, display: 'flex', gap: 10 }}>
+              <Button variant="ghost" size="md" onClick={closeCashOut}>Cancel</Button>
+              <Button variant="primary" size="md" full onClick={submitCashOut} disabled={submittingCashOut}>
+                {submittingCashOut ? 'Submitting…' : 'Submit request'}
+              </Button>
+            </div>
+            <div style={{ fontSize: 11, color: 'var(--fg-muted)', textAlign: 'center', marginTop: 14 }}>
+              We process payouts within 2 business days.
+            </div>
+          </div>
+        </div>
+      )}
 
       {toast && <Toast tone={toast.tone} onClose={() => setToast(null)}>{toast.msg}</Toast>}
     </>
