@@ -90,15 +90,45 @@ export default async function NoteDetailPage({ params, searchParams }: { params:
   }
 
   let userRating: number | null = null
+  let userReviewComment: string | null = null
   if (user && alreadyPurchased) {
     const { data: ratingData } = await supabase
       .from('ratings')
-      .select('score')
+      .select('score, comment')
       .eq('listing_id', listing.id)
       .eq('buyer_id', user.id)
       .maybeSingle()
     userRating = ratingData?.score ?? null
+    userReviewComment = (ratingData as { comment?: string | null } | null)?.comment ?? null
   }
+
+  // Load existing reviews + reviewer names
+  const { data: reviewRows } = await supabase
+    .from('ratings')
+    .select('id, score, comment, created_at, buyer_id')
+    .eq('listing_id', listing.id)
+    .order('created_at', { ascending: false })
+
+  const reviewerIds = Array.from(new Set((reviewRows || []).map(r => r.buyer_id)))
+  const reviewerNames: Record<string, string> = {}
+  if (reviewerIds.length > 0) {
+    const { data: reviewerProfiles } = await supabase
+      .from('profiles')
+      .select('id, first_name, last_name')
+      .in('id', reviewerIds)
+    for (const p of reviewerProfiles || []) {
+      const name = [p.first_name, p.last_name].filter(Boolean).join(' ').trim()
+      reviewerNames[p.id] = name || 'Student'
+    }
+  }
+
+  const reviews = (reviewRows || []).map(r => ({
+    id: r.id,
+    score: r.score,
+    comment: (r as { comment?: string | null }).comment ?? null,
+    created_at: r.created_at,
+    reviewer_name: reviewerNames[r.buyer_id] || 'Student',
+  }))
 
   // Strip raw storage paths — only needed server-side, not safe to send to client
   const listingForClient = { ...listing, file_urls: [] }
@@ -117,6 +147,8 @@ export default async function NoteDetailPage({ params, searchParams }: { params:
       avgRating={listing.avg_rating ?? 0}
       ratingCount={listing.rating_count ?? 0}
       userRating={userRating}
+      userReviewComment={userReviewComment}
+      reviews={reviews}
     />
   )
 }

@@ -19,6 +19,16 @@ interface Listing {
   created_at: string
 }
 
+interface ReceivedReview {
+  id: string
+  listing_id: string
+  listing_title: string
+  reviewer_name: string
+  score: number
+  comment: string | null
+  created_at: string
+}
+
 interface Props {
   firstName: string
   lastName: string
@@ -29,6 +39,7 @@ interface Props {
   salesCount: number
   applicationStatus: 'pending' | 'approved' | 'denied' | null
   reviewerNotes: string | null
+  receivedReviews: ReceivedReview[]
 }
 
 const ROLE_TONES: Record<string, 'white' | 'gold' | 'turquoise' | 'sage'> = {
@@ -42,7 +53,7 @@ const ROLE_TONES: Record<string, 'white' | 'gold' | 'turquoise' | 'sage'> = {
 const AVATAR_TONES = ['sage', 'gold', 'turquoise', 'coral'] as const
 type AvatarTone = typeof AVATAR_TONES[number]
 
-export default function ProfileClient({ firstName, lastName, email, university, roles, listings: initialListings, salesCount, applicationStatus, reviewerNotes }: Props) {
+export default function ProfileClient({ firstName, lastName, email, university, roles, listings: initialListings, salesCount, applicationStatus, reviewerNotes, receivedReviews }: Props) {
   const router = useRouter()
   const [tab, setTab] = useState<'listings' | 'reviews' | 'settings'>('listings')
   const [avatarTone, setAvatarTone] = useState<AvatarTone>('sage')
@@ -164,6 +175,9 @@ export default function ProfileClient({ firstName, lastName, email, university, 
 
   const publishedListings = listings.filter(l => l.status === 'published')
   const displayRoles = roles.length > 0 ? roles : ['Student']
+  const avgReceivedScore = receivedReviews.length > 0
+    ? receivedReviews.reduce((s, r) => s + r.score, 0) / receivedReviews.length
+    : 0
 
   const inputStyle: React.CSSProperties = {
     width: '100%', padding: '13px 16px', background: 'var(--cream-warm)',
@@ -203,7 +217,7 @@ export default function ProfileClient({ firstName, lastName, email, university, 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8, marginTop: 16 }}>
               {[
                 { n: String(salesCount), l: 'Sales' },
-                { n: '-', l: 'Rating' },
+                { n: receivedReviews.length === 0 ? '-' : avgReceivedScore.toFixed(1), l: 'Rating' },
                 { n: String(publishedListings.length), l: 'Listings' },
               ].map((s, i) => (
                 <div key={i} style={{ background: 'rgba(255,255,255,0.55)', borderRadius: 14, padding: '10px 8px', textAlign: 'center', backdropFilter: 'blur(8px)' }}>
@@ -283,9 +297,54 @@ export default function ProfileClient({ firstName, lastName, email, university, 
         )}
 
         {tab === 'reviews' && (
-          <section style={{ padding: '40px 20px', textAlign: 'center', color: 'var(--fg-muted)' }}>
-            <div style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 18, color: 'var(--charcoal)', marginBottom: 8 }}>No reviews yet.</div>
-            <div style={{ fontSize: 13 }}>Reviews appear after your first sale.</div>
+          <section style={{ padding: '20px' }}>
+            {receivedReviews.length === 0 ? (
+              <div style={{ padding: '40px 20px', textAlign: 'center', color: 'var(--fg-muted)' }}>
+                <div style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 18, color: 'var(--charcoal)', marginBottom: 8 }}>No reviews yet.</div>
+                <div style={{ fontSize: 13 }}>Reviews appear after buyers rate your notes.</div>
+              </div>
+            ) : (
+              <>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, marginBottom: 14 }}>
+                  <div style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 28, color: 'var(--charcoal)', lineHeight: 1 }}>
+                    {avgReceivedScore.toFixed(1)}
+                  </div>
+                  <div style={{ display: 'flex', gap: 2, color: 'var(--gold-deep)' }}>
+                    {[1, 2, 3, 4, 5].map(s => (
+                      <Icon.star key={s} size={14} fill={s <= Math.round(avgReceivedScore) ? 'currentColor' : 'none'}/>
+                    ))}
+                  </div>
+                  <div style={{ fontSize: 12, color: 'var(--fg-muted)', marginLeft: 4 }}>
+                    {receivedReviews.length} review{receivedReviews.length === 1 ? '' : 's'}
+                  </div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                  {receivedReviews.map(r => (
+                    <div key={r.id}
+                      onClick={() => router.push(`/notes/${r.listing_id}`)}
+                      style={{ background: 'var(--white)', borderRadius: 16, padding: '14px 16px', border: '1px solid var(--hairline)', cursor: 'pointer' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
+                        <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--charcoal)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', flex: 1, paddingRight: 8 }}>
+                          {r.listing_title}
+                        </div>
+                        <div style={{ display: 'flex', gap: 2, color: 'var(--gold-deep)', flexShrink: 0 }}>
+                          {[1, 2, 3, 4, 5].map(s => (
+                            <Icon.star key={s} size={12} fill={s <= r.score ? 'currentColor' : 'none'}/>
+                          ))}
+                        </div>
+                      </div>
+                      <div style={{ fontSize: 11, color: 'var(--fg-muted)', marginBottom: 6 }}>{r.reviewer_name}</div>
+                      {r.comment && (
+                        <div style={{ fontSize: 13, color: 'var(--charcoal-soft)', lineHeight: 1.5 }}>{r.comment}</div>
+                      )}
+                      <div style={{ fontSize: 11, color: 'var(--fg-muted)', marginTop: 8 }}>
+                        {new Date(r.created_at).toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' })}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
           </section>
         )}
 

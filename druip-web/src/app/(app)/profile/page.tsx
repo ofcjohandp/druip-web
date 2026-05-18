@@ -38,6 +38,49 @@ export default async function ProfilePage() {
     .eq('user_id', user.id)
     .maybeSingle()
 
+  // Reviews received on this seller's listings
+  type ReceivedReview = {
+    id: string
+    listing_id: string
+    listing_title: string
+    reviewer_name: string
+    score: number
+    comment: string | null
+    created_at: string
+  }
+  let receivedReviews: ReceivedReview[] = []
+  if (ids.length > 0) {
+    const { data: rows } = await supabase
+      .from('ratings')
+      .select('id, listing_id, score, comment, created_at, buyer_id')
+      .in('listing_id', ids)
+      .order('created_at', { ascending: false })
+
+    if (rows && rows.length > 0) {
+      const reviewerIds = Array.from(new Set(rows.map(r => r.buyer_id as string)))
+      const { data: reviewerProfiles } = reviewerIds.length > 0
+        ? await supabase.from('profiles').select('id, first_name, last_name').in('id', reviewerIds)
+        : { data: [] as { id: string; first_name: string | null; last_name: string | null }[] }
+      const nameMap: Record<string, string> = {}
+      for (const p of reviewerProfiles || []) {
+        const n = [p.first_name, p.last_name].filter(Boolean).join(' ').trim()
+        nameMap[p.id as string] = n || 'Student'
+      }
+      const titleMap: Record<string, string> = {}
+      for (const l of listings || []) titleMap[l.id] = l.title
+
+      receivedReviews = rows.map(r => ({
+        id: r.id as string,
+        listing_id: r.listing_id as string,
+        listing_title: titleMap[r.listing_id as string] || 'Listing',
+        reviewer_name: nameMap[r.buyer_id as string] || 'Student',
+        score: r.score as number,
+        comment: (r as { comment?: string | null }).comment ?? null,
+        created_at: r.created_at as string,
+      }))
+    }
+  }
+
   return (
     <ProfileClient
       firstName={firstName}
@@ -49,6 +92,7 @@ export default async function ProfilePage() {
       salesCount={salesCount}
       applicationStatus={(application?.status as 'pending' | 'approved' | 'denied') ?? null}
       reviewerNotes={application?.reviewer_notes ?? null}
+      receivedReviews={receivedReviews}
     />
   )
 }

@@ -25,6 +25,14 @@ interface Listing {
 
 interface PreviewItem { url: string; type: 'image' | 'pdf' }
 
+interface Review {
+  id: string
+  score: number
+  comment: string | null
+  created_at: string
+  reviewer_name: string
+}
+
 interface Props {
   listing: Listing
   sellerName: string
@@ -38,6 +46,8 @@ interface Props {
   avgRating: number
   ratingCount: number
   userRating: number | null
+  userReviewComment: string | null
+  reviews: Review[]
 }
 
 const TONE_COLORS: Record<string, string> = {
@@ -45,13 +55,19 @@ const TONE_COLORS: Record<string, string> = {
   coral: 'var(--coral)', cream: 'var(--cream-deep)',
 }
 
-export default function NoteDetailClient({ listing, sellerName, firstPdfUrl, coverUrl, previewItems, isOwner, alreadyPurchased, isSignedIn, paymentStatus, avgRating, ratingCount, userRating: initialUserRating }: Props) {
+export default function NoteDetailClient({ listing, sellerName, firstPdfUrl, coverUrl, previewItems, isOwner, alreadyPurchased, isSignedIn, paymentStatus, avgRating: initialAvgRating, ratingCount: initialRatingCount, userRating: initialUserRating, userReviewComment: initialUserReviewComment, reviews: initialReviews }: Props) {
   const router = useRouter()
   const [userRating, setUserRating] = useState<number | null>(initialUserRating)
   const [hoverRating, setHoverRating] = useState<number | null>(null)
   const [isSaved, setIsSaved] = useState(false)
   const [userId, setUserId] = useState<string | null>(null)
   const [pdfWidth, setPdfWidth] = useState(335)
+  const [reviews, setReviews] = useState<Review[]>(initialReviews)
+  const [avgRating, setAvgRating] = useState<number>(initialAvgRating)
+  const [ratingCount, setRatingCount] = useState<number>(initialRatingCount)
+  const [reviewComment, setReviewComment] = useState<string>(initialUserReviewComment || '')
+  const [draftScore, setDraftScore] = useState<number | null>(initialUserRating)
+  const [submittingReview, setSubmittingReview] = useState(false)
 
   useEffect(() => {
     pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs'
@@ -94,19 +110,85 @@ export default function NoteDetailClient({ listing, sellerName, firstPdfUrl, cov
     }
   }
 
-  async function submitRating(score: number) {
+  async function submitReview() {
+    if (!draftScore) {
+      setToast({ tone: 'coral', msg: 'Pick a star rating first.' })
+      return
+    }
+    setSubmittingReview(true)
     const { createClient } = await import('@/lib/supabase/client')
     const supabase = createClient()
     const { data: { user } } = await supabase.auth.getUser()
-    if (!user) return
-    await supabase.from('ratings').upsert({ listing_id: listing.id, buyer_id: user.id, score }, { onConflict: 'listing_id,buyer_id' })
-    const { data: allRatings } = await supabase.from('ratings').select('score').eq('listing_id', listing.id)
+    if (!user) { setSubmittingReview(false); return }
+
+    const trimmed = reviewComment.trim()
+    const { error } = await supabase
+      .from('ratings')
+      .upsert(
+        {
+          listing_id: listing.id,
+          buyer_id: user.id,
+          score: draftScore,
+          comment: trimmed || null,
+        },
+        { onConflict: 'listing_id,buyer_id' }
+      )
+
+    if (error) {
+      setSubmittingReview(false)
+      const msg = /duplicate|unique/i.test(error.message)
+        ? 'You\'ve already left a review for these notes.'
+        : 'Could not save review. Try again.'
+      setToast({ tone: 'coral', msg })
+      return
+    }
+
+    // Refresh aggregate stats on the listing row
+    const { data: allRatings } = await supabase
+      .from('ratings')
+      .select('score')
+      .eq('listing_id', listing.id)
     if (allRatings?.length) {
       const avg = allRatings.reduce((s, r) => s + r.score, 0) / allRatings.length
-      await supabase.from('listings').update({ avg_rating: Number(avg.toFixed(2)), rating_count: allRatings.length }).eq('id', listing.id)
+      await supabase
+        .from('listings')
+        .update({ avg_rating: Number(avg.toFixed(2)), rating_count: allRatings.length })
+        .eq('id', listing.id)
+      setAvgRating(Number(avg.toFixed(2)))
+      setRatingCount(allRatings.length)
     }
-    setUserRating(score)
-    setToast({ tone: 'sage', msg: 'Rating saved!' })
+
+    // Refresh review list inline
+    const { data: rows } = await supabase
+      .from('ratings')
+      .select('id, score, comment, created_at, buyer_id')
+      .eq('listing_id', listing.id)
+      .order('created_at', { ascending: false })
+
+    const ids = Array.from(new Set((rows || []).map(r => r.buyer_id as string)))
+    const nameMap: Record<string, string> = {}
+    if (ids.length) {
+      const { data: profs } = await supabase
+        .from('profiles')
+        .select('id, first_name, last_name')
+        .in('id', ids)
+      for (const p of profs || []) {
+        const n = [p.first_name, p.last_name].filter(Boolean).join(' ').trim()
+        nameMap[p.id as string] = n || 'Student'
+      }
+    }
+
+    setReviews((rows || []).map(r => ({
+      id: r.id as string,
+      score: r.score as number,
+      comment: (r as { comment?: string | null }).comment ?? null,
+      created_at: r.created_at as string,
+      reviewer_name: nameMap[r.buyer_id as string] || 'Student',
+    })))
+
+    setUserRating(draftScore)
+    setSubmittingReview(false)
+    setToast({ tone: 'sage', msg: initialUserRating ? 'Review updated.' : 'Thanks for the review!' })
   }
 
   return (
@@ -204,27 +286,79 @@ export default function NoteDetailClient({ listing, sellerName, firstPdfUrl, cov
           </section>
         )}
 
-        {/* Rating widget — buyers only */}
+        {/* Leave-a-review widget — paid buyers only */}
         {alreadyPurchased && (
           <section style={{ padding: '0 20px 20px' }}>
             <div style={{ background: 'var(--white)', borderRadius: 20, padding: '16px 20px', border: '1px solid var(--hairline)' }}>
               <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 10 }}>
-                {userRating ? 'Your rating' : 'Rate these notes'}
+                {userRating ? 'Your review' : 'Leave a review'}
               </div>
-              <div style={{ display: 'flex', gap: 6 }}>
+              <div style={{ display: 'flex', gap: 6, marginBottom: 12 }}>
                 {[1, 2, 3, 4, 5].map(star => {
-                  const filled = star <= (hoverRating ?? userRating ?? 0)
+                  const filled = star <= (hoverRating ?? draftScore ?? 0)
                   return (
                     <button key={star} type="button"
                       onMouseEnter={() => setHoverRating(star)}
                       onMouseLeave={() => setHoverRating(null)}
-                      onClick={() => submitRating(star)}
+                      onClick={() => setDraftScore(star)}
+                      aria-label={`${star} star${star === 1 ? '' : 's'}`}
                       style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, color: filled ? 'var(--gold-deep)' : 'var(--hairline)', transition: 'color 150ms' }}>
                       <Icon.star size={28} fill={filled ? 'currentColor' : 'none'}/>
                     </button>
                   )
                 })}
               </div>
+              <textarea
+                value={reviewComment}
+                onChange={e => setReviewComment(e.target.value)}
+                placeholder="Share what made these notes useful (optional)"
+                rows={3}
+                style={{ width: '100%', padding: '12px 14px', background: 'var(--cream-warm)', border: '1.5px solid transparent', borderRadius: 12, fontFamily: 'Nunito, sans-serif', fontSize: 14, color: 'var(--charcoal)', outline: 'none', boxSizing: 'border-box', resize: 'none' }}
+                onFocus={e => (e.currentTarget.style.borderColor = 'var(--sage)')}
+                onBlur={e => (e.currentTarget.style.borderColor = 'transparent')}
+              />
+              <button
+                onClick={submitReview}
+                disabled={submittingReview || !draftScore}
+                style={{
+                  marginTop: 12, width: '100%', padding: '12px 16px',
+                  background: !draftScore ? 'var(--cream-warm)' : 'var(--sage)',
+                  color: !draftScore ? 'var(--fg-muted)' : '#fff',
+                  border: 'none', borderRadius: 12,
+                  fontFamily: 'Nunito, sans-serif', fontWeight: 700, fontSize: 14,
+                  cursor: submittingReview || !draftScore ? 'not-allowed' : 'pointer',
+                }}>
+                {submittingReview ? 'Saving…' : userRating ? 'Update review' : 'Submit review'}
+              </button>
+            </div>
+          </section>
+        )}
+
+        {/* Reviews list */}
+        {reviews.length > 0 && (
+          <section style={{ padding: '0 20px 20px' }}>
+            <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 600, fontSize: 17, letterSpacing: '-.01em', margin: '0 0 10px', color: 'var(--charcoal)' }}>
+              Reviews <span style={{ fontSize: 13, color: 'var(--fg-muted)', fontWeight: 600 }}>({reviews.length})</span>
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              {reviews.map(r => (
+                <div key={r.id} style={{ background: 'var(--white)', borderRadius: 16, padding: '14px 16px', border: '1px solid var(--hairline)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 6 }}>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--charcoal)' }}>{r.reviewer_name}</div>
+                    <div style={{ display: 'flex', gap: 2, color: 'var(--gold-deep)' }}>
+                      {[1, 2, 3, 4, 5].map(s => (
+                        <Icon.star key={s} size={13} fill={s <= r.score ? 'currentColor' : 'none'}/>
+                      ))}
+                    </div>
+                  </div>
+                  {r.comment && (
+                    <div style={{ fontSize: 13, color: 'var(--charcoal-soft)', lineHeight: 1.5, marginTop: 4 }}>{r.comment}</div>
+                  )}
+                  <div style={{ fontSize: 11, color: 'var(--fg-muted)', marginTop: 6 }}>
+                    {new Date(r.created_at).toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' })}
+                  </div>
+                </div>
+              ))}
             </div>
           </section>
         )}
